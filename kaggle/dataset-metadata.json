@@ -1,0 +1,63 @@
+{
+  "title": "WhiskyDB — Fine Spirits & Whisky Sample Dataset",
+  "subtitle": "Whiskies, distilleries and open cask & flavor taxonomies — provenance-tracked",
+  "id": "ahtiticheamine/whiskydb-fine-spirits-sample",
+  "licenses": [{"name": "CC-BY-NC-4.0"}],
+  "keywords": ["alcohol", "food", "business", "data analytics", "beginner"],
+  "description": "# 🥃 WhiskyDB — Fine Spirits & Whisky Sample Dataset\n\nA curated **free sample** of the WhiskyDB dataset: whiskies & fine spirits built **entirely from open, legally accessible public sources** — government label registries (US TTB COLA), corporate registries (UK Companies House), the EU eAmbrosia GI register, Open Food Facts, Wikipedia/Wikidata, and open auction statistics — with a **provenance ledger entry behind every record**.\n\n## What's in this sample\n\n| File | Rows | What it shows |\n| :--- | ---: | :--- |\n| `spirits.csv` | 15 | Bottlings: name, type, age, ABV, volume + provenance |\n| `distilleries.csv` | 15 | Producers: name, country, region + provenance |\n| `casks.csv` | 13 | **Full open taxonomy** — 3-tier cask hierarchy (CC-BY-4.0) |\n| `flavors.csv` | 15 | **Full open taxonomy** — controlled flavor vocabulary (CC-BY-4.0) |\n\nThe two taxonomy files are the **complete open-source taxonomies** (CC-BY-4.0 — free for any use incl. commercial, with attribution). The two sample files are curated subsets of the full commercial dataset.\n\n## The full dataset\n\n- **1,290+** spirits & bottlings · **3,200+** distilleries, brands & producers · **110+** countries\n- **20,000+ monthly auction-price benchmarks** (Nov 2005 → today) — distillery-level market indices, honestly labeled, ideal for valuation & trend models\n- **270+** protected GI appellations (EU/UK)\n- 10-table relational SQLite + CSV, 100% provenance-tracked (every row resolves to a source ledger entry)\n- Refreshed **monthly** from the US TTB COLA label registry\n\n**→ Get it at [whisky-database.pages.dev](https://whisky-database.pages.dev/)** · [GitHub: WhiskyyDB/whisky-database](https://github.com/WhiskyyDB/whisky-database) · [Data dictionary](https://github.com/WhiskyyDB/whisky-database/blob/main/DATA_DICTIONARY.md) · [Sources & licenses](https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md)\n\n## Honest coverage notes\n\nPublic sources don't all publish every attribute: `age` is sparse (most listings are NAS), and `abv` is explicitly sourced for 16% of full-dataset records (e.g. federal label details) with a documented 40.0 default elsewhere. Field-level coverage numbers are published up front in the [README](https://github.com/WhiskyyDB/whisky-database#field-coverage-the-honest-numbers).\n\n## Provenance & collection methodology\n\nEvery record traces to a `data_sources` provenance ledger entry (source name, endpoint, license, access timestamp) — the `source_name` / `source_url` columns on each sample row are that ledger surfaced. How the data is collected:\n\n1. **Government label registries** — US TTB COLA label approvals (public domain, 17 U.S.C. § 105) queried via the COLA Cloud API: brand names, spirit classes, label ABVs, barcodes. Refreshed monthly by a scheduled pipeline that deduplicates by canonical spirit name before ingesting.\n2. **Corporate registries** — UK Companies House API (OGL v3.0): distillery incorporations, founding years, jurisdiction derived from company-number prefixes.\n3. **GI registers** — EU eAmbrosia (EU open data): 270+ protected spirit appellations (PGI/PDO).\n4. **Open product databases** — Open Food Facts bulk dump (ODbL), filtered through a spirit-plausibility gate (name patterns + 30–70% ABV band) to exclude non-spirit products, and a Latin-script filter for name quality.\n5. **Open encyclopedias** — Wikipedia distillery/brand lists (CC-BY-SA) and Wikidata SPARQL (CC0): names, regions, founding years.\n6. **Open auction statistics** — WhiskyHunter API: distillery-level monthly auction indices, honestly labeled as market-level (never bottle-specific realizations).\n7. **Curated seed** — 6 benchmark spirits hand-curated from producers' official publications (mash bills, cask programs, tasting descriptors), documented in [SOURCES.md](https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed).\n\nAll scraping is polite (rate-limited, identified user agent, public endpoints only). Records are normalized into a 10-table relational schema; no values are invented — attributes a source doesn't publish stay empty or carry a documented default (see coverage notes above). Full per-source licensing: [SOURCES.md](https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md).\n\n## Use cases\n\n- Bar-menu & hospitality software (clean names, types, ABV, volumes)\n- Collection-tracking and spirits-discovery apps\n- Whisky investment analytics on a 19-year monthly auction index (full dataset)\n- Flavor/cask-based recommendation engines on the open taxonomies\n- ML / RAG corpora over a provenance-tracked spirits knowledge base\n\n## License\n\nSample CSVs: **CC-BY-NC-4.0**. Taxonomies (`casks.csv`, `flavors.csv`): **CC-BY-4.0**. Records derived from ODbL/CC-BY-SA sources retain upstream attribution obligations — see [SOURCES.md](https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md).\n\nQuestions, corrections, or full-dataset access: **whiskeydn.kite979@simplelogin.com**",
+  "resources": [
+    {
+      "path": "spirits.csv",
+      "description": "Curated sample of 15 whisky/spirit bottlings from the full 1,290+ record dataset, with provenance columns.",
+      "schema": {
+        "fields": [
+          {"name": "spirit_id", "description": "Stable integer primary key."},
+          {"name": "name", "description": "Canonical bottling name (Latin-script, cleaned)."},
+          {"name": "type", "description": "Spirit classification: Single Malt Scotch, Bourbon, Rye Whiskey, Irish Whiskey, Japanese Whisky, Scotch Whisky, Whisky, etc."},
+          {"name": "age", "description": "Age statement in years; empty = NAS (no age statement) or unstated."},
+          {"name": "abv", "description": "Alcohol by volume (%). Explicitly sourced where available (e.g. US federal label details); otherwise the documented 40.0 default."},
+          {"name": "volume_ml", "description": "Bottle volume normalized to milliliters (700/750/1000...)."},
+          {"name": "source_name", "description": "Provenance: name of the open source the record came from."},
+          {"name": "source_url", "description": "Provenance: source endpoint URL."}
+        ]
+      }
+    },
+    {
+      "path": "distilleries.csv",
+      "description": "Curated sample of 15 distilleries/producers from the full 3,200+ record dataset, with provenance columns.",
+      "schema": {
+        "fields": [
+          {"name": "distillery_id", "description": "Stable integer primary key."},
+          {"name": "name", "description": "Distillery / producer / brand name."},
+          {"name": "country", "description": "Country, normalized (USA, Scotland, Northern Ireland...); 'Global' when the source doesn't state one."},
+          {"name": "region", "description": "Region / locality (Islay, Kentucky, GI category...)."},
+          {"name": "source_name", "description": "Provenance: name of the open source the record came from."},
+          {"name": "source_url", "description": "Provenance: source endpoint URL."}
+        ]
+      }
+    },
+    {
+      "path": "casks.csv",
+      "description": "Complete open-source 3-tier cask maturation taxonomy (CC-BY-4.0): category -> sub-type -> specific style, with wood species.",
+      "schema": {
+        "fields": [
+          {"name": "category", "description": "Tier 1 cask category: Sherry, Bourbon, Port, Wine, Rum, Virgin Oak, Japanese Oak."},
+          {"name": "sub_type", "description": "Tier 2 sub-type: Pedro Ximenez, Oloroso, Ex-Bourbon, Ruby Port, Mizunara..."},
+          {"name": "specific_style", "description": "Tier 3 specific style: PX Sherry Butt, 1st Fill Bourbon Barrel, Mizunara Oak Cask..."},
+          {"name": "wood_species", "description": "Botanical oak species: Quercus alba, Quercus robur, Quercus mongolica."},
+          {"name": "description", "description": "Short human-readable description of the cask style."}
+        ]
+      }
+    },
+    {
+      "path": "flavors.csv",
+      "description": "Complete open-source controlled flavor vocabulary (CC-BY-4.0) for standardized whisky tasting descriptors.",
+      "schema": {
+        "fields": [
+          {"name": "macro_category", "description": "Flavor macro-category: Peat & Smoke, Sweet & Vanilla, Fruity, Spicy & Woody, Rich & Nutty."},
+          {"name": "descriptor", "description": "Controlled flavor descriptor: Peat Smoke, Vanilla, Dried Figs, Oak Spice..."}
+        ]
+      }
+    }
+  ]
+}

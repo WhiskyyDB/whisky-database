@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://whisky-database.pages.dev/sitemap.xml

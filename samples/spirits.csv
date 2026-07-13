@@ -1,0 +1,16 @@
+spirit_id,name,type,age,abv,volume_ml,source_name,source_url
+1,Lagavulin 16 Year Old,Single Malt Scotch,16.0,43.0,700,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+2,Eagle Rare 10 Year Old,Bourbon,10.0,45.0,700,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+3,Yamazaki 12 Year Old,Single Malt Japanese,12.0,43.0,700,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+4,Woodford Reserve Kentucky Straight Bourbon,Bourbon,,43.2,700,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+5,Bulleit Bourbon,Bourbon,,45.0,700,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+6,Four Roses Single Barrel,Bourbon,,50.0,700,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+7,Ballantine's Finest,Whisky,,40.0,700,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+8,Jack Daniel's Whiskey,Whisky,,40.0,700,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+9,Johnnie Walker Red Scotch whisky,Scotch Whisky,,40.0,700,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+10,Monkey Shoulder,Whisky,,40.0,700,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+11,Jack Daniel's No.7,Whisky,,40.0,1000,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+12,Jameson Whiskey,Whisky,,40.0,1000,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+13,Whisky Old N°7,Whisky,,40.0,700,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+14,Whisky Ecosse blended sans âge 1 L Sir Edwards,Whisky,,40.0,1000,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
+15,Whisky Ecosse Blended 40% vol.,Whisky,,40.0,1000,Open Food Facts / Open Drinks Facts (ODbL),https://world.openfoodfacts.org/api/v2/search?categories_tags=en:whisky
