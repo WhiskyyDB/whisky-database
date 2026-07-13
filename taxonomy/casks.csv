@@ -1,0 +1,14 @@
+category,sub_type,specific_style,wood_species,description
+Sherry,Pedro Ximenez,PX Sherry Butt,Quercus alba,Sweet dark sherry cask
+Sherry,Oloroso,Oloroso Sherry Puncheon,Quercus robur,Dry nutty sherry cask
+Bourbon,Ex-Bourbon,1st Fill Bourbon Barrel,Quercus alba,Standard American oak barrel
+Bourbon,Ex-Bourbon,Refill Bourbon Barrel,Quercus alba,Refill American oak barrel
+Port,Ruby Port,Ruby Port Pipe,Quercus robur,Fruity wine cask
+Port,Tawny Port,Tawny Port Pipe,Quercus robur,Aged nutty wine cask
+Rum,Caribbean Rum,Rum Cask,Quercus alba,Sweet tropical rum cask
+Wine,Red Wine,Bordeaux Wine Cask,Quercus robur,French oak wine cask
+Virgin Oak,American Oak,Virgin American Oak,Quercus alba,New charred oak barrel
+Virgin Oak,European Oak,Virgin Spanish Oak,Quercus robur,New European oak barrel
+Sherry,Generic Sherry,Sherry Butt,Quercus robur,Generic sherry-seasoned cask
+Bourbon,Ex-Bourbon,American Oak Cask,Quercus alba,Seasoned American oak cask
+Japanese Oak,Mizunara,Mizunara Oak Cask,Quercus mongolica,Japanese Mizunara oak cask

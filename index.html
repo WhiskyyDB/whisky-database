@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiskyDB — The Canonical Structured Database for Global Fine Spirits</title>
+    <meta name="description" content="Enterprise-grade structured database and REST API for global fine spirits, Scottish distilleries, mash bills, cask maturation lineages, tasting profiles, and market valuations.">
+    <meta name="google-site-verification" content="2VE0Ll5xPaIkGjSTkvTenDhcKRLJGPFgVqekvGOIw-4" />
+    <link rel="canonical" href="https://whisky-database.pages.dev/">
+    <link rel="alternate" hreflang="en" href="https://whisky-database.pages.dev/">
+    <link rel="alternate" hreflang="x-default" href="https://whisky-database.pages.dev/">
+
+    <!-- OpenGraph Metadata -->
+    <meta property="og:title" content="WhiskyDB — Canonical Structured Spirits Database">
+    <meta property="og:description" content="Enterprise REST API & dataset snapshots for a provenance-tracked spirits catalog: mash bills, cask lineages, and real auction market indices.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://whisky-database.pages.dev/hero.png">
+    <meta property="og:url" content="https://whisky-database.pages.dev">
+    
+    <!-- Google Fonts (Non-Blocking Asynchronous Loading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- PWA Manifest & Icons -->
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0a0b0d">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- JSON-LD Schema.org Dataset, FAQPage, ItemList, and BreadcrumbList Metadata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "WhiskyDB Global Fine Spirits Catalog & Valuations",
+      "description": "Structured, provenance-tracked catalog of fine spirits and whiskies with standardized mash bills, cask maturation lineages, sensory profiles, and distillery-level secondary market auction indices.",
+      "url": "https://whisky-database.pages.dev",
+      "keywords": ["whisky", "scotch", "bourbon", "spirits database", "mash bill", "cask lineage", "tasting profile", "auction valuations", "single malt scotch", "japanese whisky"],
+      "creator": {
+        "@type": "Organization",
+        "name": "WhiskyDB Initiative",
+        "url": "https://github.com/WhiskyyDB/whisky-database"
+      },
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "variableMeasured": [
+        "spirit type and designation",
+        "age statement in years",
+        "alcohol by volume (ABV percentage)",
+        "cask maturation and finish lineage",
+        "distillery origin and region",
+        "normalized mash bill percentages (malt, corn, rye, wheat)",
+        "secondary market auction index in USD"
+      ],
+      "spatialCoverage": [
+        {"@type": "Place", "name": "Scotland"},
+        {"@type": "Place", "name": "USA"},
+        {"@type": "Place", "name": "Japan"},
+        {"@type": "Place", "name": "Global"}
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://github.com/WhiskyyDB/whisky-database/tree/main/samples"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What data attributes are included in the WhiskyDB spirits database?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every spirit record in WhiskyDB is normalized with exact ABV percentage, age statement, bottle volume in ml, standardized mash bill percentages (corn, rye, wheat, malted barley), precise cask maturation lineage (e.g. First-Fill Oloroso Sherry, Mizunara Oak), primary sensory tags, and distillery provenance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often are the secondary market auction valuations updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The API & Valuation tier ($99/mo) updates real auction market indices and pricing indicators on a monthly schedule, tracking major global spirits auction houses and producer price sheets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download a free sample before purchasing a commercial license?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! You can immediately download our public CSV sample datasets (spirits.csv and distilleries.csv) from our open-source GitHub repository or explore them interactively via our Hugging Face Sample Explorer without requiring an API key."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does WhiskyDB verify distillery mash bills and cask lineages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We combine producer-published spec sheets, government label filings (TTB COLA records), and verified historical distillery ledgers into an immutable provenance chain with source citations for every determination."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Featured Global Spirits determinations in WhiskyDB",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Lagavulin 16 Year Old Single Malt Scotch"},
+        {"@type": "ListItem", "position": 2, "name": "Pappy Van Winkle Family Reserve 15 Year Old Bourbon"},
+        {"@type": "ListItem", "position": 3, "name": "Yamazaki 12 Year Old Single Malt Japanese Whisky"},
+        {"@type": "ListItem", "position": 4, "name": "The Macallan 18 Year Old Sherry Oak"},
+        {"@type": "ListItem", "position": 5, "name": "George T. Stagg Barrel Proof Bourbon"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://whisky-database.pages.dev"},
+        {"@type": "ListItem", "position": 2, "name": "Interactive Explorer", "item": "https://whisky-database.pages.dev/#explorer-section"},
+        {"@type": "ListItem", "position": 3, "name": "Spirits Catalog", "item": "https://whisky-database.pages.dev/spirits/lagavulin-16-year-old.html"},
+        {"@type": "ListItem", "position": 4, "name": "Distilleries Hub", "item": "https://whisky-database.pages.dev/distilleries/lagavulin-scotland-islay.html"}
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Background Glow Effects -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation -->
+    <header class="navbar" id="main-navigation">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <span class="logo-icon">🥃</span>
+                <span class="logo-text">Whisky<span class="text-gold">DB</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="#features-section">Architecture</a>
+                <a href="#live-demo-section">Live Demo</a>
+                <a href="#pricing-section">Pricing</a>
+                <a href="#quickstart-section">Developers</a>
+                <a href="https://github.com/WhiskyyDB/whisky-database" target="_blank" class="nav-btn-secondary">GitHub</a>
+                <a href="#contact-section" class="nav-btn-primary">Get the Data</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Section 1: Hero Banner -->
+        <section class="hero-section" id="hero-banner">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge-pill">
+                        <span class="badge-dot"></span>
+                        <span>v1.0 Enterprise Release • 9 Integrated Data Sources</span>
+                    </div>
+                    <h1 class="hero-title">
+                        The Canonical Structured Database for <span class="text-gradient">Global Fine Spirits</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Powering AI agents, beverage analytics, secondary auction platforms, and hospitality tech with a fully provenance-tracked catalog of standardized spirit records, published mash bills, cask lineages, and real auction market indices.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#quickstart-section" class="btn btn-primary btn-lg" id="cta-explore-api">
+                            <span>Explore API Docs</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#contact-section" class="btn btn-secondary btn-lg" id="cta-request-dataset">
+                            <span>Request the Dataset</span>
+                        </a>
+                        <a href="https://github.com/WhiskyyDB/whisky-database/tree/main/samples" target="_blank" class="btn btn-outline btn-lg" id="cta-download-sample">
+                            <span>Download Public Sample</span>
+                        </a>
+                        <a href="https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers" target="_blank" rel="noopener" class="btn btn-outline btn-lg" id="cta-hf-explorer">
+                            <span>🤗 Try the Sample Explorer</span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">1,200+</span>
+                            <span class="stat-label">Verified Bottles</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">3,000+</span>
+                            <span class="stat-label">Global Distilleries</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">9</span>
+                            <span class="stat-label">Integrated Sources</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Provenance Tracked</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card-wrapper">
+                        <div class="glow-backdrop"></div>
+                        <img src="hero.png" alt="WhiskyDB Luxury Dark Mode Decanter and Cask Data Nodes" class="hero-image" id="hero-illustration">
+                        <div class="floating-badge badge-top">
+                            <span class="floating-icon">📊</span>
+                            <div>
+                                <div class="floating-title">Valuation Benchmark</div>
+                                <div class="floating-val">$1,450.00 USD <span class="trend-up">+14.2%</span></div>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-bottom">
+                            <span class="floating-icon">🪵</span>
+                            <div>
+                                <div class="floating-title">Cask Lineage</div>
+                                <div class="floating-val">First-Fill Ex-Oloroso Sherry</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Live Interactive Demo -->
+        <section class="demo-section" id="live-demo-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Interactive Catalog <span class="text-gradient">Live Demo</span></h2>
+                    <p class="section-subtitle">
+                        Test our real-time filtering engine. Query by spirit category, minimum age statement, cask maturation styles, and sensory flavor tags.
+                    </p>
+                </div>
+
+                <div class="demo-dashboard glass-card" id="demo-interface">
+                    <!-- Controls Bar -->
+                    <div class="demo-controls">
+                        <div class="control-group">
+                            <label for="filter-category">Spirit Category</label>
+                            <select id="filter-category" class="demo-select">
+                                <option value="all">All Categories (Scotch, Bourbon, Rye...)</option>
+                                <option value="Single Malt Scotch">Single Malt Scotch</option>
+                                <option value="Bourbon">Kentucky Straight Bourbon</option>
+                                <option value="Rye Whiskey">Rye Whiskey</option>
+                                <option value="Japanese Whisky">Japanese Whisky</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="filter-age">Minimum Age Statement: <span id="age-display" class="text-gold">All Ages</span></label>
+                            <input type="range" id="filter-age" class="demo-slider" min="0" max="25" step="5" value="0">
+                        </div>
+                        <div class="control-group">
+                            <label>Cask Maturation Filter</label>
+                            <div class="tag-pills" id="cask-filter-container">
+                                <button class="filter-pill active" data-cask="all">All Casks</button>
+                                <button class="filter-pill" data-cask="Sherry">Sherry Cask</button>
+                                <button class="filter-pill" data-cask="Bourbon">Ex-Bourbon</button>
+                                <button class="filter-pill" data-cask="Mizunara">Mizunara Oak</button>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Flavor Descriptor Tag</label>
+                            <div class="tag-pills" id="flavor-filter-container">
+                                <button class="filter-pill active" data-flavor="all">All Flavors</button>
+                                <button class="filter-pill" data-flavor="Peat Smoke">Peat Smoke</button>
+                                <button class="filter-pill" data-flavor="Vanilla">Vanilla & Honey</button>
+                                <button class="filter-pill" data-flavor="Dried Fruit">Dried Figs & Raisins</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Counter & Status -->
+                    <div class="demo-status-bar">
+                        <div class="status-left">
+                            <span class="status-indicator live"></span>
+                            <span>Showing <strong id="result-count" class="text-gold">6</strong> verified canonical records</span>
+                        </div>
+                        <div class="status-right">
+                            <span class="text-muted">Response time: <strong>14ms</strong> • Normalization: <strong>4-Tier Active</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Cards Grid -->
+                    <div class="spirits-grid" id="spirits-cards-container">
+                        <!-- Populated dynamically via app.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Data Architecture & Provenance -->
+        <section class="architecture-section" id="features-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Data Architecture & <span class="text-gradient">Provenance Engine</span></h2>
+                    <p class="section-subtitle">
+                        How we transform chaotic public web registries and disparate market dumps into clean, relational, institutional-grade datasets.
+                    </p>
+                </div>
+
+                <div class="architecture-grid">
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">🌐</div>
+                        <h3>9 Integrated Sources</h3>
+                        <p>Continuous automated ingestion from Wikidata, Wikipedia, Open Food Facts, TTB COLA Registry, UK Companies House, EU eAmbrosia, and WhiskyHunter auction archives.</p>
+                        <div class="arch-tags">
+                            <span class="mini-tag">Public Domain</span>
+                            <span class="mini-tag">ODbL</span>
+                            <span class="mini-tag">Government FOIA</span>
+                        </div>
+                    </div>
+
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">⚡</div>
+                        <h3>4-Tier Normalization</h3>
+                        <p>Automated cleaning pipelines standardize ABV percentages, bottle volumes to mL, grain mash bills to exact ratios, and secondary market auction prices to USD.</p>
+                        <div class="arch-tags">
+                            <span class="mini-tag">ABV Standardizer</span>
+                            <span class="mini-tag">Currency FX</span>
+                            <span class="mini-tag">Unit Conversion</span>
+                        </div>
+                    </div>
+
+                    <div class="arch-card glass-card">
+                        <div class="arch-icon">🔗</div>
+                        <h3>Deep Lineage Mapping</h3>
+                        <p>Relational linking between spirits, brand owners, independent bottlers, distilleries, hierarchical cask taxonomies, and standardized sensory flavor wheels.</p>
+                        <div class="arch-tags">
+                            <span class="mini-tag">3NF Relational Schema</span>
+                            <span class="mini-tag">Foreign Keys</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provenance Ledger Showcase -->
+                <div class="provenance-banner glass-card mt-12">
+                    <div class="prov-content">
+                        <h3>Full Auditability & Provenance Ledger</h3>
+                        <p>Every single attribute in WhiskyDB includes an immutable foreign key linking to our `data_sources` audit table with exact HTTP endpoint URLs, access timestamps, and status codes. Never trust black-box scraping again.</p>
+                    </div>
+                    <div class="prov-code">
+                        <pre><code>"primary_source": {
+  "source_name": "TTB COLA Registry (USA)",
+  "endpoint_url": "https://www.ttb.gov/cola/registry",
+  "access_timestamp": "2026-07-05T18:45:00Z",
+  "http_status": 200
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Commercial Pricing & Licensing -->
+        <section class="pricing-section" id="pricing-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Transparent Commercial <span class="text-gradient">Pricing</span></h2>
+                    <p class="section-subtitle">
+                        Choose the tier that fits your development scale. From open-source research to global institutional trading platforms.
+                    </p>
+
+                    <!-- Billing Toggle -->
+                    <div class="pricing-toggle-wrapper">
+                        <span class="toggle-label active" id="label-monthly">Monthly Billing</span>
+                        <label class="switch">
+                            <input type="checkbox" id="pricing-toggle-btn">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="toggle-label" id="label-annual">Annual Billing <span class="discount-badge">Save 20%</span></span>
+                    </div>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Tier 1: Free Sample -->
+                    <div class="pricing-card glass-card">
+                        <div class="card-header">
+                            <h3>Public Research Sample</h3>
+                            <p class="tier-desc">Ideal for academic research, Kaggle data science, and testing.</p>
+                            <div class="price-val">$0 <span class="price-period">/ forever</span></div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><span class="check-icon">✓</span> 15-Record Curated Sample</li>
+                            <li><span class="check-icon">✓</span> CC-BY-SA 4.0 Open License</li>
+                            <li><span class="check-icon">✓</span> Kaggle CSV & Parquet Dumps</li>
+                            <li><span class="check-icon">✓</span> Basic Distillery Metadata</li>
+                            <li class="disabled"><span class="cross-icon">✕</span> Real-time REST API Access</li>
+                            <li class="disabled"><span class="cross-icon">✕</span> Secondary Market Valuations</li>
+                        </ul>
+                        <a href="https://github.com/WhiskyyDB/whisky-database/tree/main/samples" target="_blank" class="btn btn-outline btn-full">Download Sample</a>
+                    </div>
+
+                    <!-- Tier 2: Standard Catalog -->
+                    <div class="pricing-card glass-card popular-tier">
+                        <div class="popular-ribbon">Most Popular</div>
+                        <div class="card-header">
+                            <h3>Standard Catalog License</h3>
+                            <p class="tier-desc">For beverage apps, hospitality software, and e-commerce.</p>
+                            <div class="price-val" data-monthly="49" data-annual="39">$49 <span class="price-period">/ month</span></div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><span class="check-icon">✓</span> Full Commercial Spirits Catalog</li>
+                            <li><span class="check-icon">✓</span> SQLite + CSV Snapshots</li>
+                            <li><span class="check-icon">✓</span> Monthly Data Refreshes</li>
+                            <li><span class="check-icon">✓</span> Mash Bill & Cask Taxonomies</li>
+                            <li><span class="check-icon">✓</span> Commercial License Included</li>
+                            <li><span class="check-icon">✓</span> Full Provenance Ledger Access</li>
+                        </ul>
+                        <a href="https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402" class="btn btn-primary btn-full">Subscribe · $49/mo → Instant Download</a>
+                        <div style="margin-top:10px; text-align:center; font-size:0.78rem; opacity:0.85;">
+                            or <a href="https://buy.stripe.com/eVq3cw4p2afccI382s38401" style="text-decoration:underline;">buy the current snapshot once · $49</a><br>
+                            <span style="opacity:0.75;">Secure card checkout via Stripe · annual billing <a href="#contact-section" style="text-decoration:underline;">on request</a></span>
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: API & Valuation -->
+                    <div class="pricing-card glass-card">
+                        <div class="card-header">
+                            <h3>API & Valuation License</h3>
+                            <p class="tier-desc">For investment analytics and valuation platforms.</p>
+                            <div class="price-val" data-monthly="99" data-annual="79">$99 <span class="price-period">/ month</span></div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><span class="check-icon">✓</span> Everything in Standard Catalog</li>
+                            <li><span class="check-icon">✓</span> REST API Access (provisioned per license)</li>
+                            <li><span class="check-icon">✓</span> 19-Year Auction Price Index</li>
+                            <li><span class="check-icon">✓</span> Distillery Valuation Benchmarks</li>
+                            <li><span class="check-icon">✓</span> Standardized Tasting Notes</li>
+                            <li><span class="check-icon">✓</span> Priority Support</li>
+                        </ul>
+                        <a href="#contact-section" class="btn btn-secondary btn-full">Request Access</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Developer Quickstart -->
+        <section class="quickstart-section" id="quickstart-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Developer <span class="text-gradient">Quickstart</span></h2>
+                    <p class="section-subtitle">
+                        The read-only REST API ships with the API &amp; Valuation license: a dedicated endpoint and key are provisioned for you on signup — <a href="#contact-section" class="text-gold">request access below</a>. Here's what integration looks like:
+                    </p>
+                </div>
+
+                <div class="code-showcase glass-card">
+                    <!-- Tabs -->
+                    <div class="code-tabs">
+                        <button class="code-tab active" data-tab="curl">cURL / HTTP</button>
+                        <button class="code-tab" data-tab="python">Python SDK</button>
+                        <button class="copy-btn" id="copy-code-btn" title="Copy to clipboard">
+                            <span id="copy-text">Copy Code</span>
+                        </button>
+                    </div>
+
+                    <!-- Code Blocks -->
+                    <div class="code-content">
+                        <pre class="code-pane active" id="pane-curl"><code><span class="token-comment"># Query spirits with Sherry Cask maturation and Peat Smoke flavor</span>
+curl -X GET "https://YOUR-PROVISIONED-ENDPOINT/api/v1/spirits?cask_style=Sherry&flavor_tag=Peat+Smoke&limit=10" \
+     -H "X-API-Key: YOUR_API_KEY" \
+     -H "Accept: application/json"</code></pre>
+
+                        <pre class="code-pane" id="pane-python"><code><span class="token-keyword">import</span> requests
+
+<span class="token-comment"># Query WhiskyDB REST API for Single Malt Scotch with valuations</span>
+headers = {<span class="token-string">"X-API-Key"</span>: <span class="token-string">"YOUR_API_KEY"</span>}
+params = {
+    <span class="token-string">"spirit_type"</span>: <span class="token-string">"Single Malt Scotch"</span>,
+    <span class="token-string">"min_age"</span>: <span class="token-number">16</span>,
+    <span class="token-string">"limit"</span>: <span class="token-number">20</span>
+}
+
+response = requests.get(<span class="token-string">"https://YOUR-PROVISIONED-ENDPOINT/api/v1/spirits"</span>, headers=headers, params=params)
+spirits = response.json()[<span class="token-string">"data"</span>]
+
+<span class="token-keyword">for</span> bottle <span class="token-keyword">in</span> spirits:
+    print(<span class="token-string">f"{bottle['name']} ({bottle['abv_percentage']}% ABV) - {bottle['distillery']['name']}"</span>)</code></pre>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section § 04: Frequently Asked Questions -->
+        <section class="faq-section" id="faq-section" style="padding: 80px 0; border-top: 1px solid rgba(212,175,55,0.15);">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">§ 04 · Frequently Asked <span class="text-gradient">Questions</span></h2>
+                    <p class="section-subtitle">Common inquiries regarding WhiskyDB normalization standards, schema, valuations, and licensing.</p>
+                </div>
+
+                <div class="faq-grid" style="display: grid; gap: 20px; max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+                        <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">What data attributes are included in the WhiskyDB spirits database?</h3>
+                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Every spirit record in WhiskyDB is normalized with exact ABV percentage, age statement, bottle volume in ml, standardized mash bill percentages (corn, rye, wheat, malted barley), precise cask maturation lineage (e.g. First-Fill Oloroso Sherry, Mizunara Oak), primary sensory tags, and distillery provenance.</p>
+                    </div>
+
+                    <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+                        <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">How often are the secondary market auction valuations updated?</h3>
+                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">The API &amp; Valuation tier ($99/mo) updates real auction market indices and pricing indicators on a monthly schedule, tracking major global spirits auction houses and producer price sheets.</p>
+                    </div>
+
+                    <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+                        <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Can I download a free sample before purchasing a commercial license?</h3>
+                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Yes! You can immediately download our public CSV sample datasets (<code style="color:#e2c044;">spirits.csv</code> and <code style="color:#e2c044;">distilleries.csv</code>) from our open-source GitHub repository or explore them interactively via our Hugging Face Sample Explorer without requiring an API key.</p>
+                    </div>
+
+                    <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+                        <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">How does WhiskyDB verify distillery mash bills and cask lineages?</h3>
+                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">We combine producer-published spec sheets, government label filings (TTB COLA records), and verified historical distillery ledgers into an immutable provenance chain with source citations for every determination.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Contact / Request the Dataset -->
+        <section class="contact-section" id="contact-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Request the <span class="text-gradient">Full Dataset</span></h2>
+                    <p class="section-subtitle">
+                        Tell us who you are and which tier you need — we reply from our desk within 1 business day with delivery and payment details.
+                    </p>
+                </div>
+
+                <div class="glass-card contact-card">
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                        <input type="hidden" name="access_key" value="bf34ff48-fcc6-4823-b386-9ae3d0712797" />
+                        <input type="hidden" name="subject" value="New WhiskyDB Dataset Request" />
+                        <input type="hidden" name="from_name" value="WhiskyDB Contact Form" />
+
+                        <div class="form-group">
+                            <label class="form-label" for="userName">Full Name / Organization *</label>
+                            <input type="text" id="userName" name="name" class="form-input" placeholder="e.g. Acme Hospitality Inc. or Jane Doe" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="userEmail">Delivery Email Address *</label>
+                            <input type="email" id="userEmail" name="email" class="form-input" placeholder="you@organization.com (dataset link sent here)" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="tierSelect">License Tier *</label>
+                            <select id="tierSelect" name="tier" class="form-select" required>
+                                <option value="Standard Catalog ($49/mo)">Standard Catalog — SQLite + CSV snapshots ($49/mo)</option>
+                                <option value="API & Valuation ($99/mo)">API &amp; Valuation — REST API + auction index ($99/mo)</option>
+                                <option value="Custom / Other">Custom &amp; bespoke data work</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="useCase">Intended Use Case</label>
+                            <input type="text" id="useCase" name="use_case" class="form-input" placeholder="e.g. bar-menu software, valuation analytics, research" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full" id="contact-submit-btn">
+                            <span>Request Dataset Access →</span>
+                        </button>
+                    </form>
+
+                    <div id="contactSuccess" class="contact-success" style="display: none;">
+                        <div class="contact-success-title">✦ Request sent successfully!</div>
+                        <p>Your request is on its way to our desk. We'll reply to the address you provided with delivery and payment details shortly.</p>
+                        <p class="contact-success-note">No reply within 1 business day? Reach us directly at <a href="mailto:whiskeydn.kite979@simplelogin.com">whiskeydn.kite979@simplelogin.com</a>.</p>
+                        <button type="button" class="btn btn-outline" onclick="resetContactForm()"><span>↻ Submit another request</span></button>
+                    </div>
+
+                    <div class="contact-footnote">
+                        Card, invoice, or crypto · Fulfilled manually within 1 business day · Direct desk:
+                        <a href="mailto:whiskeydn.kite979@simplelogin.com">whiskeydn.kite979@simplelogin.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-logo mb-4">
+                    <span class="logo-icon">🥃</span>
+                    <span class="logo-text">Whisky<span class="text-gold">DB</span></span>
+                </div>
+                <p class="footer-desc">
+                    The world's most rigorous structured database for fine spirits, distilleries, mash bills, and market valuations. Built for developers, analysts, and institutional beverage platforms.
+                </p>
+                <div class="footer-copyright">
+                    &copy; 2026 WhiskyDB Initiative. Licensed under MIT & CC-BY-SA 4.0.
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Architecture</h4>
+                    <a href="#features-section">Data Sources</a>
+                    <a href="#features-section">Normalization Engine</a>
+                    <a href="#features-section">Provenance Ledger</a>
+                    <a href="#features-section">Cask Taxonomy</a>
+                </div>
+                <div class="link-column">
+                    <h4>Products & API</h4>
+                    <a href="#quickstart-section">REST API Docs</a>
+                    <a href="#contact-section">Request the Dataset</a>
+                    <a href="https://github.com/WhiskyyDB/whisky-database/tree/main/samples" target="_blank">Free Public Sample (CSV)</a>
+                    <a href="https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample" target="_blank" rel="noopener">Hugging Face Sample Dataset</a>
+                    <a href="https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers" target="_blank" rel="noopener">Interactive Sample Explorer</a>
+                    <a href="#pricing-section">Enterprise Licensing</a>
+                </div>
+                <div class="link-column">
+                    <h4>Open Source</h4>
+                    <a href="https://github.com/WhiskyyDB/whisky-database" target="_blank">GitHub Repository</a>
+                    <a href="https://github.com/WhiskyyDB/whisky-database/issues" target="_blank">Issue Tracker</a>
+                    <a href="https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md" target="_blank">Sources & Licenses</a>
+                    <a href="mailto:whiskeydn.kite979@simplelogin.com">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic -->
+    <script src="app.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(reg => {
+            console.log('WhiskyDB PWA ServiceWorker successfully registered:', reg.scope);
+          }).catch(err => {
+            console.warn('WhiskyDB PWA ServiceWorker registration error:', err);
+          });
+        });
+      }
+    </script>
+</body>
+</html>

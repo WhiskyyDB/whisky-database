@@ -1,0 +1,16 @@
+distillery_id,name,country,region,source_name,source_url
+1,Lagavulin,Scotland,Islay,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+2,Buffalo Trace,USA,Kentucky,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+3,Yamazaki,Japan,Osaka,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+4,Woodford Reserve,USA,Kentucky,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+5,Bulleit Distilling Co.,USA,Kentucky,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+6,Four Roses,USA,Kentucky,WhiskyDB Curated Seed (producer-published),https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md#whiskydb-curated-seed
+7,Aberargie,Scotland,Aberargie,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+8,Aberfeldy,Scotland,Aberfeldy,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+9,Aberlour,Scotland,Aberlour,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+10,Abhainn Dearg,Scotland,"Uig,Isle of Lewis",Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+11,Ailsa Bay,Scotland,Girvan,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+12,Allt-A-Bhainne,Scotland,Glenrinnes,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+13,Annandale,Scotland,Annan,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+14,Arbikie,Scotland,Inverkeilor,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland
+15,Ardbeg,Scotland,Port Ellen,Wikipedia - List of distilleries in Scotland (CC-BY-SA),https://en.wikipedia.org/wiki/List_of_distilleries_in_Scotland

@@ -1,0 +1,35 @@
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+(sample data & documentation in this repository)
+
+Copyright (c) 2026 WhiskyDB
+
+The sample data in `samples/` (and the mirrored copy in `kaggle/`) and the
+documentation in this repository (the "Sample") are licensed under the
+Creative Commons Attribution-NonCommercial 4.0 International License.
+
+You are free to:
+  - Share  — copy and redistribute the Sample in any medium or format
+  - Adapt  — remix, transform, and build upon the Sample
+
+Under the following terms:
+  - Attribution   — you must give appropriate credit to "WhiskyDB"
+                    (github.com/WhiskyyDB/whisky-database) and indicate if
+                    changes were made.
+  - NonCommercial — you may not use the Sample for commercial purposes.
+                    For commercial use, obtain the full dataset license
+                    (see README.md → Pricing).
+
+EXCEPTION — open taxonomies: the files in `taxonomy/` (cask hierarchy and
+flavor vocabulary) are instead licensed under Creative Commons Attribution
+4.0 International (CC BY 4.0) and may be used for any purpose, including
+commercial, with attribution.
+
+UPSTREAM OBLIGATIONS: individual records derive from open sources with their
+own terms (ODbL, CC-BY-SA, OGL, public domain). The `source_name` field on
+every record identifies the applicable upstream source; see SOURCES.md.
+
+Full license texts:
+  https://creativecommons.org/licenses/by-nc/4.0/legalcode
+  https://creativecommons.org/licenses/by/4.0/legalcode
+
+THE SAMPLE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
