@@ -1,0 +1,13 @@
+{
+  "id": "ahtiticheamine/whiskydb-fine-spirits-starter-notebook",
+  "title": "WhiskyDB Fine Spirits — Starter Notebook",
+  "code_file": "starter_notebook.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": false,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": ["ahtiticheamine/whiskydb-fine-spirits-sample"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

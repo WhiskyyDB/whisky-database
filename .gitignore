@@ -1,0 +1,8 @@
+# OS & Editor generated files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Internal / Working documentation
+SEO Optimisation/

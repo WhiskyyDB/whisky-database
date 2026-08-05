@@ -1,0 +1,25 @@
+{
+  "name": "WhiskyDB — Canonical Structured Fine Spirits Database",
+  "short_name": "WhiskyDB",
+  "description": "Structured, provenance-tracked catalog of fine spirits and Scottish distilleries with standardized mash bills and auction indices.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a0b0d",
+  "theme_color": "#0a0b0d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/hero.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/hero.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["developer", "finance", "food", "lifestyle"]
+}

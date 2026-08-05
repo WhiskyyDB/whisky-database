@@ -1,0 +1,22 @@
+# WhiskyDB — The Canonical Structured Database for Global Fine Spirits
+
+> WhiskyDB is a structured, provenance-tracked database of global fine spirits and whiskies, with standardized mash bills, cask maturation lineages, sensory profiles, and distillery-level secondary-market auction indices. The catalog covers 1,200+ verified bottles and 3,000+ global distilleries, is 100% provenance-tracked, and is built from 9 integrated open data sources including Wikidata, Wikipedia, Open Food Facts, the US TTB COLA Registry, UK Companies House, the EU eAmbrosia GI register, and WhiskyHunter auction archives. It ships as downloadable SQLite and CSV snapshots plus a read-only REST API, and is built for AI agents, beverage analytics, secondary auction platforms, and hospitality tech.
+
+## Key Links & Documentation
+- [Landing Page](https://whisky-database.pages.dev/)
+- [GitHub Repository](https://github.com/WhiskyyDB/whisky-database)
+- [Data Dictionary & Field Definitions](https://whisky-database.pages.dev/DATA_DICTIONARY.md)
+- [Sources & Upstream Licenses](https://whisky-database.pages.dev/SOURCES.md)
+- [Free Public Sample (CSV)](https://github.com/WhiskyyDB/whisky-database/tree/main/samples)
+- [Interactive Sample Explorer (Hugging Face)](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers)
+
+## Core Capabilities & Specs
+- **Data Formats:** SQLite and CSV (full dataset snapshots); CSV for the free 15-record sample; Kaggle sample mirror also available as Parquet. Snapshot: 2026.07.
+- **Coverage:** 1,200+ verified bottles · 3,000+ global distilleries · 100% provenance-tracked (every record carries a `source_name` / `source_id` into a `data_sources` provenance ledger). Includes 20,000+ monthly distillery auction-price benchmarks spanning November 2005 → today.
+- **Data Sources (9 integrated):** US TTB COLA Registry (public domain, 17 U.S.C. § 105) · UK Companies House (Open Government Licence v3.0) · EU eAmbrosia GI Register (EU open data) · Open Food Facts / Open Drinks Facts (ODbL v1.0) · Wikipedia (CC-BY-SA 4.0) · Wikidata (CC0 1.0) · WhiskyHunter open statistics · producer-published specifications · US labeling law 27 CFR 5.143 (public domain).
+- **Attribution:** Sample data & docs — CC-BY-NC-4.0 (attribution, non-commercial). Open taxonomies in `taxonomy/` — CC-BY-4.0 (any use, including commercial, with attribution). Full dataset — commercial license; records derived from ODbL / CC-BY-SA sources retain their upstream attribution and share-alike obligations.
+- **Licensing Tiers:**
+  - **Public Research Sample — $0 / forever:** 15-record curated CSV sample + open cask/flavor taxonomies. Download: https://github.com/WhiskyyDB/whisky-database/tree/main/samples
+  - **Standard Catalog License — $49 / month** ($39 / mo billed annually): full commercial catalog, SQLite + CSV snapshots, monthly refreshes, full provenance ledger. Subscribe: https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402 · one-time current snapshot ($49): https://buy.stripe.com/eVq3cw4p2afccI382s38401
+  - **API & Valuation License — $99 / month** ($79 / mo billed annually): everything in Standard, plus read-only REST API access and a 19-year auction price index. Request access: https://whisky-database.pages.dev/#contact-section
+  - Full pricing: https://whisky-database.pages.dev/#pricing-section
