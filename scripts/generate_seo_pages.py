@@ -111,7 +111,7 @@ def main():
     print(f"Loaded {len(spirits)} spirit records and {len(distilleries)} distillery records from CSVs.")
 
     sitemap_urls = [
-        ("https://whisky-database.pages.dev/", "1.0", "weekly")
+        ("https://whiskydb.dataengineered.io/", "1.0", "weekly")
     ]
 
     # Generate Spirit Specimen Pages
@@ -129,7 +129,7 @@ def main():
         age_display = f"{age} Years Old" if (age and age.replace('.','',1).isdigit() and float(age) > 0) else "No Age Statement (NAS)"
         abv_display = f"{abv}% ABV" if abv else "40.0% ABV"
 
-        page_url = f"https://whisky-database.pages.dev/spirits/{slug}"
+        page_url = f"https://whiskydb.dataengineered.io/spirits/{slug}"
         sitemap_urls.append((page_url, "0.8", "monthly"))
 
         html_content = f"""<!DOCTYPE html>
@@ -149,7 +149,7 @@ def main():
   <meta property="og:description" content="Exact ABV ({abv_display}), Age Statement ({age_display}), bottle volume ({vol}ml), and secondary market ledger." />
   <meta property="og:url" content="{page_url}" />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="https://whisky-database.pages.dev/hero.png" />
+  <meta property="og:image" content="https://whiskydb.dataengineered.io/hero.png" />
 
   <script type="application/ld+json">
   {{
@@ -158,7 +158,7 @@ def main():
     "name": "{name} ({stype}) Structured Spirits Determination",
     "description": "Normalized botanical and cask parameters for {name}: {stype}, {abv_display}, {age_display}, {vol}ml volume, and secondary auction market tracking.",
     "url": "{page_url}",
-    "creator": {{"@type": "Organization", "name": "WhiskyDB Initiative", "url": "https://whisky-database.pages.dev"}},
+    "creator": {{"@type": "Organization", "name": "WhiskyDB Initiative", "url": "https://whiskydb.dataengineered.io"}},
     "license": "https://creativecommons.org/licenses/by-sa/4.0/",
     "isAccessibleForFree": true,
     "variableMeasured": ["alcohol by volume percentage", "age statement in years", "cask finish lineage", "mash bill percentages", "secondary market auction index"]
@@ -169,8 +169,8 @@ def main():
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://whisky-database.pages.dev/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Spirits Catalog", "item": "https://whisky-database.pages.dev/#explorer-section"}},
+      {{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://whiskydb.dataengineered.io/"}},
+      {{"@type": "ListItem", "position": 2, "name": "Spirits Catalog", "item": "https://whiskydb.dataengineered.io/#explorer-section"}},
       {{"@type": "ListItem", "position": 3, "name": "{name}", "item": "{page_url}"}}
     ]
   }}
@@ -290,7 +290,7 @@ def main():
         did = d.get('distillery_id', '')
 
         slug = slugify(f"{dname}-{country}-{region}")
-        page_url = f"https://whisky-database.pages.dev/distilleries/{slug}"
+        page_url = f"https://whiskydb.dataengineered.io/distilleries/{slug}"
         sitemap_urls.append((page_url, "0.9", "monthly"))
 
         # Find matching spirits if any
@@ -326,7 +326,7 @@ def main():
   <meta property="og:description" content="Taxonomic and geographic determination for {dname} in {region}, {country}." />
   <meta property="og:url" content="{page_url}" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://whisky-database.pages.dev/hero.png" />
+  <meta property="og:image" content="https://whiskydb.dataengineered.io/hero.png" />
 
   <script type="application/ld+json">
   {{

@@ -3,10 +3,10 @@
 > WhiskyDB is a structured, provenance-tracked database of global fine spirits and whiskies, with standardized mash bills, cask maturation lineages, sensory profiles, and distillery-level secondary-market auction indices. The catalog covers 1,200+ verified bottles and 3,000+ global distilleries, is 100% provenance-tracked, and is built from 9 integrated open data sources including Wikidata, Wikipedia, Open Food Facts, the US TTB COLA Registry, UK Companies House, the EU eAmbrosia GI register, and WhiskyHunter auction archives. It ships as downloadable SQLite and CSV snapshots plus a read-only REST API, and is built for AI agents, beverage analytics, secondary auction platforms, and hospitality tech.
 
 ## Key Links & Documentation
-- [Landing Page](https://whisky-database.pages.dev/)
+- [Landing Page](https://whiskydb.dataengineered.io/)
 - [GitHub Repository](https://github.com/WhiskyyDB/whisky-database)
-- [Data Dictionary & Field Definitions](https://whisky-database.pages.dev/DATA_DICTIONARY.md)
-- [Sources & Upstream Licenses](https://whisky-database.pages.dev/SOURCES.md)
+- [Data Dictionary & Field Definitions](https://whiskydb.dataengineered.io/DATA_DICTIONARY.md)
+- [Sources & Upstream Licenses](https://whiskydb.dataengineered.io/SOURCES.md)
 - [Free Public Sample (CSV)](https://github.com/WhiskyyDB/whisky-database/tree/main/samples)
 - [Interactive Sample Explorer (Hugging Face)](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers)
 
@@ -18,5 +18,5 @@
 - **Licensing Tiers:**
   - **Public Research Sample — $0 / forever:** 15-record curated CSV sample + open cask/flavor taxonomies. Download: https://github.com/WhiskyyDB/whisky-database/tree/main/samples
   - **Standard Catalog License — $49 / month** ($39 / mo billed annually): full commercial catalog, SQLite + CSV snapshots, monthly refreshes, full provenance ledger. Subscribe: https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402 · one-time current snapshot ($49): https://buy.stripe.com/eVq3cw4p2afccI382s38401
-  - **API & Valuation License — $99 / month** ($79 / mo billed annually): everything in Standard, plus read-only REST API access and a 19-year auction price index. Request access: https://whisky-database.pages.dev/#contact-section
-  - Full pricing: https://whisky-database.pages.dev/#pricing-section
+  - **API & Valuation License — $99 / month** ($79 / mo billed annually): everything in Standard, plus read-only REST API access and a 19-year auction price index. Request access: https://whiskydb.dataengineered.io/#contact-section
+  - Full pricing: https://whiskydb.dataengineered.io/#pricing-section

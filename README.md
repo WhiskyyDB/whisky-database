@@ -12,9 +12,9 @@
 [![Price history: 2005→](https://img.shields.io/badge/Auction%20history-2005%E2%86%92today-gold.svg)](#auction-price-history--the-differentiated-part)
 [![Snapshot: 2026.07](https://img.shields.io/badge/Snapshot-2026.07-blue.svg)](CHANGELOG.md)
 [![Taxonomies: open](https://img.shields.io/badge/Cask%20%26%20Flavor%20taxonomies-open%20source-2ea44f.svg)](taxonomy/)
-[![Get the data](https://img.shields.io/badge/Get%20the%20data-whisky--database.pages.dev-d4a643.svg)](https://whisky-database.pages.dev/)
+[![Get the data](https://img.shields.io/badge/Get%20the%20data-whiskydb.dataengineered.io-d4a643.svg)](https://whiskydb.dataengineered.io/)
 
-**[→ Get the full dataset at whisky-database.pages.dev](https://whisky-database.pages.dev/)**
+**[→ Get the full dataset at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)**
 
 </div>
 
@@ -82,7 +82,7 @@ See [`SOURCES.md`](SOURCES.md) for full attribution and license details, and [`D
 | **API & Valuation** | Live REST API · auction price benchmarks · commercial license | **$99** / month |
 | **Live scrape** | On-demand, self-serve via Apify Actor | pay-per-result *(listing pending)* |
 
-**[→ Get it at whisky-database.pages.dev](https://whisky-database.pages.dev/)** · or email **[whiskeydn.kite979@simplelogin.com](mailto:whiskeydn.kite979@simplelogin.com)** for the full dataset and custom work.
+**[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or email **[whiskeydn.kite979@simplelogin.com](mailto:whiskeydn.kite979@simplelogin.com)** for the full dataset and custom work.
 
 ## Use cases
 
