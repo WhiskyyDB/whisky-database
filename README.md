@@ -2,7 +2,7 @@
 
 # 🥃 WhiskyDB — Fine Spirits & Whisky Dataset
 
-**1,290+ whiskies & fine spirits · 3,764 distilleries & producers · 20,000+ monthly auction-price benchmarks (2005 → today) · 100% provenance-tracked**
+**2,301 whiskies & fine spirits · 3,764 distilleries & producers · 21,156 monthly auction-price benchmarks (2005 → today) · 100% provenance-tracked**
 
 [![Sample: 15 rows](https://img.shields.io/badge/Free%20Sample-15%20rows-brightgreen.svg)](samples/spirits.csv)
 [![🤗 Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-sample%20dataset-ffd21e.svg)](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample)
@@ -16,6 +16,8 @@
 
 **[→ Get the full dataset at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)**
 
+**Free sample:** [15 rows](samples/spirits.csv) · **Full catalog: $49 one-time** → [Buy on Stripe](https://buy.stripe.com/eVq3cw4p2afccI382s38401) · or [$49 / month with the auto-delivered monthly refresh](https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402)
+
 </div>
 
 ---
@@ -28,10 +30,10 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 
 | | Full dataset | Free sample |
 | :--- | ---: | ---: |
-| Spirits & bottlings | **1,290+** | 15 |
+| Spirits & bottlings | **2,301** | 15 |
 | Distilleries, brands & producers | **3,764** | 15 |
 | Countries represented | **110+** | — |
-| Monthly auction-price benchmarks | **20,000+** | — |
+| Monthly auction-price benchmarks | **21,156** | — |
 | Protected GI appellations (EU/UK) | **270+** | — |
 | Open cask & flavor taxonomies | 14 styles · 15 descriptors | ✔ included |
 | Formats | SQLite · CSV | CSV |
@@ -53,7 +55,7 @@ Measured across the full dataset. Public sources don't all publish every attribu
 
 ## Auction price history — the differentiated part
 
-- **20,000+** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), one row per distillery per month.
+- **21,156** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), one row per distillery per month.
 - **225 consecutive months** — November 2005 → today — across **33 whisky distilleries** and 93 linked bottlings.
 - Honestly labeled: every row is a `Distillery Auction Index` (market-level index), **never** passed off as a bottle-specific realization.
 - Sourced from open statistical auction data; ideal for valuation models, trend analysis, and price-vs-age studies.
