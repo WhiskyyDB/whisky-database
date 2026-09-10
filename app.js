@@ -429,7 +429,7 @@ if (contactForm) {
                 // Launch pre-filled email client directly so lead is never lost to Cloudflare 522
                 const subject = encodeURIComponent("New WhiskyDB Dataset Request - " + name);
                 const bodyText = `Name / Organization: ${name}\nDelivery Email: ${email}\nLicense Tier: ${tier}\nIntended Use Case: ${useCase}\n\n[Sent via WhiskyDB High-Availability Form Fallback]`;
-                const mailtoUrl = `mailto:whiskeydn.kite979@simplelogin.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+                const mailtoUrl = `mailto:whiskydb@dataengineered.io?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
                 window.location.href = mailtoUrl;
 
                 // Show success UI along with explanatory toast so user knows email client opened

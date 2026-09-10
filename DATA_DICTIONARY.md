@@ -67,4 +67,4 @@ Every content table carries a `source_id` foreign key into `data_sources` — 10
 
 \* Share of the full dataset with a non-empty / non-default value.
 
-Questions or corrections: **[whiskeydn.kite979@simplelogin.com](mailto:whiskeydn.kite979@simplelogin.com)** · [issues](https://github.com/WhiskyyDB/whisky-database/issues)
+Questions or corrections: **[whiskydb@dataengineered.io](mailto:whiskydb@dataengineered.io)** · [issues](https://github.com/WhiskyyDB/whisky-database/issues)

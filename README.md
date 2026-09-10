@@ -82,7 +82,7 @@ See [`SOURCES.md`](SOURCES.md) for full attribution and license details, and [`D
 | **API & Valuation** | Live REST API · auction price benchmarks · commercial license | **$99** / month |
 | **Live scrape** | On-demand, self-serve via Apify Actor | pay-per-result *(listing pending)* |
 
-**[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or email **[whiskeydn.kite979@simplelogin.com](mailto:whiskeydn.kite979@simplelogin.com)** for the full dataset and custom work.
+**[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or email **[whiskydb@dataengineered.io](mailto:whiskydb@dataengineered.io)** for the full dataset and custom work.
 
 ## Use cases
 
@@ -109,4 +109,4 @@ A fuller example is in [`examples/load_sample.py`](examples/load_sample.py). A h
 - **Taxonomies (`taxonomy/`):** CC-BY-4.0 — free for any use with attribution, including commercial.
 - **Full dataset:** commercial license. Records derived from ODbL/CC-BY-SA sources retain their upstream attribution obligations — see [`SOURCES.md`](SOURCES.md).
 
-Want a record corrected or removed? Email **[whiskeydn.kite979@simplelogin.com](mailto:whiskeydn.kite979@simplelogin.com)** or [open an issue](https://github.com/WhiskyyDB/whisky-database/issues).
+Want a record corrected or removed? Email **[whiskydb@dataengineered.io](mailto:whiskydb@dataengineered.io)** or [open an issue](https://github.com/WhiskyyDB/whisky-database/issues).
