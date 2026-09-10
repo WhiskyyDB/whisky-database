@@ -2,13 +2,13 @@
 
 # 🥃 WhiskyDB — Fine Spirits & Whisky Dataset
 
-**1,290+ whiskies & fine spirits · 3,200+ distilleries & producers · 20,000+ monthly auction-price benchmarks (2005 → today) · 100% provenance-tracked**
+**1,290+ whiskies & fine spirits · 3,764 distilleries & producers · 20,000+ monthly auction-price benchmarks (2005 → today) · 100% provenance-tracked**
 
 [![Sample: 15 rows](https://img.shields.io/badge/Free%20Sample-15%20rows-brightgreen.svg)](samples/spirits.csv)
 [![🤗 Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-sample%20dataset-ffd21e.svg)](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample)
 [![🤗 Explorer](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-sample%20explorer-ffd21e.svg)](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers)
 [![Kaggle](https://img.shields.io/badge/Kaggle-sample%20dataset-20BEFF.svg)](https://www.kaggle.com/datasets/ahtiticheamine/whiskydb-fine-spirits-sample)
-[![Distilleries: 3,200+](https://img.shields.io/badge/Distilleries-3%2C200%2B-8a5a44.svg)](#whats-inside)
+[![Distilleries: 3,764](https://img.shields.io/badge/Distilleries-3%2C764-8a5a44.svg)](#whats-inside)
 [![Price history: 2005→](https://img.shields.io/badge/Auction%20history-2005%E2%86%92today-gold.svg)](#auction-price-history--the-differentiated-part)
 [![Snapshot: 2026.07](https://img.shields.io/badge/Snapshot-2026.07-blue.svg)](CHANGELOG.md)
 [![Taxonomies: open](https://img.shields.io/badge/Cask%20%26%20Flavor%20taxonomies-open%20source-2ea44f.svg)](taxonomy/)
@@ -29,7 +29,7 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 | | Full dataset | Free sample |
 | :--- | ---: | ---: |
 | Spirits & bottlings | **1,290+** | 15 |
-| Distilleries, brands & producers | **3,200+** | 15 |
+| Distilleries, brands & producers | **3,764** | 15 |
 | Countries represented | **110+** | — |
 | Monthly auction-price benchmarks | **20,000+** | — |
 | Protected GI appellations (EU/UK) | **270+** | — |
@@ -82,7 +82,7 @@ See [`SOURCES.md`](SOURCES.md) for full attribution and license details, and [`D
 | **API & Valuation** | Live REST API · auction price benchmarks · commercial license | **$99** / month |
 | **Live scrape** | On-demand, self-serve via Apify Actor | pay-per-result *(listing pending)* |
 
-**[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or email **[whiskydb@dataengineered.io](mailto:whiskydb@dataengineered.io)** for the full dataset and custom work.
+**[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or use the [contact form](https://whiskydb.dataengineered.io/#contact-section) (whiskydb@dataengineered.io) for the full dataset and custom work.
 
 ## Use cases
 
@@ -109,4 +109,4 @@ A fuller example is in [`examples/load_sample.py`](examples/load_sample.py). A h
 - **Taxonomies (`taxonomy/`):** CC-BY-4.0 — free for any use with attribution, including commercial.
 - **Full dataset:** commercial license. Records derived from ODbL/CC-BY-SA sources retain their upstream attribution obligations — see [`SOURCES.md`](SOURCES.md).
 
-Want a record corrected or removed? Email **[whiskydb@dataengineered.io](mailto:whiskydb@dataengineered.io)** or [open an issue](https://github.com/WhiskyyDB/whisky-database/issues).
+Want a record corrected or removed? Write to whiskydb@dataengineered.io or [open an issue](https://github.com/WhiskyyDB/whisky-database/issues).
