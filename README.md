@@ -80,9 +80,8 @@ See [`SOURCES.md`](SOURCES.md) for full attribution and license details, and [`D
 | Tier | What | Price |
 | :--- | :--- | :--- |
 | **Sample** | This repo: sample CSVs + open taxonomies | Free |
-| **Standard Catalog** | Full dataset snapshots · SQLite + CSV · monthly refreshes | **$49** / month |
-| **API & Valuation** | Live REST API · auction price benchmarks · commercial license | **$99** / month |
-| **Live scrape** | On-demand, self-serve via Apify Actor | pay-per-result *(listing pending)* |
+| **Standard Catalog** | Full dataset snapshot · SQLite + CSV · 21,156 auction-price benchmarks · commercial license | **$49** one-time ([Stripe](https://buy.stripe.com/eVq3cw4p2afccI382s38401)) |
+| **Monthly refresh subscription** | The same catalog, each monthly refresh auto-delivered | **$49** / month ([Stripe](https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402)) |
 
 **[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or use the [contact form](https://whiskydb.dataengineered.io/#contact-section) (whiskydb@dataengineered.io) for the full dataset and custom work.
 
