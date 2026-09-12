@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spirit directory — WhiskyDB</title>
+<meta name="description" content="Every whisky and whiskey bottling in WhiskyDB, each with its mash bill, cask lineage and auction benchmarks.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://whiskydb.dataengineered.io/spirits/">
+<link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/">
+<link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/">
+<meta property="og:title" content="Spirit directory — WhiskyDB">
+<meta property="og:description" content="Every whisky and whiskey bottling in WhiskyDB, each with its mash bill, cask lineage and auction benchmarks.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whiskydb.dataengineered.io/spirits/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Spirit directory","description":"Every whisky and whiskey bottling in WhiskyDB, each with its mash bill, cask lineage and auction benchmarks.","url":"https://whiskydb.dataengineered.io/spirits/","isPartOf":{"@type":"WebSite","url":"https://whiskydb.dataengineered.io"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --bg-dark: #0a0b0d;
+      --bg-card: #111318;
+      --gold: #d4af37;
+      --gold-light: #e2c044;
+      --text-main: #f0f2f8;
+      --text-muted: #949ab1;
+      --border: rgba(212, 175, 55, 0.2);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; padding-bottom: 60px; }
+    .heading { font-family: 'Outfit', sans-serif; font-weight: 700; }
+    .mono { font-family: 'Fira Code', monospace; }
+    header { border-bottom: 1px solid var(--border); padding: 20px 0; background: rgba(17, 19, 24, 0.8); backdrop-filter: blur(10px); }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+    .brand span { color: var(--gold); }
+    .btn-link { color: var(--text-main); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border); padding: 8px 16px; border-radius: 6px; transition: all 0.2s; }
+    .btn-link:hover { background: var(--gold); color: #0a0b0d; border-color: var(--gold); }
+    .hero { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .badge { display: inline-block; background: rgba(212, 175, 55, 0.15); color: var(--gold-light); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; border: 1px solid rgba(212,175,55,0.3); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 36px; }
+    @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    .card { background: var(--bg-card); border: 1px solid var(--border); padding: 28px; border-radius: 12px; }
+    .metric-row { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(212,175,55,0.15); padding: 14px 0; }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-label { color: var(--text-muted); font-size: 0.92rem; }
+    .metric-val { font-weight: 600; font-family: 'Fira Code', monospace; color: var(--gold-light); }
+    footer { margin-top: 60px; border-top: 1px solid var(--border); padding: 32px 0; text-align: center; font-size: 0.85rem; color: var(--text-muted); }
+  </style>
+<style>
+.dirhub-wrap{max-width:1000px;margin:0 auto;padding:36px 24px 64px}
+.dirhub-wrap h1{font-size:2rem;line-height:1.15;margin:0 0 8px}
+.dirhub-lede{opacity:.75;max-width:70ch;margin:0 0 6px}
+.dirhub-count{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;opacity:.55;margin:14px 0 0}
+.dirhub-list{list-style:none;margin:26px 0 0;padding:0;display:grid;
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px}
+.dirhub-list a{display:block;padding:10px 12px;border-radius:6px;text-decoration:none;
+border:1px solid transparent}
+.dirhub-list a:hover{border-color:currentColor;opacity:.85}
+.dirhub-crumb{font-size:.8rem;opacity:.6;margin:0 0 18px}
+</style>
+</head>
+<body>
+<header>
+    <div class="container nav-bar">
+      <a href="/" class="brand">Whisky<span>DB</span></a>
+      <div>
+        <a href="/#explorer-section" class="btn-link">← Explorer</a>
+        <a href="/#pricing-section" class="btn-link" style="margin-left: 12px; background: rgba(212,175,55,0.1);">Get Full Dataset ($49)</a>
+      </div>
+    </div>
+  </header>
+<main class="dirhub-wrap">
+<p class="dirhub-crumb"><a href="/">Home</a> &rsaquo; Spirit directory</p>
+<h1>Spirit directory</h1>
+<p class="dirhub-lede">Every whisky and whiskey bottling in WhiskyDB, each with its mash bill, cask lineage and auction benchmarks.</p>
+<p class="dirhub-count">15 spirits and bottlings</p>
+<ul class="dirhub-list">
+<li><a href="ballantine-s-finest">Ballantine&#x27;s Finest</a></li>
+<li><a href="bulleit-bourbon">Bulleit Bourbon</a></li>
+<li><a href="eagle-rare-10-year-old">Eagle Rare 10 Year Old</a></li>
+<li><a href="four-roses-single-barrel">Four Roses Single Barrel</a></li>
+<li><a href="jack-daniel-s-no-7">Jack Daniel&#x27;s No.7</a></li>
+<li><a href="jack-daniel-s-whiskey">Jack Daniel&#x27;s Whiskey</a></li>
+<li><a href="jameson-whiskey">Jameson Whiskey</a></li>
+<li><a href="johnnie-walker-red-scotch-whisky">Johnnie Walker Red Scotch whisky</a></li>
+<li><a href="lagavulin-16-year-old">Lagavulin 16 Year Old</a></li>
+<li><a href="monkey-shoulder">Monkey Shoulder</a></li>
+<li><a href="whisky-ecosse-blended-40-vol">Whisky Ecosse Blended 40% vol.</a></li>
+<li><a href="whisky-ecosse-blended-sans-ge-1-l-sir-edwards">Whisky Ecosse blended sans âge 1 L Sir Edwards</a></li>
+<li><a href="whisky-old-n-7">Whisky Old N°7</a></li>
+<li><a href="woodford-reserve-kentucky-straight-bourbon">Woodford Reserve Kentucky Straight Bourbon</a></li>
+<li><a href="yamazaki-12-year-old">Yamazaki 12 Year Old</a></li>
+</ul>
+</main>
+<footer>
+    <div class="container">
+      <p>WhiskyDB — Canonical Global Fine Spirits Catalog & REST API · <a href="/#pricing-section" style="color:var(--gold); text-decoration:none;">License Enterprise Dataset ($49/mo)</a></p>
+    </div>
+  </footer>
+</body>
+</html>
