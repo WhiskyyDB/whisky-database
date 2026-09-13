@@ -28,15 +28,21 @@ def _cut(text, room):
 def fit_title(entity, descriptor, brand, max_len=TITLE_MAX, sep=" — "):
     """'<entity><sep><descriptor> | <brand>' within max_len.
 
-    The entity is truncated at a word boundary first. If that would leave fewer than
-    12 characters of entity, the descriptor is dropped instead: '<entity> | <brand>'.
+    `descriptor` may be a string or a list of strings in preference order: the first
+    descriptor that lets the whole entity fit is used, so the entity is kept intact
+    whenever a shorter descriptor allows it. Only then is the entity truncated at a
+    word boundary. If that would leave fewer than 12 characters of entity, the
+    descriptor is dropped instead: '<entity> | <brand>'.
     """
     entity = re.sub(r"\s+", " ", str(entity)).strip()
-    descriptor = re.sub(r"\s+", " ", str(descriptor)).strip()
+    options = [descriptor] if isinstance(descriptor, str) else list(descriptor)
+    options = [re.sub(r"\s+", " ", str(d)).strip() for d in options] or [""]
     tail = f" | {brand}"
-    full = f"{entity}{sep}{descriptor}{tail}"
-    if len(full) <= max_len:
-        return full
+    for d in options:
+        full = f"{entity}{sep}{d}{tail}" if d else f"{entity}{tail}"
+        if len(full) <= max_len:
+            return full
+    descriptor = options[-1]
     room = max_len - len(sep) - len(descriptor) - len(tail)
     if room >= 12:
         return f"{_cut(entity, room)}{sep}{descriptor}{tail}"
@@ -93,12 +99,16 @@ def write_sitemap(repo_dir, entries, out="sitemap.xml"):
     return len(rows)
 
 
-def related_block(items, heading="Related", css_class="related"):
-    """items: list of (href, label, reason_or_None). Empty list -> ''. Max 6 links."""
+def related_block(items, heading="Related", css_class="related", limit=6):
+    """items: list of (href, label, reason_or_None). Empty list -> ''.
+
+    At most `limit` links (default 6); pass limit=None when every item must appear,
+    e.g. to keep parent<->child links reciprocal.
+    """
     if not items:
         return ""
     lis = []
-    for href, label, reason in items[:6]:
+    for href, label, reason in (items if limit is None else items[:limit]):
         why = f' <span class="{css_class}-why">— {html.escape(str(reason))}</span>' if reason else ""
         lis.append(f'<li><a href="{html.escape(href)}">{html.escape(str(label))}</a>{why}</li>')
     return (f'<section class="{css_class}"><h2>{html.escape(heading)}</h2><ul>'

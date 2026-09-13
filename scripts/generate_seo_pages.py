@@ -17,27 +17,42 @@ def _trim_num(v):
     v = (v or '').strip()
     return v[:-2] if v.endswith('.0') else v
 
-def _record_key(raw_id, fallback_text):
-    """A stable small integer derived from a record's own id (or, failing that, its
-    name) -- used only to pick among equally-truthful phrasings, never to alter facts."""
-    raw_id = (raw_id or '').strip()
-    if raw_id.isdigit():
-        return int(raw_id)
-    return sum(ord(c) for c in fallback_text)
+def _pad_related(items, pool, index_of, self_key, href_of, label_of):
+    """Top up `items` (list of (href, label, reason_or_None)) to at least 3 entries
+    by walking outward from the record's own position in `pool` (sorted by name),
+    alternating previous/next and wrapping around. Only used when the field-based
+    related items fall short -- the padding links are real sibling records, never
+    invented, just labelled by their (real) adjacency rather than a shared field."""
+    if len(items) >= 3:
+        return items
+    have = {href for href, _, _ in items}
+    n = len(pool)
+    i = index_of[self_key]
+    dist = 1
+    while len(items) < 3 and dist < n:
+        for j in (i - dist, i + dist):
+            if len(items) >= 3:
+                break
+            cand = pool[j % n]
+            href = href_of(cand)
+            if href in have:
+                continue
+            items.append((href, label_of(cand), "neighbouring record"))
+            have.add(href)
+        dist += 1
+    return items
 
 def distillery_profile(d, matching):
     """Build a unique, data-derived <p> profile from a distillery's OWN real CSV fields
     (name/country/region/source_name) plus any matching spirit(s) it makes
     (name/type/age/abv/volume_ml). Only emits clauses for fields that are actually
-    populated -- empty fields are omitted, never faked. Wording is rotated (by the
-    record's own id) among equivalent phrasings so records sharing every other field
-    -- common in the sparser public samples -- still don't read as identical
-    sentences. Returns an HTML <p>."""
+    populated -- empty fields are omitted, never faked. One fixed sentence structure
+    per fact; uniqueness across records comes from the differing field values
+    themselves, not from varied wording. Returns an HTML <p>."""
     dname = (d.get('name') or '').strip()
     country = (d.get('country') or '').strip()
     region = (d.get('region') or '').strip()
     source_name = (d.get('source_name') or '').strip()
-    key = _record_key(d.get('distillery_id'), dname)
 
     sentences = []
 
@@ -51,13 +66,11 @@ def distillery_profile(d, matching):
             loc = f"in {html.escape(country)}"
     else:
         loc = f"in {html.escape(region_disp)}" if region_ok else ""
-    dname_e = html.escape(dname)
-    geo_templates = [
-        f"{dname_e} is a whisky distillery catalogued in WhiskyDB" + (f", based {loc}" if loc else "") + ".",
-        f"WhiskyDB lists {dname_e} as a distillery" + (f" {loc}" if loc else "") + ".",
-        (f"{dname_e} appears in WhiskyDB's distillery registry" + (f", {loc}" if loc else "") + ".") ,
-    ]
-    sentences.append(geo_templates[key % len(geo_templates)])
+    geo = f"{html.escape(dname)} is a whisky distillery catalogued in WhiskyDB"
+    if loc:
+        geo += f", based {loc}"
+    geo += "."
+    sentences.append(geo)
 
     # Sentence 2: the spirit(s) this distillery makes, described from real attributes.
     if matching:
@@ -91,13 +104,10 @@ def distillery_profile(d, matching):
     elif source_name:
         # No individual bottlings for this distillery in the sparse public sample:
         # stay honest and lean on the real provenance field instead of padding.
-        source_e = html.escape(source_name)
-        fallback_templates = [
-            f"Its record is attributed to {source_e}; no individual bottlings are catalogued for it in this public sample.",
-            f"{source_e} is the attributed source for this record; the public sample does not yet catalog a bottling from {dname_e}.",
-            f"No bottlings from {dname_e} are catalogued in this public sample; provenance traces to {source_e}.",
-        ]
-        sentences.append(fallback_templates[(key + 1) % len(fallback_templates)])
+        sentences.append(
+            f"Its record is attributed to {html.escape(source_name)}; "
+            "no individual bottlings are catalogued for it in this public sample."
+        )
 
     return ('<p style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.8; '
             'margin-top: 28px; max-width: 780px;">' + ' '.join(sentences) + '</p>')
@@ -106,43 +116,32 @@ def spirit_profile(s, dist):
     """Build a unique, data-derived <p> profile from a spirit's OWN real CSV fields
     (name/type/age/abv/volume_ml/source_name) plus its matched distillery, if any
     (name/region/country). Only emits clauses for fields that are actually
-    populated -- empty fields are omitted, never faked. Wording is rotated (by the
-    record's own id) among equivalent phrasings so records that share every other
-    field -- several of the public-sample entries do -- still don't read as
-    identical sentences. Returns an HTML <p>."""
+    populated -- empty fields are omitted, never faked. One fixed sentence structure
+    per fact, attributes always in the same order (type, age statement, ABV,
+    volume); uniqueness across records comes from the differing field values
+    themselves, not from varied wording. Returns an HTML <p>."""
     name = (s.get('name') or '').strip()
     stype = (s.get('type') or '').strip()
     age = (s.get('age') or '').strip()
     abv = (s.get('abv') or '').strip()
     vol = (s.get('volume_ml') or '').strip()
     source_name = (s.get('source_name') or '').strip()
-    key = _record_key(s.get('spirit_id'), name)
 
     sentences = []
 
-    # Sentence 1: what it is, built only from populated fields.
+    # Sentence 1: what it is, built only from populated fields, always in the same order.
     attrs = []
     if stype:
         attrs.append(f"a {html.escape(stype)}")
-    if abv:
-        attrs.append(f"bottled at {html.escape(_trim_num(abv))}% ABV")
     if age and age.replace('.', '', 1).isdigit() and float(age) > 0:
         attrs.append(f"carrying a {html.escape(_trim_num(age))}-year age statement")
+    if abv:
+        attrs.append(f"bottled at {html.escape(_trim_num(abv))}% ABV")
     if vol:
         attrs.append(f"in a {html.escape(vol)} ml bottle")
     name_e = html.escape(name)
     if attrs:
-        # Rotate clause order (not content) so records sharing every field value --
-        # several of the public-sample entries do -- don't render the identical phrase.
-        rot = key % len(attrs)
-        joined = ', '.join(attrs[rot:] + attrs[:rot])
-        what_templates = [
-            f"{name_e} is catalogued in WhiskyDB as {joined}.",
-            f"In the WhiskyDB catalog, {name_e} is listed as {joined}.",
-            f"WhiskyDB's spirits ledger records {name_e} as {joined}.",
-            f"{name_e} enters WhiskyDB's ledger as {joined}.",
-        ]
-        sentences.append(what_templates[key % len(what_templates)])
+        sentences.append(f"{name_e} is catalogued in WhiskyDB as {', '.join(attrs)}.")
     else:
         sentences.append(f"{name_e} is catalogued in WhiskyDB.")
 
@@ -160,13 +159,7 @@ def spirit_profile(s, dist):
 
     # Sentence 3: provenance.
     if source_name:
-        source_e = html.escape(source_name)
-        source_templates = [
-            f"Source: {source_e}.",
-            f"Provenance: {source_e}.",
-            f"{name_e}'s record is sourced from {source_e}.",
-        ]
-        sentences.append(source_templates[(key + 1) % len(source_templates)])
+        sentences.append(f"Source: {html.escape(source_name)}.")
 
     return ('<p style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.8; '
             'margin-top: 28px; max-width: 780px;">' + ' '.join(sentences) + '</p>')
@@ -209,6 +202,13 @@ def main():
                 return d
         return None
 
+    # Sorted-by-name pools used only to pad out a related block that falls short of
+    # 3 links with real neighbouring records (see _pad_related).
+    spirits_by_name = sorted(spirits, key=lambda x: (x.get('name') or '').lower())
+    spirits_index = {id(o): idx for idx, o in enumerate(spirits_by_name)}
+    distilleries_by_name = sorted(distilleries, key=lambda x: (x.get('name') or '').lower())
+    distilleries_index = {id(o): idx for idx, o in enumerate(distilleries_by_name)}
+
     # Generate Spirit Specimen Pages
     for s in spirits:
         name = s.get('name', '').strip()
@@ -228,12 +228,22 @@ def main():
         page_url = f"https://whiskydb.dataengineered.io/spirits/{slug}"
         sitemap_urls.append((page_url, "0.8", "monthly"))
 
+        spirit_related_items = (
+            ([(f"../distilleries/{slugify(dist['name'] + '-' + dist['country'] + '-' + dist['region'])}", f"{dist['name']} distillery", f"{dist['region']}, {dist['country']}")] if dist else []) +
+            [(f"../spirits/{slugify(o['name'])}", o['name'], f"also {o['type']}") for o in spirits if o is not s and o.get('type') == stype][:3] +
+            [(f"../spirits/{slugify(o['name'])}", o['name'], f"also from {distillery_of(o)['country']}") for o in spirits if o is not s and dist and distillery_of(o) and distillery_of(o)['country'] == dist['country'] and o.get('type') != stype][:2]
+        )
+        spirit_related_items = _pad_related(
+            spirit_related_items, spirits_by_name, spirits_index, id(s),
+            lambda o: f"../spirits/{slugify(o['name'])}", lambda o: o['name'])
+        spirit_related_items.append(("../spirits/", "All spirits and bottlings", None))
+
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{html.escape(fit_title(name, f"{stype}, {_trim_num(abv)}% ABV", "WhiskyDB"))}</title>
+  <title>{html.escape(fit_title(name, [f"{stype}, {_trim_num(abv)}% ABV", stype, "whisky"], "WhiskyDB"))}</title>
   <meta name="description" content="{html.escape(fit_desc(f"{name}: {stype} at {_trim_num(abv)}% ABV, {age_display}, {vol} ml bottle" + (f", distilled by {dist['name']} in {dist['region']}, {dist['country']}" if dist else "") + f". Source: {source_name}."))}" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="{page_url}" />
@@ -367,11 +377,7 @@ def main():
       </div>
     </div>
 
-    {related_block(
-        ([(f"../distilleries/{slugify(dist['name'] + '-' + dist['country'] + '-' + dist['region'])}", f"{dist['name']} distillery", f"{dist['region']}, {dist['country']}")] if dist else []) +
-        [(f"../spirits/{slugify(o['name'])}", o['name'], f"also {o['type']}") for o in spirits if o is not s and o.get('type') == stype][:3] +
-        [(f"../spirits/{slugify(o['name'])}", o['name'], f"also from {distillery_of(o)['country']}") for o in spirits if o is not s and dist and distillery_of(o) and distillery_of(o)['country'] == dist['country'] and o.get('type') != stype][:2] +
-        [("../spirits/", "All spirits and bottlings", None)], "Related spirits and distilleries")}
+    {related_block(spirit_related_items, "Related spirits and distilleries")}
   </main>
 
   <footer>
@@ -409,22 +415,25 @@ def main():
         </div>"""
 
         if not matching_html:
-            no_match_key = _record_key(did, dname)
-            no_match_leads = [
-                f"Verified {dname} distillery record inside the <strong style=\"color:var(--gold);\">{region}, {country}</strong> geographical determination.",
-                f"{dname} is catalogued in the <strong style=\"color:var(--gold);\">{region}, {country}</strong> geographical determination.",
-                f"This <strong style=\"color:var(--gold);\">{region}, {country}</strong> determination covers the {dname} distillery record.",
-            ]
-            matching_html = f'<p style="color:var(--text-muted); font-size:0.95rem;">{no_match_leads[no_match_key % len(no_match_leads)]} Access full mash bill and cask maturation lineages via the <a href="/#pricing-section" style="color:var(--gold-light);">WhiskyDB Enterprise SQL Snapshot</a>.</p>'
+            matching_html = f'<p style="color:var(--text-muted); font-size:0.95rem;">Verified {dname} distillery record inside the <strong style="color:var(--gold);">{region}, {country}</strong> geographical determination. Access full mash bill and cask maturation lineages via the <a href="/#pricing-section" style="color:var(--gold-light);">WhiskyDB Enterprise SQL Snapshot</a>.</p>'
 
         profile_html = distillery_profile(d, matching)
+
+        distillery_related_items = (
+            [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"also {o['country']}") for o in distilleries if o is not d and o.get('country') == country][:3] +
+            [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"{o['country']}") for o in distilleries if o is not d and o.get('country') != country][:2]
+        )
+        distillery_related_items = _pad_related(
+            distillery_related_items, distilleries_by_name, distilleries_index, id(d),
+            lambda o: f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", lambda o: o['name'])
+        distillery_related_items.append(("../distilleries/", "All distilleries", None))
 
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{html.escape(fit_title(dname, f"{region} distillery", "WhiskyDB"))}</title>
+  <title>{html.escape(fit_title(dname, [f"{region} distillery", f"{country} distillery", "distillery"], "WhiskyDB"))}</title>
   <meta name="description" content="{html.escape(fit_desc(f"{dname} distillery in {region}, {country}: " + (f"{len(matching)} bottling(s) in WhiskyDB — {', '.join(m['name'] for m in matching)}. " if matching else "") + f"Source: {source_name}."))}" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="{page_url}" />
@@ -532,10 +541,7 @@ def main():
       </div>
     </div>
 
-    {related_block(
-        [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"also {o['country']}") for o in distilleries if o is not d and o.get('country') == country][:3] +
-        [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"{o['country']}") for o in distilleries if o is not d and o.get('country') != country][:2] +
-        [("../distilleries/", "All distilleries", None)], "Related distilleries")}
+    {related_block(distillery_related_items, "Related distilleries")}
   </main>
 
   <footer>
