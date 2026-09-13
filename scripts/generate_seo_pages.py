@@ -232,7 +232,7 @@ def main():
             ([(f"../distilleries/{slugify(dist['name'] + '-' + dist['country'] + '-' + dist['region'])}", f"{dist['name']} distillery", f"{dist['region']}, {dist['country']}")] if dist else []) +
             [(f"../spirits/{slugify(o['name'])}", o['name'], f"also {o['type']}") for o in spirits if o is not s and o.get('type') == stype][:3] +
             [(f"../spirits/{slugify(o['name'])}", o['name'], f"also from {distillery_of(o)['country']}") for o in spirits if o is not s and dist and distillery_of(o) and distillery_of(o)['country'] == dist['country'] and o.get('type') != stype][:2]
-        )
+        )[:5]  # leave room for the hub link below, which related_block would otherwise cap away
         spirit_related_items = _pad_related(
             spirit_related_items, spirits_by_name, spirits_index, id(s),
             lambda o: f"../spirits/{slugify(o['name'])}", lambda o: o['name'])
@@ -422,7 +422,7 @@ def main():
         distillery_related_items = (
             [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"also {o['country']}") for o in distilleries if o is not d and o.get('country') == country][:3] +
             [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"{o['country']}") for o in distilleries if o is not d and o.get('country') != country][:2]
-        )
+        )[:5]  # leave room for the hub link below, which related_block would otherwise cap away
         distillery_related_items = _pad_related(
             distillery_related_items, distilleries_by_name, distilleries_index, id(d),
             lambda o: f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", lambda o: o['name'])
