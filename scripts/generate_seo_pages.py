@@ -12,6 +12,19 @@ def slugify(text):
     text = re.sub(r'[^a-z0-9]+', '-', text)
     return text.strip('-')
 
+def nt(value):
+    """Wrap an (already escaped) data value in translate="no" so scripts/i18n_common.py keeps
+    it verbatim in the localized copies and translates only the copy around it. The English
+    rendering is unchanged."""
+    return f'<span translate="no">{value}</span>'
+
+def _mark_related(block, pairs):
+    """related_block() escapes labels and reasons, so data inside them is marked afterwards:
+    `pairs` is a list of (escaped_old, escaped_new) substring replacements."""
+    for old, new in pairs:
+        block = block.replace(old, new)
+    return block
+
 def _trim_num(v):
     """Drop a trailing '.0' from CSV numeric strings (e.g. '16.0' -> '16', keep '43.2')."""
     v = (v or '').strip()
@@ -25,7 +38,7 @@ def _pad_related(items, pool, index_of, self_key, href_of, label_of):
     invented, just labelled by their (real) adjacency rather than a shared field."""
     if len(items) >= 3:
         return items
-    have = {href for href, _, _ in items}
+    have = {item[0] for item in items}
     n = len(pool)
     i = index_of[self_key]
     dist = 1
@@ -37,7 +50,7 @@ def _pad_related(items, pool, index_of, self_key, href_of, label_of):
             href = href_of(cand)
             if href in have:
                 continue
-            items.append((href, label_of(cand), "neighbouring record"))
+            items.append((href, label_of(cand), "neighbouring record", False))
             have.add(href)
         dist += 1
     return items
@@ -61,12 +74,12 @@ def distillery_profile(d, matching):
     region_ok = region and region.lower() not in ('general', 'unknown', dname.lower())
     if country and country.lower() != 'unknown':
         if region_ok:
-            loc = f"in {html.escape(region_disp)}, {html.escape(country)}"
+            loc = f"in {nt(html.escape(region_disp))}, {nt(html.escape(country))}"
         else:
-            loc = f"in {html.escape(country)}"
+            loc = f"in {nt(html.escape(country))}"
     else:
-        loc = f"in {html.escape(region_disp)}" if region_ok else ""
-    geo = f"{html.escape(dname)} is a whisky distillery catalogued in WhiskyDB"
+        loc = f"in {nt(html.escape(region_disp))}" if region_ok else ""
+    geo = f"{nt(html.escape(dname))} is a whisky distillery catalogued in WhiskyDB"
     if loc:
         geo += f", based {loc}"
     geo += "."
@@ -83,7 +96,7 @@ def distillery_profile(d, matching):
             vol = (m.get('volume_ml') or '').strip()
             attrs = []
             if mtype:
-                attrs.append(f"a {html.escape(mtype)}")
+                attrs.append(f"a {nt(html.escape(mtype))}")
             if age and age.replace('.', '', 1).isdigit() and float(age) > 0:
                 attrs.append(f"carrying a {html.escape(_trim_num(age))}-year age statement")
             if abv:
@@ -91,9 +104,9 @@ def distillery_profile(d, matching):
             if vol:
                 attrs.append(f"in a {html.escape(vol)} ml format")
             if attrs:
-                clauses.append(f"{html.escape(mname)} — {', '.join(attrs)}")
+                clauses.append(f"{nt(html.escape(mname))} — {', '.join(attrs)}")
             else:
-                clauses.append(html.escape(mname))
+                clauses.append(nt(html.escape(mname)))
         if len(clauses) == 1:
             sentences.append(f"The catalog links it to {clauses[0]}.")
         else:
@@ -105,12 +118,13 @@ def distillery_profile(d, matching):
         # No individual bottlings for this distillery in the sparse public sample:
         # stay honest and lean on the real provenance field instead of padding.
         sentences.append(
-            f"Its record is attributed to {html.escape(source_name)}; "
+            f"Its record is attributed to {nt(html.escape(source_name))}; "
             "no individual bottlings are catalogued for it in this public sample."
         )
 
+    # one <span> per sentence: each optional sentence is its own translation segment
     return ('<p style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.8; '
-            'margin-top: 28px; max-width: 780px;">' + ' '.join(sentences) + '</p>')
+            'margin-top: 28px; max-width: 780px;">' + ' '.join(f"<span>{x}</span>" for x in sentences) + '</p>')
 
 def spirit_profile(s, dist):
     """Build a unique, data-derived <p> profile from a spirit's OWN real CSV fields
@@ -132,14 +146,14 @@ def spirit_profile(s, dist):
     # Sentence 1: what it is, built only from populated fields, always in the same order.
     attrs = []
     if stype:
-        attrs.append(f"a {html.escape(stype)}")
+        attrs.append(f"a {nt(html.escape(stype))}")
     if age and age.replace('.', '', 1).isdigit() and float(age) > 0:
         attrs.append(f"carrying a {html.escape(_trim_num(age))}-year age statement")
     if abv:
         attrs.append(f"bottled at {html.escape(_trim_num(abv))}% ABV")
     if vol:
         attrs.append(f"in a {html.escape(vol)} ml bottle")
-    name_e = html.escape(name)
+    name_e = nt(html.escape(name))
     if attrs:
         sentences.append(f"{name_e} is catalogued in WhiskyDB as {', '.join(attrs)}.")
     else:
@@ -152,17 +166,18 @@ def spirit_profile(s, dist):
         country = (dist.get('country') or '').strip()
         region_ok = region and region.lower() not in ('general', 'unknown', dname.lower())
         if country and country.lower() != 'unknown':
-            loc = f" in {html.escape(region)}, {html.escape(country)}" if region_ok else f" in {html.escape(country)}"
+            loc = f" in {nt(html.escape(region))}, {nt(html.escape(country))}" if region_ok else f" in {nt(html.escape(country))}"
         else:
-            loc = f" in {html.escape(region)}" if region_ok else ""
-        sentences.append(f"It is distilled by {html.escape(dname)}{loc}.")
+            loc = f" in {nt(html.escape(region))}" if region_ok else ""
+        sentences.append(f"It is distilled by {nt(html.escape(dname))}{loc}.")
 
     # Sentence 3: provenance.
     if source_name:
-        sentences.append(f"Source: {html.escape(source_name)}.")
+        sentences.append(f"Source: {nt(html.escape(source_name))}.")
 
+    # one <span> per sentence: each optional sentence is its own translation segment
     return ('<p style="color: var(--text-muted); font-size: 1.08rem; line-height: 1.8; '
-            'margin-top: 28px; max-width: 780px;">' + ' '.join(sentences) + '</p>')
+            'margin-top: 28px; max-width: 780px;">' + ' '.join(f"<span>{x}</span>" for x in sentences) + '</p>')
 
 def main():
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -230,13 +245,24 @@ def main():
 
         spirit_related_items = (
             ([(f"../distilleries/{slugify(dist['name'] + '-' + dist['country'] + '-' + dist['region'])}", f"{dist['name']} distillery", f"{dist['region']}, {dist['country']}")] if dist else []) +
-            [(f"../spirits/{slugify(o['name'])}", o['name'], f"also {o['type']}") for o in spirits if o is not s and o.get('type') == stype][:3] +
-            [(f"../spirits/{slugify(o['name'])}", o['name'], f"also from {distillery_of(o)['country']}") for o in spirits if o is not s and dist and distillery_of(o) and distillery_of(o)['country'] == dist['country'] and o.get('type') != stype][:2]
+            [(f"../spirits/{slugify(o['name'])}", o['name'], f"also {o['type']}", False) for o in spirits if o is not s and o.get('type') == stype][:3] +
+            [(f"../spirits/{slugify(o['name'])}", o['name'], f"also from {distillery_of(o)['country']}", False) for o in spirits if o is not s and dist and distillery_of(o) and distillery_of(o)['country'] == dist['country'] and o.get('type') != stype][:2]
         )[:5]  # leave room for the hub link below, which related_block would otherwise cap away
         spirit_related_items = _pad_related(
             spirit_related_items, spirits_by_name, spirits_index, id(s),
             lambda o: f"../spirits/{slugify(o['name'])}", lambda o: o['name'])
         spirit_related_items.append(("../spirits/", "All spirits and bottlings", None))
+
+        # data inside related labels/reasons (distillery name, region, country, type)
+        esc = html.escape
+        spirit_related_marks = [(f"— also {esc(stype)}</span>", f"— also {nt(esc(stype))}</span>")]
+        if dist:
+            spirit_related_marks += [
+                (f">{esc(dist['name'])} distillery</a>", f">{nt(esc(dist['name']))} distillery</a>"),
+                (f"— {esc(dist['region'])}, {esc(dist['country'])}</span>",
+                 f"— {nt(esc(dist['region']))}, {nt(esc(dist['country']))}</span>"),
+                (f"— also from {esc(dist['country'])}</span>", f"— also from {nt(esc(dist['country']))}</span>"),
+            ]
 
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -333,8 +359,8 @@ def main():
 
   <main class="container">
     <section class="hero">
-      <span class="badge mono">SPIRIT RECORD #{spirit_id or '101'} · {stype.upper()}</span>
-      <h1 class="heading" style="font-size: 2.6rem; margin-top: 8px;">{name}</h1>
+      <span class="badge mono">SPIRIT RECORD #{spirit_id or '101'} · {nt(stype.upper())}</span>
+      <h1 class="heading" style="font-size: 2.6rem; margin-top: 8px;" translate="no">{name}</h1>
       <p style="color: var(--text-muted); font-size: 1.15rem; margin-top: 8px;">Standardized provenance ledger record with quantitative ABV threshold, age statement, and source attribution.</p>
     </section>
 
@@ -345,7 +371,7 @@ def main():
         <h3 class="heading" style="font-size:1.4rem; color:var(--gold); margin-bottom:18px; border-bottom:1px solid var(--border); padding-bottom:12px;">Quantitative Determination</h3>
         <div class="metric-row">
           <span class="metric-label">Spirit Designation</span>
-          <span class="metric-val">{stype}</span>
+          <span class="metric-val" translate="no">{stype}</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Alcohol by Volume (ABV)</span>
@@ -365,7 +391,7 @@ def main():
         <h3 class="heading" style="font-size:1.4rem; color:var(--gold); margin-bottom:18px; border-bottom:1px solid var(--border); padding-bottom:12px;">Provenance & Ledger Source</h3>
         <div class="metric-row">
           <span class="metric-label">Source Authority</span>
-          <span class="metric-val" style="color:var(--text-main); font-size:0.88rem; text-align:right; max-width:60%;">{source_name}</span>
+          <span class="metric-val" style="color:var(--text-main); font-size:0.88rem; text-align:right; max-width:60%;" translate="no">{source_name}</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">License & Attribution</span>
@@ -377,7 +403,7 @@ def main():
       </div>
     </div>
 
-    {related_block(spirit_related_items, "Related spirits and distilleries")}
+    {_mark_related(related_block(spirit_related_items, "Related spirits and distilleries"), spirit_related_marks)}
   </main>
 
   <footer>
@@ -411,23 +437,31 @@ def main():
             mslug = slugify(m.get('name', ''))
             matching_html += f"""
         <div class="card" style="margin-bottom:16px;">
-          <h4 class="heading" style="font-size:1.15rem;"><a href="../spirits/{mslug}" style="color:var(--gold-light); text-decoration:none;">{m.get('name')}</a></h4>
-          <p style="color:var(--text-muted); font-size:0.9rem; margin-top:4px;">{m.get('type')} · {m.get('abv')}% ABV</p>
+          <h4 class="heading" style="font-size:1.15rem;"><a href="../spirits/{mslug}" style="color:var(--gold-light); text-decoration:none;" translate="no">{m.get('name')}</a></h4>
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-top:4px;">{nt(m.get('type'))} · {m.get('abv')}% ABV</p>
         </div>"""
 
         if not matching_html:
-            matching_html = f'<p style="color:var(--text-muted); font-size:0.95rem;">Verified {dname} distillery record inside the <strong style="color:var(--gold);">{region}, {country}</strong> geographical determination. Access full mash bill and cask maturation lineages via the <a href="/#pricing-section" style="color:var(--gold-light);">WhiskyDB Enterprise SQL Snapshot</a>.</p>'
+            matching_html = f'<p style="color:var(--text-muted); font-size:0.95rem;">Verified {nt(dname)} distillery record inside the <strong style="color:var(--gold);">{nt(region)}, {nt(country)}</strong> geographical determination. Access full mash bill and cask maturation lineages via the <a href="/#pricing-section" style="color:var(--gold-light);">WhiskyDB Enterprise SQL Snapshot</a>.</p>'
 
         profile_html = distillery_profile(d, matching)
 
         distillery_related_items = (
-            [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"also {o['country']}") for o in distilleries if o is not d and o.get('country') == country][:3] +
-            [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"{o['country']}") for o in distilleries if o is not d and o.get('country') != country][:2]
+            [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"also {o['country']}", False) for o in distilleries if o is not d and o.get('country') == country][:3] +
+            [(f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", o['name'], f"{o['country']}", False) for o in distilleries if o is not d and o.get('country') != country][:2]
         )[:5]  # leave room for the hub link below, which related_block would otherwise cap away
         distillery_related_items = _pad_related(
             distillery_related_items, distilleries_by_name, distilleries_index, id(d),
             lambda o: f"../distilleries/{slugify(o['name'] + '-' + o['country'] + '-' + o['region'])}", lambda o: o['name'])
         distillery_related_items.append(("../distilleries/", "All distilleries", None))
+
+        # data inside related reasons (country names)
+        distillery_related_marks = []
+        for c in sorted({(o.get('country') or '') for o in distilleries} - {''}):
+            distillery_related_marks += [
+                (f"— also {html.escape(c)}</span>", f"— also {nt(html.escape(c))}</span>"),
+                (f"— {html.escape(c)}</span>", f"— {nt(html.escape(c))}</span>"),
+            ]
 
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -509,9 +543,9 @@ def main():
 
   <main class="container">
     <section class="hero">
-      <span class="badge mono">DISTILLERY REGISTRY #{did or '201'} · {country.upper()}</span>
-      <h1 class="heading" style="font-size: 2.6rem; margin-top: 8px;">{dname} Distillery</h1>
-      <p style="color: var(--text-muted); font-size: 1.15rem; margin-top: 8px;">Geographical determination and regional water/mash lineage located in {region}, {country}.</p>
+      <span class="badge mono">DISTILLERY REGISTRY #{did or '201'} · {nt(country.upper())}</span>
+      <h1 class="heading" style="font-size: 2.6rem; margin-top: 8px;">{nt(dname)} Distillery</h1>
+      <p style="color: var(--text-muted); font-size: 1.15rem; margin-top: 8px;">Geographical determination and regional water/mash lineage located in {nt(region)}, {nt(country)}.</p>
     </section>
 
     {profile_html}
@@ -521,15 +555,15 @@ def main():
         <h3 class="heading" style="font-size:1.4rem; color:var(--gold); margin-bottom:18px; border-bottom:1px solid var(--border); padding-bottom:12px;">Geographical Registry</h3>
         <div class="metric-row">
           <span class="metric-label">Country of Origin</span>
-          <span class="metric-val">{country}</span>
+          <span class="metric-val" translate="no">{country}</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Appellation / Region</span>
-          <span class="metric-val">{region}</span>
+          <span class="metric-val" translate="no">{region}</span>
         </div>
         <div class="metric-row">
           <span class="metric-label">Source Citation</span>
-          <span class="metric-val" style="font-size:0.85rem; text-align:right; max-width:60%;">{source_name}</span>
+          <span class="metric-val" style="font-size:0.85rem; text-align:right; max-width:60%;" translate="no">{source_name}</span>
         </div>
         <div style="margin-top: 24px; text-align: center;">
           <a href="{source_url}" target="_blank" rel="noopener noreferrer" class="btn-link" style="display:inline-block; margin:0;">🔬 Verify Distillery Registry</a>
@@ -542,7 +576,7 @@ def main():
       </div>
     </div>
 
-    {related_block(distillery_related_items, "Related distilleries")}
+    {_mark_related(related_block(distillery_related_items, "Related distilleries"), distillery_related_marks)}
   </main>
 
   <footer>

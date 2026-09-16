@@ -7,8 +7,20 @@
     <meta name="description" content="Download 2,301 whisky and whiskey bottlings from 3,764 distilleries as SQLite or CSV — mash bills, cask lineages, 21,156 auction benchmarks. Free sample.">
     <meta name="google-site-verification" content="2VE0Ll5xPaIkGjSTkvTenDhcKRLJGPFgVqekvGOIw-4" />
     <link rel="canonical" href="https://whiskydb.dataengineered.io/">
+    <!-- i18n:alternates -->
     <link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/">
+    <link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/">
+    <link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/">
+    <link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/">
+    <link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/">
     <link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <script src="/i18n/i18n.js?v=1" defer></script>
+    <!-- /i18n:alternates -->
 
     <!-- OpenGraph Metadata -->
     <meta property="og:title" content="WhiskyDB — Whisky &amp; Whiskey Database: 2,301 Bottlings">
@@ -225,7 +237,7 @@
                             <span class="floating-icon">🪵</span>
                             <div>
                                 <div class="floating-title">Cask Lineage</div>
-                                <div class="floating-val">First-Fill Ex-Oloroso Sherry</div>
+                                <div class="floating-val" translate="no">First-Fill Ex-Oloroso Sherry</div>
                             </div>
                         </div>
                     </div>
@@ -250,10 +262,10 @@
                             <label for="filter-category">Spirit Category</label>
                             <select id="filter-category" class="demo-select">
                                 <option value="all">All Categories (Scotch, Bourbon, Rye...)</option>
-                                <option value="Single Malt Scotch">Single Malt Scotch</option>
-                                <option value="Bourbon">Kentucky Straight Bourbon</option>
-                                <option value="Rye Whiskey">Rye Whiskey</option>
-                                <option value="Japanese Whisky">Japanese Whisky</option>
+                                <option value="Single Malt Scotch" translate="no">Single Malt Scotch</option>
+                                <option value="Bourbon" translate="no">Kentucky Straight Bourbon</option>
+                                <option value="Rye Whiskey" translate="no">Rye Whiskey</option>
+                                <option value="Japanese Whisky" translate="no">Japanese Whisky</option>
                             </select>
                         </div>
                         <div class="control-group">
@@ -264,9 +276,9 @@
                             <label>Cask Maturation Filter</label>
                             <div class="tag-pills" id="cask-filter-container">
                                 <button class="filter-pill active" data-cask="all">All Casks</button>
-                                <button class="filter-pill" data-cask="Sherry">Sherry Cask</button>
-                                <button class="filter-pill" data-cask="Bourbon">Ex-Bourbon</button>
-                                <button class="filter-pill" data-cask="Mizunara">Mizunara Oak</button>
+                                <button class="filter-pill" data-cask="Sherry" translate="no">Sherry Cask</button>
+                                <button class="filter-pill" data-cask="Bourbon" translate="no">Ex-Bourbon</button>
+                                <button class="filter-pill" data-cask="Mizunara" translate="no">Mizunara Oak</button>
                             </div>
                         </div>
                         <div class="control-group">
@@ -497,13 +509,13 @@
                     <div id="contactSuccess" class="contact-success" style="display: none;">
                         <div class="contact-success-title">✦ Request sent successfully!</div>
                         <p>Your request is on its way to our desk. We'll reply to the address you provided with delivery and payment details shortly.</p>
-                        <p class="contact-success-note">No reply within 1 business day? Reach us directly at whiskydb@dataengineered.io.</p>
+                        <p class="contact-success-note">No reply within 1 business day? Reach us directly at <span translate="no">whiskydb@dataengineered.io</span>.</p>
                         <button type="button" class="btn btn-outline" onclick="resetContactForm()"><span>↻ Submit another request</span></button>
                     </div>
 
                     <div class="contact-footnote">
                         Card, invoice, or crypto · Fulfilled manually within 1 business day · Direct desk:
-                        <span>whiskydb@dataengineered.io</span>
+                        <span translate="no">whiskydb@dataengineered.io</span>
                     </div>
                 </div>
             </div>
@@ -557,9 +569,33 @@
             </div>
         </div>
     <div class="catalog-line" style="text-align:center; margin-top:14px; font-size:0.85rem; opacity:0.85;"><a href="https://dataengineered.io/">Part of the DataEngineered catalog →</a> · <a href="https://dataengineered.io/about">About</a> · <a href="https://dataengineered.io/terms">Terms</a> · <a href="https://dataengineered.io/privacy">Privacy</a> · <a href="https://dataengineered.io/refund-policy">Refund policy</a></div>
-</footer>
+<!-- i18n:switcher --><nav class="i18n-switch" translate="no" aria-label="Language" style="text-align:center;margin:14px auto;font-size:0.85rem;opacity:0.85;"><span aria-current="true" style="font-weight:600">English</span> · <a href="/es/" hreflang="es" lang="es" data-i18n-lang="es">Español</a> · <a href="/de/" hreflang="de" lang="de" data-i18n-lang="de">Deutsch</a> · <a href="/fr/" hreflang="fr" lang="fr" data-i18n-lang="fr">Français</a> · <a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-i18n-lang="pt-br">Português</a></nav><!-- /i18n:switcher --></footer>
 
-    <!-- Interactive Logic -->
+    <!-- Interactive Logic: runtime UI strings (read by app.js, translated per locale) -->
+    <script type="application/json" id="i18n-strings" data-i18n>{
+      "all_ages": "All Ages",
+      "years_old_suffix": "+ Years Old",
+      "empty_title": "No matching spirit records found",
+      "empty_text": "Try relaxing your age statement slider or selecting 'All Casks'.",
+      "age_abbrev": "YO",
+      "mash_bill_lineage": "Mash Bill Lineage",
+      "malt": "Malt",
+      "malted_barley": "Malted Barley",
+      "corn": "Corn",
+      "rye": "Rye",
+      "wheat": "Wheat",
+      "abv": "ABV",
+      "volume": "Volume",
+      "flavor_profile": "Flavor Profile",
+      "secondary_benchmark": "Secondary Benchmark",
+      "per_month": "/ month",
+      "copied": "✓ Copied!",
+      "copy_code": "Copy Code",
+      "sending": "Sending…",
+      "submit": "Request Dataset Access →",
+      "fail_title": "✦ Form provider unreachable",
+      "fail_note": "We could not send your request automatically. Please email whiskydb@dataengineered.io with your name, tier and use case — we reply within 1 business day."
+    }</script>
     <script src="app.js"></script>
     
     <!-- PWA Service Worker Registration -->

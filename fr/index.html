@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WhiskyDB — base de données whisky &amp; whiskey : 2 301 embouteillages</title>
+<meta content="Téléchargez 2 301 embouteillages de whisky et whiskey de 3 764 distilleries en SQLite ou CSV — recettes de moût, lignées de fûts, 21 156 références d’enchères. Échantillon gratuit." name="description"/>
+<meta content="2VE0Ll5xPaIkGjSTkvTenDhcKRLJGPFgVqekvGOIw-4" name="google-site-verification"/>
+<link href="https://whiskydb.dataengineered.io/fr/" rel="canonical"/>
+<!-- i18n:alternates -->
+<link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/">
+<link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/">
+<link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/">
+<link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/">
+<link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/">
+<link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/">
+<style>th,td{overflow-wrap:anywhere;hyphens:auto}h1,h2,h3,h4,button,.btn{overflow-wrap:break-word;hyphens:auto}</style>
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="pt_BR">
+<script src="/i18n/i18n.js?v=1" defer></script>
+<!-- /i18n:alternates -->
+<!-- OpenGraph Metadata -->
+<meta content="WhiskyDB — base de données whisky &amp; whiskey : 2 301 embouteillages" property="og:title"/>
+<meta content="2 301 embouteillages de whisky et whiskey de 3 764 distilleries — recettes de moût, lignées de fûts, 21 156 références mensuelles d’enchères. SQLite + CSV, échantillon gratuit." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://whiskydb.dataengineered.io/hero.png" property="og:image"/>
+<meta content="https://whiskydb.dataengineered.io/fr/" property="og:url"/>
+<!-- Google Fonts (Non-Blocking Asynchronous Loading) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&amp;family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;600;700;800&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&amp;family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/></noscript>
+<!-- PWA Manifest & Icons -->
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="#0a0b0d" name="theme-color"/>
+<!-- Styles -->
+<link href="/index.css" rel="stylesheet"/>
+<!-- JSON-LD Schema.org Dataset, FAQPage, ItemList, and BreadcrumbList Metadata -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "WhiskyDB — catalogue mondial & évaluations des spiritueux haut de gamme",
+  "description": "Catalogue structuré à provenance tracée de spiritueux haut de gamme et de whiskies, avec recettes de moût standardisées, lignées de maturation en fût, profils sensoriels et indices d’enchères du marché secondaire par distillerie.",
+  "url": "https://whiskydb.dataengineered.io/fr/",
+  "keywords": [
+    "base de données whisky",
+    "base de données whiskey",
+    "whisky",
+    "whiskey",
+    "scotch",
+    "bourbon",
+    "base de données de spiritueux",
+    "recette de moût",
+    "lignée de fût",
+    "profil de dégustation",
+    "évaluations aux enchères",
+    "single malt scotch",
+    "whisky japonais"
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "WhiskyDB Initiative",
+    "url": "https://github.com/WhiskyyDB/whisky-database"
+  },
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "variableMeasured": [
+    "spirit type and designation",
+    "age statement in years",
+    "alcohol by volume (ABV percentage)",
+    "cask maturation and finish lineage",
+    "distillery origin and region",
+    "normalized mash bill percentages (malt, corn, rye, wheat)",
+    "secondary market auction index in USD"
+  ],
+  "spatialCoverage": [
+    {
+      "@type": "Place",
+      "name": "Écosse"
+    },
+    {
+      "@type": "Place",
+      "name": "États-Unis"
+    },
+    {
+      "@type": "Place",
+      "name": "Japon"
+    },
+    {
+      "@type": "Place",
+      "name": "Monde"
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://github.com/WhiskyyDB/whisky-database/tree/main/samples"
+    }
+  ],
+  "inLanguage": "fr"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quels attributs de données la base de données de spiritueux WhiskyDB contient-elle ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaque fiche de spiritueux de WhiskyDB est normalisée avec le pourcentage exact de TAV, la mention d’âge, le volume de la bouteille en ml, les pourcentages standardisés de la recette de moût (maïs, seigle, blé, orge maltée), la lignée précise de maturation en fût (p. ex. First-Fill Oloroso Sherry, chêne Mizunara), les principaux tags sensoriels et la provenance de la distillerie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À quelle fréquence les évaluations d’enchères du marché secondaire sont-elles mises à jour ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les 21 156 références mensuelles de prix aux enchères par distillerie sont incluses dans le jeu de données. WhiskyDB est mis à jour chaque mois par un pipeline automatisé : l’abonnement à $49/month livre automatiquement chaque mise à jour, et l’achat unique à $49 livre le snapshot actuel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je télécharger un échantillon gratuit avant d’acheter une licence commerciale ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui ! Vous pouvez télécharger immédiatement nos jeux de données d’exemple publics au format CSV (spirits.csv et distilleries.csv) depuis notre dépôt GitHub open source, ou les explorer de manière interactive via notre Hugging Face Sample Explorer, sans clé API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment WhiskyDB vérifie-t-il les recettes de moût et les lignées de fûts des distilleries ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nous combinons les fiches techniques publiées par les producteurs, les dépôts d’étiquettes auprès des autorités (enregistrements TTB COLA) et des registres historiques de distilleries vérifiés en une chaîne de provenance immuable, avec citation des sources pour chaque détermination."
+      }
+    }
+  ],
+  "inLanguage": "fr"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Déterminations de spiritueux du monde entier à la une dans WhiskyDB",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Lagavulin 16 Year Old Single Malt Scotch"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Pappy Van Winkle Family Reserve 15 Year Old Bourbon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Yamazaki 12 Year Old Single Malt Japanese Whisky"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "The Macallan 18 Year Old Sherry Oak"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "George T. Stagg Barrel Proof Bourbon"
+    }
+  ],
+  "inLanguage": "fr"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://whiskydb.dataengineered.io/fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Explorateur interactif",
+      "item": "https://whiskydb.dataengineered.io/fr/#explorer-section"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Catalogue de spiritueux",
+      "item": "https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Hub des distilleries",
+      "item": "https://whiskydb.dataengineered.io/fr/distilleries/lagavulin-scotland-islay"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "WhiskyDB — catalogue mondial & évaluations des spiritueux haut de gamme — Snapshot",
+  "description": "Catalogue structuré à provenance tracée de spiritueux haut de gamme et de whiskies, avec recettes de moût standardisées, lignées de maturation en fût, profils sensoriels et indices d’enchères du marché secondaire par distillerie.",
+  "image": "https://whiskydb.dataengineered.io/hero.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "WhiskyDB"
+  },
+  "category": "Software > Data & Databases",
+  "offers": {
+    "@type": "Offer",
+    "price": "49.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://whiskydb.dataengineered.io/fr/#pricing-section",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "USD"
+      },
+      "shippingDestination": [
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "GB"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "CA"
+        },
+        {
+          "@type": "DefinedRegion",
+          "addressCountry": "AU"
+        }
+      ],
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
+          "maxValue": 0,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
+          "maxValue": 0,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": [
+        "US",
+        "GB",
+        "CA",
+        "AU"
+      ],
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    }
+  }
+}
+</script>
+</head>
+<body>
+<!-- Background Glow Effects -->
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<!-- Navigation -->
+<header class="navbar" id="main-navigation">
+<div class="nav-container">
+<a class="brand-logo" href="#">
+<span class="logo-icon">🥃</span>
+<span class="logo-text">Whisky<span class="text-gold">DB</span></span>
+</a>
+<nav class="nav-links">
+<a href="#features-section">Architecture</a>
+<a href="#live-demo-section">Démo en direct</a>
+<a href="#pricing-section">Tarifs</a>
+<a class="nav-btn-secondary" href="https://github.com/WhiskyyDB/whisky-database" target="_blank">GitHub</a>
+<a class="nav-btn-primary" href="#contact-section">Obtenir les données</a>
+</nav>
+</div>
+</header>
+<main id="main-content">
+<!-- Section 1: Hero Banner -->
+<section class="hero-section" id="hero-banner">
+<div class="hero-container">
+<div class="hero-content">
+<div class="badge-pill">
+<span class="badge-dot"></span>
+<span>Version Enterprise v1.0 • 9 sources de données intégrées</span>
+</div>
+<h1 class="hero-title">
+                        La base de données structurée de référence pour les <span class="text-gradient">spiritueux haut de gamme du monde entier</span>
+</h1>
+<p class="hero-subtitle">
+                        Au service des agents IA, de l’analytique des boissons, des plateformes d’enchères du marché secondaire et des technologies de l’hôtellerie-restauration, avec un catalogue à provenance entièrement tracée de fiches de spiritueux standardisées, de recettes de moût publiées, de lignées de fûts et d’indices réels du marché des enchères.
+                    </p>
+<div class="hero-ctas">
+<a class="btn btn-primary btn-lg" href="https://buy.stripe.com/eVq3cw4p2afccI382s38401" id="cta-buy-once">
+<span>Acheter le jeu de données · $49 en paiement unique</span>
+</a>
+<a class="btn btn-secondary btn-lg" href="#contact-section" id="cta-request-dataset">
+<span>Demander le jeu de données</span>
+</a>
+<a class="btn btn-outline btn-lg" href="https://github.com/WhiskyyDB/whisky-database/tree/main/samples" id="cta-download-sample" target="_blank">
+<span>Télécharger l’échantillon public</span>
+</a>
+<a class="btn btn-outline btn-lg" href="https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers" id="cta-hf-explorer" rel="noopener" target="_blank">
+<span>🤗 Essayer le Sample Explorer</span>
+</a>
+</div>
+<div class="hero-stats">
+<div class="stat-item">
+<span class="stat-num">2 301</span>
+<span class="stat-label">Spiritueux &amp; embouteillages</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<span class="stat-num">3 764</span>
+<span class="stat-label">Distilleries du monde entier</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<span class="stat-num">21 156</span>
+<span class="stat-label">Références de prix aux enchères</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<span class="stat-num">9</span>
+<span class="stat-label">Sources intégrées</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<span class="stat-num">100%</span>
+<span class="stat-label">Provenance tracée</span>
+</div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="visual-card-wrapper">
+<div class="glow-backdrop"></div>
+<img alt="WhiskyDB — carafe et nœuds de données de fûts en mode sombre luxueux" class="hero-image" id="hero-illustration" src="/hero.png"/>
+<div class="floating-badge badge-bottom">
+<span class="floating-icon">🪵</span>
+<div>
+<div class="floating-title">Lignée de fût</div>
+<div class="floating-val" translate="no">First-Fill Ex-Oloroso Sherry</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Live Interactive Demo -->
+<section class="demo-section" id="live-demo-section">
+<div class="section-container">
+<div class="section-header text-center">
+<h2 class="section-title">Catalogue interactif <span class="text-gradient">Démo en direct</span></h2>
+<p class="section-subtitle">
+                        Testez notre moteur de filtrage en temps réel. Filtrez par catégorie de spiritueux, mention d’âge minimale, style de maturation en fût et tags aromatiques sensoriels.
+                    </p>
+</div>
+<div class="demo-dashboard glass-card" id="demo-interface">
+<!-- Controls Bar -->
+<div class="demo-controls">
+<div class="control-group">
+<label for="filter-category">Catégorie de spiritueux</label>
+<select class="demo-select" id="filter-category">
+<option value="all">Toutes les catégories (Scotch, Bourbon, Rye…)</option>
+<option translate="no" value="Single Malt Scotch">Single Malt Scotch</option>
+<option translate="no" value="Bourbon">Kentucky Straight Bourbon</option>
+<option translate="no" value="Rye Whiskey">Rye Whiskey</option>
+<option translate="no" value="Japanese Whisky">Japanese Whisky</option>
+</select>
+</div>
+<div class="control-group">
+<label for="filter-age">Mention d’âge minimale : <span class="text-gold" id="age-display">Tous âges</span></label>
+<input class="demo-slider" id="filter-age" max="25" min="0" step="5" type="range" value="0"/>
+</div>
+<div class="control-group">
+<label>Filtre de maturation en fût</label>
+<div class="tag-pills" id="cask-filter-container">
+<button class="filter-pill active" data-cask="all">Tous les fûts</button>
+<button class="filter-pill" data-cask="Sherry" translate="no">Sherry Cask</button>
+<button class="filter-pill" data-cask="Bourbon" translate="no">Ex-Bourbon</button>
+<button class="filter-pill" data-cask="Mizunara" translate="no">Mizunara Oak</button>
+</div>
+</div>
+<div class="control-group">
+<label>Tag de descripteur aromatique</label>
+<div class="tag-pills" id="flavor-filter-container">
+<button class="filter-pill active" data-flavor="all">Tous les arômes</button>
+<button class="filter-pill" data-flavor="Peat Smoke">Fumée de tourbe</button>
+<button class="filter-pill" data-flavor="Vanilla">Vanille &amp; miel</button>
+<button class="filter-pill" data-flavor="Dried Fruit">Figues séchées &amp; raisins secs</button>
+</div>
+</div>
+</div>
+<!-- Results Counter & Status -->
+<div class="demo-status-bar">
+<div class="status-left">
+<span class="status-indicator live"></span>
+<span>Affichage de <strong class="text-gold" id="result-count">6</strong> fiches canoniques vérifiées</span>
+</div>
+<div class="status-right">
+<span class="text-muted">Temps de réponse : <strong>14ms</strong> • Normalisation : <strong>4 niveaux actifs</strong></span>
+</div>
+</div>
+<!-- Cards Grid -->
+<div class="spirits-grid" id="spirits-cards-container">
+<!-- Populated dynamically via app.js -->
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Data Architecture & Provenance -->
+<section class="architecture-section" id="features-section">
+<div class="section-container">
+<div class="section-header text-center">
+<h2 class="section-title">Architecture des données &amp; <span class="text-gradient">moteur de provenance</span></h2>
+<p class="section-subtitle">
+                        Comment nous transformons des registres web publics chaotiques et des exports de marché disparates en jeux de données propres, relationnels et de qualité institutionnelle.
+                    </p>
+</div>
+<div class="architecture-grid">
+<div class="arch-card glass-card">
+<div class="arch-icon">🌐</div>
+<h3>9 sources intégrées</h3>
+<p>Ingestion automatisée continue depuis Wikidata, Wikipedia, Open Food Facts, le registre TTB COLA, UK Companies House, eAmbrosia (UE) et les archives d’enchères de WhiskyHunter.</p>
+<div class="arch-tags">
+<span class="mini-tag">Domaine public</span>
+<span class="mini-tag">ODbL</span>
+<span class="mini-tag">FOIA (administration américaine)</span>
+</div>
+</div>
+<div class="arch-card glass-card">
+<div class="arch-icon">⚡</div>
+<h3>Normalisation à 4 niveaux</h3>
+<p>Des pipelines de nettoyage automatisés standardisent les pourcentages de TAV, les volumes de bouteille en ml, les recettes de moût en proportions exactes et les prix d’enchères du marché secondaire en USD.</p>
+<div class="arch-tags">
+<span class="mini-tag">Standardisation du TAV</span>
+<span class="mini-tag">Conversion de devises</span>
+<span class="mini-tag">Conversion d’unités</span>
+</div>
+</div>
+<div class="arch-card glass-card">
+<div class="arch-icon">🔗</div>
+<h3>Cartographie approfondie des lignées</h3>
+<p>Liens relationnels entre spiritueux, propriétaires de marques, embouteilleurs indépendants, distilleries, taxonomies hiérarchiques de fûts et roues des arômes sensorielles standardisées.</p>
+<div class="arch-tags">
+<span class="mini-tag">Schéma relationnel 3NF</span>
+<span class="mini-tag">Clés étrangères</span>
+</div>
+</div>
+</div>
+<!-- Provenance Ledger Showcase -->
+<div class="provenance-banner glass-card mt-12">
+<div class="prov-content">
+<h3>Auditabilité complète &amp; registre de provenance</h3>
+<p>Chaque attribut de WhiskyDB comporte une clé étrangère immuable vers notre table d’audit `data_sources`, avec les URL exactes des points de terminaison HTTP, les horodatages d’accès et les codes de statut. Ne vous fiez plus jamais à un scraping en boîte noire.</p>
+</div>
+<div class="prov-code">
+<pre><code>"primary_source": {
+  "source_name": "TTB COLA Registry (USA)",
+  "endpoint_url": "https://www.ttb.gov/cola/registry",
+  "access_timestamp": "2026-07-05T18:45:00Z",
+  "http_status": 200
+}</code></pre>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Commercial Pricing & Licensing -->
+<section class="pricing-section" id="pricing-section">
+<div class="section-container">
+<div class="section-header text-center">
+<h2 class="section-title"><span class="text-gradient">Tarifs</span> commerciaux transparents</h2>
+<p class="section-subtitle">
+                        Échantillon gratuit, snapshot en paiement unique ou mise à jour mensuelle livrée automatiquement — le tout issu du même catalogue à provenance tracée.
+                    </p>
+</div>
+<div class="pricing-grid">
+<!-- Tier 1: Free Sample -->
+<div class="pricing-card glass-card">
+<div class="card-header">
+<h3>Échantillon public pour la recherche</h3>
+<p class="tier-desc">Idéal pour la recherche académique, la data science sur Kaggle et les tests.</p>
+<div class="price-val">$0 <span class="price-period">/ à vie</span></div>
+</div>
+<ul class="tier-features">
+<li><span class="check-icon">✓</span> Échantillon sélectionné de 15 fiches</li>
+<li><span class="check-icon">✓</span> Licence d’échantillon CC BY-NC 4.0</li>
+<li><span class="check-icon">✓</span> Exports Kaggle CSV &amp; Parquet</li>
+<li><span class="check-icon">✓</span> Métadonnées de base des distilleries</li>
+<li class="disabled"><span class="cross-icon">✕</span> Évaluations du marché secondaire</li>
+</ul>
+<a class="btn btn-outline btn-full" href="https://github.com/WhiskyyDB/whisky-database/tree/main/samples" target="_blank">Télécharger l’échantillon</a>
+</div>
+<!-- Tier 2: Standard Catalog -->
+<div class="pricing-card glass-card popular-tier">
+<div class="popular-ribbon">Le plus populaire</div>
+<div class="card-header">
+<h3>Licence catalogue standard</h3>
+<p class="tier-desc">Pour les applications de boissons, les logiciels d’hôtellerie-restauration et l’e-commerce.</p>
+<div class="price-val">$49 <span class="price-period">paiement unique</span></div>
+</div>
+<ul class="tier-features">
+<li><span class="check-icon">✓</span> Catalogue commercial complet des spiritueux</li>
+<li><span class="check-icon">✓</span> Snapshots SQLite + CSV</li>
+<li><span class="check-icon">✓</span> Snapshot actuel ; mises à jour mensuelles livrées automatiquement avec l’abonnement</li>
+<li><span class="check-icon">✓</span> Taxonomies des recettes de moût &amp; des fûts</li>
+<li><span class="check-icon">✓</span> Licence commerciale incluse</li>
+<li><span class="check-icon">✓</span> Accès complet au registre de provenance</li>
+</ul>
+<a class="btn btn-primary btn-full" href="https://buy.stripe.com/eVq3cw4p2afccI382s38401">Achat unique · $49 → Téléchargement immédiat</a>
+<div style="margin-top:10px; text-align:center; font-size:0.78rem; opacity:0.85;">
+                            ou <a href="https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402" style="text-decoration:underline;">abonnez-vous · $49/month, chaque mise à jour mensuelle livrée automatiquement</a><br/> <span style="opacity:0.75;">Paiement sécurisé par carte via Stripe · facturation annuelle <a href="#contact-section" style="text-decoration:underline;">sur demande</a></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section § 04: Frequently Asked Questions -->
+<section class="faq-section" id="faq-section" style="padding: 80px 0; border-top: 1px solid rgba(212,175,55,0.15);">
+<div class="section-container">
+<div class="section-header text-center">
+<h2 class="section-title">§ 04 · Questions <span class="text-gradient">fréquentes</span></h2>
+<p class="section-subtitle">Questions fréquentes sur les normes de normalisation, le schéma, les évaluations et les licences de WhiskyDB.</p>
+</div>
+<div class="faq-grid" style="display: grid; gap: 20px; max-width: 800px; margin: 0 auto;">
+<div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Quels attributs de données la base de données de spiritueux WhiskyDB contient-elle ?</h3>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Chaque fiche de spiritueux de WhiskyDB est normalisée avec le pourcentage exact de TAV, la mention d’âge, le volume de la bouteille en ml, les pourcentages standardisés de la recette de moût (maïs, seigle, blé, orge maltée), la lignée précise de maturation en fût (p. ex. First-Fill Oloroso Sherry, chêne Mizunara), les principaux tags sensoriels et la provenance de la distillerie.</p>
+</div>
+<div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">À quelle fréquence les évaluations d’enchères du marché secondaire sont-elles mises à jour ?</h3>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Les 21 156 références mensuelles de prix aux enchères par distillerie sont incluses dans le jeu de données. WhiskyDB est mis à jour chaque mois par un pipeline automatisé : l’abonnement à $49/month livre automatiquement chaque mise à jour, et l’achat unique à $49 livre le snapshot actuel.</p>
+</div>
+<div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Puis-je télécharger un échantillon gratuit avant d’acheter une licence commerciale ?</h3>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Oui ! Vous pouvez télécharger immédiatement nos jeux de données d’exemple publics au format CSV (<code style="color:#e2c044;">spirits.csv</code> et <code style="color:#e2c044;">distilleries.csv</code>) depuis notre dépôt GitHub open source, ou les explorer de manière interactive via notre Hugging Face Sample Explorer, sans clé API.</p>
+</div>
+<div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Comment WhiskyDB vérifie-t-il les recettes de moût et les lignées de fûts des distilleries ?</h3>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Nous combinons les fiches techniques publiées par les producteurs, les dépôts d’étiquettes auprès des autorités (enregistrements TTB COLA) et des registres historiques de distilleries vérifiés en une chaîne de provenance immuable, avec citation des sources pour chaque détermination.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Contact / Request the Dataset -->
+<section class="contact-section" id="contact-section">
+<div class="section-container">
+<div class="section-header text-center">
+<h2 class="section-title">Demander le <span class="text-gradient">jeu de données complet</span></h2>
+<p class="section-subtitle">
+                        Dites-nous qui vous êtes et de quel niveau vous avez besoin — nous vous répondons sous 1 jour ouvré avec les détails de livraison et de paiement.
+                    </p>
+</div>
+<div class="glass-card contact-card">
+<form action="https://api.web3forms.com/submit" class="contact-form" id="contactForm" method="POST"><input name="lang" type="hidden" value="fr"/>
+<input name="access_key" type="hidden" value="bf34ff48-fcc6-4823-b386-9ae3d0712797"/>
+<input name="subject" type="hidden" value="New WhiskyDB Dataset Request"/>
+<input name="from_name" type="hidden" value="WhiskyDB Contact Form"/>
+<div class="form-group">
+<label class="form-label" for="userName">Nom complet / organisation *</label>
+<input class="form-input" id="userName" name="name" placeholder="p. ex. Hôtellerie Dupont SAS ou Marie Dupont" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="userEmail">Adresse e-mail de livraison *</label>
+<input class="form-input" id="userEmail" name="email" placeholder="vous@organisation.fr (lien du jeu de données envoyé ici)" required="" type="email"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="tierSelect">Niveau de licence *</label>
+<select class="form-select" id="tierSelect" name="tier" required="">
+<option value="Standard Catalog ($49 one-time or $49/month)">Catalogue standard — $49 en paiement unique, ou $49/month avec mise à jour livrée automatiquement</option>
+<option value="Custom / Other">Travaux de données personnalisés &amp; sur mesure</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label" for="useCase">Cas d’usage prévu</label>
+<input class="form-input" id="useCase" name="use_case" placeholder="p. ex. logiciel de carte de bar, analytique de valorisation, recherche" type="text"/>
+</div>
+<button class="btn btn-primary btn-full" id="contact-submit-btn" type="submit">
+<span>Demander l’accès au jeu de données →</span>
+</button>
+</form>
+<div class="contact-success" id="contactSuccess" style="display: none;">
+<div class="contact-success-title">✦ Demande envoyée avec succès !</div>
+<p>Votre demande est en route vers notre équipe. Nous répondrons prochainement à l’adresse indiquée avec les détails de livraison et de paiement.</p>
+<p class="contact-success-note">Pas de réponse sous 1 jour ouvré ? Écrivez-nous directement à <span translate="no">whiskydb@dataengineered.io</span>.</p>
+<button class="btn btn-outline" onclick="resetContactForm()" type="button"><span>↻ Envoyer une autre demande</span></button>
+</div>
+<div class="contact-footnote">
+                        Carte, facture ou crypto · Traitement manuel sous 1 jour ouvré · Contact direct : <span translate="no">whiskydb@dataengineered.io</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- BEGIN:hub-browse -->
+<section id="browse" style="max-width:1000px;margin:0 auto;padding:30px 24px;border-top:1px solid rgba(128,128,128,.28)">
+<h2 style="font-size:1.05rem;margin:0 0 8px">Parcourir toutes les pages</h2>
+<p style="margin:0;opacity:.85"><a href="/fr/distilleries/">15 distilleries</a> · <a href="/fr/spirits/">15 spiritueux et embouteillages</a></p>
+</section>
+<!-- END:hub-browse -->
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-brand">
+<div class="brand-logo mb-4">
+<span class="logo-icon">🥃</span>
+<span class="logo-text">Whisky<span class="text-gold">DB</span></span>
+</div>
+<p class="footer-desc">
+                    La base de données structurée la plus rigoureuse au monde pour les spiritueux haut de gamme, les distilleries, les recettes de moût et les évaluations de marché. Conçue pour les développeurs, les analystes et les plateformes institutionnelles du secteur des boissons.
+                </p>
+<div class="footer-copyright">
+                    © 2026 WhiskyDB Initiative. Échantillon &amp; documentation : CC BY-NC 4.0 ; taxonomies : CC BY 4.0.
+                </div>
+</div>
+<div class="footer-links">
+<div class="link-column">
+<h4>Architecture</h4>
+<a href="#features-section">Sources de données</a>
+<a href="#features-section">Moteur de normalisation</a>
+<a href="#features-section">Registre de provenance</a>
+<a href="#features-section">Taxonomie des fûts</a>
+</div>
+<div class="link-column">
+<h4>Produits</h4>
+<a href="#contact-section">Demander le jeu de données</a>
+<a href="https://github.com/WhiskyyDB/whisky-database/tree/main/samples" target="_blank">Échantillon public gratuit (CSV)</a>
+<a href="https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample" rel="noopener" target="_blank">Jeu de données d’exemple Hugging Face</a>
+<a href="https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers" rel="noopener" target="_blank">Explorateur d’échantillons interactif</a>
+<a href="#pricing-section">Licences Enterprise</a>
+</div>
+<div class="link-column">
+<h4>Open source</h4>
+<a href="https://github.com/WhiskyyDB/whisky-database" target="_blank">Dépôt GitHub</a>
+<a href="https://github.com/WhiskyyDB/whisky-database/issues" target="_blank">Suivi des tickets</a>
+<a href="https://github.com/WhiskyyDB/whisky-database/blob/main/SOURCES.md" target="_blank">Sources &amp; licences</a>
+<a href="#contact-section">Contact</a>
+</div>
+</div>
+</div>
+<div class="catalog-line" style="text-align:center; margin-top:14px; font-size:0.85rem; opacity:0.85;"><a href="https://dataengineered.io/">Fait partie du catalogue DataEngineered →</a> · <a href="https://dataengineered.io/about">À propos</a> · <a href="https://dataengineered.io/terms">Conditions</a> · <a href="https://dataengineered.io/privacy">Confidentialité</a> · <a href="https://dataengineered.io/refund-policy">Politique de remboursement</a></div>
+<!-- i18n:switcher --><nav class="i18n-switch" translate="no" aria-label="Langue" style="text-align:center;margin:14px auto;font-size:0.85rem;opacity:0.85;"><a href="/" hreflang="en" lang="en" data-i18n-lang="en">English</a> · <a href="/es/" hreflang="es" lang="es" data-i18n-lang="es">Español</a> · <a href="/de/" hreflang="de" lang="de" data-i18n-lang="de">Deutsch</a> · <span aria-current="true" style="font-weight:600">Français</span> · <a href="/pt-br/" hreflang="pt-BR" lang="pt-BR" data-i18n-lang="pt-br">Português</a></nav><!-- /i18n:switcher --></footer>
+<!-- Interactive Logic: runtime UI strings (read by app.js, translated per locale) -->
+<script data-i18n="" id="i18n-strings" type="application/json">
+{
+  "all_ages": "Tous âges",
+  "years_old_suffix": "+ ans d’âge",
+  "empty_title": "Aucune fiche de spiritueux correspondante",
+  "empty_text": "Essayez d’élargir le curseur de mention d’âge ou de sélectionner « Tous les fûts ».",
+  "age_abbrev": "ans",
+  "mash_bill_lineage": "Lignée de la recette de moût",
+  "malt": "Malt",
+  "malted_barley": "Orge maltée",
+  "corn": "Maïs",
+  "rye": "Seigle",
+  "wheat": "Blé",
+  "abv": "TAV",
+  "volume": "Volume",
+  "flavor_profile": "Profil aromatique",
+  "secondary_benchmark": "Référence du marché secondaire",
+  "per_month": "/ mois",
+  "copied": "✓ Copié !",
+  "copy_code": "Copier le code",
+  "sending": "Envoi…",
+  "submit": "Demander l’accès au jeu de données →",
+  "fail_title": "✦ Service de formulaire injoignable",
+  "fail_note": "Nous n’avons pas pu envoyer votre demande automatiquement. Veuillez écrire à whiskydb@dataengineered.io en indiquant votre nom, le niveau et le cas d’usage — nous répondons sous 1 jour ouvré."
+}
+</script>
+<script src="/app.js"></script>
+<!-- PWA Service Worker Registration -->
+<script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(reg => {
+            console.log('WhiskyDB PWA ServiceWorker successfully registered:', reg.scope);
+          }).catch(err => {
+            console.warn('WhiskyDB PWA ServiceWorker registration error:', err);
+          });
+        });
+      }
+    </script>
+</body>
+</html>

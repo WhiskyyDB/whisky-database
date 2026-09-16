@@ -12,7 +12,7 @@
  * are never written to or served from the cache.
  */
 
-const CACHE_NAME = 'whiskydb-public-cache-v2026.09.1';
+const CACHE_NAME = 'whiskydb-public-cache-v2026.09.2';
 const CORE_ASSETS = [
   '/',
   '/index.css',
