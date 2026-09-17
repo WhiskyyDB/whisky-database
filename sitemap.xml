@@ -1,201 +1,1983 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://whiskydb.dataengineered.io/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/aberargie-scotland-aberargie</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/aberargie-scotland-aberargie</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/aberargie-scotland-aberargie</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/aberargie-scotland-aberargie</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberargie-scotland-aberargie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberargie-scotland-aberargie"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/aberfeldy-scotland-aberfeldy</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/aberfeldy-scotland-aberfeldy</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/aberfeldy-scotland-aberfeldy</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/aberfeldy-scotland-aberfeldy</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberfeldy-scotland-aberfeldy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberfeldy-scotland-aberfeldy"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/aberlour-scotland-aberlour</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/aberlour-scotland-aberlour</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/aberlour-scotland-aberlour</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/aberlour-scotland-aberlour</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/aberlour-scotland-aberlour"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/aberlour-scotland-aberlour"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/abhainn-dearg-scotland-uig-isle-of-lewis"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/ailsa-bay-scotland-girvan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/ailsa-bay-scotland-girvan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/ailsa-bay-scotland-girvan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/ailsa-bay-scotland-girvan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ailsa-bay-scotland-girvan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ailsa-bay-scotland-girvan"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/allt-a-bhainne-scotland-glenrinnes</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/allt-a-bhainne-scotland-glenrinnes</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/allt-a-bhainne-scotland-glenrinnes</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/allt-a-bhainne-scotland-glenrinnes</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/allt-a-bhainne-scotland-glenrinnes"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/annandale-scotland-annan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/annandale-scotland-annan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/annandale-scotland-annan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/annandale-scotland-annan</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/annandale-scotland-annan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/annandale-scotland-annan"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/arbikie-scotland-inverkeilor</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/arbikie-scotland-inverkeilor</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/arbikie-scotland-inverkeilor</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/arbikie-scotland-inverkeilor</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/arbikie-scotland-inverkeilor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/arbikie-scotland-inverkeilor"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/ardbeg-scotland-port-ellen</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/ardbeg-scotland-port-ellen</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/ardbeg-scotland-port-ellen</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/ardbeg-scotland-port-ellen</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/ardbeg-scotland-port-ellen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/ardbeg-scotland-port-ellen"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/buffalo-trace-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/buffalo-trace-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/buffalo-trace-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/buffalo-trace-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/buffalo-trace-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/buffalo-trace-usa-kentucky"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/bulleit-distilling-co-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/bulleit-distilling-co-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/bulleit-distilling-co-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/bulleit-distilling-co-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/bulleit-distilling-co-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/bulleit-distilling-co-usa-kentucky"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/four-roses-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/four-roses-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/four-roses-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/four-roses-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/four-roses-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/four-roses-usa-kentucky"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/lagavulin-scotland-islay</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/lagavulin-scotland-islay</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/lagavulin-scotland-islay</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/lagavulin-scotland-islay</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/lagavulin-scotland-islay"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/lagavulin-scotland-islay"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/woodford-reserve-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/woodford-reserve-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/woodford-reserve-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/woodford-reserve-usa-kentucky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/woodford-reserve-usa-kentucky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/woodford-reserve-usa-kentucky"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/distilleries/yamazaki-japan-osaka</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/distilleries/yamazaki-japan-osaka</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/distilleries/yamazaki-japan-osaka</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/yamazaki-japan-osaka</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/distilleries/yamazaki-japan-osaka"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/distilleries/yamazaki-japan-osaka"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/ballantine-s-finest</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/ballantine-s-finest</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/ballantine-s-finest</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/ballantine-s-finest</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/ballantine-s-finest</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/ballantine-s-finest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/ballantine-s-finest"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/bulleit-bourbon</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/bulleit-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/bulleit-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/bulleit-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/bulleit-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/bulleit-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/bulleit-bourbon"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/eagle-rare-10-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/eagle-rare-10-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/eagle-rare-10-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/eagle-rare-10-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/eagle-rare-10-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/four-roses-single-barrel</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/four-roses-single-barrel</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/four-roses-single-barrel</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/four-roses-single-barrel</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/four-roses-single-barrel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-no-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-no-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-no-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-no-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-no-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-no-7"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jack-daniel-s-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jack-daniel-s-whiskey"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/jameson-whiskey</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/jameson-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/jameson-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/jameson-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/jameson-whiskey</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/jameson-whiskey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/jameson-whiskey"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/johnnie-walker-red-scotch-whisky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/johnnie-walker-red-scotch-whisky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/johnnie-walker-red-scotch-whisky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/johnnie-walker-red-scotch-whisky</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/johnnie-walker-red-scotch-whisky"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/johnnie-walker-red-scotch-whisky"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/lagavulin-16-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/lagavulin-16-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/lagavulin-16-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/lagavulin-16-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/monkey-shoulder</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/monkey-shoulder</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/monkey-shoulder</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/monkey-shoulder</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/monkey-shoulder</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/monkey-shoulder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/monkey-shoulder"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-40-vol</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-40-vol</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-40-vol</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-40-vol</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-40-vol"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-40-vol"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-ecosse-blended-sans-ge-1-l-sir-edwards"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/whisky-old-n-7</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/whisky-old-n-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/whisky-old-n-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/whisky-old-n-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/whisky-old-n-7</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/whisky-old-n-7"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/whisky-old-n-7"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/woodford-reserve-kentucky-straight-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/woodford-reserve-kentucky-straight-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/woodford-reserve-kentucky-straight-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/woodford-reserve-kentucky-straight-bourbon</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/woodford-reserve-kentucky-straight-bourbon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"/>
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/es/spirits/yamazaki-12-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/de/spirits/yamazaki-12-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/fr/spirits/yamazaki-12-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+  </url>
+  <url>
+    <loc>https://whiskydb.dataengineered.io/pt-br/spirits/yamazaki-12-year-old</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://whiskydb.dataengineered.io/es/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://whiskydb.dataengineered.io/de/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://whiskydb.dataengineered.io/fr/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://whiskydb.dataengineered.io/pt-br/spirits/yamazaki-12-year-old"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"/>
   </url>
 </urlset>

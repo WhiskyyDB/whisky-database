@@ -2,6 +2,10 @@
  * WhiskyDB Enterprise Marketing Site - Interactive Logic Engine
  */
 
+// Runtime UI strings live in the page's #i18n-strings table so localized copies of the
+// page (/es/, /de/, …) ship them translated (see scripts/i18n_common.py).
+const I18N = JSON.parse(document.getElementById("i18n-strings").textContent);
+
 document.addEventListener("DOMContentLoaded", () => {
     initCatalogDemo();
     initPricingToggle();
@@ -167,7 +171,7 @@ function initCatalogDemo() {
     ageSlider.addEventListener("input", (e) => {
         const val = parseInt(e.target.value, 10);
         currentFilters.minAge = val;
-        ageDisplay.textContent = val === 0 ? "All Ages" : `${val}+ Years Old`;
+        ageDisplay.textContent = val === 0 ? I18N.all_ages : `${val}${I18N.years_old_suffix}`;
         renderSpiritsGrid();
     });
 
@@ -222,8 +226,8 @@ function renderSpiritsGrid() {
     if (filtered.length === 0) {
         container.innerHTML = `
             <div class="glass-card text-center" style="grid-column: 1 / -1; padding: 48px;">
-                <h3 style="margin-bottom: 8px;">No matching spirit records found</h3>
-                <p class="text-muted">Try relaxing your age statement slider or selecting 'All Casks'.</p>
+                <h3 style="margin-bottom: 8px;">${I18N.empty_title}</h3>
+                <p class="text-muted">${I18N.empty_text}</p>
             </div>
         `;
         return;
@@ -235,7 +239,7 @@ function renderSpiritsGrid() {
             <article class="spirit-card">
                 <div class="card-top">
                     <span class="spirit-type-badge">${bottle.category}</span>
-                    <span class="spirit-age">${bottle.age} YO</span>
+                    <span class="spirit-age">${bottle.age} ${I18N.age_abbrev}</span>
                 </div>
                 <div>
                     <h3 class="spirit-name">${bottle.name}</h3>
@@ -245,35 +249,35 @@ function renderSpiritsGrid() {
                 <!-- Mash Bill Visualizer -->
                 <div>
                     <div class="mash-labels">
-                        <span>Mash Bill Lineage</span>
-                        <span>${malt > 0 ? `${malt}% Malt ` : ''}${corn > 0 ? `${corn}% Corn ` : ''}${rye > 0 ? `${rye}% Rye ` : ''}${wheat > 0 ? `${wheat}% Wheat` : ''}</span>
+                        <span>${I18N.mash_bill_lineage}</span>
+                        <span>${malt > 0 ? `${malt}% ${I18N.malt} ` : ''}${corn > 0 ? `${corn}% ${I18N.corn} ` : ''}${rye > 0 ? `${rye}% ${I18N.rye} ` : ''}${wheat > 0 ? `${wheat}% ${I18N.wheat}` : ''}</span>
                     </div>
                     <div class="mash-bill-bar">
-                        ${malt > 0 ? `<div class="mash-malt" style="width: ${malt}%" title="${malt}% Malted Barley"></div>` : ''}
-                        ${corn > 0 ? `<div class="mash-corn" style="width: ${corn}%" title="${corn}% Corn"></div>` : ''}
-                        ${rye > 0 ? `<div class="mash-rye" style="width: ${rye}%" title="${rye}% Rye"></div>` : ''}
-                        ${wheat > 0 ? `<div class="mash-wheat" style="width: ${wheat}%" title="${wheat}% Wheat"></div>` : ''}
+                        ${malt > 0 ? `<div class="mash-malt" style="width: ${malt}%" title="${malt}% ${I18N.malted_barley}"></div>` : ''}
+                        ${corn > 0 ? `<div class="mash-corn" style="width: ${corn}%" title="${corn}% ${I18N.corn}"></div>` : ''}
+                        ${rye > 0 ? `<div class="mash-rye" style="width: ${rye}%" title="${rye}% ${I18N.rye}"></div>` : ''}
+                        ${wheat > 0 ? `<div class="mash-wheat" style="width: ${wheat}%" title="${wheat}% ${I18N.wheat}"></div>` : ''}
                     </div>
                 </div>
 
                 <div class="card-meta-row">
                     <div class="meta-item">
-                        <span class="text-dim">ABV</span>
+                        <span class="text-dim">${I18N.abv}</span>
                         <span class="meta-val">${bottle.abv.toFixed(1)}%</span>
                     </div>
                     <div class="meta-item">
-                        <span class="text-dim">Volume</span>
+                        <span class="text-dim">${I18N.volume}</span>
                         <span class="meta-val">${bottle.volume} mL</span>
                     </div>
                     <div class="meta-item">
-                        <span class="text-dim">Flavor Profile</span>
+                        <span class="text-dim">${I18N.flavor_profile}</span>
                         <span class="meta-val text-gold">${bottle.flavorTag}</span>
                     </div>
                 </div>
 
                 <div class="card-footer">
                     <div>
-                        <div class="text-dim" style="font-size: 0.75rem;">Secondary Benchmark</div>
+                        <div class="text-dim" style="font-size: 0.75rem;">${I18N.secondary_benchmark}</div>
                         <div class="price-val-card">$${bottle.priceUsd.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD</div>
                     </div>
                     <span class="cask-tag">${bottle.cask}</span>
@@ -306,7 +310,7 @@ function initPricingToggle() {
 
         priceElements.forEach(el => {
             const val = isAnnual ? el.getAttribute("data-annual") : el.getAttribute("data-monthly");
-            el.innerHTML = `$${val} <span class="price-period">/ month</span>`;
+            el.innerHTML = `$${val} <span class="price-period">${I18N.per_month}</span>`;
         });
     });
 }
@@ -341,12 +345,12 @@ function initCodeTabs() {
 
         const textToCopy = activePane.innerText || activePane.textContent;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            copyText.textContent = "✓ Copied!";
+            copyText.textContent = I18N.copied;
             copyBtn.style.borderColor = "#22c55e";
             copyBtn.style.color = "#22c55e";
 
             setTimeout(() => {
-                copyText.textContent = "Copy Code";
+                copyText.textContent = I18N.copy_code;
                 copyBtn.style.borderColor = "";
                 copyBtn.style.color = "";
             }, 2000);
@@ -387,7 +391,7 @@ if (contactForm) {
         const submitBtn = document.getElementById("contact-submit-btn");
         if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.querySelector("span").textContent = "Sending…";
+            submitBtn.querySelector("span").textContent = I18N.sending;
         }
 
         const name = document.getElementById("userName").value.trim();
@@ -432,15 +436,15 @@ if (contactForm) {
                 if (successEl) {
                     successEl.style.display = "block";
                     const titleEl = successEl.querySelector(".contact-success-title");
-                    if (titleEl) titleEl.textContent = "✦ Form provider unreachable";
+                    if (titleEl) titleEl.textContent = I18N.fail_title;
                     const noteEl = successEl.querySelector("p");
-                    if (noteEl) noteEl.textContent = "We could not send your request automatically. Please email whiskydb@dataengineered.io with your name, tier and use case — we reply within 1 business day.";
+                    if (noteEl) noteEl.textContent = I18N.fail_note;
                 }
             })
             .finally(function () {
                 if (submitBtn) {
                     submitBtn.disabled = false;
-                    submitBtn.querySelector("span").textContent = "Request Dataset Access →";
+                    submitBtn.querySelector("span").textContent = I18N.submit;
                 }
             });
     });
