@@ -18,5 +18,8 @@
   "min_coverage": 0.9,
   "notranslate": [
     ".dirhub-list a"
+  ],
+  "header_switcher": [
+    {"selector": "#main-navigation nav.nav-links", "position": "after"}
   ]
 }
