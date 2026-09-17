@@ -1101,6 +1101,41 @@ input:checked + .slider:before {
     .nav-links {
         display: none;
     }
+
+    /* keep phones free of sideways scroll: the decorative glow, the stat row and
+       grid children with wide content (selects, code) must fit the viewport */
+    .bg-glow-1 {
+        left: 0;
+        width: 100%;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: 20px 24px;
+    }
+
+    .hero-container > *,
+    .demo-controls > *,
+    .provenance-banner > * {
+        min-width: 0;
+    }
+
+    .hero-title {
+        overflow-wrap: break-word;
+    }
+
+    .demo-select {
+        max-width: 100%;
+    }
+
+    .footer-container > * {
+        min-width: 0;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 24px;
+    }
 }
 
 /* ==========================================================================
