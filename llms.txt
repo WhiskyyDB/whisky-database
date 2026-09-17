@@ -4,6 +4,7 @@
 
 ## Key Links & Documentation
 - [Landing Page](https://whiskydb.dataengineered.io/)
+- [Whisky Statistics & Auction Price Index](https://whiskydb.dataengineered.io/stats/): a yearly auction price index (from 2006) across the distilleries tracked over the whole period, distillery rankings, spirit types, ABV, producer countries and founding decades, computed from the full snapshot; CC BY 4.0, with [data.json](https://whiskydb.dataengineered.io/stats/data.json) and embeddable SVG charts.
 - [GitHub Repository](https://github.com/WhiskyyDB/whisky-database)
 - [Data Dictionary & Field Definitions](https://whiskydb.dataengineered.io/DATA_DICTIONARY.md)
 - [Sources & Upstream Licenses](https://whiskydb.dataengineered.io/SOURCES.md)

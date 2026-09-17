@@ -1,0 +1,1137 @@
+{
+ "dataset": "WhiskyDB",
+ "page": "https://whiskydb.dataengineered.io/stats/",
+ "generated": "2026-09-17",
+ "snapshot": "2026-09-02",
+ "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) - attribute with a link to the page; WhiskyHunter, Companies House and Wikipedia-derived figures retain those sources' attribution terms",
+ "totals": {
+  "spirits": 2294,
+  "producers": 3762,
+  "producers_with_country": 3377,
+  "producer_countries": 106,
+  "price_rows": 21156,
+  "price_first": "2005-11-01",
+  "price_last": "2024-09-01",
+  "price_distilleries": 59,
+  "price_distillery_months": 7225
+ },
+ "auction_index_gbp": {
+  "method": "mean monthly winning bid per distillery (WhiskyHunter), yearly mean per distillery, then mean across distilleries",
+  "distilleries": [
+   "Aberlour",
+   "Ardbeg",
+   "Balvenie",
+   "Bowmore",
+   "Bruichladdich",
+   "Bunnahabhain",
+   "Bushmills",
+   "Caol Ila",
+   "Cardhu",
+   "Cragganmore",
+   "Glen Grant",
+   "Glen Moray",
+   "Glendronach",
+   "Glendullan",
+   "Glenfarclas",
+   "Glenfiddich",
+   "Glenkinchie",
+   "Glenmorangie",
+   "Highland Park",
+   "Jack Daniel's",
+   "Knockando",
+   "Lagavulin",
+   "Laphroaig",
+   "Oban",
+   "Scapa",
+   "Talisker",
+   "Tamdhu",
+   "Woodford Reserve",
+   "Yamazaki"
+  ],
+  "last_year_months": 9,
+  "years": [
+   {
+    "year": 2006,
+    "mean_gbp": 53.0,
+    "distilleries": 29
+   },
+   {
+    "year": 2007,
+    "mean_gbp": 58.4,
+    "distilleries": 29
+   },
+   {
+    "year": 2008,
+    "mean_gbp": 79.6,
+    "distilleries": 29
+   },
+   {
+    "year": 2009,
+    "mean_gbp": 107.1,
+    "distilleries": 29
+   },
+   {
+    "year": 2010,
+    "mean_gbp": 98.3,
+    "distilleries": 29
+   },
+   {
+    "year": 2011,
+    "mean_gbp": 108.5,
+    "distilleries": 29
+   },
+   {
+    "year": 2012,
+    "mean_gbp": 108.8,
+    "distilleries": 29
+   },
+   {
+    "year": 2013,
+    "mean_gbp": 117.4,
+    "distilleries": 29
+   },
+   {
+    "year": 2014,
+    "mean_gbp": 141.2,
+    "distilleries": 29
+   },
+   {
+    "year": 2015,
+    "mean_gbp": 147.9,
+    "distilleries": 29
+   },
+   {
+    "year": 2016,
+    "mean_gbp": 164.7,
+    "distilleries": 29
+   },
+   {
+    "year": 2017,
+    "mean_gbp": 192.0,
+    "distilleries": 29
+   },
+   {
+    "year": 2018,
+    "mean_gbp": 231.4,
+    "distilleries": 29
+   },
+   {
+    "year": 2019,
+    "mean_gbp": 214.3,
+    "distilleries": 29
+   },
+   {
+    "year": 2020,
+    "mean_gbp": 214.6,
+    "distilleries": 29
+   },
+   {
+    "year": 2021,
+    "mean_gbp": 242.3,
+    "distilleries": 29
+   },
+   {
+    "year": 2022,
+    "mean_gbp": 263.3,
+    "distilleries": 29
+   },
+   {
+    "year": 2023,
+    "mean_gbp": 232.4,
+    "distilleries": 29
+   },
+   {
+    "year": 2024,
+    "mean_gbp": 207.5,
+    "distilleries": 29
+   }
+  ],
+  "peak_year": {
+   "year": 2022,
+   "value": 263.3
+  },
+  "peak_month": {
+   "month": "2022-05",
+   "value": 369.9
+  },
+  "multiple_first_to_last": 3.92,
+  "change_from_peak_pct": -21.2,
+  "per_distillery": [
+   {
+    "distillery": "Yamazaki",
+    "first_year_gbp": 36.0,
+    "decade_ago_gbp": 370.6,
+    "latest_gbp": 698.7,
+    "decade_change_pct": 88.5
+   },
+   {
+    "distillery": "Glenfarclas",
+    "first_year_gbp": 75.2,
+    "decade_ago_gbp": 175.3,
+    "latest_gbp": 416.0,
+    "decade_change_pct": 137.3
+   },
+   {
+    "distillery": "Bowmore",
+    "first_year_gbp": 69.3,
+    "decade_ago_gbp": 233.8,
+    "latest_gbp": 387.9,
+    "decade_change_pct": 65.9
+   },
+   {
+    "distillery": "Glen Grant",
+    "first_year_gbp": 42.7,
+    "decade_ago_gbp": 165.1,
+    "latest_gbp": 353.2,
+    "decade_change_pct": 113.9
+   },
+   {
+    "distillery": "Glendronach",
+    "first_year_gbp": 51.6,
+    "decade_ago_gbp": 136.8,
+    "latest_gbp": 309.8,
+    "decade_change_pct": 126.5
+   },
+   {
+    "distillery": "Balvenie",
+    "first_year_gbp": 57.3,
+    "decade_ago_gbp": 227.6,
+    "latest_gbp": 285.0,
+    "decade_change_pct": 25.2
+   },
+   {
+    "distillery": "Ardbeg",
+    "first_year_gbp": 138.4,
+    "decade_ago_gbp": 244.5,
+    "latest_gbp": 269.6,
+    "decade_change_pct": 10.3
+   },
+   {
+    "distillery": "Laphroaig",
+    "first_year_gbp": 89.3,
+    "decade_ago_gbp": 199.8,
+    "latest_gbp": 257.8,
+    "decade_change_pct": 29.0
+   },
+   {
+    "distillery": "Talisker",
+    "first_year_gbp": 89.7,
+    "decade_ago_gbp": 193.5,
+    "latest_gbp": 230.4,
+    "decade_change_pct": 19.1
+   },
+   {
+    "distillery": "Highland Park",
+    "first_year_gbp": 71.7,
+    "decade_ago_gbp": 196.0,
+    "latest_gbp": 223.5,
+    "decade_change_pct": 14.0
+   },
+   {
+    "distillery": "Lagavulin",
+    "first_year_gbp": 66.8,
+    "decade_ago_gbp": 213.6,
+    "latest_gbp": 223.2,
+    "decade_change_pct": 4.5
+   },
+   {
+    "distillery": "Caol Ila",
+    "first_year_gbp": 48.1,
+    "decade_ago_gbp": 135.2,
+    "latest_gbp": 193.2,
+    "decade_change_pct": 42.9
+   },
+   {
+    "distillery": "Glenfiddich",
+    "first_year_gbp": 39.9,
+    "decade_ago_gbp": 155.1,
+    "latest_gbp": 187.1,
+    "decade_change_pct": 20.6
+   },
+   {
+    "distillery": "Bruichladdich",
+    "first_year_gbp": 55.2,
+    "decade_ago_gbp": 120.2,
+    "latest_gbp": 181.2,
+    "decade_change_pct": 50.8
+   },
+   {
+    "distillery": "Bunnahabhain",
+    "first_year_gbp": 67.8,
+    "decade_ago_gbp": 151.1,
+    "latest_gbp": 154.9,
+    "decade_change_pct": 2.5
+   },
+   {
+    "distillery": "Scapa",
+    "first_year_gbp": 38.7,
+    "decade_ago_gbp": 71.3,
+    "latest_gbp": 150.9,
+    "decade_change_pct": 111.6
+   },
+   {
+    "distillery": "Tamdhu",
+    "first_year_gbp": 36.2,
+    "decade_ago_gbp": 87.0,
+    "latest_gbp": 145.0,
+    "decade_change_pct": 66.6
+   },
+   {
+    "distillery": "Oban",
+    "first_year_gbp": 80.4,
+    "decade_ago_gbp": 147.2,
+    "latest_gbp": 141.9,
+    "decade_change_pct": -3.6
+   },
+   {
+    "distillery": "Glendullan",
+    "first_year_gbp": 45.3,
+    "decade_ago_gbp": 123.7,
+    "latest_gbp": 139.3,
+    "decade_change_pct": 12.6
+   },
+   {
+    "distillery": "Woodford Reserve",
+    "first_year_gbp": 11.0,
+    "decade_ago_gbp": 36.7,
+    "latest_gbp": 133.8,
+    "decade_change_pct": 264.8
+   },
+   {
+    "distillery": "Glenmorangie",
+    "first_year_gbp": 75.6,
+    "decade_ago_gbp": 125.1,
+    "latest_gbp": 122.5,
+    "decade_change_pct": -2.1
+   },
+   {
+    "distillery": "Bushmills",
+    "first_year_gbp": 27.3,
+    "decade_ago_gbp": 57.1,
+    "latest_gbp": 120.4,
+    "decade_change_pct": 111.0
+   },
+   {
+    "distillery": "Cragganmore",
+    "first_year_gbp": 31.0,
+    "decade_ago_gbp": 75.9,
+    "latest_gbp": 118.7,
+    "decade_change_pct": 56.2
+   },
+   {
+    "distillery": "Glen Moray",
+    "first_year_gbp": 32.0,
+    "decade_ago_gbp": 87.0,
+    "latest_gbp": 110.0,
+    "decade_change_pct": 26.5
+   },
+   {
+    "distillery": "Jack Daniel's",
+    "first_year_gbp": 16.5,
+    "decade_ago_gbp": 74.1,
+    "latest_gbp": 104.5,
+    "decade_change_pct": 41.0
+   },
+   {
+    "distillery": "Knockando",
+    "first_year_gbp": 24.1,
+    "decade_ago_gbp": 80.0,
+    "latest_gbp": 98.3,
+    "decade_change_pct": 22.8
+   },
+   {
+    "distillery": "Aberlour",
+    "first_year_gbp": 56.3,
+    "decade_ago_gbp": 77.4,
+    "latest_gbp": 91.4,
+    "decade_change_pct": 18.2
+   },
+   {
+    "distillery": "Cardhu",
+    "first_year_gbp": 38.0,
+    "decade_ago_gbp": 72.3,
+    "latest_gbp": 87.0,
+    "decade_change_pct": 20.3
+   },
+   {
+    "distillery": "Glenkinchie",
+    "first_year_gbp": 24.5,
+    "decade_ago_gbp": 62.9,
+    "latest_gbp": 82.4,
+    "decade_change_pct": 31.0
+   }
+  ],
+  "decade": [
+   2014,
+   2024
+  ]
+ },
+ "spirit_types": [
+  {
+   "type": "Whisky",
+   "bottlings": 838,
+   "share_pct": 36.5
+  },
+  {
+   "type": "Bourbon",
+   "bottlings": 768,
+   "share_pct": 33.5
+  },
+  {
+   "type": "Single Malt Scotch",
+   "bottlings": 301,
+   "share_pct": 13.1
+  },
+  {
+   "type": "Rye Whiskey",
+   "bottlings": 158,
+   "share_pct": 6.9
+  },
+  {
+   "type": "Scotch Whisky",
+   "bottlings": 127,
+   "share_pct": 5.5
+  },
+  {
+   "type": "Irish Whiskey",
+   "bottlings": 57,
+   "share_pct": 2.5
+  },
+  {
+   "type": "Japanese Whisky",
+   "bottlings": 17,
+   "share_pct": 0.7
+  },
+  {
+   "type": "Canadian Whisky",
+   "bottlings": 16,
+   "share_pct": 0.7
+  },
+  {
+   "type": "Single Malt Whisky",
+   "bottlings": 11,
+   "share_pct": 0.5
+  },
+  {
+   "type": "Single Malt Japanese",
+   "bottlings": 1,
+   "share_pct": 0.0
+  }
+ ],
+ "abv": {
+  "denominator": 545,
+  "excluded_default_abv": 40.0,
+  "mean": 49.1,
+  "median": 50.0,
+  "max": 70.0,
+  "share_50_plus_pct": 50.3,
+  "buckets": [
+   {
+    "bucket": "Below 40%",
+    "bottlings": 46,
+    "share_pct": 8.4
+   },
+   {
+    "bucket": "40 to 42.9%",
+    "bottlings": 14,
+    "share_pct": 2.6
+   },
+   {
+    "bucket": "43 to 45.9%",
+    "bottlings": 104,
+    "share_pct": 19.1
+   },
+   {
+    "bucket": "46 to 49.9%",
+    "bottlings": 107,
+    "share_pct": 19.6
+   },
+   {
+    "bucket": "50 to 54.9%",
+    "bottlings": 148,
+    "share_pct": 27.2
+   },
+   {
+    "bucket": "55 to 59.9%",
+    "bottlings": 83,
+    "share_pct": 15.2
+   },
+   {
+    "bucket": "60% and above",
+    "bottlings": 43,
+    "share_pct": 7.9
+   }
+  ],
+  "by_type": [
+   {
+    "type": "Single Malt Scotch",
+    "n": 103,
+    "mean": 51.4,
+    "max": 63.1
+   },
+   {
+    "type": "Rye Whiskey",
+    "n": 46,
+    "mean": 51.2,
+    "max": 70.0
+   },
+   {
+    "type": "Bourbon",
+    "n": 194,
+    "mean": 50.3,
+    "max": 70.0
+   },
+   {
+    "type": "Irish Whiskey",
+    "n": 10,
+    "mean": 46.8,
+    "max": 57.7
+   },
+   {
+    "type": "Whisky",
+    "n": 166,
+    "mean": 46.7,
+    "max": 67.0
+   },
+   {
+    "type": "Scotch Whisky",
+    "n": 14,
+    "mean": 45.9,
+    "max": 56.2
+   }
+  ]
+ },
+ "producers_by_country": [
+  {
+   "country": "USA",
+   "producers": 1147,
+   "share_pct": 34.0
+  },
+  {
+   "country": "Scotland",
+   "producers": 585,
+   "share_pct": 17.3
+  },
+  {
+   "country": "England & Wales",
+   "producers": 497,
+   "share_pct": 14.7
+  },
+  {
+   "country": "Germany",
+   "producers": 173,
+   "share_pct": 5.1
+  },
+  {
+   "country": "France",
+   "producers": 130,
+   "share_pct": 3.8
+  },
+  {
+   "country": "Switzerland",
+   "producers": 74,
+   "share_pct": 2.2
+  },
+  {
+   "country": "United Kingdom",
+   "producers": 67,
+   "share_pct": 2.0
+  },
+  {
+   "country": "Canada",
+   "producers": 64,
+   "share_pct": 1.9
+  },
+  {
+   "country": "Italy",
+   "producers": 55,
+   "share_pct": 1.6
+  },
+  {
+   "country": "Ireland",
+   "producers": 45,
+   "share_pct": 1.3
+  },
+  {
+   "country": "Australia",
+   "producers": 43,
+   "share_pct": 1.3
+  },
+  {
+   "country": "Northern Ireland",
+   "producers": 39,
+   "share_pct": 1.2
+  },
+  {
+   "country": "India",
+   "producers": 38,
+   "share_pct": 1.1
+  },
+  {
+   "country": "Spain",
+   "producers": 35,
+   "share_pct": 1.0
+  },
+  {
+   "country": "Russia",
+   "producers": 25,
+   "share_pct": 0.7
+  },
+  {
+   "country": "Hungary",
+   "producers": 21,
+   "share_pct": 0.6
+  },
+  {
+   "country": "Japan",
+   "producers": 21,
+   "share_pct": 0.6
+  },
+  {
+   "country": "Norway",
+   "producers": 21,
+   "share_pct": 0.6
+  },
+  {
+   "country": "Greece",
+   "producers": 19,
+   "share_pct": 0.6
+  },
+  {
+   "country": "Austria",
+   "producers": 15,
+   "share_pct": 0.4
+  },
+  {
+   "country": "Bulgaria",
+   "producers": 14,
+   "share_pct": 0.4
+  },
+  {
+   "country": "Portugal",
+   "producers": 14,
+   "share_pct": 0.4
+  },
+  {
+   "country": "Romania",
+   "producers": 14,
+   "share_pct": 0.4
+  },
+  {
+   "country": "Czech Republic",
+   "producers": 12,
+   "share_pct": 0.4
+  },
+  {
+   "country": "Belgium",
+   "producers": 11,
+   "share_pct": 0.3
+  },
+  {
+   "country": "Poland",
+   "producers": 11,
+   "share_pct": 0.3
+  },
+  {
+   "country": "China",
+   "producers": 8,
+   "share_pct": 0.2
+  },
+  {
+   "country": "England",
+   "producers": 8,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Lithuania",
+   "producers": 8,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Slovakia",
+   "producers": 8,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Croatia",
+   "producers": 7,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Iceland",
+   "producers": 7,
+   "share_pct": 0.2
+  },
+  {
+   "country": "North Macedonia",
+   "producers": 7,
+   "share_pct": 0.2
+  },
+  {
+   "country": "People's Republic of China",
+   "producers": 7,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Serbia",
+   "producers": 7,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Finland",
+   "producers": 6,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Netherlands",
+   "producers": 6,
+   "share_pct": 0.2
+  },
+  {
+   "country": "New Zealand",
+   "producers": 6,
+   "share_pct": 0.2
+  },
+  {
+   "country": "Sweden",
+   "producers": 5,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Bosnia and Herzegovina",
+   "producers": 4,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Mexico",
+   "producers": 4,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Slovenia",
+   "producers": 4,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Cambodia",
+   "producers": 3,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Ireland, United Kingdom (Northern Ireland)",
+   "producers": 3,
+   "share_pct": 0.1
+  },
+  {
+   "country": "South Korea",
+   "producers": 3,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Ukraine",
+   "producers": 3,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Belarus",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Cyprus",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Israel",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Ivory Coast",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Kazakhstan",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Malaysia",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Myanmar",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Netherlands, Belgium",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Nigeria",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Pakistan",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Panama",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Vietnam",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Zimbabwe",
+   "producers": 2,
+   "share_pct": 0.1
+  },
+  {
+   "country": "Albania",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Argentina",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Armenia",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Belgium, Netherlands, France, Germany",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Bolivia",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Brazil",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Burkina Faso",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Cameroon",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Chile",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Colombia",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Costa Rica",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Cuba",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Cyprus, Greece",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Côte d'Ivoire",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Egypt",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "El Salvador",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Estonia",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Ethiopia",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "France, Belgium, Netherlands",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "France, Italy",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Georgia",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Germany, Belgium, Austria",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Ghana",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Guatemala",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Guyana",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Hungary, Austria",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Indonesia",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Isle of Man",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Mozambique",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Nepal",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Netherlands, Belgium, Germany",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Peru",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Philippines",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Russian Federation",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Rwanda",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Singapore",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Slovak Republic",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Sri Lanka",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Suriname",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Syria",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Tajikistan",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Thailand",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Uganda",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Uzbekistan",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Venezuela, Bolivarian Republic of",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Wales",
+   "producers": 1,
+   "share_pct": 0.0
+  },
+  {
+   "country": "Zambia",
+   "producers": 1,
+   "share_pct": 0.0
+  }
+ ],
+ "founded": {
+  "denominator": 777,
+  "sources": {
+   "UK Companies House Corporate Registry (OGL)": 690,
+   "Wikidata SPARQL API (CC0 Public Domain)": 81,
+   "WhiskyDB Curated Seed (producer-published)": 6
+  },
+  "pre_1900": 11,
+  "from_2010": 657,
+  "from_2010_pct": 84.6,
+  "by_decade": [
+   {
+    "decade": "1900s",
+    "producers": 1,
+    "share_pct": 0.1
+   },
+   {
+    "decade": "1910s",
+    "producers": 6,
+    "share_pct": 0.8
+   },
+   {
+    "decade": "1920s",
+    "producers": 4,
+    "share_pct": 0.5
+   },
+   {
+    "decade": "1930s",
+    "producers": 13,
+    "share_pct": 1.7
+   },
+   {
+    "decade": "1940s",
+    "producers": 3,
+    "share_pct": 0.4
+   },
+   {
+    "decade": "1950s",
+    "producers": 16,
+    "share_pct": 2.1
+   },
+   {
+    "decade": "1960s",
+    "producers": 19,
+    "share_pct": 2.4
+   },
+   {
+    "decade": "1970s",
+    "producers": 14,
+    "share_pct": 1.8
+   },
+   {
+    "decade": "1980s",
+    "producers": 7,
+    "share_pct": 0.9
+   },
+   {
+    "decade": "1990s",
+    "producers": 6,
+    "share_pct": 0.8
+   },
+   {
+    "decade": "2000s",
+    "producers": 20,
+    "share_pct": 2.6
+   },
+   {
+    "decade": "2010s",
+    "producers": 375,
+    "share_pct": 48.3
+   },
+   {
+    "decade": "2020s",
+    "producers": 282,
+    "share_pct": 36.3
+   }
+  ]
+ },
+ "uk_company_status": [
+  {
+   "jurisdiction": "England & Wales",
+   "registrations": 497,
+   "active": 286,
+   "dissolved": 211,
+   "dissolved_pct": 42.5
+  },
+  {
+   "jurisdiction": "Scotland",
+   "registrations": 154,
+   "active": 109,
+   "dissolved": 45,
+   "dissolved_pct": 29.2
+  },
+  {
+   "jurisdiction": "Northern Ireland",
+   "registrations": 39,
+   "active": 27,
+   "dissolved": 12,
+   "dissolved_pct": 30.8
+  }
+ ]
+}

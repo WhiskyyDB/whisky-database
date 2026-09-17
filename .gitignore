@@ -7,3 +7,6 @@ Thumbs.db
 # Internal / Working documentation
 SEO Optimisation/
 locales/_work/
+
+# Python bytecode from the generator scripts
+__pycache__/
