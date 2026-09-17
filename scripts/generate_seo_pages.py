@@ -595,6 +595,10 @@ def main():
                ("https://whiskydb.dataengineered.io/spirits/", os.path.join(spirits_dir, "index.html"), "monthly", "0.8"),
                ("https://whiskydb.dataengineered.io/distilleries/", os.path.join(distilleries_dir, "index.html"), "monthly", "0.8")]
     entries += [(loc, os.path.join(root_dir, loc.split("dataengineered.io/", 1)[1] + ".html"), freq, prio) for loc, prio, freq in sitemap_urls]
+    # statistics page (scripts/generate_stats.py) -- a citable, embeddable asset, kept high in the sitemap
+    stats_path = os.path.join(root_dir, "stats", "index.html")
+    if os.path.exists(stats_path):
+        entries.append(("https://whiskydb.dataengineered.io/stats/", stats_path, "monthly", "0.9"))
     n = write_sitemap(root_dir, entries)
 
     print(f"Successfully generated {len(spirits)} spirit pages (`spirits/*.html`), {len(distilleries)} distillery hubs (`distilleries/*.html`), and updated sitemap.xml with {n} URLs!")

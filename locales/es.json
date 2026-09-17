@@ -167,6 +167,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "2086b21f8f492741": {
+  "src": "Statistics",
+  "t": "Estadísticas",
+  "by": "claude-fable-5-1",
+  "at": "2026-09-17"
+ },
  "2142ad715edbc658": {
   "src": "Exact ABV ({0} ABV), Age Statement ({1} Years Old), bottle volume ({2}), and secondary market ledger.",
   "t": "ABV exacto ({0} ABV), declaración de edad ({1} años), volumen de la botella ({2}) y registro del mercado secundario.",
@@ -1185,6 +1191,12 @@
   "src": "We could not send your request automatically. Please email {0} with your name, tier and use case — we reply within {1} business day.",
   "t": "No pudimos enviar tu solicitud automáticamente. Escribe a {0} con tu nombre, nivel y caso de uso — respondemos en un plazo de {1} día hábil.",
   "by": "claude-opus-5",
+  "at": "2026-09-17"
+ },
+ "c2d95104679a9c1d": {
+  "src": "Whisky Statistics &amp; Auction Index",
+  "t": "Estadísticas de whisky &amp; índice de subastas",
+  "by": "claude-fable-5-1",
   "at": "2026-09-17"
  },
  "c425120876f1f551": {

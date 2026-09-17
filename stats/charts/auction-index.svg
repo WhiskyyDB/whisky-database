@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320" role="img" aria-labelledby="t d" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+<title id="t">Whisky auction price index, 2006 to 2024</title><desc id="d">Mean monthly winning bid (GBP) across 29 distilleries tracked over the whole period</desc>
+<rect width="720" height="320" fill="#0a0b0d"/>
+<text x="20" y="26" font-size="15" font-weight="600" fill="#f0f2f8">Whisky auction price index, 2006 to 2024</text>
+<text x="20" y="44" font-size="12" fill="#949ab1">Mean monthly winning bid (GBP) across 29 distilleries tracked over the whole period</text>
+<line x1="56" y1="274.0" x2="624" y2="274.0" stroke="#22252d" stroke-width="1"/>
+<text x="48" y="278.0" text-anchor="end" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">£0</text>
+<line x1="56" y1="203.3" x2="624" y2="203.3" stroke="#22252d" stroke-width="1"/>
+<text x="48" y="207.3" text-anchor="end" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">£100</text>
+<line x1="56" y1="132.7" x2="624" y2="132.7" stroke="#22252d" stroke-width="1"/>
+<text x="48" y="136.7" text-anchor="end" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">£200</text>
+<line x1="56" y1="62.0" x2="624" y2="62.0" stroke="#22252d" stroke-width="1"/>
+<text x="48" y="66.0" text-anchor="end" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">£300</text>
+<text x="56.0" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2006</text>
+<text x="119.1" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2008</text>
+<text x="182.2" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2010</text>
+<text x="245.3" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2012</text>
+<text x="308.4" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2014</text>
+<text x="371.6" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2016</text>
+<text x="434.7" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2018</text>
+<text x="497.8" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2020</text>
+<text x="560.9" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2022</text>
+<text x="624.0" y="292" text-anchor="middle" fill="#949ab1" font-size="11" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace">2024</text>
+<path d="M56.0 236.5 L87.6 232.7 L119.1 217.7 L150.7 198.3 L182.2 204.5 L213.8 197.3 L245.3 197.1 L276.9 191.0 L308.4 174.2 L340.0 169.5 L371.6 157.6 L403.1 138.3 L434.7 110.5 L466.2 122.6 L497.8 122.3 L529.3 102.8 L560.9 87.9 L592.4 109.8 L624.0 127.4 L624.0 274 L56.0 274 Z" fill="#d4af37" fill-opacity="0.1"/>
+<path d="M56.0 236.5 L87.6 232.7 L119.1 217.7 L150.7 198.3 L182.2 204.5 L213.8 197.3 L245.3 197.1 L276.9 191.0 L308.4 174.2 L340.0 169.5 L371.6 157.6 L403.1 138.3 L434.7 110.5 L466.2 122.6 L497.8 122.3 L529.3 102.8 L560.9 87.9 L592.4 109.8 L624.0 127.4" fill="none" stroke="#d4af37" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<g><title>2006: £53</title><circle cx="56.0" cy="236.5" r="12" fill="transparent"/></g>
+<g><title>2007: £58</title><circle cx="87.6" cy="232.7" r="12" fill="transparent"/></g>
+<g><title>2008: £80</title><circle cx="119.1" cy="217.7" r="12" fill="transparent"/></g>
+<g><title>2009: £107</title><circle cx="150.7" cy="198.3" r="12" fill="transparent"/></g>
+<g><title>2010: £98</title><circle cx="182.2" cy="204.5" r="12" fill="transparent"/></g>
+<g><title>2011: £108</title><circle cx="213.8" cy="197.3" r="12" fill="transparent"/></g>
+<g><title>2012: £109</title><circle cx="245.3" cy="197.1" r="12" fill="transparent"/></g>
+<g><title>2013: £117</title><circle cx="276.9" cy="191.0" r="12" fill="transparent"/></g>
+<g><title>2014: £141</title><circle cx="308.4" cy="174.2" r="12" fill="transparent"/></g>
+<g><title>2015: £148</title><circle cx="340.0" cy="169.5" r="12" fill="transparent"/></g>
+<g><title>2016: £165</title><circle cx="371.6" cy="157.6" r="12" fill="transparent"/></g>
+<g><title>2017: £192</title><circle cx="403.1" cy="138.3" r="12" fill="transparent"/></g>
+<g><title>2018: £231</title><circle cx="434.7" cy="110.5" r="12" fill="transparent"/></g>
+<g><title>2019: £214</title><circle cx="466.2" cy="122.6" r="12" fill="transparent"/></g>
+<g><title>2020: £215</title><circle cx="497.8" cy="122.3" r="12" fill="transparent"/></g>
+<g><title>2021: £242</title><circle cx="529.3" cy="102.8" r="12" fill="transparent"/></g>
+<g><title>2022: £263</title><circle cx="560.9" cy="87.9" r="12" fill="transparent"/></g>
+<g><title>2023: £232</title><circle cx="592.4" cy="109.8" r="12" fill="transparent"/></g>
+<g><title>2024: £208</title><circle cx="624.0" cy="127.4" r="12" fill="transparent"/></g>
+<circle cx="560.9" cy="87.9" r="5" fill="#d4af37" stroke="#0a0b0d" stroke-width="2"/>
+<text x="560.9" y="75.9" text-anchor="middle" fill="#f0f2f8" font-size="11">£263 peak (2022)</text>
+<circle cx="624.0" cy="127.4" r="5" fill="#d4af37" stroke="#0a0b0d" stroke-width="2"/>
+<text x="634.0" y="131.4" fill="#f0f2f8" font-size="11">£208</text>
+<text x="20" y="308" font-size="11" fill="#949ab1">Source: WhiskyDB, whiskydb.dataengineered.io/stats · snapshot 2026-09-02 · CC BY 4.0</text>
+</svg>
