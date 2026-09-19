@@ -7,7 +7,7 @@
 [![Sample: 15 rows](https://img.shields.io/badge/Free%20Sample-15%20rows-brightgreen.svg)](samples/spirits.csv)
 [![🤗 Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-sample%20dataset-ffd21e.svg)](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample)
 [![🤗 Explorer](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-sample%20explorer-ffd21e.svg)](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers)
-[![Kaggle](https://img.shields.io/badge/Kaggle-sample%20dataset-20BEFF.svg)](https://www.kaggle.com/datasets/ahtiticheamine/whiskydb-fine-spirits-sample)
+[![Kaggle](https://img.shields.io/badge/Kaggle-sample%20dataset-20BEFF.svg)](https://www.kaggle.com/datasets/dataengineered/whiskydb-fine-spirits-sample)
 [![Distilleries: 3,764](https://img.shields.io/badge/Distilleries-3%2C764-8a5a44.svg)](#whats-inside)
 [![Price history: 2005→](https://img.shields.io/badge/Auction%20history-2005%E2%86%92today-gold.svg)](#auction-price-history--the-differentiated-part)
 [![Snapshot: 2026.07](https://img.shields.io/badge/Snapshot-2026.07-blue.svg)](CHANGELOG.md)
@@ -38,7 +38,7 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 | Open cask & flavor taxonomies | 14 styles · 15 descriptors | ✔ included |
 | Formats | SQLite · CSV | CSV |
 
-The free [`samples/spirits.csv`](samples/spirits.csv) and [`samples/distilleries.csv`](samples/distilleries.csv) are curated subsets showing the schema and quality. Explore them interactively in the [🤗 Sample Explorer](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers), or load them straight from the [🤗 sample dataset](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample) or [Kaggle](https://www.kaggle.com/datasets/ahtiticheamine/whiskydb-fine-spirits-sample) (with a [live starter notebook](https://www.kaggle.com/code/ahtiticheamine/whiskydb-fine-spirits-starter-notebook)). The [`taxonomy/`](taxonomy/) CSVs (hierarchical cask styles and controlled flavor vocabulary) are **fully open source** — use them in your own projects with attribution.
+The free [`samples/spirits.csv`](samples/spirits.csv) and [`samples/distilleries.csv`](samples/distilleries.csv) are curated subsets showing the schema and quality. Explore them interactively in the [🤗 Sample Explorer](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers), or load them straight from the [🤗 sample dataset](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample) or [Kaggle](https://www.kaggle.com/datasets/dataengineered/whiskydb-fine-spirits-sample) (with a [live starter notebook](https://www.kaggle.com/code/dataengineered/whiskydb-fine-spirits-starter-notebook)). The [`taxonomy/`](taxonomy/) CSVs (hierarchical cask styles and controlled flavor vocabulary) are **fully open source** — use them in your own projects with attribution.
 
 ## Field coverage (the honest numbers)
 
