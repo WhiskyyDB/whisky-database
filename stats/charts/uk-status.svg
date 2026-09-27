@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 192" width="720" height="192" role="img" aria-labelledby="t d" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
-<title id="t">UK whisky companies dissolved, by jurisdiction</title><desc id="d">Share of Companies House whisky-related registrations now dissolved</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 192" width="720" height="192" role="img" aria-labelledby="t-uk-status d-uk-status" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+<title id="t-uk-status">UK whisky companies dissolved, by jurisdiction</title><desc id="d-uk-status">Share of Companies House whisky-related registrations now dissolved</desc>
 <rect width="720" height="192" fill="#0a0b0d"/>
 <text x="20" y="26" font-size="15" font-weight="600" fill="#f0f2f8">UK whisky companies dissolved, by jurisdiction</text>
 <text x="20" y="44" font-size="12" fill="#949ab1">Share of Companies House whisky-related registrations now dissolved</text>

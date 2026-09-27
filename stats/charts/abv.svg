@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 312" width="720" height="312" role="img" aria-labelledby="t d" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
-<title id="t">Bottling strength (ABV)</title><desc id="d">Share of 545 bottlings with an explicitly sourced ABV</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 312" width="720" height="312" role="img" aria-labelledby="t-abv d-abv" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+<title id="t-abv">Bottling strength (ABV)</title><desc id="d-abv">Share of 545 bottlings with an explicitly sourced ABV</desc>
 <rect width="720" height="312" fill="#0a0b0d"/>
 <text x="20" y="26" font-size="15" font-weight="600" fill="#f0f2f8">Bottling strength (ABV)</text>
 <text x="20" y="44" font-size="12" fill="#949ab1">Share of 545 bottlings with an explicitly sourced ABV</text>
