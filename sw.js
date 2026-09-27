@@ -12,10 +12,10 @@
  * are never written to or served from the cache.
  */
 
-const CACHE_NAME = 'whiskydb-public-cache-v2026.09.4';
+const CACHE_NAME = 'whiskydb-public-cache-v2026.09.5';
 const CORE_ASSETS = [
   '/',
-  '/index.css?v=mobile1',
+  '/index.css?v=herogrid1',
   '/app.js',
   '/hero.png',
   '/site.webmanifest',
