@@ -277,7 +277,7 @@ h1, h2, h3, h4 {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.1f 0.9fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 60px;
     align-items: center;
 }

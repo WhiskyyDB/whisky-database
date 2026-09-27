@@ -6,11 +6,12 @@ All notable changes to the WhiskyDB dataset snapshots.
 > monthly (automated label-registry ingestion), so the live figures only grow —
 > the numbers below stay accurate between snapshots.
 
-## Unreleased — site updates through 2026-09-27
+## Unreleased — site updates through 2026-09-28
 
 Site, distribution and localization updates since the initial snapshot (no new dataset snapshot
 is recorded in this repo's history for this period).
 
+- **Hero layout**: on screens wider than 1024 px the homepage hero now shows the headline and the decanter image side by side (columns `1.1fr 0.9fr`), as designed. A typo in `index.css` (`1.1f`, an invalid unit) made browsers drop the whole column rule, so the hero stacked in one column at every width. Phones and tablets (1024 px and below) are unchanged. `index.css?v=` bumped on the homepage in every language, and the service-worker cache bumped (2026-09-28).
 - **Section links**: links to a section (`/#pricing-section`, `/stats/#abv`, …) now land on it. The sticky header no longer covers the heading, and an arrival from another page is re-aligned once the web fonts and the homepage's spirit cards have loaded (shared `scripts/section_links.py` snippet on the homepage in every language and on `/stats/`; `app.js` calls it after rendering the cards). The hero image has explicit dimensions, so it no longer pushes the sections down while it loads. Dead links fixed: the "← Explorer" header link and the breadcrumbs pointed at a missing `/#explorer-section` (now `/#live-demo-section`), the 404 page's "Get the dataset" at `/#pricing` (now `/#pricing-section`), and four `/stats/` "Embed this chart" snippets at missing ids (all eight now link `#fig-<slug>`, the chart itself). Visible text and data unchanged; `app.js?v=` and the service-worker cache bumped (2026-09-27).
 - **Translated Dataset markup**: on the Spanish, German, French and Portuguese pages the Dataset structured data now names its English original in `sameAs` (next to any existing `sameAs` links), so dataset search can tie the language copies to one canonical entry. English pages and all visible text are unchanged (2026-09-27).
 - **Sale attribution**: every Stripe buy link carries `?client_reference_id=<brand>_<lang>_<surface>` (`home` / `landing`); the i18n build swaps the language token per locale and the delivery worker prints the id in the order email. Stripe does not store UTM parameters, so this is the only per-page attribution that reaches the order record (2026-09-20).
