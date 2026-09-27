@@ -29,6 +29,8 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 
+import section_links  # scripts/section_links.py, the portfolio copy: keeps #fragment arrivals on their section
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUT_DIR = BASE_DIR / "stats"
 CHART_DIR = OUT_DIR / "charts"
@@ -352,7 +354,7 @@ CSS = """
 
 def embed_block(slug, title):
     img = f"{BASE_URL}/stats/charts/{slug}.svg"
-    snippet = (f'<a href="{PAGE_URL}#{slug}"><img src="{img}" alt="{esc(title)}" width="720" '
+    snippet = (f'<a href="{PAGE_URL}#fig-{slug}"><img src="{img}" alt="{esc(title)}" width="720" '
                f'style="max-width:100%;height:auto"></a>\n'
                f'<p><small>Source: <a href="{PAGE_URL}">{BRAND} whisky statistics</a> (CC BY 4.0)</small></p>')
     return (f'<details><summary>Embed this chart</summary>'
@@ -576,7 +578,7 @@ def build_page(s, charts):
     <div class="container nav-bar">
       <a href="/" class="brand">Whisky<span>DB</span></a>
       <div>
-        <a href="/#explorer-section" class="btn-link">← Explorer</a>
+        <a href="/#live-demo-section" class="btn-link">← Explorer</a>
         <a href="/#pricing-section" class="btn-link" style="margin-left: 12px; background: rgba(212,175,55,0.1);">Get Full Dataset ($49)</a>
       </div>
     </div>
@@ -675,7 +677,7 @@ def main():
         raise SystemExit(f"SQLite snapshot not found: {db}")
     s = compute(db)
     charts = {}
-    page = build_page(s, charts)
+    page = section_links.insert(build_page(s, charts))  # the shared snippet, right after the header
     OUT_DIR.mkdir(exist_ok=True)
     CHART_DIR.mkdir(exist_ok=True)
     (OUT_DIR / "index.html").write_text(page, encoding="utf-8", newline="\n")
