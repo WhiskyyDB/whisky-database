@@ -6,11 +6,12 @@ All notable changes to the WhiskyDB dataset snapshots.
 > monthly (automated label-registry ingestion), so the live figures only grow —
 > the numbers below stay accurate between snapshots.
 
-## Unreleased — site updates through 2026-09-20
+## Unreleased — site updates through 2026-09-27
 
 Site, distribution and localization updates since the initial snapshot (no new dataset snapshot
 is recorded in this repo's history for this period).
 
+- **Translated Dataset markup**: on the Spanish, German, French and Portuguese pages the Dataset structured data now names its English original in `sameAs` (next to any existing `sameAs` links), so dataset search can tie the language copies to one canonical entry. English pages and all visible text are unchanged (2026-09-27).
 - **Sale attribution**: every Stripe buy link carries `?client_reference_id=<brand>_<lang>_<surface>` (`home` / `landing`); the i18n build swaps the language token per locale and the delivery worker prints the id in the order email. Stripe does not store UTM parameters, so this is the only per-page attribution that reaches the order record (2026-09-20).
 - **Domain**: moved to `whiskydb.dataengineered.io`; the `pages.dev` host 301s (2026-09-05). Brand contact moved to `@dataengineered.io` (2026-09-10).
 - **`/stats/`**: citable whisky statistics page with an auction price index (2026-09-17).
