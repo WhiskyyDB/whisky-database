@@ -1,6 +1,6 @@
 # WhiskyDB — Data Dictionary
 
-Field reference for the WhiskyDB fine spirits dataset (snapshot `2026.07`).
+Field reference for the WhiskyDB fine spirits dataset (snapshot `2026.09`).
 The free samples (`samples/spirits.csv`, `samples/distilleries.csv`) use the columns
 below. The full dataset ships the same fields plus the complete 10-table relational
 SQLite build described at the bottom.
@@ -13,7 +13,7 @@ SQLite build described at the bottom.
 | `name` | string | Canonical bottling name (Latin-script, cleaned) | 100% |
 | `type` | enum | `Single Malt Scotch` · `Bourbon` · `Rye Whiskey` · `Irish Whiskey` · `Japanese Whisky` · `Scotch Whisky` · `Whisky` … | 100% |
 | `age` | integer | Age statement in years; empty = NAS or unstated | <1% |
-| `abv` | float | Alcohol by volume (%). Explicitly sourced for 16% of records (e.g. federal label details); otherwise the documented 40.0 default | 100% |
+| `abv` | float | Alcohol by volume (%). Explicitly sourced for 23% of records (e.g. federal label details); otherwise the documented 40.0 default | 100% |
 | `volume_ml` | integer | Bottle volume normalized to milliliters (700/750/1000…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
@@ -24,7 +24,7 @@ SQLite build described at the bottom.
 | :--- | :--- | :--- | ---: |
 | `distillery_id` | integer | Stable primary key | 100% |
 | `name` | string | Distillery / producer / brand name | 100% |
-| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…); `Global` when the source doesn't state one | 88% specific |
+| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…); `Global` when the source doesn't state one | 89% specific |
 | `region` | string | Region / locality (`Islay`, `Kentucky`, GI category…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
@@ -61,7 +61,7 @@ The commercial snapshot normalizes into 10 tables:
 | `spirit_casks` | 500+ spirit↔cask maturation mappings with stage and fill type |
 | `flavor_taxonomy` | The controlled flavor vocabulary (mirrors `taxonomy/flavors.csv`) |
 | `spirit_tasting_notes` | Standardized flavor tags with phase (Nose/Palate/Finish) and 1–3 intensity |
-| `price_benchmarks` | 20,000+ monthly distillery auction indices, 2005 → today, GBP + USD |
+| `price_benchmarks` | 20,000+ monthly distillery auction indices, Nov 2005 → Sep 2024, GBP + USD |
 
 Every content table carries a `source_id` foreign key into `data_sources` — 100% of rows resolve to a valid provenance entry (enforced and tested).
 
