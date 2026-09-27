@@ -301,7 +301,7 @@ def main():
     "@type": "BreadcrumbList",
     "itemListElement": [
       {{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://whiskydb.dataengineered.io/"}},
-      {{"@type": "ListItem", "position": 2, "name": "Spirits Catalog", "item": "https://whiskydb.dataengineered.io/#explorer-section"}},
+      {{"@type": "ListItem", "position": 2, "name": "Spirits Catalog", "item": "https://whiskydb.dataengineered.io/#live-demo-section"}},
       {{"@type": "ListItem", "position": 3, "name": "{name}", "item": "{page_url}"}}
     ]
   }}
@@ -351,7 +351,7 @@ def main():
     <div class="container nav-bar">
       <a href="/" class="brand">Whisky<span>DB</span></a>
       <div>
-        <a href="/#explorer-section" class="btn-link">← Explorer</a>
+        <a href="/#live-demo-section" class="btn-link">← Explorer</a>
         <a href="/#pricing-section" class="btn-link" style="margin-left: 12px; background: rgba(212,175,55,0.1);">Get Full Dataset ($49)</a>
       </div>
     </div>
@@ -535,7 +535,7 @@ def main():
     <div class="container nav-bar">
       <a href="/" class="brand">Whisky<span>DB</span></a>
       <div>
-        <a href="/#explorer-section" class="btn-link">← Explorer</a>
+        <a href="/#live-demo-section" class="btn-link">← Explorer</a>
         <a href="/#pricing-section" class="btn-link" style="margin-left: 12px; background: rgba(212,175,55,0.1);">Get Full Dataset ($49)</a>
       </div>
     </div>

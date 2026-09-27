@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     initPricingToggle();
     initCodeTabs();
     initSmoothScrolling();
+    // The spirit cards just rendered above #features-section and the later sections: land a
+    // #fragment arrival on its section again (shared snippet, scripts/section_links.py).
+    if (window.realignSectionLink) window.realignSectionLink();
 });
 
 /* ==========================================================================
