@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 402" width="720" height="402" role="img" aria-labelledby="t d" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
-<title id="t">What is in the catalogue</title><desc id="d">Share of 2,294 bottlings by spirit type</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 402" width="720" height="402" role="img" aria-labelledby="t-spirit-types d-spirit-types" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+<title id="t-spirit-types">What is in the catalogue</title><desc id="d-spirit-types">Share of 2,294 bottlings by spirit type</desc>
 <rect width="720" height="402" fill="#0a0b0d"/>
 <text x="20" y="26" font-size="15" font-weight="600" fill="#f0f2f8">What is in the catalogue</text>
 <text x="20" y="44" font-size="12" fill="#949ab1">Share of 2,294 bottlings by spirit type</text>

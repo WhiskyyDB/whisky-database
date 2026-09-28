@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 462" width="720" height="462" role="img" aria-labelledby="t d" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
-<title id="t">Ten-year change in auction index, 2014 to 2024</title><desc id="d">Change in mean winning bid, distilleries tracked since 2006</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 462" width="720" height="462" role="img" aria-labelledby="t-distillery-gain d-distillery-gain" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+<title id="t-distillery-gain">Ten-year change in auction index, 2014 to 2024</title><desc id="d-distillery-gain">Change in mean winning bid, distilleries tracked since 2006</desc>
 <rect width="720" height="462" fill="#0a0b0d"/>
 <text x="20" y="26" font-size="15" font-weight="600" fill="#f0f2f8">Ten-year change in auction index, 2014 to 2024</text>
 <text x="20" y="44" font-size="12" fill="#949ab1">Change in mean winning bid, distilleries tracked since 2006</text>
