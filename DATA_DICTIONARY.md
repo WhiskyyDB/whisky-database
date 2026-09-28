@@ -24,7 +24,7 @@ SQLite build described at the bottom.
 | :--- | :--- | :--- | ---: |
 | `distillery_id` | integer | Stable primary key | 100% |
 | `name` | string | Distillery / producer / brand name | 100% |
-| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…); `Global` when the source doesn't state one | 89% specific |
+| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…); `Global` when the source doesn't state one | 99% specific |
 | `region` | string | Region / locality (`Islay`, `Kentucky`, GI category…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
@@ -53,7 +53,7 @@ The commercial snapshot normalizes into 10 tables:
 | Table | What it holds |
 | :--- | :--- |
 | `data_sources` | Provenance ledger: source name, type, endpoint, license notes, access timestamp |
-| `distilleries` | 3,200+ producers with country, region, founded year, active/dissolved status |
+| `distilleries` | 2,600+ producers with country, region, founded year, active/dissolved status |
 | `brands` | Brand ownership (e.g. Lagavulin → Diageo) |
 | `spirits` | 1,290+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag |
 | `mash_bills` | Producer-published grain compositions (corn/rye/barley/wheat %) |

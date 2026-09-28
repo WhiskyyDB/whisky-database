@@ -24,23 +24,21 @@ index.html, so the plain check also confirms that their hero figures were rebuil
   coverage %                      floored, so a claim never rounds up: explicit ABV = abv.denominator
                                   / spirits, country = producers_with_country / producers, founded
                                   year = founded.denominator / producers; ABV max = abv.max
+  countries floor                 README "Countries represented N+": producer_countries minus
+                                  producer_countries_off_only, floored to a multiple of 10
 Not in data.json, so still checked by hand: the "linked bottlings" count in README.md, the
 barcode and age-statement coverage, and the "+" floors in DATA_DICTIONARY.md.
 
-Deliberately not guarded: README "Countries represented" (a hand-set floor, 40+). data.json
-`producer_countries` (106 for 2026.09) counts the distinct country LABELS of every
-distilleries row, so equating the README to it would overclaim twice over:
-  - labels, not countries: multi-country strings ("France, Italy"), synonyms ("Russia" /
-    "Russian Federation") and the UK as six labels (United Kingdom, England, Wales,
-    "England & Wales", Scotland, Northern Ireland). Grouped, they name 87-93 countries.
-  - rows that are not producers: all 748 Wikidata rows (source_id 4) are reservoirs and
-    lakes, not distilleries (the ingest's SPARQL class is wd:Q131681), and 40 of those 87
-    countries appear only through them. Open Food Facts country tags (source_id 5, 12) say
-    where a product is sold, not made (Chivas -> Bolivia), so they are not counted either.
-Measured read-only on the 2026.09 DB: 41 countries (UK counted once) have a producer or
-protected-GI row from the seed, the Wikipedia lists, EU eAmbrosia, Companies House or TTB
-COLA, hence 40+. Follow-up (ingest + generate_stats.py): drop the reservoir rows, split
-multi-country strings and merge synonyms before counting; then a floor rule can come back.
+Countries, not country labels: data.json `producer_countries` splits multi-country labels
+("France, Italy", appellations shared across borders), merges synonyms ("Russia" / "Russian
+Federation") and counts the UK's six labels (United Kingdom, England, Wales, "England & Wales",
+Scotland, Northern Ireland) once; see generate_stats.countries_of. The README floor leaves out
+the countries named only by Open Food Facts rows (`producer_countries_off_only`), whose country
+is the first one a product is sold in, not where it is made (Chivas -> Bolivia). 2026.09 after
+the 2026-09-28 cleanup: 47 countries, 6 of them only on Open Food Facts rows, so 41 -> "40+".
+(Before the cleanup the distilleries table also held 748 Wikidata rows that were reservoirs
+and lakes and 375 Wikipedia navigation links: 106 labels, 88 countries, 40 of them only
+through the reservoir rows.)
 
 Every rule must match its exact number of occurrences: if a sentence is reworded so that
 a rule no longer finds it, the check fails instead of silently skipping the claim --
@@ -101,6 +99,7 @@ RULES = [
     rule("README.md", "table Spirits & bottlings", rf"\| Spirits & bottlings \| \*\*(?P<v>{NUM})\*\* \|", "spirits"),
     rule("README.md", "table Distilleries", rf"\| Distilleries, brands & producers \| \*\*(?P<v>{NUM})\*\* \|", "producers"),
     rule("README.md", "table benchmarks", rf"\| Monthly auction-price benchmarks \| \*\*(?P<v>{NUM})\*\* \|", "price_rows"),
+    rule("README.md", "table Countries floor", r"\| Countries represented \| \*\*(?P<v>\d+)\+\*\* \|", "countries_floor"),
     rule("README.md", "coverage Distillery country", r"\| Distillery country \| (?P<v>\d+)% \|", "pct_country"),
     rule("README.md", "coverage Distillery founded year", r"\| Distillery founded year \| (?P<v>\d+)% \|", "pct_founded"),
     rule("README.md", "coverage Explicit label ABV", r"\| Explicit label ABV \| (?P<v>\d+)%\\?\*", "pct_abv"),
@@ -166,6 +165,7 @@ def expected_values(data):
         "pct_abv": floor_pct(data["abv"]["denominator"], t["spirits"]),
         "pct_country": floor_pct(t["producers_with_country"], t["producers"]),
         "pct_founded": floor_pct(data["founded"]["denominator"], t["producers"]),
+        "countries_floor": str((t["producer_countries"] - t["producer_countries_off_only"]) // 10 * 10),
         "abv_max": f"{abv_max:g}",
     }
 

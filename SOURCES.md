@@ -11,10 +11,14 @@ retain those upstream obligations.
 | EU eAmbrosia GI Register | ec.europa.eu/agriculture/eambrosia | EU open data (Decision 2011/833/EU) | Protected spirit appellations (PGI/PDO) |
 | Open Food Facts / Open Drinks Facts | openfoodfacts.org | Open Database License (ODbL) v1.0 | Bottled products: names, brands, barcodes, volumes, ABV |
 | Wikipedia (List of distilleries in Scotland; List of whisky brands) | en.wikipedia.org | CC-BY-SA 4.0 | Distillery and brand names, regions |
-| Wikidata | wikidata.org | CC0 1.0 (public domain) | Distillery entities, countries, inception years |
 | WhiskyHunter | whiskyhunter.net/api | Open statistical API | Distillery-level monthly auction price indices |
 | Producer-published specifications | producers' official sites | Facts (not copyrightable); curated | Published mash bills, cask programs, brand ownership |
 | US labeling law (27 CFR 5.143) | ecfr.gov | Public domain | New-charred-oak cask derivation for straight bourbon/rye |
+
+The ledger also has an entry for Wikidata (CC0), which contributes no record to the
+current data: the 748 rows of the 2026-07 ingest were reservoirs and lakes, returned by
+a query for the wrong Wikidata class, and were removed on 2026-09-28 (see
+[`CHANGELOG.md`](CHANGELOG.md)).
 
 ## WhiskyDB Curated Seed
 
@@ -37,7 +41,7 @@ are WhiskyDB's.
   *databases* under ODbL.
 - **CC-BY-SA-derived records** (source `Wikipedia…`): attribute Wikipedia and
   share adaptations of those records under a compatible license.
-- **Public-domain and OGL records** (TTB, Wikidata, Companies House, eAmbrosia):
+- **Public-domain and OGL records** (TTB, Companies House, eAmbrosia):
   attribution appreciated; OGL requires acknowledging the source.
 
 The `source_name` column on every sample row (and the `data_sources` ledger in
