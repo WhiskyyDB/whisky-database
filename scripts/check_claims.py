@@ -34,11 +34,12 @@ Countries, not country labels: data.json `producer_countries` splits multi-count
 Federation") and counts the UK's six labels (United Kingdom, England, Wales, "England & Wales",
 Scotland, Northern Ireland) once; see generate_stats.countries_of. The README floor leaves out
 the countries named only by Open Food Facts rows (`producer_countries_off_only`), whose country
-is the first one a product is sold in, not where it is made (Chivas -> Bolivia). 2026.09 after
-the 2026-09-28 cleanup: 47 countries, 6 of them only on Open Food Facts rows, so 41 -> "40+".
-(Before the cleanup the distilleries table also held 748 Wikidata rows that were reservoirs
-and lakes and 375 Wikipedia navigation links: 106 labels, 88 countries, 40 of them only
-through the reservoir rows.)
+is the first one a product is sold in, not where it is made (Chivas -> Bolivia). On the
+database cleaned on 2026-09-28: 47 countries, 6 of them only on Open Food Facts rows, so
+41 -> "40+". (Before the cleanup, as in the 2026-09-02 build, the distilleries table also
+held 748 Wikidata rows that were reservoirs and lakes and 375 Wikipedia navigation links:
+106 labels and 88 countries, 41 of them only through the reservoir rows -- the Isle of Man
+is one of the 41, since countries_of counts it apart from the UK.)
 
 Every rule must match its exact number of occurrences: if a sentence is reworded so that
 a rule no longer finds it, the check fails instead of silently skipping the claim --
