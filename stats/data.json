@@ -1,20 +1,20 @@
 {
  "dataset": "WhiskyDB",
  "page": "https://whiskydb.dataengineered.io/stats/",
- "generated": "2026-09-28",
- "snapshot": "2026-09-02",
+ "generated": "2026-09-29",
+ "snapshot": "2026-09-28",
  "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) - attribute with a link to the page; WhiskyHunter, Companies House and Wikipedia-derived figures retain those sources' attribution terms",
  "totals": {
-  "spirits": 2294,
-  "producers": 2639,
-  "producers_with_country": 2629,
+  "spirits": 2721,
+  "producers": 2853,
+  "producers_with_country": 2843,
   "producer_countries": 47,
   "producer_countries_off_only": 6,
-  "price_rows": 21156,
+  "price_rows": 21228,
   "price_first": "2005-11-01",
   "price_last": "2024-09-01",
-  "price_distilleries": 59,
-  "price_distillery_months": 7225
+  "price_distilleries": 60,
+  "price_distillery_months": 7231
  },
  "auction_index_gbp": {
   "method": "mean monthly winning bid per distillery (WhiskyHunter), yearly mean per distillery, then mean across distilleries",
@@ -370,48 +370,48 @@
  "spirit_types": [
   {
    "type": "Whisky",
-   "bottlings": 838,
-   "share_pct": 36.5
+   "bottlings": 979,
+   "share_pct": 36.0
   },
   {
    "type": "Bourbon",
-   "bottlings": 768,
-   "share_pct": 33.5
+   "bottlings": 922,
+   "share_pct": 33.9
   },
   {
    "type": "Single Malt Scotch",
-   "bottlings": 301,
-   "share_pct": 13.1
+   "bottlings": 366,
+   "share_pct": 13.5
   },
   {
    "type": "Rye Whiskey",
-   "bottlings": 158,
-   "share_pct": 6.9
+   "bottlings": 201,
+   "share_pct": 7.4
   },
   {
    "type": "Scotch Whisky",
-   "bottlings": 127,
-   "share_pct": 5.5
+   "bottlings": 141,
+   "share_pct": 5.2
   },
   {
    "type": "Irish Whiskey",
-   "bottlings": 57,
-   "share_pct": 2.5
+   "bottlings": 64,
+   "share_pct": 2.4
+  },
+  {
+   "type": "Canadian Whisky",
+   "bottlings": 19,
+   "share_pct": 0.7
   },
   {
    "type": "Japanese Whisky",
    "bottlings": 17,
-   "share_pct": 0.7
-  },
-  {
-   "type": "Canadian Whisky",
-   "bottlings": 16,
-   "share_pct": 0.7
+   "share_pct": 0.6
   },
   {
    "type": "Single Malt Whisky",
    "bottlings": 11,
-   "share_pct": 0.5
+   "share_pct": 0.4
   },
   {
    "type": "Single Malt Japanese",
@@ -505,73 +505,73 @@
  "producers_by_country": [
   {
    "country": "USA",
-   "producers": 975,
-   "share_pct": 37.1
+   "producers": 1148,
+   "share_pct": 40.4
   },
   {
    "country": "Scotland",
-   "producers": 585,
-   "share_pct": 22.3
+   "producers": 614,
+   "share_pct": 21.6
   },
   {
    "country": "England & Wales",
    "producers": 497,
-   "share_pct": 18.9
+   "share_pct": 17.5
   },
   {
    "country": "France",
-   "producers": 112,
-   "share_pct": 4.3
+   "producers": 113,
+   "share_pct": 4.0
   },
   {
    "country": "Ireland",
-   "producers": 44,
+   "producers": 47,
    "share_pct": 1.7
   },
   {
    "country": "Germany",
    "producers": 42,
-   "share_pct": 1.6
+   "share_pct": 1.5
   },
   {
    "country": "Northern Ireland",
    "producers": 39,
-   "share_pct": 1.5
+   "share_pct": 1.4
   },
   {
    "country": "Italy",
    "producers": 38,
-   "share_pct": 1.4
-  },
-  {
-   "country": "Canada",
-   "producers": 33,
    "share_pct": 1.3
   },
   {
+   "country": "Canada",
+   "producers": 34,
+   "share_pct": 1.2
+  },
+  {
    "country": "India",
-   "producers": 28,
+   "producers": 30,
    "share_pct": 1.1
+  },
+  {
+   "country": "Japan",
+   "producers": 24,
+   "share_pct": 0.8
   },
   {
    "country": "Australia",
    "producers": 20,
-   "share_pct": 0.8
-  },
-  {
-   "country": "Japan",
-   "producers": 20,
-   "share_pct": 0.8
+   "share_pct": 0.7
   },
   {
    "country": "Spain",
    "producers": 20,
-   "share_pct": 0.8
+   "share_pct": 0.7
   },
   {
    "country": "Hungary",
    "producers": 15,
-   "share_pct": 0.6
+   "share_pct": 0.5
   },
   {
    "country": "Greece",
@@ -586,7 +586,7 @@
   {
    "country": "Bulgaria",
    "producers": 12,
-   "share_pct": 0.5
+   "share_pct": 0.4
   },
   {
    "country": "Romania",
@@ -600,7 +600,7 @@
   },
   {
    "country": "China",
-   "producers": 8,
+   "producers": 9,
    "share_pct": 0.3
   },
   {
@@ -631,17 +631,17 @@
   {
    "country": "Mexico",
    "producers": 4,
-   "share_pct": 0.2
+   "share_pct": 0.1
   },
   {
    "country": "Netherlands",
    "producers": 4,
-   "share_pct": 0.2
+   "share_pct": 0.1
   },
   {
    "country": "Slovenia",
    "producers": 4,
-   "share_pct": 0.2
+   "share_pct": 0.1
   },
   {
    "country": "Ireland, United Kingdom (Northern Ireland)",

@@ -7,7 +7,8 @@ The homepage, README.md, llms.txt and DATA_DICTIONARY.md state dataset figures b
 coverage). This script asserts that every one of them equals `stats/data.json`, which
 `scripts/generate_stats.py` computes from the full snapshot with SQL (count(*), never
 line counts: the paid CSVs hold quoted fields with embedded line breaks, so `wc -l`
-overcounts -- that is how 2,301 / 3,764 got onto the site for a 2,294 / 3,762 edition).
+overcounts -- that is how 2,301 / 3,764 got onto the site for the 2,294 / 3,762 build of
+2026-09-02).
 
     python scripts/check_claims.py          # exit 1 and list every mismatch
     python scripts/check_claims.py --fix    # rewrite the English sources to data.json
@@ -34,12 +35,13 @@ Countries, not country labels: data.json `producer_countries` splits multi-count
 Federation") and counts the UK's six labels (United Kingdom, England, Wales, "England & Wales",
 Scotland, Northern Ireland) once; see generate_stats.countries_of. The README floor leaves out
 the countries named only by Open Food Facts rows (`producer_countries_off_only`), whose country
-is the first one a product is sold in, not where it is made (Chivas -> Bolivia). On the
-database cleaned on 2026-09-28: 47 countries, 6 of them only on Open Food Facts rows, so
-41 -> "40+". (Before the cleanup, as in the 2026-09-02 build, the distilleries table also
-held 748 Wikidata rows that were reservoirs and lakes and 375 Wikipedia navigation links:
-106 labels and 88 countries, 41 of them only through the reservoir rows -- the Isle of Man
-is one of the 41, since countries_of counts it apart from the UK.)
+is the first one a product is sold in, not where it is made (Chivas -> Bolivia). In the
+2026.09 edition published on 2026-09-28 (the cleaned table plus that day's refresh): 47
+countries, 6 of them only on Open Food Facts rows, so 41 -> "40+". (Before the cleanup,
+as in the 2026-09-02 build, the distilleries table also held 748 Wikidata rows that were
+reservoirs and lakes and 375 Wikipedia navigation links: 106 labels and 88 countries, 41
+of them only through the reservoir rows -- the Isle of Man is one of the 41, since
+countries_of counts it apart from the UK.)
 
 Every rule must match its exact number of occurrences: if a sentence is reworded so that
 a rule no longer finds it, the check fails instead of silently skipping the claim --

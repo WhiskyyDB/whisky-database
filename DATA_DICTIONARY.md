@@ -13,7 +13,7 @@ SQLite build described at the bottom.
 | `name` | string | Canonical bottling name (Latin-script, cleaned) | 100% |
 | `type` | enum | `Single Malt Scotch` · `Bourbon` · `Rye Whiskey` · `Irish Whiskey` · `Japanese Whisky` · `Scotch Whisky` · `Whisky` … | 100% |
 | `age` | integer | Age statement in years; empty = NAS or unstated | <1% |
-| `abv` | float | Alcohol by volume (%). Explicitly sourced for 23% of records (e.g. federal label details); otherwise the documented 40.0 default | 100% |
+| `abv` | float | Alcohol by volume (%). Explicitly sourced for 20% of records (e.g. federal label details); otherwise the documented 40.0 default | 100% |
 | `volume_ml` | integer | Bottle volume normalized to milliliters (700/750/1000…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
