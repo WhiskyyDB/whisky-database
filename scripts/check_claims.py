@@ -27,13 +27,20 @@ index.html, so the plain check also confirms that their hero figures were rebuil
 Not in data.json, so still checked by hand: the "linked bottlings" count in README.md, the
 barcode and age-statement coverage, and the "+" floors in DATA_DICTIONARY.md.
 
-Deliberately not guarded: README "Countries represented" (a hand-set floor, 85+). data.json
-`producer_countries` (106 for 2026.09) counts distinct country LABELS, not countries: it
-includes multi-country strings ("France, Italy"), synonyms ("Russia" / "Russian Federation")
-and the UK as six labels (United Kingdom, England, Wales, "England & Wales", Scotland,
-Northern Ireland), so equating the README to it would overclaim; the 2026.09 data names 87-93
-distinct countries depending on the grouping. Follow-up for generate_stats.py: split
-multi-country strings and merge synonyms before counting, then a floor rule can come back.
+Deliberately not guarded: README "Countries represented" (a hand-set floor, 40+). data.json
+`producer_countries` (106 for 2026.09) counts the distinct country LABELS of every
+distilleries row, so equating the README to it would overclaim twice over:
+  - labels, not countries: multi-country strings ("France, Italy"), synonyms ("Russia" /
+    "Russian Federation") and the UK as six labels (United Kingdom, England, Wales,
+    "England & Wales", Scotland, Northern Ireland). Grouped, they name 87-93 countries.
+  - rows that are not producers: all 748 Wikidata rows (source_id 4) are reservoirs and
+    lakes, not distilleries (the ingest's SPARQL class is wd:Q131681), and 40 of those 87
+    countries appear only through them. Open Food Facts country tags (source_id 5, 12) say
+    where a product is sold, not made (Chivas -> Bolivia), so they are not counted either.
+Measured read-only on the 2026.09 DB: 41 countries (UK counted once) have a producer or
+protected-GI row from the seed, the Wikipedia lists, EU eAmbrosia, Companies House or TTB
+COLA, hence 40+. Follow-up (ingest + generate_stats.py): drop the reservoir rows, split
+multi-country strings and merge synonyms before counting; then a floor rule can come back.
 
 Every rule must match its exact number of occurrences: if a sentence is reworded so that
 a rule no longer finds it, the check fails instead of silently skipping the claim --

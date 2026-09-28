@@ -32,7 +32,7 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 | :--- | ---: | ---: |
 | Spirits & bottlings | **2,294** | 15 |
 | Distilleries, brands & producers | **3,762** | 15 |
-| Countries represented | **85+** | — |
+| Countries represented | **40+** | — |
 | Monthly auction-price benchmarks | **21,156** | — |
 | Protected GI appellations (EU/UK) | **270+** | — |
 | Open cask & flavor taxonomies | 14 styles (13 in the open `taxonomy/` CSV) · 15 descriptors | ✔ included |
