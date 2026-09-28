@@ -32,10 +32,10 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 | :--- | ---: | ---: |
 | Spirits & bottlings | **2,294** | 15 |
 | Distilleries, brands & producers | **3,762** | 15 |
-| Countries represented | **106** | — |
+| Countries represented | **85+** | — |
 | Monthly auction-price benchmarks | **21,156** | — |
 | Protected GI appellations (EU/UK) | **270+** | — |
-| Open cask & flavor taxonomies | 13 styles · 15 descriptors | ✔ included |
+| Open cask & flavor taxonomies | 14 styles (13 in the open `taxonomy/` CSV) · 15 descriptors | ✔ included |
 | Formats | SQLite · CSV | CSV |
 
 The free [`samples/spirits.csv`](samples/spirits.csv) and [`samples/distilleries.csv`](samples/distilleries.csv) are curated subsets showing the schema and quality. Explore them interactively in the [🤗 Sample Explorer](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers), or load them straight from the [🤗 sample dataset](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample) or [Kaggle](https://www.kaggle.com/datasets/dataengineered/whiskydb-fine-spirits-sample) (with a [live starter notebook](https://www.kaggle.com/code/dataengineered/whiskydb-fine-spirits-starter-notebook)). The [`taxonomy/`](taxonomy/) CSVs (hierarchical cask styles and controlled flavor vocabulary) are **fully open source** — use them in your own projects with attribution.

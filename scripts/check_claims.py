@@ -13,11 +13,12 @@ overcounts -- that is how 2,301 / 3,764 got onto the site for a 2,294 / 3,762 ed
     python scripts/check_claims.py --fix    # rewrite the English sources to data.json
 
 Stdlib only, no network. Release order after a data refresh:
-    generate_stats.py -> check_claims.py --fix -> i18n_common.py build + check -> check_claims.py
+    generate_stats.py -> check_claims.py --fix -> generate_seo_pages.py (sitemap lastmods)
+    -> i18n_common.py build + check -> check_claims.py
 
 What is compared (English sources only; the /es/ /de/ /fr/ /pt-br/ pages are generated from
 index.html, so the plain check also confirms that their hero figures were rebuilt):
-  spirits, producers, price_rows, producer_countries, price_distilleries   totals in data.json
+  spirits, producers, price_rows, price_distilleries   totals in data.json
   auction months / date range     price_first..price_last (whole months, both ends included)
   snapshot edition                YYYY.MM of data.json "snapshot" (the refresh date)
   coverage %                      floored, so a claim never rounds up: explicit ABV = abv.denominator
@@ -25,6 +26,14 @@ index.html, so the plain check also confirms that their hero figures were rebuil
                                   year = founded.denominator / producers; ABV max = abv.max
 Not in data.json, so still checked by hand: the "linked bottlings" count in README.md, the
 barcode and age-statement coverage, and the "+" floors in DATA_DICTIONARY.md.
+
+Deliberately not guarded: README "Countries represented" (a hand-set floor, 85+). data.json
+`producer_countries` (106 for 2026.09) counts distinct country LABELS, not countries: it
+includes multi-country strings ("France, Italy"), synonyms ("Russia" / "Russian Federation")
+and the UK as six labels (United Kingdom, England, Wales, "England & Wales", Scotland,
+Northern Ireland), so equating the README to it would overclaim; the 2026.09 data names 87-93
+distinct countries depending on the grouping. Follow-up for generate_stats.py: split
+multi-country strings and merge synonyms before counting, then a floor rule can come back.
 
 Every rule must match its exact number of occurrences: if a sentence is reworded so that
 a rule no longer finds it, the check fails instead of silently skipping the claim --
@@ -39,7 +48,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-NUM = r"\d{1,3}(?:,\d{3})+|\d+"          # 2,294 or 106
+NUM = r"\d{1,3}(?:,\d{3})+|\d+"          # 2,294 or 59
 NUM_URL = r"\d{1,3}(?:%2C\d{3})+|\d+"    # shields.io badge form: 3%2C762
 EDITION = r"\d{4}\.\d{2}"
 RANGE_LONG = r"[A-Z][a-z]+ \d{4} → (?:[A-Z][a-z]+ \d{4}|today)"            # November 2005 → September 2024
@@ -84,7 +93,6 @@ RULES = [
     rule("README.md", "Snapshot badge URL", rf"/badge/Snapshot-(?P<v>{EDITION})-", "edition"),
     rule("README.md", "table Spirits & bottlings", rf"\| Spirits & bottlings \| \*\*(?P<v>{NUM})\*\* \|", "spirits"),
     rule("README.md", "table Distilleries", rf"\| Distilleries, brands & producers \| \*\*(?P<v>{NUM})\*\* \|", "producers"),
-    rule("README.md", "table Countries", rf"\| Countries represented \| \*\*(?P<v>(?:{NUM})\+?)\*\* \|", "producer_countries"),
     rule("README.md", "table benchmarks", rf"\| Monthly auction-price benchmarks \| \*\*(?P<v>{NUM})\*\* \|", "price_rows"),
     rule("README.md", "coverage Distillery country", r"\| Distillery country \| (?P<v>\d+)% \|", "pct_country"),
     rule("README.md", "coverage Distillery founded year", r"\| Distillery founded year \| (?P<v>\d+)% \|", "pct_founded"),
@@ -141,7 +149,6 @@ def expected_values(data):
         "producers": grouped(t["producers"]),
         "producers_url": grouped(t["producers"], "%2C"),
         "price_rows": grouped(t["price_rows"]),
-        "producer_countries": grouped(t["producer_countries"]),
         "price_distilleries": grouped(t["price_distilleries"]),
         "months": str((last.year - first.year) * 12 + last.month - first.month + 1),
         "range_long": f"{month(first)} → {month(last)}",
@@ -242,14 +249,14 @@ def main(argv=None):
         print(f"fixed  {line}")
     if args.fix:
         if fixed:
-            print("now run: python scripts/i18n_common.py build && python scripts/i18n_common.py check, "
-                  "then python scripts/check_claims.py")
+            print("now run: python scripts/generate_seo_pages.py, then python scripts/i18n_common.py build "
+                  "&& python scripts/i18n_common.py check, then python scripts/check_claims.py")
     else:
         problems += check_locales(root, data)
 
     print(f"claims vs stats/data.json (snapshot {data['snapshot']}, edition {exp['edition']}): "
           f"{exp['spirits']} spirits, {exp['producers']} distilleries, {exp['price_rows']} price rows, "
-          f"{exp['producer_countries']} countries, auctions {exp['range_short']}")
+          f"auctions {exp['range_short']}")
     if problems:
         for p in problems:
             print(f"ERROR  {p}")
