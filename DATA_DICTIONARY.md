@@ -57,11 +57,11 @@ The commercial snapshot normalizes into 10 tables:
 | `brands` | Brand ownership (e.g. Lagavulin → Diageo) |
 | `spirits` | 1,290+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag |
 | `mash_bills` | Producer-published grain compositions (corn/rye/barley/wheat %) |
-| `cask_taxonomy` | The 3-tier cask hierarchy (mirrors `taxonomy/casks.csv`) |
+| `cask_taxonomy` | The 3-tier cask hierarchy: the styles of `taxonomy/casks.csv` plus those the cask mapper derives from product names (e.g. Port Pipe) |
 | `spirit_casks` | 500+ spirit↔cask maturation mappings with stage and fill type |
 | `flavor_taxonomy` | The controlled flavor vocabulary (mirrors `taxonomy/flavors.csv`) |
 | `spirit_tasting_notes` | Standardized flavor tags with phase (Nose/Palate/Finish) and 1–3 intensity |
-| `price_benchmarks` | 20,000+ monthly distillery auction indices, Nov 2005 → Sep 2024, GBP + USD |
+| `price_benchmarks` | 20,000+ rows of monthly distillery auction indices, Nov 2005 → Sep 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for each linked bottling) |
 
 Every content table carries a `source_id` foreign key into `data_sources` — 100% of rows resolve to a valid provenance entry (enforced and tested).
 

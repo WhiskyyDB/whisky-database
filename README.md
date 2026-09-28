@@ -55,7 +55,7 @@ Measured across the full dataset. Public sources don't all publish every attribu
 
 ## Auction price history — the differentiated part
 
-- **21,228** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), one row per distillery per month.
+- **21,228** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), one row per linked bottling per month. A distillery's monthly index is repeated for each bottling linked to it, so there are fewer distinct distillery-months than rows (see `/stats/`).
 - **227 consecutive months** — November 2005 → September 2024 — across **60 whisky distilleries** and 205 linked bottlings.
 - Honestly labeled: every row is a `Distillery Auction Index` (market-level index), **never** passed off as a bottle-specific realization.
 - Sourced from open statistical auction data; ideal for valuation models, trend analysis, and price-vs-age studies.
