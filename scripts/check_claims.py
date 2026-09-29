@@ -27,8 +27,23 @@ index.html, so the plain check also confirms that their hero figures were rebuil
                                   year = founded.denominator / producers; ABV max = abv.max
   countries floor                 README "Countries represented N+": producer_countries minus
                                   producer_countries_off_only, floored to a multiple of 10
+  GI appellations floor           README "Protected GI appellations (EU/UK) N+": gi_appellations
+                                  floored to a multiple of 10, once data.json reports it (below)
 Not in data.json, so still checked by hand: the "linked bottlings" count in README.md, the
 barcode and age-statement coverage, and the "+" floors in DATA_DICTIONARY.md.
+
+Producers, not appellations (from the 2026.10 edition): the snapshot flags the 273 EU
+eAmbrosia GI appellation rows ("Official GI Producer - Cognac") with
+distilleries.is_gi_appellation = 1, and generate_stats.py then leaves them out of every
+producer figure: `producers`, `producers_with_country`, the country counts and the founded
+denominator. So the distilleries claims, the country and founded-year coverage and the
+countries floor are all measured on producers only, and data.json gains
+`totals.gi_appellations`. A data.json without that key (2026.09 and older) has the GI floor
+rule's sentence count checked but not its value. Measured on the flagged database of
+2026-09-29 (the 2026.09 edition minus 15 non-producer rows): 2,565 producers + 273
+appellations, country coverage 2,556 / 2,565 -> 99%, founded year 696 / 2,565 -> 27%, 31
+countries of which 12 only on Open Food Facts rows -> 19 -> "10+" (the 16 countries named
+only by appellations drop out).
 
 Countries, not country labels: data.json `producer_countries` splits multi-country labels
 ("France, Italy", appellations shared across borders), merges synonyms ("Russia" / "Russian
@@ -68,9 +83,11 @@ HERO_KEYS = ("spirits", "producers", "price_rows")
 LOCALE_GROUP = {"es": ".", "de": ".", "pt-br": ".", "fr": "\u202f", "it": ".", "nl": ".", "id": ".", "tr": "."}
 
 
-def rule(file, label, pattern, key, count=1):
-    """`pattern` holds one `(?P<v>...)` group: the claimed value, compared with expected[key]."""
-    return dict(file=file, label=label, rx=re.compile(pattern), key=key, count=count)
+def rule(file, label, pattern, key, count=1, optional=False):
+    """`pattern` holds one `(?P<v>...)` group: the claimed value, compared with expected[key].
+    optional: the key may be missing from an older data.json; the occurrence count is still
+    checked, the value only when the key is there."""
+    return dict(file=file, label=label, rx=re.compile(pattern), key=key, count=count, optional=optional)
 
 
 RULES = [
@@ -103,6 +120,8 @@ RULES = [
     rule("README.md", "table Distilleries", rf"\| Distilleries, brands & producers \| \*\*(?P<v>{NUM})\*\* \|", "producers"),
     rule("README.md", "table benchmarks", rf"\| Monthly auction-price benchmarks \| \*\*(?P<v>{NUM})\*\* \|", "price_rows"),
     rule("README.md", "table Countries floor", r"\| Countries represented \| \*\*(?P<v>\d+)\+\*\* \|", "countries_floor"),
+    rule("README.md", "table GI appellations floor", r"\| Protected GI appellations \(EU/UK\) \| \*\*(?P<v>\d+)\+\*\* \|",
+         "gi_floor", optional=True),
     rule("README.md", "coverage Distillery country", r"\| Distillery country \| (?P<v>\d+)% \|", "pct_country"),
     rule("README.md", "coverage Distillery founded year", r"\| Distillery founded year \| (?P<v>\d+)% \|", "pct_founded"),
     rule("README.md", "coverage Explicit label ABV", r"\| Explicit label ABV \| (?P<v>\d+)%\\?\*", "pct_abv"),
@@ -153,7 +172,7 @@ def expected_values(data):
     last = dt.date.fromisoformat(t["price_last"])
     snap = dt.date.fromisoformat(data["snapshot"])
     abv_max = float(data["abv"]["max"])
-    return {
+    exp = {
         "spirits": grouped(t["spirits"]),
         "producers": grouped(t["producers"]),
         "producers_url": grouped(t["producers"], "%2C"),
@@ -171,6 +190,9 @@ def expected_values(data):
         "countries_floor": str((t["producer_countries"] - t["producer_countries_off_only"]) // 10 * 10),
         "abv_max": f"{abv_max:g}",
     }
+    if "gi_appellations" in t:  # data.json from a snapshot that flags the EU GI appellations
+        exp["gi_floor"] = str(t["gi_appellations"] // 10 * 10)
+    return exp
 
 
 def read(path):
@@ -195,12 +217,14 @@ def check_sources(root, exp, fix):
         if text is None:
             problems.append(f"{r['file']}: file missing")
             continue
-        want = exp[r["key"]]
         matches = list(r["rx"].finditer(text))
         if len(matches) != r["count"]:
             problems.append(f"{r['file']}: {r['label']}: expected {r['count']} occurrence(s), found {len(matches)} "
                             f"(sentence reworded? update it or RULES in scripts/check_claims.py)")
             continue
+        if r["optional"] and r["key"] not in exp:
+            continue
+        want = exp[r["key"]]
         wrong = [m for m in matches if m.group("v") != want]
         if not wrong:
             continue
