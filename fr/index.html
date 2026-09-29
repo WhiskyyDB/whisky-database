@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>WhiskyDB — base de données whisky &amp; whiskey : 2 721 embouteillages</title>
-<meta content="Téléchargez 2 721 embouteillages de whisky et whiskey de 2 853 distilleries en SQLite ou CSV — recettes de moût, lignées de fûts, 21 228 références d’enchères. Échantillon gratuit." name="description"/>
+<meta content="Téléchargez 2 721 embouteillages de whisky et whiskey de 2 853 distilleries en SQLite ou CSV, plus 7 231 références mensuelles d’enchères par distillerie. Échantillon gratuit." name="description"/>
 <meta content="2VE0Ll5xPaIkGjSTkvTenDhcKRLJGPFgVqekvGOIw-4" name="google-site-verification"/>
 <link href="https://whiskydb.dataengineered.io/fr/" rel="canonical"/>
 <!-- i18n:alternates -->
@@ -26,7 +26,7 @@
 <!-- /i18n:alternates -->
 <!-- OpenGraph Metadata -->
 <meta content="WhiskyDB — base de données whisky &amp; whiskey : 2 721 embouteillages" property="og:title"/>
-<meta content="2 721 embouteillages de whisky et whiskey de 2 853 distilleries — recettes de moût, lignées de fûts, 21 228 références mensuelles d’enchères. SQLite + CSV, échantillon gratuit." property="og:description"/>
+<meta content="2 721 embouteillages de whisky et whiskey de 2 853 distilleries, avec codes-barres et 7 231 références mensuelles d’enchères par distillerie. SQLite + CSV, échantillon gratuit." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://whiskydb.dataengineered.io/hero.png" property="og:image"/>
 <meta content="https://whiskydb.dataengineered.io/fr/" property="og:url"/>
@@ -46,7 +46,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "WhiskyDB — catalogue mondial & évaluations des spiritueux haut de gamme",
-  "description": "Catalogue structuré à provenance tracée de spiritueux haut de gamme et de whiskies, avec recettes de moût standardisées, lignées de maturation en fût, profils sensoriels et indices d’enchères du marché secondaire par distillerie.",
+  "description": "Catalogue à provenance tracée de whiskies et de spiritueux haut de gamme : embouteillages avec type, TAV, volume et code-barres, leurs distilleries et producteurs, des liens de fûts dérivés par règles et des indices mensuels d’enchères par distillerie. Chaque ligne indique sa source.",
   "url": "https://whiskydb.dataengineered.io/fr/",
   "keywords": [
     "base de données whisky",
@@ -117,7 +117,7 @@
       "name": "Quels attributs de données la base de données de spiritueux WhiskyDB contient-elle ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chaque fiche de spiritueux de WhiskyDB est normalisée avec le pourcentage exact de TAV, la mention d’âge, le volume de la bouteille en ml, les pourcentages standardisés de la recette de moût (maïs, seigle, blé, orge maltée), la lignée précise de maturation en fût (p. ex. First-Fill Oloroso Sherry, chêne Mizunara), les principaux tags sensoriels et la provenance de la distillerie."
+        "text": "Chaque fiche de spiritueux comporte un nom, un type de spiritueux, un TAV, un volume de bouteille et un source_id vers le registre de provenance, et presque toutes portent un code-barres ou un identifiant d’étiquette ainsi qu’un lien vers une distillerie ou un producteur. La couverture est inégale, et nous le disons clairement : 545 des 2 721 spiritueux ont un TAV explicitement issu de la source (les autres portent la valeur par défaut documentée de 40%), les mentions d’âge sont rares, et les recettes de moût et tags aromatiques publiés par les producteurs n’existent que pour une poignée d’embouteillages phares."
       }
     },
     {
@@ -125,7 +125,7 @@
       "name": "À quelle fréquence les évaluations d’enchères du marché secondaire sont-elles mises à jour ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Les 21 228 références mensuelles de prix aux enchères par distillerie sont incluses dans le jeu de données. WhiskyDB est mis à jour chaque mois par un pipeline automatisé : l’abonnement à $49/month livre automatiquement chaque mise à jour, et l’achat unique à $49 livre le snapshot actuel."
+        "text": "Les données d’enchères sont l’enchère gagnante moyenne mensuelle par distillerie selon WhiskyHunter : 7 231 références mensuelles d’enchères par distillerie pour 60 distilleries, de 2005 à 2024. Ce sont des indices au niveau de la distillerie, jamais des prix de bouteilles ; les fichiers de données répètent chacune d’elles pour chaque embouteillage rattaché à sa distillerie (21 228 lignes). La mise à jour mensuelle réinterroge la source pour trouver de nouveaux mois : l’abonnement à $49/month livre automatiquement chaque mise à jour, et l’achat unique à $49 livre le snapshot actuel."
       }
     },
     {
@@ -138,10 +138,10 @@
     },
     {
       "@type": "Question",
-      "name": "Comment WhiskyDB vérifie-t-il les recettes de moût et les lignées de fûts des distilleries ?",
+      "name": "D’où viennent les recettes de moût et les liens de fûts de WhiskyDB ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nous combinons les fiches techniques publiées par les producteurs, les dépôts d’étiquettes auprès des autorités (enregistrements TTB COLA) et des registres historiques de distilleries vérifiés en une chaîne de provenance immuable, avec citation des sources pour chaque détermination."
+        "text": "Les recettes de moût proviennent uniquement de spécifications publiées par les producteurs et n’existent que pour une poignée d’embouteillages. Les liens de fûts sont soit publiés par le producteur, soit dérivés par règle : un mot-clé de fût entier dans le nom de l’embouteillage (comme Sherry ou Port), ou l’obligation légale américaine selon laquelle le bourbon et le rye whiskey vieillissent en fûts de chêne neufs carbonisés (27 CFR 5.143). Chaque ligne porte un source_id vers le registre de provenance data_sources, et une valeur qu’aucune source n’indique reste vide plutôt que d’être devinée."
       }
     }
   ],
@@ -152,32 +152,37 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Déterminations de spiritueux du monde entier à la une dans WhiskyDB",
+  "name": "Spiritueux de l’échantillon gratuit de WhiskyDB",
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Lagavulin 16 Year Old Single Malt Scotch"
+      "name": "Lagavulin 16 Year Old",
+      "url": "https://whiskydb.dataengineered.io/fr/spirits/lagavulin-16-year-old"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Pappy Van Winkle Family Reserve 15 Year Old Bourbon"
+      "name": "Eagle Rare 10 Year Old",
+      "url": "https://whiskydb.dataengineered.io/fr/spirits/eagle-rare-10-year-old"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Yamazaki 12 Year Old Single Malt Japanese Whisky"
+      "name": "Yamazaki 12 Year Old",
+      "url": "https://whiskydb.dataengineered.io/fr/spirits/yamazaki-12-year-old"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "The Macallan 18 Year Old Sherry Oak"
+      "name": "Woodford Reserve Kentucky Straight Bourbon",
+      "url": "https://whiskydb.dataengineered.io/fr/spirits/woodford-reserve-kentucky-straight-bourbon"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "George T. Stagg Barrel Proof Bourbon"
+      "name": "Four Roses Single Barrel",
+      "url": "https://whiskydb.dataengineered.io/fr/spirits/four-roses-single-barrel"
     }
   ],
   "inLanguage": "fr"
@@ -220,7 +225,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "WhiskyDB — catalogue mondial & évaluations des spiritueux haut de gamme — Snapshot",
-  "description": "Catalogue structuré à provenance tracée de spiritueux haut de gamme et de whiskies, avec recettes de moût standardisées, lignées de maturation en fût, profils sensoriels et indices d’enchères du marché secondaire par distillerie.",
+  "description": "Catalogue à provenance tracée de whiskies et de spiritueux haut de gamme : embouteillages avec type, TAV, volume et code-barres, leurs distilleries et producteurs, des liens de fûts dérivés par règles et des indices mensuels d’enchères par distillerie. Chaque ligne indique sa source.",
   "image": "https://whiskydb.dataengineered.io/hero.png",
   "brand": {
     "@type": "Brand",
@@ -301,7 +306,7 @@
 </a>
 <nav class="nav-links">
 <a href="#features-section">Architecture</a>
-<a href="#live-demo-section">Démo en direct</a>
+<a href="#live-demo-section">Échantillon gratuit</a>
 <a href="/stats/">Statistiques</a>
 <a href="#pricing-section">Tarifs</a>
 <a class="nav-btn-secondary" href="https://github.com/WhiskyyDB/whisky-database" target="_blank">GitHub</a>
@@ -368,7 +373,7 @@
                         La base de données structurée de référence pour les <span class="text-gradient">spiritueux haut de gamme du monde entier</span>
 </h1>
 <p class="hero-subtitle">
-                        Au service des agents IA, de l’analytique des boissons, des plateformes d’enchères du marché secondaire et des technologies de l’hôtellerie-restauration, avec un catalogue à provenance entièrement tracée de fiches de spiritueux standardisées, de recettes de moût publiées, de lignées de fûts et d’indices réels du marché des enchères.
+                        Au service des agents IA, de l’analytique des boissons, des plateformes d’enchères du marché secondaire et des technologies de l’hôtellerie-restauration, avec un catalogue à provenance entièrement tracée de fiches de spiritueux standardisées, de codes-barres, de liens de fûts et d’indices d’enchères par distillerie.
                     </p>
 <div class="hero-ctas">
 <a class="btn btn-primary btn-lg" href="https://buy.stripe.com/eVq3cw4p2afccI382s38401?client_reference_id=whiskydb_fr_home" id="cta-buy-once">
@@ -396,8 +401,8 @@
 </div>
 <div class="stat-divider"></div>
 <div class="stat-item">
-<span class="stat-num">21 228</span>
-<span class="stat-label">Références de prix aux enchères</span>
+<span class="stat-num">7 231</span>
+<span class="stat-label">Références d’enchères par distillerie</span>
 </div>
 <div class="stat-divider"></div>
 <div class="stat-item">
@@ -419,55 +424,51 @@
 <span class="floating-icon">🪵</span>
 <div>
 <div class="floating-title">Lignée de fût</div>
-<div class="floating-val" translate="no">First-Fill Ex-Oloroso Sherry</div>
+<div class="floating-val" translate="no">Oloroso Sherry Puncheon</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Section 2: Live Interactive Demo -->
+<!-- Section 2: Free sample explorer. app.js renders the rows of samples/spirits.csv as
+             published (no value is typed into the page or the script) and, for bottlings linked to a
+             distillery of the public auction index, that distillery's figure from stats/data.json. -->
 <section class="demo-section" id="live-demo-section">
 <div class="section-container">
 <div class="section-header text-center">
-<h2 class="section-title">Catalogue interactif <span class="text-gradient">Démo en direct</span></h2>
+<h2 class="section-title">Explorez l’<span class="text-gradient">échantillon gratuit</span></h2>
 <p class="section-subtitle">
-                        Testez notre moteur de filtrage en temps réel. Filtrez par catégorie de spiritueux, mention d’âge minimale, style de maturation en fût et tags aromatiques sensoriels.
+                        Les lignes de spiritueux de l’échantillon gratuit, chargées depuis <a href="https://github.com/WhiskyyDB/whisky-database/blob/main/samples/spirits.csv" rel="noopener" style="text-decoration:underline;" target="_blank"><code translate="no">samples/spirits.csv</code></a> telles qu’elles sont publiées. Filtrez-les par type de spiritueux, mention d’âge, source et taille de bouteille.
                     </p>
 </div>
 <div class="demo-dashboard glass-card" id="demo-interface">
 <!-- Controls Bar -->
 <div class="demo-controls">
 <div class="control-group">
-<label for="filter-category">Catégorie de spiritueux</label>
+<label for="filter-category">Type de spiritueux</label>
 <select class="demo-select" id="filter-category">
-<option value="all">Toutes les catégories (Scotch, Bourbon, Rye…)</option>
-<option translate="no" value="Single Malt Scotch">Single Malt Scotch</option>
-<option translate="no" value="Bourbon">Kentucky Straight Bourbon</option>
-<option translate="no" value="Rye Whiskey">Rye Whiskey</option>
-<option translate="no" value="Japanese Whisky">Japanese Whisky</option>
+<option value="all">Tous les types</option>
 </select>
 </div>
 <div class="control-group">
 <label for="filter-age">Mention d’âge minimale : <span class="text-gold" id="age-display">Tous âges</span></label>
-<input class="demo-slider" id="filter-age" max="25" min="0" step="5" type="range" value="0"/>
+<input class="demo-slider" id="filter-age" max="15" min="0" step="5" type="range" value="0"/>
 </div>
 <div class="control-group">
-<label>Filtre de maturation en fût</label>
-<div class="tag-pills" id="cask-filter-container">
-<button class="filter-pill active" data-cask="all">Tous les fûts</button>
-<button class="filter-pill" data-cask="Sherry" translate="no">Sherry Cask</button>
-<button class="filter-pill" data-cask="Bourbon" translate="no">Ex-Bourbon</button>
-<button class="filter-pill" data-cask="Mizunara" translate="no">Mizunara Oak</button>
+<label>Source</label>
+<div class="tag-pills" id="source-filter-container">
+<button class="filter-pill active" data-source="all" type="button">Toutes les sources</button>
+<button class="filter-pill" data-source="seed" type="button">Publié par le producteur</button>
+<button class="filter-pill" data-source="off" translate="no" type="button">Open Food Facts</button>
 </div>
 </div>
 <div class="control-group">
-<label>Tag de descripteur aromatique</label>
-<div class="tag-pills" id="flavor-filter-container">
-<button class="filter-pill active" data-flavor="all">Tous les arômes</button>
-<button class="filter-pill" data-flavor="Peat Smoke">Fumée de tourbe</button>
-<button class="filter-pill" data-flavor="Vanilla">Vanille &amp; miel</button>
-<button class="filter-pill" data-flavor="Dried Fruit">Figues séchées &amp; raisins secs</button>
+<label>Taille de bouteille</label>
+<div class="tag-pills" id="size-filter-container">
+<button class="filter-pill active" data-size="all" type="button">Toutes les tailles</button>
+<button class="filter-pill" data-size="700" type="button">700 mL</button>
+<button class="filter-pill" data-size="1000" type="button">1 L</button>
 </div>
 </div>
 </div>
@@ -475,16 +476,19 @@
 <div class="demo-status-bar">
 <div class="status-left">
 <span class="status-indicator live"></span>
-<span>Affichage de <strong class="text-gold" id="result-count">6</strong> fiches canoniques vérifiées</span>
+<span>Affichage de <strong class="text-gold" id="result-count">15</strong> lignes sur <strong id="sample-total">15</strong> de l’échantillon gratuit</span>
 </div>
 <div class="status-right">
-<span class="text-muted">Temps de réponse : <strong>14ms</strong> • Normalisation : <strong>4 niveaux actifs</strong></span>
+<span class="text-muted">Licence de l’échantillon : CC BY-NC 4.0</span>
 </div>
 </div>
 <!-- Cards Grid -->
 <div class="spirits-grid" id="spirits-cards-container">
-<!-- Populated dynamically via app.js -->
+<!-- Populated by app.js from samples/spirits.csv -->
 </div>
+<p class="text-muted" id="demo-note" style="margin-top: 24px; font-size: 0.85rem; line-height: 1.6;">
+                        WhiskyDB ne contient aucun prix de bouteille. Le chiffre d’enchères d’une carte est l’enchère gagnante moyenne de la distillerie rattachée sur la dernière année des données (WhiskyHunter, comme sur la <a href="/stats/#distilleries" style="text-decoration:underline;">page de statistiques</a>), pas un prix pour cette bouteille ; il n’apparaît que pour les embouteillages rattachés à une distillerie qui y figure. Un TAV de 40,0% peut aussi être la valeur par défaut documentée lorsque la source n’en indique aucun.
+                    </p>
 </div>
 </div>
 </section>
@@ -501,7 +505,7 @@
 <div class="arch-card glass-card">
 <div class="arch-icon">🌐</div>
 <h3>8 sources intégrées</h3>
-<p>Ingestion automatisée continue depuis Wikipedia, Open Food Facts, le registre TTB COLA, UK Companies House, eAmbrosia (UE) et les archives d’enchères de WhiskyHunter.</p>
+<p>Construit à partir de Wikipedia, Open Food Facts, du registre TTB COLA, de UK Companies House, d’eAmbrosia (UE) et des statistiques d’enchères de WhiskyHunter. La mise à jour mensuelle réinterroge TTB COLA et WhiskyHunter et redérive les liens de fûts ; les autres sources sont reparcourues lors de mises à jour complètes manuelles.</p>
 <div class="arch-tags">
 <span class="mini-tag">Domaine public</span>
 <span class="mini-tag">ODbL</span>
@@ -532,14 +536,15 @@
 <div class="provenance-banner glass-card mt-12">
 <div class="prov-content">
 <h3>Auditabilité complète &amp; registre de provenance</h3>
-<p>Chaque attribut de WhiskyDB comporte une clé étrangère immuable vers notre table d’audit `data_sources`, avec les URL exactes des points de terminaison HTTP, les horodatages d’accès et les codes de statut. Ne vous fiez plus jamais à un scraping en boîte noire.</p>
+<p>Chaque ligne de WhiskyDB porte un <code translate="no">source_id</code> vers le registre <code translate="no">data_sources</code>, qui consigne pour chaque source son nom, l’URL du point de terminaison, l’horodatage d’accès et le statut HTTP. Ci-contre : l’entrée du registre pour le registre américain des étiquettes, dans l’édition 2026.09.</p>
 </div>
 <div class="prov-code">
-<pre><code>"primary_source": {
-  "source_name": "TTB COLA Registry (USA)",
-  "endpoint_url": "https://www.ttb.gov/cola/registry",
-  "access_timestamp": "2026-07-05T18:45:00Z",
-  "http_status": 200
+<pre><code>"data_sources": {
+  "source_id": 42,
+  "source_name": "US Government TTB COLA Registry (Public Domain / FOIA)",
+  "endpoint_url": "https://app.colacloud.us/api/v1/colas",
+  "access_timestamp": "2026-09-28 23:06:31",
+  "http_status_code": 200
 }</code></pre>
 </div>
 </div>
@@ -583,7 +588,7 @@
 <li><span class="check-icon">✓</span> Catalogue commercial complet des spiritueux</li>
 <li><span class="check-icon">✓</span> Snapshots SQLite + CSV</li>
 <li><span class="check-icon">✓</span> Snapshot actuel ; mises à jour mensuelles livrées automatiquement avec l’abonnement</li>
-<li><span class="check-icon">✓</span> Taxonomies des recettes de moût &amp; des fûts</li>
+<li><span class="check-icon">✓</span> Taxonomies des fûts &amp; des arômes</li>
 <li><span class="check-icon">✓</span> Licence commerciale incluse</li>
 <li><span class="check-icon">✓</span> Accès complet au registre de provenance</li>
 </ul>
@@ -605,19 +610,19 @@
 <div class="faq-grid" style="display: grid; gap: 20px; max-width: 800px; margin: 0 auto;">
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Quels attributs de données la base de données de spiritueux WhiskyDB contient-elle ?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Chaque fiche de spiritueux de WhiskyDB est normalisée avec le pourcentage exact de TAV, la mention d’âge, le volume de la bouteille en ml, les pourcentages standardisés de la recette de moût (maïs, seigle, blé, orge maltée), la lignée précise de maturation en fût (p. ex. First-Fill Oloroso Sherry, chêne Mizunara), les principaux tags sensoriels et la provenance de la distillerie.</p>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Chaque fiche de spiritueux comporte un nom, un type de spiritueux, un TAV, un volume de bouteille et un source_id vers le registre de provenance, et presque toutes portent un code-barres ou un identifiant d’étiquette ainsi qu’un lien vers une distillerie ou un producteur. La couverture est inégale, et nous le disons clairement : 545 des 2 721 spiritueux ont un TAV explicitement issu de la source (les autres portent la valeur par défaut documentée de 40%), les mentions d’âge sont rares, et les recettes de moût et tags aromatiques publiés par les producteurs n’existent que pour une poignée d’embouteillages phares.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">À quelle fréquence les évaluations d’enchères du marché secondaire sont-elles mises à jour ?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Les 21 228 références mensuelles de prix aux enchères par distillerie sont incluses dans le jeu de données. WhiskyDB est mis à jour chaque mois par un pipeline automatisé : l’abonnement à $49/month livre automatiquement chaque mise à jour, et l’achat unique à $49 livre le snapshot actuel.</p>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Les données d’enchères sont l’enchère gagnante moyenne mensuelle par distillerie selon WhiskyHunter : 7 231 références mensuelles d’enchères par distillerie pour 60 distilleries, de 2005 à 2024. Ce sont des indices au niveau de la distillerie, jamais des prix de bouteilles ; les fichiers de données répètent chacune d’elles pour chaque embouteillage rattaché à sa distillerie (21 228 lignes). La mise à jour mensuelle réinterroge la source pour trouver de nouveaux mois : l’abonnement à $49/month livre automatiquement chaque mise à jour, et l’achat unique à $49 livre le snapshot actuel.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Puis-je télécharger un échantillon gratuit avant d’acheter une licence commerciale ?</h3>
 <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Oui ! Vous pouvez télécharger immédiatement nos jeux de données d’exemple publics au format CSV (<code style="color:#e2c044;">spirits.csv</code> et <code style="color:#e2c044;">distilleries.csv</code>) depuis notre dépôt GitHub open source, ou les explorer de manière interactive via notre Hugging Face Sample Explorer, sans clé API.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
-<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Comment WhiskyDB vérifie-t-il les recettes de moût et les lignées de fûts des distilleries ?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Nous combinons les fiches techniques publiées par les producteurs, les dépôts d’étiquettes auprès des autorités (enregistrements TTB COLA) et des registres historiques de distilleries vérifiés en une chaîne de provenance immuable, avec citation des sources pour chaque détermination.</p>
+<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">D’où viennent les recettes de moût et les liens de fûts de WhiskyDB ?</h3>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Les recettes de moût proviennent uniquement de spécifications publiées par les producteurs et n’existent que pour une poignée d’embouteillages. Les liens de fûts sont soit publiés par le producteur, soit dérivés par règle : un mot-clé de fût entier dans le nom de l’embouteillage (comme Sherry ou Port), ou l’obligation légale américaine selon laquelle le bourbon et le rye whiskey vieillissent en fûts de chêne neufs carbonisés (27 CFR 5.143). Chaque ligne porte un source_id vers le registre de provenance data_sources, et une valeur qu’aucune source n’indique reste vide plutôt que d’être devinée.</p>
 </div>
 </div>
 </div>
@@ -687,7 +692,7 @@
 <span class="logo-text">Whisky<span class="text-gold">DB</span></span>
 </div>
 <p class="footer-desc">
-                    La base de données structurée la plus rigoureuse au monde pour les spiritueux haut de gamme, les distilleries, les recettes de moût et les évaluations de marché. Conçue pour les développeurs, les analystes et les plateformes institutionnelles du secteur des boissons.
+                    Une base de données structurée à provenance tracée des spiritueux haut de gamme, des distilleries et producteurs, et des indices d’enchères par distillerie. Conçue pour les développeurs, les analystes et les plateformes du secteur des boissons.
                 </p>
 <div class="footer-copyright">
                     © 2026 WhiskyDB Initiative. Échantillon &amp; documentation : CC BY-NC 4.0 ; taxonomies : CC BY 4.0.
@@ -727,18 +732,16 @@
   "all_ages": "Tous âges",
   "years_old_suffix": "+ ans d’âge",
   "empty_title": "Aucune fiche de spiritueux correspondante",
-  "empty_text": "Essayez d’élargir le curseur de mention d’âge ou de sélectionner « Tous les fûts ».",
+  "empty_text": "Essayez un âge minimal plus bas, ou choisissez « Toutes les sources » et « Toutes les tailles ».",
   "age_abbrev": "ans",
-  "mash_bill_lineage": "Lignée de la recette de moût",
-  "malt": "Malt",
-  "malted_barley": "Orge maltée",
-  "corn": "Maïs",
-  "rye": "Seigle",
-  "wheat": "Blé",
+  "no_age": "Sans mention d’âge",
   "abv": "TAV",
   "volume": "Volume",
-  "flavor_profile": "Profil aromatique",
-  "secondary_benchmark": "Référence du marché secondaire",
+  "source_prefix": "Source :",
+  "provenance_link": "Provenance ↗",
+  "auction_label": "Indice d’enchères de la distillerie",
+  "auction_scope": "moyenne annuelle de l’enchère gagnante pour la distillerie, pas un prix pour cette bouteille",
+  "load_error": "L’échantillon gratuit n’a pas pu être chargé ici. Récupérez-le sur GitHub :",
   "per_month": "/ mois",
   "copied": "✓ Copié !",
   "copy_code": "Copier le code",
@@ -748,7 +751,7 @@
   "fail_note": "Nous n’avons pas pu envoyer votre demande automatiquement. Veuillez écrire à whiskydb@dataengineered.io en indiquant votre nom, le niveau et le cas d’usage — nous répondons sous 1 jour ouvré."
 }
 </script>
-<script src="/app.js?v=seclinks1"></script>
+<script src="/app.js?v=freesample1"></script>
 <!-- PWA Service Worker Registration -->
 <script>
       if ('serviceWorker' in navigator) {
