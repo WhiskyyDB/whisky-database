@@ -545,12 +545,6 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
- "6134217fcbbff281": {
-  "src": "Continuous automated ingestion from Wikidata, Wikipedia, Open Food Facts, TTB COLA Registry, UK Companies House, EU eAmbrosia, and WhiskyHunter auction archives.",
-  "t": "Ingestion automatisée continue depuis Wikidata, Wikipedia, Open Food Facts, le registre TTB COLA, UK Companies House, eAmbrosia (UE) et les archives d’enchères de WhiskyHunter.",
-  "by": "claude-opus-5",
-  "at": "2026-09-17"
- },
  "650fabe787a81d67": {
   "src": "Open Source",
   "t": "Open source",
@@ -988,6 +982,12 @@
   "t": "Schéma relationnel {0}",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "a6a82ee4e7e5808d": {
+  "src": "Continuous automated ingestion from Wikipedia, Open Food Facts, TTB COLA Registry, UK Companies House, EU eAmbrosia, and WhiskyHunter auction archives.",
+  "t": "Ingestion automatisée continue depuis Wikipedia, Open Food Facts, le registre TTB COLA, UK Companies House, eAmbrosia (UE) et les archives d’enchères de WhiskyHunter.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-28"
  },
  "a6d7c5a4e9ec3a2c": {
   "src": "WhiskyDB Global Fine Spirits Catalog &amp; Valuations — Snapshot",
