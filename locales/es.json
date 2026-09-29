@@ -5,11 +5,23 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "059e2257d14c924b": {
+  "src": "Where do WhiskyDB's mash bills and cask links come from?",
+  "t": "¿De dónde proceden las recetas de grano y los vínculos de barrica de WhiskyDB?",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "05ba5fb874087b2e": {
   "src": "{0} Distillery",
   "t": "Destilería {0}",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "06b96ab1e7b48ffb": {
+  "src": "Eagle Rare {0} Year Old",
+  "t": "Eagle Rare {0} Year Old",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "0713d7057401365b": {
   "src": "/ forever",
@@ -29,6 +41,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "0d734dcb29c02802": {
+  "src": "Woodford Reserve Kentucky Straight Bourbon",
+  "t": "Woodford Reserve Kentucky Straight Bourbon",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "0e38129cc0682fa9": {
   "src": "tasting profile",
   "t": "perfil de cata",
@@ -40,6 +58,12 @@
   "t": "{0} destilados y embotellados",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "0fccc8be4bee9205": {
+  "src": "Powering AI agents, beverage analytics, secondary auction platforms, and hospitality tech with a fully provenance-tracked catalog of standardized spirit records, barcodes, cask links, and distillery-level auction indices.",
+  "t": "Impulsa agentes de IA, analítica de bebidas, plataformas de subastas del mercado secundario y tecnología para hostelería con un catálogo de fichas de destilados estandarizadas con procedencia rastreada en su totalidad, códigos de barras, vínculos de barrica e índices de subastas por destilería.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "1029edc6ac4e2271": {
   "src": "Hugging Face Sample Dataset",
@@ -58,6 +82,12 @@
   "t": "Demo en vivo",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "120974e0da022daf": {
+  "src": "{0} whisky and whiskey bottlings from {1} distilleries, with barcodes and {2} monthly distillery auction benchmarks. SQLite + CSV, free sample.",
+  "t": "{0} embotellados de whisky y whiskey de {1} destilerías, con códigos de barras y {2} referencias mensuales de subastas por destilería. SQLite + CSV, muestra gratuita.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "1214f64535565655": {
   "src": "{0} is catalogued in WhiskyDB as a {1}, bottled at {2} ABV, in a {3} ml bottle.",
@@ -203,6 +233,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "24c3dbb0cf235496": {
+  "src": "<0>✓</0> Cask &amp; Flavor Taxonomies",
+  "t": "<0>✓</0> Taxonomías de barricas y sabores",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "279c1e3bac08cbe6": {
   "src": "Cask Maturation Filter",
   "t": "Filtro de maduración en barrica",
@@ -287,6 +323,18 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "33404a9c7b9a7265": {
+  "src": "Distillery Auction Benchmarks",
+  "t": "Referencias de subastas por destilería",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "335a0456b03b3340": {
+  "src": "yearly mean winning bid for the distillery, not a price for this bottle",
+  "t": "media anual de la puja ganadora de la destilería, no un precio de esta botella",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "33756f2c0d9dcd65": {
   "src": "All Casks",
   "t": "Todas las barricas",
@@ -334,6 +382,12 @@
   "t": "Página no encontrada — WhiskyDB",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "39e2ba9150ba9919": {
+  "src": "All Sizes",
+  "t": "Todos los tamaños",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "3a16551f61631dc9": {
   "src": "Try relaxing your age statement slider or selecting 'All Casks'.",
@@ -407,11 +461,23 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "4ed127d27d6714d6": {
+  "src": "Provenance-tracked catalog of whiskies and fine spirits: bottlings with type, ABV, volume and barcode, their distilleries and producers, rule-derived cask links, and distillery-level monthly auction indices. Every row names its source.",
+  "t": "Catálogo con procedencia rastreada de whiskies y destilados premium: embotellados con tipo, ABV, volumen y código de barras, sus destilerías y productores, vínculos de barrica derivados por reglas e índices mensuales de subastas por destilería. Cada fila indica su fuente.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "4f95bc6e80d82ede": {
   "src": "Yes! You can immediately download our public CSV sample datasets ({0} and {1}) from our open-source GitHub repository or explore them interactively via our Hugging Face Sample Explorer without requiring an API key.",
   "t": "¡Sí! Puedes descargar de inmediato nuestros conjuntos de datos de muestra públicos en CSV ({0} y {1}) desde nuestro repositorio de código abierto en GitHub, o explorarlos de forma interactiva con nuestro Hugging Face Sample Explorer sin necesidad de una clave de API.",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "4feb088525925cb8": {
+  "src": "Mash bills come only from producer-published specifications, and exist for a handful of bottlings. Cask links are either producer-published or derived by rule: a whole-word cask keyword in the bottling name (such as Sherry or Port), or the US legal requirement that bourbon and rye whiskey mature in new charred oak ({0} CFR {1}). Every row carries a source_id into the data_sources provenance ledger, and a value that no source states stays empty rather than guessed.",
+  "t": "Las recetas de grano proceden únicamente de especificaciones publicadas por el productor y existen para un puñado de embotellados. Los vínculos de barrica los publica el productor o se derivan por reglas: una palabra clave de barrica completa en el nombre del embotellado (como Sherry o Port), o el requisito legal estadounidense de que el bourbon y el whiskey de centeno maduren en roble nuevo carbonizado ({0} CFR {1}). Cada fila lleva un source_id que remite al registro de procedencia data_sources, y un valor que ninguna fuente indica queda vacío en lugar de suponerse.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "50222973f8a20e39": {
   "src": "License &amp; Attribution",
@@ -436,6 +502,12 @@
   "t": "{0} — {1}, {2} ABV | WhiskyDB",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "52cbcd78923c867d": {
+  "src": "Every row in WhiskyDB carries a {0} into the {1} ledger, which records each source's name, endpoint URL, access timestamp and HTTP status. Shown here: the ledger entry for the US label registry, as of the {2} edition.",
+  "t": "Cada fila de WhiskyDB lleva un {0} que remite al registro {1}, que guarda para cada fuente el nombre, la URL del endpoint, la marca de tiempo de acceso y el estado HTTP. Aquí se muestra la entrada del registro de etiquetas de EE. UU. en la edición {2}.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "5314e1ae75bbc0eb": {
   "src": "Dried Figs &amp; Raisins",
@@ -587,6 +659,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "6da13addb000b67d": {
+  "src": "Source",
+  "t": "Fuente",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "7053ce96c866710c": {
   "src": "Malt",
   "t": "Malta",
@@ -629,6 +707,18 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "726b5a3f89c0c698": {
+  "src": "Try a lower minimum age, or pick 'All Sources' and 'All Sizes'.",
+  "t": "Prueba con una edad mínima menor, o elige «Todas las fuentes» y «Todos los tamaños».",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "733f3c0972140f94": {
+  "src": "The free sample could not be loaded here. Get it from GitHub:",
+  "t": "No se pudo cargar aquí la muestra gratuita. Descárgala desde GitHub:",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "735e03edf88a9b6f": {
   "src": "mash bill",
   "t": "receta de grano",
@@ -646,6 +736,18 @@
   "t": "pago único",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "7402f6f1e82da780": {
+  "src": "Spirits in the WhiskyDB free sample",
+  "t": "Destilados de la muestra gratuita de WhiskyDB",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "74fd9c5690e0f62f": {
+  "src": "No age statement",
+  "t": "Sin declaración de edad",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "76765457e071c90f": {
   "src": "Tell us who you are and which tier you need — we reply from our desk within {0} business day with delivery and payment details.",
@@ -755,6 +857,18 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "8135fd91fef59926": {
+  "src": "WhiskyDB — Canonical Global Fine Spirits Catalog · <0>License Enterprise Dataset ({1})</0>",
+  "t": "WhiskyDB — Catálogo global canónico de destilados premium · <0>Licencia del conjunto de datos Enterprise ({1})</0>",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "8170302d9e9867dc": {
+  "src": "Bottle Size",
+  "t": "Tamaño de botella",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "81ef1cf7ffd235d0": {
   "src": "Distillery directory — WhiskyDB",
   "t": "Directorio de destilerías — WhiskyDB",
@@ -803,6 +917,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "88707ffd355c4348": {
+  "src": "Producer-Published",
+  "t": "Publicado por el productor",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "887f77e4e65a0ab4": {
   "src": "How we transform chaotic public web registries and disparate market dumps into clean, relational, institutional-grade datasets.",
   "t": "Cómo transformamos registros web públicos caóticos y volcados de mercado dispersos en conjuntos de datos limpios, relacionales y de nivel institucional.",
@@ -815,11 +935,23 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "899c85618554f2d0": {
+  "src": "Download {0} whisky and whiskey bottlings from {1} distilleries as SQLite or CSV, plus {2} monthly distillery auction benchmarks. Free sample.",
+  "t": "Base de datos de whisky: {0} embotellados de whisky y whiskey de {1} destilerías en SQLite o CSV, más {2} referencias mensuales de subastas por destilería. Muestra gratuita.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "89fa0f15bcbabecd": {
   "src": "{0} distilleries",
   "t": "{0} destilerías",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "8a17dc04ea211a94": {
+  "src": "{0} mL",
+  "t": "{0} mL",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "8ae1144878ecabc5": {
   "src": "WhiskyDB Global Fine Spirits Catalog &amp; Valuations",
@@ -881,6 +1013,24 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "922acd282cc0f3bb": {
+  "src": "Source:",
+  "t": "Fuente:",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "9242ea2dc0ef76a8": {
+  "src": "Provenance ↗",
+  "t": "Procedencia ↗",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "962b18ca35a07dae": {
+  "src": "Four Roses Single Barrel",
+  "t": "Four Roses Single Barrel",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "963b601737e21505": {
   "src": "The catalog links it to {0} — a {1}, carrying a {2}-year age statement, bottled at {3} ABV, in a {4} ml format.",
   "t": "El catálogo lo vincula a {0}: un {1}, con una declaración de edad de {2} años, embotellado a {3} ABV, en formato de {4} ml.",
@@ -892,6 +1042,12 @@
   "t": "Obtener los datos",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "99260be1d1e48220": {
+  "src": "Showing <0>{1}</0> of <2>{3}</2> free-sample rows",
+  "t": "Mostrando <0>{1}</0> de <2>{3}</2> filas de la muestra gratuita",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "99d6e5ead21e9b89": {
   "src": "Test our real-time filtering engine. Query by spirit category, minimum age statement, cask maturation styles, and sensory flavor tags.",
@@ -922,6 +1078,12 @@
   "t": "Vainilla y miel",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "9e5fa1e343400966": {
+  "src": "The auction data is WhiskyHunter's monthly mean winning bid per distillery: {0} monthly distillery auction benchmarks for {1} distilleries, from {2} to {3}. They are distillery-level indices, never bottle prices; the data files repeat each one for every bottling linked to its distillery ({4} rows). The monthly refresh re-checks the source for new months: the {5} subscription delivers each refresh automatically, and the {6} one-time purchase delivers the current snapshot.",
+  "t": "Los datos de subastas son la puja ganadora media mensual por destilería según WhiskyHunter: {0} referencias mensuales de subastas por destilería para {1} destilerías, de {2} a {3}. Son índices a nivel de destilería, nunca precios de botellas; los archivos de datos repiten cada una para cada embotellado vinculado a su destilería ({4} filas). La actualización mensual vuelve a consultar la fuente en busca de meses nuevos: la suscripción de {5} entrega cada actualización automáticamente, y la compra de pago único de {6} entrega el snapshot actual.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "9eb427dd1d316690": {
   "src": "<0>✓</0> Full Provenance Ledger Access",
@@ -1079,6 +1241,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "b1b6108e947daee7": {
+  "src": "All Sources",
+  "t": "Todas las fuentes",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "b1d1a72a06c8bf93": {
   "src": "For beverage apps, hospitality software, and e-commerce.",
   "t": "Para apps de bebidas, software de hostelería y comercio electrónico.",
@@ -1150,6 +1318,12 @@
   "t": "WhiskyDB — Base de datos estructurada de destilados premium de todo el mundo",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "bbf37b45a14b3a90": {
+  "src": "{0} L",
+  "t": "{0} L",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "bc3023b36063a768": {
   "src": "Page not found",
@@ -1247,6 +1421,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "cb8250ecc3c36b61": {
+  "src": "Spirit Type",
+  "t": "Tipo de destilado",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "cbc863cf85614c07": {
   "src": "{0} distillery in {1}, {2}: {3} bottling(s) in WhiskyDB — {4}. Source: WhiskyDB Curated Seed…",
   "t": "Destilería {0} en {1}, {2}: {3} embotellado(s) en WhiskyDB — {4}. Fuente: WhiskyDB Curated Seed…",
@@ -1289,6 +1469,18 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "cf797e99243882a2": {
+  "src": "Built from Wikipedia, Open Food Facts, the TTB COLA Registry, UK Companies House, EU eAmbrosia and WhiskyHunter auction statistics. The monthly refresh re-queries TTB COLA and WhiskyHunter and re-derives the cask links; the other sources are re-walked in manual full refreshes.",
+  "t": "Creado a partir de Wikipedia, Open Food Facts, el registro TTB COLA, UK Companies House, eAmbrosia de la UE y las estadísticas de subastas de WhiskyHunter. La actualización mensual vuelve a consultar TTB COLA y WhiskyHunter y vuelve a derivar los vínculos de barrica; las demás fuentes se recorren de nuevo en actualizaciones completas manuales.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "d0b7804e3674ee94": {
+  "src": "The spirit rows of the free sample, loaded from <0>{1}</0> exactly as published. Filter them by spirit type, age statement, source and bottle size.",
+  "t": "Las filas de destilados de la muestra gratuita, cargadas desde <0>{1}</0> tal como se publican. Fíltralas por tipo de destilado, declaración de edad, fuente y tamaño de botella.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "d17cf2bdbae96b43": {
   "src": "Verified Spirits &amp; Determinations",
   "t": "Destilados verificados y determinaciones",
@@ -1300,6 +1492,12 @@
   "t": "Licencias Enterprise",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "d200f7fdbe6b2688": {
+  "src": "Distillery auction index",
+  "t": "Índice de subastas de la destilería",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "d38f15ac5c1bf944": {
   "src": "Normalized botanical and cask parameters for {0}: {1}, {2} ABV, No Age Statement (NAS), {3} volume, and secondary auction market tracking.",
@@ -1421,6 +1619,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "e883caea63e4b398": {
+  "src": "Yamazaki {0} Year Old",
+  "t": "Yamazaki {0} Year Old",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "e9f668b6105fdde0": {
   "src": "Cask Lineage",
   "t": "Linaje de barrica",
@@ -1451,11 +1655,23 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "eb672cb3ba0260b3": {
+  "src": "All Types",
+  "t": "Todos los tipos",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "ec2fc89e96894247": {
   "src": "Ideal for academic research, Kaggle data science, and testing.",
   "t": "Ideal para investigación académica, ciencia de datos en Kaggle y pruebas.",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "ecdbf6d88010af2a": {
+  "src": "Free Sample",
+  "t": "Muestra gratuita",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "ed8efad4757b5b80": {
   "src": "🔬 Verify Distillery Registry",
@@ -1475,11 +1691,23 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "f05d3c9359e43c51": {
+  "src": "WhiskyDB holds no bottle prices. The auction figure on a card is the linked distillery's mean winning bid at auction over the latest year in the data (WhiskyHunter, as on the <0>statistics page</0>), not a price for that bottle; it appears only for bottlings linked to a distillery tracked there. An ABV of {1} can also be the documented default for a source that states none.",
+  "t": "WhiskyDB no contiene precios de botellas. La cifra de subasta de una tarjeta es la puja ganadora media de la destilería vinculada en el último año de los datos (WhiskyHunter, como en la <0>página de estadísticas</0>), no un precio de esa botella; solo aparece en embotellados vinculados a una destilería que figura allí. Un ABV de {1} también puede ser el valor predeterminado documentado cuando la fuente no indica ninguno.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "f163279578cad184": {
   "src": "↻ Submit another request",
   "t": "↻ Enviar otra solicitud",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "f174230cab41e243": {
+  "src": "Explore the <0>Free Sample</0>",
+  "t": "Explora la <0>muestra gratuita</0>",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "f24ac47b548276a7": {
   "src": "Lagavulin {0} Year Old {1}",
@@ -1505,6 +1733,18 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "f5d74bda68792bca": {
+  "src": "A provenance-tracked structured database of fine spirits, distilleries and producers, and distillery-level auction indices. Built for developers, analysts, and beverage platforms.",
+  "t": "Una base de datos estructurada con procedencia rastreada de destilados premium, destilerías y productores, e índices de subastas por destilería. Creada para desarrolladores, analistas y plataformas del sector de bebidas.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "f67023958773c533": {
+  "src": "Lagavulin {0} Year Old",
+  "t": "Lagavulin {0} Year Old",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "f67868c171722259": {
   "src": "whisky",
   "t": "whisky",
@@ -1516,6 +1756,12 @@
   "t": "Sin declaración de edad (NAS)",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "f7730fd795067946": {
+  "src": "Each spirit record has a name, spirit type, ABV, bottle volume and a source_id into the provenance ledger, and almost all carry a barcode or label ID and a distillery or producer link. Coverage is uneven, and stated plainly: {0} of the {1} spirits have an explicitly sourced ABV (the rest carry the documented {2} default), age statements are rare, and producer-published mash bills and flavor tags exist for only a handful of flagship bottlings.",
+  "t": "Cada ficha de destilado tiene nombre, tipo de destilado, ABV, volumen de botella y un source_id que remite al registro de procedencia, y casi todas incluyen un código de barras o ID de etiqueta y un vínculo a una destilería o productor. La cobertura es desigual, y lo decimos claramente: {0} de los {1} destilados tienen un ABV obtenido explícitamente de la fuente (el resto lleva el valor predeterminado documentado de {2}), las declaraciones de edad son escasas, y las recetas de grano y las etiquetas de sabor publicadas por el productor solo existen para un puñado de embotellados emblemáticos.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "f7fa5df80f7eec95": {
   "src": "/ month",
@@ -1570,5 +1816,11 @@
   "t": "linaje de barrica",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "ffdb3d4edff006fb": {
+  "src": "Sample license: CC BY-NC {0}",
+  "t": "Licencia de la muestra: CC BY-NC {0}",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  }
 }

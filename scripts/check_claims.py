@@ -20,6 +20,12 @@ Stdlib only, no network. Release order after a data refresh:
 What is compared (English sources only; the /es/ /de/ /fr/ /pt-br/ pages are generated from
 index.html, so the plain check also confirms that their hero figures were rebuilt):
   spirits, producers, price_rows, price_distilleries   totals in data.json
+  price_distillery_months         totals.price_distillery_months: the distinct (distillery, month)
+                                  auction benchmarks. price_rows is larger because the data files
+                                  repeat a distillery's monthly index for every linked bottling, so
+                                  a "N benchmarks" claim states price_distillery_months and
+                                  price_rows is only ever stated as a row count
+  sourced-ABV count               abv.denominator (bottlings whose ABV is not the 40.0 default)
   auction months / date range     price_first..price_last (whole months, both ends included)
   snapshot edition                YYYY.MM of data.json "snapshot" (the refresh date)
   coverage %                      floored, so a claim never rounds up: explicit ABV = abv.denominator
@@ -78,7 +84,7 @@ RANGE_LONG = r"[A-Z][a-z]+ \d{4} → (?:[A-Z][a-z]+ \d{4}|today)"            # N
 RANGE_SHORT = r"(?:[A-Z][a-z]{2} )?\d{4} → (?:[A-Z][a-z]{2} \d{4}|\d{4}|today)"  # Nov 2005 → Sep 2024
 
 # Hero figures on the homepage, in page order; checked on the generated locale copies too.
-HERO_KEYS = ("spirits", "producers", "price_rows")
+HERO_KEYS = ("spirits", "producers", "price_distillery_months")
 # Thousands separator per locale, as scripts/i18n_common.py LOCALES formats grouped numbers.
 LOCALE_GROUP = {"es": ".", "de": ".", "pt-br": ".", "fr": "\u202f", "it": ".", "nl": ".", "id": ".", "tr": "."}
 
@@ -96,20 +102,31 @@ RULES = [
     rule("index.html", "meta description bottlings", rf"Download (?P<v>{NUM}) whisky and whiskey bottlings", "spirits"),
     rule("index.html", "og:description bottlings", rf'content="(?P<v>{NUM}) whisky and whiskey bottlings', "spirits"),
     rule("index.html", "meta + og description distilleries", rf"bottlings from (?P<v>{NUM}) distilleries", "producers", 2),
-    rule("index.html", "meta + og description benchmarks", rf"(?P<v>{NUM}) (?:monthly )?auction benchmarks", "price_rows", 2),
-    rule("index.html", "FAQ benchmarks (JSON-LD + HTML)", rf"The (?P<v>{NUM}) monthly distillery auction-price benchmarks", "price_rows", 2),
+    rule("index.html", "meta + og + FAQ (JSON-LD + HTML) benchmarks",
+         rf"(?P<v>{NUM}) monthly distillery auction benchmarks", "price_distillery_months", 4),
+    rule("index.html", "FAQ auction distilleries (JSON-LD + HTML)", rf"auction benchmarks for (?P<v>{NUM}) distilleries, ",
+         "price_distilleries", 2),
+    rule("index.html", "FAQ auction first year (JSON-LD + HTML)", r"distilleries, from (?P<v>\d{4}) to \d{4}\. They are distillery-level",
+         "first_year", 2),
+    rule("index.html", "FAQ auction last year (JSON-LD + HTML)", r"distilleries, from \d{4} to (?P<v>\d{4})\. They are distillery-level",
+         "last_year", 2),
+    rule("index.html", "FAQ auction rows (JSON-LD + HTML)", rf"linked to its distillery \((?P<v>{NUM}) rows\)", "price_rows", 2),
+    rule("index.html", "FAQ sourced-ABV count (JSON-LD + HTML)", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an explicitly sourced ABV",
+         "abv_n", 2),
+    rule("index.html", "FAQ sourced-ABV total (JSON-LD + HTML)", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an explicitly sourced ABV",
+         "spirits", 2),
     rule("index.html", "hero Spirits & Bottlings",
          rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Spirits &amp; Bottlings<', "spirits"),
     rule("index.html", "hero Global Distilleries",
          rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Global Distilleries<', "producers"),
-    rule("index.html", "hero Auction-Price Benchmarks",
-         rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Auction-Price Benchmarks<', "price_rows"),
+    rule("index.html", "hero Distillery Auction Benchmarks",
+         rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Distillery Auction Benchmarks<', "price_distillery_months"),
 
     # --- README.md: headline, badges, What's inside, field coverage, auction section, pricing ---
     rule("README.md", "headline spirits", rf"\*\*(?P<v>{NUM}) whiskies & fine spirits · ", "spirits"),
     rule("README.md", "headline distilleries", rf" · (?P<v>{NUM}) distilleries & producers · ", "producers"),
-    rule("README.md", "headline benchmarks", rf" · (?P<v>{NUM}) monthly auction-price benchmarks \(", "price_rows"),
-    rule("README.md", "headline auction range", rf"monthly auction-price benchmarks \((?P<v>{RANGE_SHORT})\)", "range_short"),
+    rule("README.md", "headline benchmarks", rf" · (?P<v>{NUM}) monthly distillery auction benchmarks \(", "price_distillery_months"),
+    rule("README.md", "headline auction range", rf"monthly distillery auction benchmarks \((?P<v>{RANGE_SHORT})\)", "range_short"),
     rule("README.md", "Distilleries badge text", rf"\[!\[Distilleries: (?P<v>{NUM})\]", "producers"),
     rule("README.md", "Distilleries badge URL", rf"/badge/Distilleries-(?P<v>{NUM_URL})-", "producers_url"),
     rule("README.md", "Auction history badge text", r"\[!\[Price history: (?P<v>\d{4}→\w*)\]", "years"),
@@ -118,7 +135,8 @@ RULES = [
     rule("README.md", "Snapshot badge URL", rf"/badge/Snapshot-(?P<v>{EDITION})-", "edition"),
     rule("README.md", "table Spirits & bottlings", rf"\| Spirits & bottlings \| \*\*(?P<v>{NUM})\*\* \|", "spirits"),
     rule("README.md", "table Distilleries", rf"\| Distilleries, brands & producers \| \*\*(?P<v>{NUM})\*\* \|", "producers"),
-    rule("README.md", "table benchmarks", rf"\| Monthly auction-price benchmarks \| \*\*(?P<v>{NUM})\*\* \|", "price_rows"),
+    rule("README.md", "table benchmarks", rf"\| Monthly distillery auction benchmarks \| \*\*(?P<v>{NUM})\*\* \|",
+         "price_distillery_months"),
     rule("README.md", "table Countries floor", r"\| Countries represented \| \*\*(?P<v>\d+)\+\*\* \|", "countries_floor"),
     rule("README.md", "table GI appellations floor", r"\| Protected GI appellations \(EU/UK\) \| \*\*(?P<v>\d+)\+\*\* \|",
          "gi_floor", optional=True),
@@ -127,18 +145,27 @@ RULES = [
     rule("README.md", "coverage Explicit label ABV", r"\| Explicit label ABV \| (?P<v>\d+)%\\?\*", "pct_abv"),
     rule("README.md", "ABV footnote share", r"\\\* (?P<v>\d+)% of spirits carry an explicitly sourced ABV", "pct_abv"),
     rule("README.md", "ABV footnote maximum", r"cask-strength values up to (?P<v>\d+(?:\.\d+)?)%", "abv_max"),
-    rule("README.md", "auction benchmarks bullet", rf"- \*\*(?P<v>{NUM})\*\* distillery-level monthly auction statistics", "price_rows"),
+    rule("README.md", "auction benchmarks bullet", rf"- \*\*(?P<v>{NUM})\*\* distillery-level monthly auction statistics",
+         "price_distillery_months"),
+    rule("README.md", "auction rows", rf"shipped as \*\*(?P<v>{NUM})\*\* rows, one per linked bottling", "price_rows"),
     rule("README.md", "auction months", r"\*\*(?P<v>\d+) consecutive months\*\*", "months"),
     rule("README.md", "auction range", rf"consecutive months\*\* — (?P<v>{RANGE_LONG}) — ", "range_long"),
     rule("README.md", "auction distilleries", rf"across \*\*(?P<v>{NUM}) whisky distilleries\*\*", "price_distilleries"),
-    rule("README.md", "pricing benchmarks", rf"SQLite \+ CSV · (?P<v>{NUM}) auction-price benchmarks", "price_rows"),
+    rule("README.md", "pricing benchmarks", rf"SQLite \+ CSV · (?P<v>{NUM}) monthly distillery auction benchmarks",
+         "price_distillery_months"),
 
     # --- llms.txt ---
     rule("llms.txt", "spirits and bottlings", rf"(?P<v>{NUM}) spirits and bottlings", "spirits", 2),
     rule("llms.txt", "global distilleries", rf"(?P<v>{NUM}) global distilleries", "producers", 2),
-    rule("llms.txt", "coverage benchmarks", rf"Includes (?P<v>{NUM}) monthly distillery auction-price benchmarks", "price_rows"),
-    rule("llms.txt", "coverage auction range", rf"auction-price benchmarks spanning (?P<v>{RANGE_LONG})\.", "range_long"),
-    rule("llms.txt", "Standard Catalog benchmarks", rf"SQLite \+ CSV, (?P<v>{NUM}) monthly auction-price benchmarks", "price_rows"),
+    rule("llms.txt", "sourced-ABV count", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an explicitly sourced ABV", "abv_n"),
+    rule("llms.txt", "sourced-ABV total", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an explicitly sourced ABV", "spirits"),
+    rule("llms.txt", "coverage benchmarks", rf"Includes (?P<v>{NUM}) monthly distillery auction benchmarks", "price_distillery_months"),
+    rule("llms.txt", "coverage auction distilleries", rf"per distillery and month, (?P<v>{NUM}) distilleries\) spanning",
+         "price_distilleries"),
+    rule("llms.txt", "coverage auction range", rf"distilleries\) spanning (?P<v>{RANGE_LONG}), shipped", "range_long"),
+    rule("llms.txt", "coverage auction rows", rf"shipped as (?P<v>{NUM}) rows: one per linked bottling", "price_rows"),
+    rule("llms.txt", "Standard Catalog benchmarks", rf"SQLite \+ CSV, (?P<v>{NUM}) monthly distillery auction benchmarks",
+         "price_distillery_months"),
     rule("llms.txt", "Snapshot", rf"Snapshot: (?P<v>{EDITION})\.", "edition"),
 
     # --- DATA_DICTIONARY.md ---
@@ -177,11 +204,15 @@ def expected_values(data):
         "producers": grouped(t["producers"]),
         "producers_url": grouped(t["producers"], "%2C"),
         "price_rows": grouped(t["price_rows"]),
+        "price_distillery_months": grouped(t["price_distillery_months"]),
         "price_distilleries": grouped(t["price_distilleries"]),
+        "abv_n": grouped(data["abv"]["denominator"]),
         "months": str((last.year - first.year) * 12 + last.month - first.month + 1),
         "range_long": f"{month(first)} → {month(last)}",
         "range_short": f"{month(first, True)} → {month(last, True)}",
         "years": f"{first.year}→{last.year}",
+        "first_year": str(first.year),
+        "last_year": str(last.year),
         "years_url": f"{first.year}%E2%86%92{last.year}",
         "edition": f"{snap.year}.{snap.month:02d}",
         "pct_abv": floor_pct(data["abv"]["denominator"], t["spirits"]),

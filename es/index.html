@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>WhiskyDB — Base de datos de whisky y whiskey: 2.721 embotellados</title>
-<meta content="Base de datos de whisky: descarga 2.721 embotellados de whisky y whiskey de 2.853 destilerías en SQLite o CSV — recetas de grano, linajes de barrica, 21.228 referencias de subastas. Muestra gratuita." name="description"/>
+<meta content="Base de datos de whisky: 2.721 embotellados de whisky y whiskey de 2.853 destilerías en SQLite o CSV, más 7.231 referencias mensuales de subastas por destilería. Muestra gratuita." name="description"/>
 <meta content="2VE0Ll5xPaIkGjSTkvTenDhcKRLJGPFgVqekvGOIw-4" name="google-site-verification"/>
 <link href="https://whiskydb.dataengineered.io/es/" rel="canonical"/>
 <!-- i18n:alternates -->
@@ -26,7 +26,7 @@
 <!-- /i18n:alternates -->
 <!-- OpenGraph Metadata -->
 <meta content="WhiskyDB — Base de datos de whisky y whiskey: 2.721 embotellados" property="og:title"/>
-<meta content="2.721 embotellados de whisky y whiskey de 2.853 destilerías — recetas de grano, linajes de barrica, 21.228 referencias mensuales de subastas. SQLite + CSV, muestra gratuita." property="og:description"/>
+<meta content="2.721 embotellados de whisky y whiskey de 2.853 destilerías, con códigos de barras y 7.231 referencias mensuales de subastas por destilería. SQLite + CSV, muestra gratuita." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://whiskydb.dataengineered.io/hero.png" property="og:image"/>
 <meta content="https://whiskydb.dataengineered.io/es/" property="og:url"/>
@@ -46,7 +46,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "WhiskyDB: catálogo global de destilados premium y valoraciones",
-  "description": "Catálogo estructurado y con procedencia rastreada de destilados premium y whiskies, con recetas de grano estandarizadas, linajes de maduración en barrica, perfiles sensoriales e índices de subastas del mercado secundario por destilería.",
+  "description": "Catálogo con procedencia rastreada de whiskies y destilados premium: embotellados con tipo, ABV, volumen y código de barras, sus destilerías y productores, vínculos de barrica derivados por reglas e índices mensuales de subastas por destilería. Cada fila indica su fuente.",
   "url": "https://whiskydb.dataengineered.io/es/",
   "keywords": [
     "base de datos de whisky",
@@ -117,7 +117,7 @@
       "name": "¿Qué atributos de datos incluye la base de datos de destilados WhiskyDB?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cada ficha de destilado de WhiskyDB está normalizada con el porcentaje exacto de ABV, la declaración de edad, el volumen de la botella en ml, los porcentajes estandarizados de la receta de grano (maíz, centeno, trigo, cebada malteada), el linaje preciso de maduración en barrica (p. ej., First-Fill Oloroso Sherry, roble Mizunara), las etiquetas sensoriales principales y la procedencia de la destilería."
+        "text": "Cada ficha de destilado tiene nombre, tipo de destilado, ABV, volumen de botella y un source_id que remite al registro de procedencia, y casi todas incluyen un código de barras o ID de etiqueta y un vínculo a una destilería o productor. La cobertura es desigual, y lo decimos claramente: 545 de los 2.721 destilados tienen un ABV obtenido explícitamente de la fuente (el resto lleva el valor predeterminado documentado de 40%), las declaraciones de edad son escasas, y las recetas de grano y las etiquetas de sabor publicadas por el productor solo existen para un puñado de embotellados emblemáticos."
       }
     },
     {
@@ -125,7 +125,7 @@
       "name": "¿Con qué frecuencia se actualizan las valoraciones de subastas del mercado secundario?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Las 21.228 referencias mensuales de precios de subasta por destilería se incluyen en el conjunto de datos. WhiskyDB se actualiza cada mes mediante un proceso automatizado: la suscripción de $49/month entrega cada actualización automáticamente, y la compra de pago único de $49 entrega el snapshot actual."
+        "text": "Los datos de subastas son la puja ganadora media mensual por destilería según WhiskyHunter: 7.231 referencias mensuales de subastas por destilería para 60 destilerías, de 2005 a 2024. Son índices a nivel de destilería, nunca precios de botellas; los archivos de datos repiten cada una para cada embotellado vinculado a su destilería (21.228 filas). La actualización mensual vuelve a consultar la fuente en busca de meses nuevos: la suscripción de $49/month entrega cada actualización automáticamente, y la compra de pago único de $49 entrega el snapshot actual."
       }
     },
     {
@@ -138,10 +138,10 @@
     },
     {
       "@type": "Question",
-      "name": "¿Cómo verifica WhiskyDB las recetas de grano de las destilerías y los linajes de barrica?",
+      "name": "¿De dónde proceden las recetas de grano y los vínculos de barrica de WhiskyDB?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Combinamos fichas técnicas publicadas por los productores, registros oficiales de etiquetas (registros TTB COLA) y registros históricos verificados de destilerías en una cadena de procedencia inmutable, con citas de fuentes para cada determinación."
+        "text": "Las recetas de grano proceden únicamente de especificaciones publicadas por el productor y existen para un puñado de embotellados. Los vínculos de barrica los publica el productor o se derivan por reglas: una palabra clave de barrica completa en el nombre del embotellado (como Sherry o Port), o el requisito legal estadounidense de que el bourbon y el whiskey de centeno maduren en roble nuevo carbonizado (27 CFR 5.143). Cada fila lleva un source_id que remite al registro de procedencia data_sources, y un valor que ninguna fuente indica queda vacío en lugar de suponerse."
       }
     }
   ],
@@ -152,32 +152,37 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Determinaciones destacadas de destilados de todo el mundo en WhiskyDB",
+  "name": "Destilados de la muestra gratuita de WhiskyDB",
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Lagavulin 16 Year Old Single Malt Scotch"
+      "name": "Lagavulin 16 Year Old",
+      "url": "https://whiskydb.dataengineered.io/es/spirits/lagavulin-16-year-old"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Pappy Van Winkle Family Reserve 15 Year Old Bourbon"
+      "name": "Eagle Rare 10 Year Old",
+      "url": "https://whiskydb.dataengineered.io/es/spirits/eagle-rare-10-year-old"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Yamazaki 12 Year Old Single Malt Japanese Whisky"
+      "name": "Yamazaki 12 Year Old",
+      "url": "https://whiskydb.dataengineered.io/es/spirits/yamazaki-12-year-old"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "The Macallan 18 Year Old Sherry Oak"
+      "name": "Woodford Reserve Kentucky Straight Bourbon",
+      "url": "https://whiskydb.dataengineered.io/es/spirits/woodford-reserve-kentucky-straight-bourbon"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "George T. Stagg Barrel Proof Bourbon"
+      "name": "Four Roses Single Barrel",
+      "url": "https://whiskydb.dataengineered.io/es/spirits/four-roses-single-barrel"
     }
   ],
   "inLanguage": "es"
@@ -220,7 +225,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "WhiskyDB: catálogo global de destilados premium y valoraciones — Snapshot",
-  "description": "Catálogo estructurado y con procedencia rastreada de destilados premium y whiskies, con recetas de grano estandarizadas, linajes de maduración en barrica, perfiles sensoriales e índices de subastas del mercado secundario por destilería.",
+  "description": "Catálogo con procedencia rastreada de whiskies y destilados premium: embotellados con tipo, ABV, volumen y código de barras, sus destilerías y productores, vínculos de barrica derivados por reglas e índices mensuales de subastas por destilería. Cada fila indica su fuente.",
   "image": "https://whiskydb.dataengineered.io/hero.png",
   "brand": {
     "@type": "Brand",
@@ -301,7 +306,7 @@
 </a>
 <nav class="nav-links">
 <a href="#features-section">Arquitectura</a>
-<a href="#live-demo-section">Demo en vivo</a>
+<a href="#live-demo-section">Muestra gratuita</a>
 <a href="/stats/">Estadísticas</a>
 <a href="#pricing-section">Precios</a>
 <a class="nav-btn-secondary" href="https://github.com/WhiskyyDB/whisky-database" target="_blank">GitHub</a>
@@ -368,7 +373,7 @@
                         La base de datos estructurada canónica de <span class="text-gradient">destilados premium de todo el mundo</span>
 </h1>
 <p class="hero-subtitle">
-                        Impulsa agentes de IA, analítica de bebidas, plataformas de subastas del mercado secundario y tecnología para hostelería con un catálogo de fichas de destilados estandarizadas con procedencia rastreada en su totalidad, recetas de grano publicadas, linajes de barrica e índices reales del mercado de subastas.
+                        Impulsa agentes de IA, analítica de bebidas, plataformas de subastas del mercado secundario y tecnología para hostelería con un catálogo de fichas de destilados estandarizadas con procedencia rastreada en su totalidad, códigos de barras, vínculos de barrica e índices de subastas por destilería.
                     </p>
 <div class="hero-ctas">
 <a class="btn btn-primary btn-lg" href="https://buy.stripe.com/eVq3cw4p2afccI382s38401?client_reference_id=whiskydb_es_home" id="cta-buy-once">
@@ -396,8 +401,8 @@
 </div>
 <div class="stat-divider"></div>
 <div class="stat-item">
-<span class="stat-num">21.228</span>
-<span class="stat-label">Referencias de precios de subasta</span>
+<span class="stat-num">7.231</span>
+<span class="stat-label">Referencias de subastas por destilería</span>
 </div>
 <div class="stat-divider"></div>
 <div class="stat-item">
@@ -419,55 +424,51 @@
 <span class="floating-icon">🪵</span>
 <div>
 <div class="floating-title">Linaje de barrica</div>
-<div class="floating-val" translate="no">First-Fill Ex-Oloroso Sherry</div>
+<div class="floating-val" translate="no">Oloroso Sherry Puncheon</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Section 2: Live Interactive Demo -->
+<!-- Section 2: Free sample explorer. app.js renders the rows of samples/spirits.csv as
+             published (no value is typed into the page or the script) and, for bottlings linked to a
+             distillery of the public auction index, that distillery's figure from stats/data.json. -->
 <section class="demo-section" id="live-demo-section">
 <div class="section-container">
 <div class="section-header text-center">
-<h2 class="section-title">Catálogo interactivo: <span class="text-gradient">demo en vivo</span></h2>
+<h2 class="section-title">Explora la <span class="text-gradient">muestra gratuita</span></h2>
 <p class="section-subtitle">
-                        Prueba nuestro motor de filtrado en tiempo real. Consulta por categoría de destilado, declaración de edad mínima, estilos de maduración en barrica y etiquetas de sabor sensoriales.
+                        Las filas de destilados de la muestra gratuita, cargadas desde <a href="https://github.com/WhiskyyDB/whisky-database/blob/main/samples/spirits.csv" rel="noopener" style="text-decoration:underline;" target="_blank"><code translate="no">samples/spirits.csv</code></a> tal como se publican. Fíltralas por tipo de destilado, declaración de edad, fuente y tamaño de botella.
                     </p>
 </div>
 <div class="demo-dashboard glass-card" id="demo-interface">
 <!-- Controls Bar -->
 <div class="demo-controls">
 <div class="control-group">
-<label for="filter-category">Categoría de destilado</label>
+<label for="filter-category">Tipo de destilado</label>
 <select class="demo-select" id="filter-category">
-<option value="all">Todas las categorías (Scotch, Bourbon, Rye...)</option>
-<option translate="no" value="Single Malt Scotch">Single Malt Scotch</option>
-<option translate="no" value="Bourbon">Kentucky Straight Bourbon</option>
-<option translate="no" value="Rye Whiskey">Rye Whiskey</option>
-<option translate="no" value="Japanese Whisky">Japanese Whisky</option>
+<option value="all">Todos los tipos</option>
 </select>
 </div>
 <div class="control-group">
 <label for="filter-age">Declaración de edad mínima: <span class="text-gold" id="age-display">Todas las edades</span></label>
-<input class="demo-slider" id="filter-age" max="25" min="0" step="5" type="range" value="0"/>
+<input class="demo-slider" id="filter-age" max="15" min="0" step="5" type="range" value="0"/>
 </div>
 <div class="control-group">
-<label>Filtro de maduración en barrica</label>
-<div class="tag-pills" id="cask-filter-container">
-<button class="filter-pill active" data-cask="all">Todas las barricas</button>
-<button class="filter-pill" data-cask="Sherry" translate="no">Sherry Cask</button>
-<button class="filter-pill" data-cask="Bourbon" translate="no">Ex-Bourbon</button>
-<button class="filter-pill" data-cask="Mizunara" translate="no">Mizunara Oak</button>
+<label>Fuente</label>
+<div class="tag-pills" id="source-filter-container">
+<button class="filter-pill active" data-source="all" type="button">Todas las fuentes</button>
+<button class="filter-pill" data-source="seed" type="button">Publicado por el productor</button>
+<button class="filter-pill" data-source="off" translate="no" type="button">Open Food Facts</button>
 </div>
 </div>
 <div class="control-group">
-<label>Etiqueta de descriptor de sabor</label>
-<div class="tag-pills" id="flavor-filter-container">
-<button class="filter-pill active" data-flavor="all">Todos los sabores</button>
-<button class="filter-pill" data-flavor="Peat Smoke">Humo de turba</button>
-<button class="filter-pill" data-flavor="Vanilla">Vainilla y miel</button>
-<button class="filter-pill" data-flavor="Dried Fruit">Higos secos y pasas</button>
+<label>Tamaño de botella</label>
+<div class="tag-pills" id="size-filter-container">
+<button class="filter-pill active" data-size="all" type="button">Todos los tamaños</button>
+<button class="filter-pill" data-size="700" type="button">700 mL</button>
+<button class="filter-pill" data-size="1000" type="button">1 L</button>
 </div>
 </div>
 </div>
@@ -475,16 +476,19 @@
 <div class="demo-status-bar">
 <div class="status-left">
 <span class="status-indicator live"></span>
-<span>Mostrando <strong class="text-gold" id="result-count">6</strong> fichas canónicas verificadas</span>
+<span>Mostrando <strong class="text-gold" id="result-count">15</strong> de <strong id="sample-total">15</strong> filas de la muestra gratuita</span>
 </div>
 <div class="status-right">
-<span class="text-muted">Tiempo de respuesta: <strong>14ms</strong> • Normalización: <strong>4 niveles activos</strong></span>
+<span class="text-muted">Licencia de la muestra: CC BY-NC 4.0</span>
 </div>
 </div>
 <!-- Cards Grid -->
 <div class="spirits-grid" id="spirits-cards-container">
-<!-- Populated dynamically via app.js -->
+<!-- Populated by app.js from samples/spirits.csv -->
 </div>
+<p class="text-muted" id="demo-note" style="margin-top: 24px; font-size: 0.85rem; line-height: 1.6;">
+                        WhiskyDB no contiene precios de botellas. La cifra de subasta de una tarjeta es la puja ganadora media de la destilería vinculada en el último año de los datos (WhiskyHunter, como en la <a href="/stats/#distilleries" style="text-decoration:underline;">página de estadísticas</a>), no un precio de esa botella; solo aparece en embotellados vinculados a una destilería que figura allí. Un ABV de 40,0% también puede ser el valor predeterminado documentado cuando la fuente no indica ninguno.
+                    </p>
 </div>
 </div>
 </section>
@@ -501,7 +505,7 @@
 <div class="arch-card glass-card">
 <div class="arch-icon">🌐</div>
 <h3>8 fuentes integradas</h3>
-<p>Ingesta automatizada y continua desde Wikipedia, Open Food Facts, el registro TTB COLA, UK Companies House, eAmbrosia de la UE y los archivos de subastas de WhiskyHunter.</p>
+<p>Creado a partir de Wikipedia, Open Food Facts, el registro TTB COLA, UK Companies House, eAmbrosia de la UE y las estadísticas de subastas de WhiskyHunter. La actualización mensual vuelve a consultar TTB COLA y WhiskyHunter y vuelve a derivar los vínculos de barrica; las demás fuentes se recorren de nuevo en actualizaciones completas manuales.</p>
 <div class="arch-tags">
 <span class="mini-tag">Dominio público</span>
 <span class="mini-tag">ODbL</span>
@@ -532,14 +536,15 @@
 <div class="provenance-banner glass-card mt-12">
 <div class="prov-content">
 <h3>Auditabilidad total y registro de procedencia</h3>
-<p>Cada atributo de WhiskyDB incluye una clave foránea inmutable que lo vincula a nuestra tabla de auditoría `data_sources`, con las URL exactas de los endpoints HTTP, las marcas de tiempo de acceso y los códigos de estado. No vuelvas a confiar en scraping de caja negra.</p>
+<p>Cada fila de WhiskyDB lleva un <code translate="no">source_id</code> que remite al registro <code translate="no">data_sources</code>, que guarda para cada fuente el nombre, la URL del endpoint, la marca de tiempo de acceso y el estado HTTP. Aquí se muestra la entrada del registro de etiquetas de EE. UU. en la edición 2026.09.</p>
 </div>
 <div class="prov-code">
-<pre><code>"primary_source": {
-  "source_name": "TTB COLA Registry (USA)",
-  "endpoint_url": "https://www.ttb.gov/cola/registry",
-  "access_timestamp": "2026-07-05T18:45:00Z",
-  "http_status": 200
+<pre><code>"data_sources": {
+  "source_id": 42,
+  "source_name": "US Government TTB COLA Registry (Public Domain / FOIA)",
+  "endpoint_url": "https://app.colacloud.us/api/v1/colas",
+  "access_timestamp": "2026-09-28 23:06:31",
+  "http_status_code": 200
 }</code></pre>
 </div>
 </div>
@@ -583,7 +588,7 @@
 <li><span class="check-icon">✓</span> Catálogo comercial completo de destilados</li>
 <li><span class="check-icon">✓</span> Snapshots en SQLite + CSV</li>
 <li><span class="check-icon">✓</span> Snapshot actual; actualizaciones mensuales entregadas automáticamente con la suscripción</li>
-<li><span class="check-icon">✓</span> Taxonomías de recetas de grano y barricas</li>
+<li><span class="check-icon">✓</span> Taxonomías de barricas y sabores</li>
 <li><span class="check-icon">✓</span> Licencia comercial incluida</li>
 <li><span class="check-icon">✓</span> Acceso completo al registro de procedencia</li>
 </ul>
@@ -605,19 +610,19 @@
 <div class="faq-grid" style="display: grid; gap: 20px; max-width: 800px; margin: 0 auto;">
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">¿Qué atributos de datos incluye la base de datos de destilados WhiskyDB?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Cada ficha de destilado de WhiskyDB está normalizada con el porcentaje exacto de ABV, la declaración de edad, el volumen de la botella en ml, los porcentajes estandarizados de la receta de grano (maíz, centeno, trigo, cebada malteada), el linaje preciso de maduración en barrica (p. ej., First-Fill Oloroso Sherry, roble Mizunara), las etiquetas sensoriales principales y la procedencia de la destilería.</p>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Cada ficha de destilado tiene nombre, tipo de destilado, ABV, volumen de botella y un source_id que remite al registro de procedencia, y casi todas incluyen un código de barras o ID de etiqueta y un vínculo a una destilería o productor. La cobertura es desigual, y lo decimos claramente: 545 de los 2.721 destilados tienen un ABV obtenido explícitamente de la fuente (el resto lleva el valor predeterminado documentado de 40%), las declaraciones de edad son escasas, y las recetas de grano y las etiquetas de sabor publicadas por el productor solo existen para un puñado de embotellados emblemáticos.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">¿Con qué frecuencia se actualizan las valoraciones de subastas del mercado secundario?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Las 21.228 referencias mensuales de precios de subasta por destilería se incluyen en el conjunto de datos. WhiskyDB se actualiza cada mes mediante un proceso automatizado: la suscripción de $49/month entrega cada actualización automáticamente, y la compra de pago único de $49 entrega el snapshot actual.</p>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Los datos de subastas son la puja ganadora media mensual por destilería según WhiskyHunter: 7.231 referencias mensuales de subastas por destilería para 60 destilerías, de 2005 a 2024. Son índices a nivel de destilería, nunca precios de botellas; los archivos de datos repiten cada una para cada embotellado vinculado a su destilería (21.228 filas). La actualización mensual vuelve a consultar la fuente en busca de meses nuevos: la suscripción de $49/month entrega cada actualización automáticamente, y la compra de pago único de $49 entrega el snapshot actual.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">¿Puedo descargar una muestra gratuita antes de comprar una licencia comercial?</h3>
 <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">¡Sí! Puedes descargar de inmediato nuestros conjuntos de datos de muestra públicos en CSV (<code style="color:#e2c044;">spirits.csv</code> y <code style="color:#e2c044;">distilleries.csv</code>) desde nuestro repositorio de código abierto en GitHub, o explorarlos de forma interactiva con nuestro Hugging Face Sample Explorer sin necesidad de una clave de API.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
-<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">¿Cómo verifica WhiskyDB las recetas de grano de las destilerías y los linajes de barrica?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Combinamos fichas técnicas publicadas por los productores, registros oficiales de etiquetas (registros TTB COLA) y registros históricos verificados de destilerías en una cadena de procedencia inmutable, con citas de fuentes para cada determinación.</p>
+<h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">¿De dónde proceden las recetas de grano y los vínculos de barrica de WhiskyDB?</h3>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Las recetas de grano proceden únicamente de especificaciones publicadas por el productor y existen para un puñado de embotellados. Los vínculos de barrica los publica el productor o se derivan por reglas: una palabra clave de barrica completa en el nombre del embotellado (como Sherry o Port), o el requisito legal estadounidense de que el bourbon y el whiskey de centeno maduren en roble nuevo carbonizado (27 CFR 5.143). Cada fila lleva un source_id que remite al registro de procedencia data_sources, y un valor que ninguna fuente indica queda vacío en lugar de suponerse.</p>
 </div>
 </div>
 </div>
@@ -687,7 +692,7 @@
 <span class="logo-text">Whisky<span class="text-gold">DB</span></span>
 </div>
 <p class="footer-desc">
-                    La base de datos estructurada más rigurosa del mundo sobre destilados premium, destilerías, recetas de grano y valoraciones de mercado. Creada para desarrolladores, analistas y plataformas institucionales del sector de bebidas.
+                    Una base de datos estructurada con procedencia rastreada de destilados premium, destilerías y productores, e índices de subastas por destilería. Creada para desarrolladores, analistas y plataformas del sector de bebidas.
                 </p>
 <div class="footer-copyright">
                     © 2026 WhiskyDB Initiative. Muestra y documentación: CC BY-NC 4.0; taxonomías: CC BY 4.0.
@@ -727,18 +732,16 @@
   "all_ages": "Todas las edades",
   "years_old_suffix": "+ años",
   "empty_title": "No se encontraron fichas de destilados que coincidan",
-  "empty_text": "Prueba a ampliar el control deslizante de declaración de edad o a seleccionar «Todas las barricas».",
+  "empty_text": "Prueba con una edad mínima menor, o elige «Todas las fuentes» y «Todos los tamaños».",
   "age_abbrev": "años",
-  "mash_bill_lineage": "Linaje de la receta de grano",
-  "malt": "Malta",
-  "malted_barley": "Cebada malteada",
-  "corn": "Maíz",
-  "rye": "Centeno",
-  "wheat": "Trigo",
+  "no_age": "Sin declaración de edad",
   "abv": "ABV",
   "volume": "Volumen",
-  "flavor_profile": "Perfil de sabor",
-  "secondary_benchmark": "Referencia del mercado secundario",
+  "source_prefix": "Fuente:",
+  "provenance_link": "Procedencia ↗",
+  "auction_label": "Índice de subastas de la destilería",
+  "auction_scope": "media anual de la puja ganadora de la destilería, no un precio de esta botella",
+  "load_error": "No se pudo cargar aquí la muestra gratuita. Descárgala desde GitHub:",
   "per_month": "/ mes",
   "copied": "✓ ¡Copiado!",
   "copy_code": "Copiar código",
@@ -748,7 +751,7 @@
   "fail_note": "No pudimos enviar tu solicitud automáticamente. Escribe a whiskydb@dataengineered.io con tu nombre, nivel y caso de uso — respondemos en un plazo de 1 día hábil."
 }
 </script>
-<script src="/app.js?v=seclinks1"></script>
+<script src="/app.js?v=freesample1"></script>
 <!-- PWA Service Worker Registration -->
 <script>
       if ('serviceWorker' in navigator) {

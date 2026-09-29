@@ -610,7 +610,7 @@ def build_page(s, charts):
     tiles = "".join(
         f'<li{" class=\"date\"" if lbl in ("Snapshot", "Auction history") else ""}><span>{lbl}</span><strong>{val}</strong></li>' for lbl, val in [
             ("Bottlings", n(s["spirits"])), ("Distilleries & producers", n(s["producers"])), ("Countries", n(s["producer_countries"])),
-            ("Auction benchmarks", n(s["price_rows"])), ("Auction history", f"{s['price_first'][:4]} to {s['price_last'][:4]}"), ("Snapshot", snap)])
+            ("Auction benchmarks", n(s["price_distillery_months"])), ("Auction history", f"{s['price_first'][:4]} to {s['price_last'][:4]}"), ("Snapshot", snap)])
     gi_li = "" if not s["gi_appellations"] else (
         "\n        <li><strong>Producers, not appellations.</strong> The dataset also lists the "
         f"{n(s['gi_appellations'])} protected spirit appellations of the EU GI register. An appellation is a protected place "
@@ -662,7 +662,7 @@ def build_page(s, charts):
     <section class="hero">
       <span class="badge mono" style="display:inline-block;background:rgba(212,175,55,0.15);color:var(--gold-light);padding:4px 12px;border-radius:4px;font-size:0.8rem;font-weight:600;margin-bottom:12px;border:1px solid rgba(212,175,55,0.3);">MARKET STATISTICS · SNAPSHOT {esc(snap)}</span>
       <h1 class="heading">Whisky in numbers</h1>
-      <p class="lede">Aggregate statistics computed from the full WhiskyDB snapshot: {n(s['spirits'])} bottlings, {n(s['producers'])} distilleries and producers, and {n(s['price_rows'])} monthly auction benchmarks reaching back to {s['price_first'][:4]}, every record traced to an open public source. Refreshed monthly. Every figure is free to cite, quote and embed with a link to this page.</p>
+      <p class="lede">Aggregate statistics computed from the full WhiskyDB snapshot: {n(s['spirits'])} bottlings, {n(s['producers'])} distilleries and producers, and {n(s['price_distillery_months'])} monthly distillery auction benchmarks reaching back to {s['price_first'][:4]}, every record traced to an open public source. Refreshed monthly. Every figure is free to cite, quote and embed with a link to this page.</p>
       <ul class="tiles">{tiles}</ul>
       <nav class="toc" aria-label="Contents"><strong>On this page</strong><ol>{toc}</ol></nav>
     </section>
@@ -691,7 +691,7 @@ def build_page(s, charts):
 
   <footer>
     <div class="container">
-      <p>WhiskyDB — Canonical Global Fine Spirits Catalog &amp; REST API · <a href="/#pricing-section" style="color:var(--gold); text-decoration:none;">License Enterprise Dataset ($49/mo)</a></p>
+      <p>WhiskyDB — Canonical Global Fine Spirits Catalog · <a href="/#pricing-section" style="color:var(--gold); text-decoration:none;">License Enterprise Dataset ($49/mo)</a></p>
       <div class="catalog-line" style="text-align:center; margin-top:14px; font-size:0.85rem; opacity:0.85;"><a href="https://dataengineered.io/">Part of the DataEngineered catalog →</a> · <a href="https://dataengineered.io/about">About</a> · <a href="https://dataengineered.io/terms">Terms</a> · <a href="https://dataengineered.io/privacy">Privacy</a> · <a href="https://dataengineered.io/refund-policy">Refund policy</a></div>
     </div>
   </footer>
