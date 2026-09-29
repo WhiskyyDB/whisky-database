@@ -2,15 +2,15 @@
 
 # 🥃 WhiskyDB — Fine Spirits & Whisky Dataset
 
-**2,301 whiskies & fine spirits · 3,764 distilleries & producers · 21,156 monthly auction-price benchmarks (2005 → today) · 100% provenance-tracked**
+**2,721 whiskies & fine spirits · 2,853 distilleries & producers · 21,228 monthly auction-price benchmarks (Nov 2005 → Sep 2024) · 100% provenance-tracked**
 
 [![Sample: 15 rows](https://img.shields.io/badge/Free%20Sample-15%20rows-brightgreen.svg)](samples/spirits.csv)
 [![🤗 Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-sample%20dataset-ffd21e.svg)](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample)
 [![🤗 Explorer](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-sample%20explorer-ffd21e.svg)](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers)
 [![Kaggle](https://img.shields.io/badge/Kaggle-sample%20dataset-20BEFF.svg)](https://www.kaggle.com/datasets/dataengineered/whiskydb-fine-spirits-sample)
-[![Distilleries: 3,764](https://img.shields.io/badge/Distilleries-3%2C764-8a5a44.svg)](#whats-inside)
-[![Price history: 2005→](https://img.shields.io/badge/Auction%20history-2005%E2%86%92today-gold.svg)](#auction-price-history--the-differentiated-part)
-[![Snapshot: 2026.07](https://img.shields.io/badge/Snapshot-2026.07-blue.svg)](CHANGELOG.md)
+[![Distilleries: 2,853](https://img.shields.io/badge/Distilleries-2%2C853-8a5a44.svg)](#whats-inside)
+[![Price history: 2005→2024](https://img.shields.io/badge/Auction%20history-2005%E2%86%922024-gold.svg)](#auction-price-history--the-differentiated-part)
+[![Snapshot: 2026.09](https://img.shields.io/badge/Snapshot-2026.09-blue.svg)](CHANGELOG.md)
 [![Taxonomies: open](https://img.shields.io/badge/Cask%20%26%20Flavor%20taxonomies-open%20source-2ea44f.svg)](taxonomy/)
 [![Get the data](https://img.shields.io/badge/Get%20the%20data-whiskydb.dataengineered.io-d4a643.svg)](https://whiskydb.dataengineered.io/)
 
@@ -30,12 +30,12 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 
 | | Full dataset | Free sample |
 | :--- | ---: | ---: |
-| Spirits & bottlings | **2,301** | 15 |
-| Distilleries, brands & producers | **3,764** | 15 |
-| Countries represented | **110+** | — |
-| Monthly auction-price benchmarks | **21,156** | — |
+| Spirits & bottlings | **2,721** | 15 |
+| Distilleries, brands & producers | **2,853** | 15 |
+| Countries represented | **40+** | — |
+| Monthly auction-price benchmarks | **21,228** | — |
 | Protected GI appellations (EU/UK) | **270+** | — |
-| Open cask & flavor taxonomies | 14 styles · 15 descriptors | ✔ included |
+| Open cask & flavor taxonomies | 14 styles (13 in the open `taxonomy/` CSV) · 15 descriptors | ✔ included |
 | Formats | SQLite · CSV | CSV |
 
 The free [`samples/spirits.csv`](samples/spirits.csv) and [`samples/distilleries.csv`](samples/distilleries.csv) are curated subsets showing the schema and quality. Explore them interactively in the [🤗 Sample Explorer](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers), or load them straight from the [🤗 sample dataset](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample) or [Kaggle](https://www.kaggle.com/datasets/dataengineered/whiskydb-fine-spirits-sample) (with a [live starter notebook](https://www.kaggle.com/code/dataengineered/whiskydb-fine-spirits-starter-notebook)). The [`taxonomy/`](taxonomy/) CSVs (hierarchical cask styles and controlled flavor vocabulary) are **fully open source** — use them in your own projects with attribution.
@@ -46,17 +46,17 @@ Measured across the full dataset. Public sources don't all publish every attribu
 
 | Field | Coverage | | Field | Coverage |
 | :--- | ---: | --- | :--- | ---: |
-| Spirit name / type | 100% | | Distillery country | 88% |
-| Barcode / label ID | 99% | | Distillery founded year | 23% |
-| Explicit label ABV | 16%* | | Age statement | <1%† |
+| Spirit name / type | 100% | | Distillery country | 99% |
+| Barcode / label ID | 99% | | Distillery founded year | 24% |
+| Explicit label ABV | 20%* | | Age statement | <1%† |
 
-\* 16% of spirits carry an explicitly sourced ABV (e.g. from US federal label details, cask-strength values up to 62.5%); the rest carry the documented 40.0 default — the legal minimum for whisky in the US/EU — clearly identifiable and upgraded monthly as label-registry quota allows.
+\* 20% of spirits carry an explicitly sourced ABV (e.g. from US federal label details, cask-strength values up to 70%); the rest carry the documented 40.0 default — the legal minimum for whisky in the US/EU — clearly identifiable and upgraded monthly as label-registry quota allows.
 † Most public listings are NAS (no age statement) or don't state age; treat this column as sparse.
 
 ## Auction price history — the differentiated part
 
-- **21,156** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), one row per distillery per month.
-- **225 consecutive months** — November 2005 → today — across **33 whisky distilleries** and 93 linked bottlings.
+- **21,228** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), one row per linked bottling per month. A distillery's monthly index is repeated for each bottling linked to it, so there are fewer distinct distillery-months than rows (see `/stats/`).
+- **227 consecutive months** — November 2005 → September 2024 — across **60 whisky distilleries** and 205 linked bottlings.
 - Honestly labeled: every row is a `Distillery Auction Index` (market-level index), **never** passed off as a bottle-specific realization.
 - Sourced from open statistical auction data; ideal for valuation models, trend analysis, and price-vs-age studies.
 
@@ -70,7 +70,7 @@ Every table row carries a `source_id` into a provenance ledger (`data_sources`) 
 | UK Companies House | Open Government Licence v3.0 | Distillery incorporations, founding years, status |
 | EU eAmbrosia GI register | EU open data | Protected spirit appellations (PGI/PDO) |
 | Open Food Facts | ODbL | Bottled products, barcodes, volumes |
-| Wikipedia / Wikidata | CC-BY-SA / CC0 | Distillery names, regions, founding years |
+| Wikipedia | CC-BY-SA | Distillery and brand names, regions |
 | WhiskyHunter open statistics | Open data | Monthly auction price indices |
 
 See [`SOURCES.md`](SOURCES.md) for full attribution and license details, and [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) for every field.
@@ -80,7 +80,7 @@ See [`SOURCES.md`](SOURCES.md) for full attribution and license details, and [`D
 | Tier | What | Price |
 | :--- | :--- | :--- |
 | **Sample** | This repo: sample CSVs + open taxonomies | Free |
-| **Standard Catalog** | Full dataset snapshot · SQLite + CSV · 21,156 auction-price benchmarks · commercial license | **$49** one-time ([Stripe](https://buy.stripe.com/eVq3cw4p2afccI382s38401)) |
+| **Standard Catalog** | Full dataset snapshot · SQLite + CSV · 21,228 auction-price benchmarks · commercial license | **$49** one-time ([Stripe](https://buy.stripe.com/eVq3cw4p2afccI382s38401)) |
 | **Monthly refresh subscription** | The same catalog, each monthly refresh auto-delivered | **$49** / month ([Stripe](https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402)) |
 
 **[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or use the [contact form](https://whiskydb.dataengineered.io/#contact-section) (whiskydb@dataengineered.io) for the full dataset and custom work.
@@ -108,7 +108,7 @@ A fuller example is in [`examples/load_sample.py`](examples/load_sample.py). A h
 
 [whiskydb.dataengineered.io/stats/](https://whiskydb.dataengineered.io/stats/) publishes aggregate statistics computed from the **full** snapshot — a 2006-onward auction price index, distillery rankings, spirit types, ABV, producer countries, founding decades — as a citable page with embeddable SVG charts and a machine-readable `stats/data.json`. The figures and charts are **CC BY 4.0**: reuse them with a link to the page. Only aggregates are published; the row-level data stays in the commercial dataset.
 
-`scripts/generate_stats.py` regenerates `stats/` from the private pipeline's SQLite after each data refresh (see the private repo's RELEASING.md); follow it with `generate_seo_pages.py` (sitemap) and the i18n `build` + `check` below.
+`scripts/generate_stats.py` regenerates `stats/` from the private pipeline's SQLite after each data refresh (see the private repo's RELEASING.md). Then `python scripts/check_claims.py --fix` rewrites the figures stated on the homepage, in this README, `llms.txt` and `DATA_DICTIONARY.md` (counts, snapshot edition, auction range, field coverage) to match `stats/data.json`; follow it with `generate_seo_pages.py` (sitemap) and the i18n `build` + `check` below, and finish with `python scripts/check_claims.py`, which exits 1 on any remaining mismatch, including a language copy of the homepage that was not rebuilt.
 
 ## Localized pages (i18n)
 

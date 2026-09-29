@@ -41,6 +41,20 @@ FIRST_PUBLISHED = "2026-09-17"
 DEFAULT_DB = BASE_DIR.parent / "06_Fine_Spirits_WhiskyDB" / "data" / "whiskydb.sqlite"
 DEFAULT_ABV = 40.0  # documented fallback where the source publishes no ABV; excluded from ABV statistics
 
+# Counting countries, not country labels: a label can name several countries (an EU
+# geographical indication shared across borders: "France, Italy"), the same country under
+# another name, or one of the UK's nations / Companies House jurisdictions. ISO 3166 names
+# written with a comma ("Venezuela, Bolivarian Republic of") are one country, not a list.
+COUNTRY_SYNONYMS = {"Russian Federation": "Russia", "Slovak Republic": "Slovakia",
+                    "People's Republic of China": "China", "Ivory Coast": "Côte d'Ivoire",
+                    "United States": "USA", "United States of America": "USA",
+                    "Venezuela, Bolivarian Republic of": "Venezuela", "Bolivia, Plurinational State of": "Bolivia",
+                    "Korea, Republic of": "South Korea", "Moldova, Republic of": "Moldova",
+                    "Iran, Islamic Republic of": "Iran", "Tanzania, United Republic of": "Tanzania",
+                    "Taiwan, Province of China": "Taiwan"}
+UK_LABELS = {"United Kingdom", "United Kingdom (Northern Ireland)", "England", "Wales", "Scotland",
+             "Northern Ireland", "England & Wales"}
+
 # Dark surface palette of the WhiskyDB catalog pages. Single-series charts only:
 # one hue (the site gold) per chart, text in ink/muted tokens, never the data color.
 P = dict(surface="#0a0b0d", surface2="#111318", ink="#f0f2f8", muted="#949ab1",
@@ -74,6 +88,16 @@ def data(v):
     return f'<span translate="no">{esc(v)}</span>'
 
 
+def countries_of(label):
+    """The countries a (normalized) country label names: multi-country labels are split,
+    synonyms merged, and the UK's nations and jurisdictions counted as the United Kingdom."""
+    out = set()
+    for part in COUNTRY_SYNONYMS.get(label, label).split(","):
+        part = COUNTRY_SYNONYMS.get(part.strip(), part.strip())
+        out.add("United Kingdom" if part in UK_LABELS else part)
+    return out
+
+
 def nice_step(vmax, target_ticks=5):
     raw = vmax / target_ticks
     mag = 10 ** (len(str(int(raw))) - 1) if raw >= 1 else 1
@@ -100,6 +124,16 @@ def _svg_head(width, height, title, subtitle):
 
 def _svg_foot(width, height, note):
     return [f'<text x="20" y="{height - 12}" font-size="11" fill="{P["muted"]}">{esc(note)}</text>', "</svg>"]
+
+
+def chart_ids(svg, slug):
+    """Scope a chart's <title id="t">/<desc id="d"> (and its aria-labelledby) to its slug: a page
+    inlines many charts, and repeated ids make every chart's accessible name the first chart's.
+    Same as the portfolio's stats_common.chart_ids: figure() applies it to the inline copy and
+    main() to stats/charts/<slug>.svg; the two stay identical."""
+    return (svg.replace('aria-labelledby="t d"', f'aria-labelledby="t-{slug} d-{slug}"', 1)
+               .replace('<title id="t">', f'<title id="t-{slug}">', 1)
+               .replace('<desc id="d">', f'<desc id="d-{slug}">', 1))
 
 
 def svg_hbar(title, subtitle, rows, note, width=720, label_w=196):
@@ -177,14 +211,15 @@ def svg_line(title, subtitle, points, fmt, note, width=720, height=320, peak_lab
 
 def compute(db_path):
     con = sqlite3.connect(str(db_path))
-    q = lambda sql, *a: con.execute(sql, a).fetchall()
+
+    def q(sql, *a):
+        return con.execute(sql, a).fetchall()
     s = {}
 
     s["snapshot_date"] = q("select max(date(access_timestamp)) from data_sources")[0][0]
     s["spirits"] = q("select count(*) from spirits")[0][0]
     s["producers"] = q("select count(*) from distilleries")[0][0]
     s["producers_with_country"] = q("select count(*) from distilleries where country<>'Global'")[0][0]
-    s["producer_countries"] = q("select count(distinct country) from distilleries where country<>'Global'")[0][0]
     s["price_rows"] = q("select count(*) from price_benchmarks")[0][0]
     s["price_first"], s["price_last"] = q("select min(valuation_date), max(valuation_date) from price_benchmarks")[0]
 
@@ -260,16 +295,24 @@ def compute(db_path):
         "select spirit_type, count(*), avg(abv_percentage), max(abv_percentage) from spirits where abv_percentage<>? "
         "group by 1 having count(*)>=10 order by 3 desc", DEFAULT_ABV)]
 
-    # --- producers by country (Open Food Facts tags like "en:switzerland" are normalized) ---
+    # --- producers by country (Open Food Facts tags like "en:switzerland" are normalized). The
+    # chart and table list the labels as recorded; the country count splits and merges them
+    # (countries_of). Open Food Facts rows carry the first country the product is sold in. ---
     pc = defaultdict(int)
-    for k, v in q("select country, count(*) from distilleries where country<>'Global' group by 1"):
+    named, named_elsewhere = set(), set()
+    for k, off, v in q("select d.country, ds.source_name like 'Open Food Facts%', count(*) from distilleries d "
+                       "join data_sources ds using(source_id) where d.country<>'Global' group by 1, 2"):
         if k.startswith("en:"):
             k = k[3:].replace("-", " ").title().replace("Cote D Ivoire", "Côte d'Ivoire").replace("Usa", "USA")
         pc[k] += v
-    s["producer_countries"] = len(pc)
+        named |= countries_of(k)
+        if not off:
+            named_elsewhere |= countries_of(k)
+    s["producer_countries"] = len(named)
+    s["producer_countries_off_only"] = len(named - named_elsewhere)
     s["producers_by_country"] = [(k, v, pct(v, s["producers_with_country"])) for k, v in sorted(pc.items(), key=lambda t: (-t[1], t[0]))]
 
-    # --- founding decades (UK Companies House + Wikidata inception years) ---
+    # --- founding decades (every source that carries a founded_year) ---
     fy = q("select founded_year from distilleries where founded_year between 1500 and 2100")
     s["founded_n"] = len(fy)
     s["founded_src"] = {name: c for name, c in q(
@@ -364,7 +407,7 @@ def embed_block(slug, title):
 
 
 def figure(slug, svg, title, note):
-    return (f'<figure id="fig-{slug}">{svg}<figcaption><span>{esc(note)}</span>'
+    return (f'<figure id="fig-{slug}">{chart_ids(svg, slug)}<figcaption><span>{esc(note)}</span>'
             f'<a href="/stats/charts/{slug}.svg" download="whiskydb-{slug}.svg">Download SVG</a></figcaption></figure>'
             + embed_block(slug, title))
 
@@ -478,12 +521,16 @@ def build_page(s, charts):
     sections.append(section(
         "countries", "Where the distilleries and producers are",
         f"{data(pc[0][0])} accounts for <strong>{pc[0][2]}%</strong> of producers with a stated country, {data(pc[1][0])} for {pc[1][2]}% and "
-        f"{data(pc[2][0])} for {pc[2][2]}%; {n(s['producer_countries'])} countries appear in total.",
+        f"{data(pc[2][0])} for {pc[2][2]}%; {n(s['producer_countries'])} countries appear in total"
+        + (f", {n(s['producer_countries_off_only'])} of them only on Open Food Facts records." if s["producer_countries_off_only"] else "."),
         figure("producers-by-country", charts["producers-by-country"], "Where the distilleries and producers are", f"{n(s['producers_with_country'])} producers"),
         table(["Country", "Producers", "Share"], [(k, n(v), f"{p}%") for k, v, p in pc[:30]], {1, 2}),
-        f"Producers are distilleries, brands and bottling companies from label registries, corporate registries, Wikidata and open product databases; "
+        f"Producers are distilleries, brands, bottlers and whisky companies from label registries, corporate registries, Wikipedia lists "
+        f"and open product databases, plus the protected spirit appellations of the EU GI register; "
         f"{n(s['producers'] - s['producers_with_country'])} brand-level records with no stated country are excluded. "
-        f"England & Wales and Scotland follow UK Companies House jurisdictions."))
+        f"England & Wales and Scotland follow UK Companies House jurisdictions. The country count splits labels that name several countries "
+        f"(appellations shared across borders), merges name variants and counts the UK once. Open Food Facts records carry the first country "
+        f"the product is listed as sold in, which is not necessarily where it is made."))
 
     # 6. founding decades
     fd = s["founded_by_decade"]
@@ -497,7 +544,7 @@ def build_page(s, charts):
         table(["Decade", "Producers founded", "Share"], [(k, n(v), f"{p}%") for k, v, p in fd], {1, 2}),
         "Founding years come from " + "; ".join(f"{k} ({n(v)})" for k, v in s["founded_src"].items()) + ". "
         "Companies House supplies incorporation dates of UK whisky-related companies, so the recent decades reflect UK company formation "
-        "and long-established distilleries without a Wikidata inception year are under-counted. Read this as a UK registration signal, not a global census."))
+        "and long-established distilleries are under-counted. Read this as a UK registration signal, not a global census."))
 
     # 7. UK company status
     uk = s["uk_status"]
@@ -540,7 +587,7 @@ def build_page(s, charts):
 
     tiles = "".join(
         f'<li{" class=\"date\"" if lbl in ("Snapshot", "Auction history") else ""}><span>{lbl}</span><strong>{val}</strong></li>' for lbl, val in [
-            ("Bottlings", n(s["spirits"])), ("Distilleries & producers", n(s["producers"])), ("Producer countries", n(s["producer_countries"])),
+            ("Bottlings", n(s["spirits"])), ("Distilleries & producers", n(s["producers"])), ("Countries", n(s["producer_countries"])),
             ("Auction benchmarks", n(s["price_rows"])), ("Auction history", f"{s['price_first'][:4]} to {s['price_last'][:4]}"), ("Snapshot", snap)])
 
     return f"""<!DOCTYPE html>
@@ -598,7 +645,7 @@ def build_page(s, charts):
     <section class="stat" id="method">
       <h2 class="heading">Method, reuse and citation</h2>
       <ul class="method">
-        <li><strong>Source.</strong> The full WhiskyDB snapshot of {snap}, built entirely from open sources: the US TTB COLA label registry, UK Companies House, the EU eAmbrosia GI register, Open Food Facts, Wikipedia and Wikidata, and WhiskyHunter's open auction statistics. Every row carries a provenance ledger entry; see <a href="/SOURCES.md">Sources &amp; licenses</a>.</li>
+        <li><strong>Source.</strong> The full WhiskyDB snapshot of {snap}, built entirely from open sources: the US TTB COLA label registry, UK Companies House, the EU eAmbrosia GI register, Open Food Facts, Wikipedia and WhiskyHunter's open auction statistics. Every row carries a provenance ledger entry; see <a href="/SOURCES.md">Sources &amp; licenses</a>.</li>
         <li><strong>Coverage is uneven by design.</strong> Open registries do not all publish every attribute. Every figure above names its denominator, so a percentage is always a share of the records that state that attribute, never of the whole catalogue. Blank fields are never guessed, and the documented 40% ABV fallback is excluded from every ABV figure.</li>
         <li><strong>The auction index is a market index.</strong> Each value is a distillery-level mean winning bid for one month, never the price of a specific bottle. Yearly figures average the distilleries equally so a distillery with many linked bottlings does not dominate.</li>
         <li><strong>Refresh.</strong> The catalogue is refreshed monthly; this page and its charts are regenerated after each refresh, so figures move. Cite the snapshot date.</li>
@@ -644,8 +691,9 @@ def build_data_json(s):
         "dataset": BRAND, "page": PAGE_URL, "generated": dt.date.today().isoformat(), "snapshot": s["snapshot_date"],
         "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) - attribute with a link to the page; "
                    "WhiskyHunter, Companies House and Wikipedia-derived figures retain those sources' attribution terms",
-        "totals": {k: s[k] for k in ("spirits", "producers", "producers_with_country", "producer_countries", "price_rows",
-                                     "price_first", "price_last", "price_distilleries", "price_distillery_months")},
+        "totals": {k: s[k] for k in ("spirits", "producers", "producers_with_country", "producer_countries",
+                                     "producer_countries_off_only", "price_rows", "price_first", "price_last",
+                                     "price_distilleries", "price_distillery_months")},
         "auction_index_gbp": {
             "method": "mean monthly winning bid per distillery (WhiskyHunter), yearly mean per distillery, then mean across distilleries",
             "distilleries": s["lfl_names"], "last_year_months": s["last_year_months"],
@@ -682,7 +730,7 @@ def main():
     CHART_DIR.mkdir(exist_ok=True)
     (OUT_DIR / "index.html").write_text(page, encoding="utf-8", newline="\n")
     for slug, svg in charts.items():
-        (CHART_DIR / f"{slug}.svg").write_text(svg + "\n", encoding="utf-8", newline="\n")
+        (CHART_DIR / f"{slug}.svg").write_text(chart_ids(svg, slug) + "\n", encoding="utf-8", newline="\n")
     (OUT_DIR / "data.json").write_text(json.dumps(build_data_json(s), ensure_ascii=False, indent=1) + "\n",
                                        encoding="utf-8", newline="\n")
     print(f"stats/index.html + {len(charts)} charts + data.json  (snapshot {s['snapshot_date']}, "
