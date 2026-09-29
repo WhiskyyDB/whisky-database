@@ -32,7 +32,10 @@ index.html, so the plain check also confirms that their hero figures were rebuil
                                   / spirits, country = producers_with_country / producers, founded
                                   year = founded.denominator / producers; ABV max = abv.max
   countries floor                 README "Countries represented N+": producer_countries minus
-                                  producer_countries_off_only, floored to a multiple of 10
+                                  producer_countries_off_only, floored to a multiple of 5 (a
+                                  multiple of 10 until 2026-09-30, which would have cut the
+                                  flagged edition's 19 to "10+"; 5 gives "15+", while 41 still
+                                  gives "40+")
   GI appellations floor           README "Protected GI appellations (EU/UK) N+": gi_appellations
                                   floored to a multiple of 10, once data.json reports it (below)
 Not in data.json, so still checked by hand: the "linked bottlings" count in README.md, the
@@ -48,7 +51,7 @@ countries floor are all measured on producers only, and data.json gains
 rule's sentence count checked but not its value. Measured on the flagged database of
 2026-09-29 (the 2026.09 edition minus 15 non-producer rows): 2,565 producers + 273
 appellations, country coverage 2,556 / 2,565 -> 99%, founded year 696 / 2,565 -> 27%, 31
-countries of which 12 only on Open Food Facts rows -> 19 -> "10+" (the 16 countries named
+countries of which 12 only on Open Food Facts rows -> 19 -> "15+" (the 16 countries named
 only by appellations drop out).
 
 Countries, not country labels: data.json `producer_countries` splits multi-country labels
@@ -218,7 +221,8 @@ def expected_values(data):
         "pct_abv": floor_pct(data["abv"]["denominator"], t["spirits"]),
         "pct_country": floor_pct(t["producers_with_country"], t["producers"]),
         "pct_founded": floor_pct(data["founded"]["denominator"], t["producers"]),
-        "countries_floor": str((t["producer_countries"] - t["producer_countries_off_only"]) // 10 * 10),
+        # floored to a multiple of 5: 41 -> "40+" (2026.09), 19 -> "15+" (flagged edition)
+        "countries_floor": str((t["producer_countries"] - t["producer_countries_off_only"]) // 5 * 5),
         "abv_max": f"{abv_max:g}",
     }
     if "gi_appellations" in t:  # data.json from a snapshot that flags the EU GI appellations
