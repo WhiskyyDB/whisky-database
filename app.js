@@ -7,225 +7,229 @@
 const I18N = JSON.parse(document.getElementById("i18n-strings").textContent);
 
 document.addEventListener("DOMContentLoaded", () => {
-    initCatalogDemo();
+    initSampleExplorer();
     initPricingToggle();
     initCodeTabs();
     initSmoothScrolling();
-    // The spirit cards just rendered above #features-section and the later sections: land a
-    // #fragment arrival on its section again (shared snippet, scripts/section_links.py).
-    if (window.realignSectionLink) window.realignSectionLink();
 });
 
 /* ==========================================================================
-   1. Interactive Catalog Live Demo
+   1. Free-sample explorer
+   The cards are the rows of samples/spirits.csv, the free sample this site publishes, read
+   as they are: no spirit, figure or price is typed into this file. WhiskyDB holds no bottle
+   prices. A card shows an auction figure only for a bottling that the full dataset links to
+   a distillery of the public auction index (stats/data.json), labelled as that distillery's
+   yearly mean winning bid, never as a price for the bottle.
    ========================================================================== */
-const MOCK_SPIRITS = [
-    {
-        id: 1,
-        name: "Lagavulin 16 Year Old",
-        category: "Single Malt Scotch",
-        age: 16,
-        abv: 43.0,
-        volume: 700,
-        distillery: "Lagavulin Distillery (Islay)",
-        cask: "Ex-Bourbon & Second-Fill Sherry",
-        caskTag: "Sherry",
-        flavorTag: "Peat Smoke",
-        priceUsd: 115.00,
-        mashBill: { malt: 100, corn: 0, rye: 0, wheat: 0 }
-    },
-    {
-        id: 2,
-        name: "Pappy Van Winkle Family Reserve 15yo",
-        category: "Bourbon",
-        age: 15,
-        abv: 53.5,
-        volume: 750,
-        distillery: "Old Rip Van Winkle / Buffalo Trace",
-        cask: "New Charred American White Oak",
-        caskTag: "Bourbon",
-        flavorTag: "Vanilla",
-        priceUsd: 2850.00,
-        mashBill: { malt: 10, corn: 74, rye: 0, wheat: 16 }
-    },
-    {
-        id: 3,
-        name: "Yamazaki 12 Year Old",
-        category: "Japanese Whisky",
-        age: 12,
-        abv: 43.0,
-        volume: 700,
-        distillery: "Yamazaki Distillery (Suntory)",
-        cask: "Mizunara Oak, Ex-Bourbon & Sherry",
-        caskTag: "Mizunara",
-        flavorTag: "Dried Fruit",
-        priceUsd: 195.00,
-        mashBill: { malt: 100, corn: 0, rye: 0, wheat: 0 }
-    },
-    {
-        id: 4,
-        name: "The Macallan 18 Year Old Sherry Oak",
-        category: "Single Malt Scotch",
-        age: 18,
-        abv: 43.0,
-        volume: 700,
-        distillery: "The Macallan Distillery (Speyside)",
-        cask: "First-Fill Oloroso Sherry Seasoned Oak",
-        caskTag: "Sherry",
-        flavorTag: "Dried Fruit",
-        priceUsd: 450.00,
-        mashBill: { malt: 100, corn: 0, rye: 0, wheat: 0 }
-    },
-    {
-        id: 5,
-        name: "George T. Stagg Barrel Proof",
-        category: "Bourbon",
-        age: 15,
-        abv: 65.1,
-        volume: 750,
-        distillery: "Buffalo Trace Distillery (Kentucky)",
-        cask: "New Charred American White Oak (#4 Char)",
-        caskTag: "Bourbon",
-        flavorTag: "Vanilla",
-        priceUsd: 1200.00,
-        mashBill: { malt: 8, corn: 84, rye: 8, wheat: 0 }
-    },
-    {
-        id: 6,
-        name: "Laphroaig 10 Year Old Cask Strength",
-        category: "Single Malt Scotch",
-        age: 10,
-        abv: 58.6,
-        volume: 700,
-        distillery: "Laphroaig Distillery (Islay)",
-        cask: "First-Fill Ex-Bourbon Barrels",
-        caskTag: "Bourbon",
-        flavorTag: "Peat Smoke",
-        priceUsd: 95.00,
-        mashBill: { malt: 100, corn: 0, rye: 0, wheat: 0 }
-    },
-    {
-        id: 7,
-        name: "Hibiki 21 Year Old",
-        category: "Japanese Whisky",
-        age: 21,
-        abv: 43.0,
-        volume: 700,
-        distillery: "Suntory (Yamazaki, Hakushu, Chita)",
-        cask: "Mizunara Japanese Oak & Ex-Sherry Casks",
-        caskTag: "Mizunara",
-        flavorTag: "Vanilla",
-        priceUsd: 1150.00,
-        mashBill: { malt: 60, corn: 40, rye: 0, wheat: 0 }
-    },
-    {
-        id: 8,
-        name: "WhistlePig 15 Year Old Straight Rye",
-        category: "Rye Whiskey",
-        age: 15,
-        abv: 46.0,
-        volume: 750,
-        distillery: "WhistlePig Farm Distillery (Vermont)",
-        cask: "Ex-Bourbon & Vermont Estate Oak Finish",
-        caskTag: "Bourbon",
-        flavorTag: "Vanilla",
-        priceUsd: 240.00,
-        mashBill: { malt: 0, corn: 0, rye: 100, wheat: 0 }
-    },
-    {
-        id: 9,
-        name: "Springbank 10 Year Old",
-        category: "Single Malt Scotch",
-        age: 10,
-        abv: 46.0,
-        volume: 700,
-        distillery: "Springbank Distillery (Campbeltown)",
-        cask: "60% Ex-Bourbon & 40% Ex-Sherry Casks",
-        caskTag: "Sherry",
-        flavorTag: "Peat Smoke",
-        priceUsd: 85.00,
-        mashBill: { malt: 100, corn: 0, rye: 0, wheat: 0 }
-    }
-];
-
-let currentFilters = {
-    category: "all",
-    minAge: 0,
-    cask: "all",
-    flavor: "all"
+const SAMPLE_CSV = "/samples/spirits.csv";
+const STATS_JSON = "/stats/data.json";
+const SAMPLE_ON_GITHUB = "https://github.com/WhiskyyDB/whisky-database/blob/main/samples/spirits.csv";
+// spirit_id -> the distillery whose WhiskyHunter monthly index the full dataset's
+// price_benchmarks rows repeat for that bottling (checked against the 2026.09 edition).
+const AUCTION_DISTILLERY = {
+    "1": "Lagavulin",
+    "3": "Yamazaki",
+    "4": "Woodford Reserve",
+    "8": "Jack Daniel's",
+    "13": "Jack Daniel's"
 };
+const PAGE_LANG = document.documentElement.lang || "en";
+// Spirit pages exist under /<lang>/spirits/ for every localized copy of this page.
+const LOCALE_PREFIX = /^en\b/i.test(PAGE_LANG) ? "" : "/" + PAGE_LANG.toLowerCase();
 
-function initCatalogDemo() {
-    const categorySelect = document.getElementById("filter-category");
+let sampleRows = [];
+// "loading" | "ok" | "error". The filters are live before the sample arrives; until it has
+// loaded they only record their value, so a failed load keeps its message and GitHub link
+// instead of turning into "no matching records".
+let sampleState = "loading";
+let auctionIndex = null;  // { year, byDistillery: { name: GBP } }; null when stats/data.json is unavailable
+const currentFilters = { type: "all", minAge: 0, source: "all", size: "all" };
+
+function initSampleExplorer() {
+    const container = document.getElementById("spirits-cards-container");
+    if (!container) return;
+    bindFilters();
+
+    const sample = fetch(SAMPLE_CSV).then(res => {
+        if (!res.ok) throw new Error(`${SAMPLE_CSV}: HTTP ${res.status}`);
+        return res.text();
+    });
+    const stats = fetch(STATS_JSON).then(res => (res.ok ? res.json() : null)).catch(() => null);
+
+    Promise.all([sample, stats]).then(([csvText, statsData]) => {
+        sampleRows = parseCsv(csvText);
+        auctionIndex = readAuctionIndex(statsData);
+        fillTypeOptions();
+        const total = document.getElementById("sample-total");
+        if (total) total.textContent = formatNumber(sampleRows.length);
+        sampleState = "ok";
+        renderSpiritsGrid();
+    }).catch(err => {
+        sampleState = "error";
+        console.warn("WhiskyDB free sample could not be loaded:", err);
+        const countDisplay = document.getElementById("result-count");
+        if (countDisplay) countDisplay.textContent = formatNumber(0);
+        container.innerHTML = `
+            <div class="glass-card text-center" style="grid-column: 1 / -1; padding: 48px;">
+                <p class="text-muted">${I18N.load_error} <a href="${SAMPLE_ON_GITHUB}" target="_blank" rel="noopener" style="text-decoration: underline;" translate="no">samples/spirits.csv</a></p>
+            </div>
+        `;
+    }).finally(() => {
+        // The cards render above #features-section and the later sections: land a #fragment
+        // arrival on its section again (shared snippet, scripts/section_links.py).
+        if (window.realignSectionLink) window.realignSectionLink();
+    });
+}
+
+/* RFC 4180 CSV (quoted fields may hold commas, quotes and line breaks) -> array of row objects. */
+function parseCsv(text) {
+    const rows = [];
+    let row = [];
+    let field = "";
+    let quoted = false;
+    for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        if (quoted) {
+            if (ch === '"' && text[i + 1] === '"') { field += '"'; i++; }
+            else if (ch === '"') quoted = false;
+            else field += ch;
+        } else if (ch === '"') {
+            quoted = true;
+        } else if (ch === ",") {
+            row.push(field);
+            field = "";
+        } else if (ch === "\n" || ch === "\r") {
+            if (ch === "\r" && text[i + 1] === "\n") i++;
+            row.push(field);
+            field = "";
+            if (row.some(v => v !== "")) rows.push(row);
+            row = [];
+        } else {
+            field += ch;
+        }
+    }
+    row.push(field);
+    if (row.some(v => v !== "")) rows.push(row);
+    const header = (rows.shift() || []).map(h => h.replace(/^﻿/, "").trim());
+    return rows.map(r => Object.fromEntries(header.map((h, j) => [h, r[j] === undefined ? "" : r[j]])));
+}
+
+/* The per-distillery yearly means of the public auction index, keyed by distillery name. */
+function readAuctionIndex(data) {
+    const index = data && data.auction_index_gbp;
+    if (!index || !Array.isArray(index.per_distillery) || !Array.isArray(index.years) || !index.years.length) return null;
+    const byDistillery = {};
+    index.per_distillery.forEach(d => {
+        if (d && typeof d.latest_gbp === "number") byDistillery[d.distillery] = d.latest_gbp;
+    });
+    const year = Array.isArray(index.decade) ? index.decade[1] : index.years[index.years.length - 1].year;
+    return { year, byDistillery };
+}
+
+function fillTypeOptions() {
+    const select = document.getElementById("filter-category");
+    if (!select) return;
+    const counts = {};
+    sampleRows.forEach(row => { counts[row.type] = (counts[row.type] || 0) + 1; });
+    Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b)).forEach(type => {
+        const option = document.createElement("option");
+        option.value = type;
+        option.textContent = type;
+        option.setAttribute("translate", "no");
+        select.appendChild(option);
+    });
+}
+
+function bindFilters() {
+    const typeSelect = document.getElementById("filter-category");
     const ageSlider = document.getElementById("filter-age");
     const ageDisplay = document.getElementById("age-display");
-    const caskContainer = document.getElementById("cask-filter-container");
-    const flavorContainer = document.getElementById("flavor-filter-container");
 
-    if (!categorySelect || !ageSlider) return;
-
-    // Category filter
-    categorySelect.addEventListener("change", (e) => {
-        currentFilters.category = e.target.value;
-        renderSpiritsGrid();
-    });
-
-    // Age slider filter
-    ageSlider.addEventListener("input", (e) => {
-        const val = parseInt(e.target.value, 10);
-        currentFilters.minAge = val;
-        ageDisplay.textContent = val === 0 ? I18N.all_ages : `${val}${I18N.years_old_suffix}`;
-        renderSpiritsGrid();
-    });
-
-    // Cask pills
-    if (caskContainer) {
-        caskContainer.addEventListener("click", (e) => {
-            if (e.target.classList.contains("filter-pill")) {
-                caskContainer.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
-                e.target.classList.add("active");
-                currentFilters.cask = e.target.getAttribute("data-cask");
-                renderSpiritsGrid();
-            }
+    if (typeSelect) {
+        typeSelect.addEventListener("change", (e) => {
+            currentFilters.type = e.target.value;
+            renderSpiritsGrid();
         });
     }
-
-    // Flavor pills
-    if (flavorContainer) {
-        flavorContainer.addEventListener("click", (e) => {
-            if (e.target.classList.contains("filter-pill")) {
-                flavorContainer.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
-                e.target.classList.add("active");
-                currentFilters.flavor = e.target.getAttribute("data-flavor");
-                renderSpiritsGrid();
-            }
+    if (ageSlider) {
+        ageSlider.addEventListener("input", (e) => {
+            const val = parseInt(e.target.value, 10);
+            currentFilters.minAge = val;
+            if (ageDisplay) ageDisplay.textContent = val === 0 ? I18N.all_ages : `${val}${I18N.years_old_suffix}`;
+            renderSpiritsGrid();
         });
     }
+    bindPills("source-filter-container", "source");
+    bindPills("size-filter-container", "size");
+}
 
-    // Initial render
-    renderSpiritsGrid();
+function bindPills(containerId, key) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const pills = container.querySelectorAll(".filter-pill");
+    pills.forEach(p => p.setAttribute("aria-pressed", String(p.classList.contains("active"))));
+    container.addEventListener("click", (e) => {
+        const pill = e.target.closest(".filter-pill");
+        if (!pill || !container.contains(pill)) return;
+        pills.forEach(p => {
+            p.classList.toggle("active", p === pill);
+            p.setAttribute("aria-pressed", String(p === pill));
+        });
+        currentFilters[key] = pill.getAttribute(`data-${key}`);
+        renderSpiritsGrid();
+    });
+}
+
+function sourceKind(row) {
+    if (/^WhiskyDB Curated Seed/.test(row.source_name)) return "seed";
+    if (/Open Food Facts/.test(row.source_name)) return "off";
+    return "other";
+}
+
+function formatNumber(value, options) {
+    try {
+        return new Intl.NumberFormat(PAGE_LANG, options).format(value);
+    } catch (e) {
+        return String(value);
+    }
+}
+
+// The auction index is in GBP; the narrow symbol reads "£" in every page language.
+function formatGbp(value) {
+    for (const options of [{ currencyDisplay: "narrowSymbol" }, {}]) {
+        try {
+            return new Intl.NumberFormat(PAGE_LANG, { style: "currency", currency: "GBP", ...options }).format(value);
+        } catch (e) { /* older engines: try the next form */ }
+    }
+    return `£${Number(value).toFixed(2)}`;
+}
+
+function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+}
+
+// Same rule as slugify() in scripts/generate_seo_pages.py, which writes the /spirits/ pages.
+function slugify(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
 function renderSpiritsGrid() {
     const container = document.getElementById("spirits-cards-container");
     const countDisplay = document.getElementById("result-count");
     if (!container) return;
+    if (sampleState !== "ok") return;  // loading: the load renders with the current filters; error: keep the message
 
-    // Filter MOCK_SPIRITS
-    const filtered = MOCK_SPIRITS.filter(item => {
-        if (currentFilters.category !== "all" && item.category !== currentFilters.category) return false;
-        if (item.age < currentFilters.minAge) return false;
-        if (currentFilters.cask !== "all" && item.caskTag !== currentFilters.cask) return false;
-        if (currentFilters.flavor !== "all" && item.flavorTag !== currentFilters.flavor) return false;
+    const filtered = sampleRows.filter(row => {
+        const age = parseFloat(row.age);
+        if (currentFilters.type !== "all" && row.type !== currentFilters.type) return false;
+        if (currentFilters.minAge > 0 && !(age >= currentFilters.minAge)) return false;  // an empty age (NAS or unstated) never passes
+        if (currentFilters.source !== "all" && sourceKind(row) !== currentFilters.source) return false;
+        if (currentFilters.size !== "all" && String(parseInt(row.volume_ml, 10)) !== currentFilters.size) return false;
         return true;
     });
 
-    // Update counter
-    if (countDisplay) {
-        countDisplay.textContent = filtered.length;
-    }
+    if (countDisplay) countDisplay.textContent = formatNumber(filtered.length);
 
-    // Render HTML
     if (filtered.length === 0) {
         container.innerHTML = `
             <div class="glass-card text-center" style="grid-column: 1 / -1; padding: 48px;">
@@ -235,59 +239,49 @@ function renderSpiritsGrid() {
         `;
         return;
     }
+    container.innerHTML = filtered.map(renderCard).join("");
+}
 
-    container.innerHTML = filtered.map(bottle => {
-        const { malt, corn, rye, wheat } = bottle.mashBill;
-        return `
+function renderCard(row) {
+    const age = parseFloat(row.age);
+    const abv = parseFloat(row.abv);
+    const volume = parseInt(row.volume_ml, 10);
+    const ageText = age > 0 ? `${formatNumber(age)} ${I18N.age_abbrev}` : I18N.no_age;
+    const distillery = AUCTION_DISTILLERY[row.spirit_id];
+    const gbp = auctionIndex && distillery ? auctionIndex.byDistillery[distillery] : undefined;
+    const auction = gbp === undefined ? "<div></div>" : `
+                    <div>
+                        <div class="text-dim" style="font-size: 0.75rem;">${I18N.auction_label} · <span translate="no">${escapeHtml(distillery)}</span></div>
+                        <div class="price-val-card">${formatGbp(gbp)}</div>
+                        <div class="text-dim" style="font-size: 0.72rem;">${escapeHtml(auctionIndex.year)} · ${I18N.auction_scope}</div>
+                    </div>`;
+    return `
             <article class="spirit-card">
                 <div class="card-top">
-                    <span class="spirit-type-badge">${bottle.category}</span>
-                    <span class="spirit-age">${bottle.age} ${I18N.age_abbrev}</span>
+                    <span class="spirit-type-badge" translate="no">${escapeHtml(row.type)}</span>
+                    <span class="spirit-age">${escapeHtml(ageText)}</span>
                 </div>
                 <div>
-                    <h3 class="spirit-name">${bottle.name}</h3>
-                    <div class="spirit-distillery">${bottle.distillery}</div>
-                </div>
-
-                <!-- Mash Bill Visualizer -->
-                <div>
-                    <div class="mash-labels">
-                        <span>${I18N.mash_bill_lineage}</span>
-                        <span>${malt > 0 ? `${malt}% ${I18N.malt} ` : ''}${corn > 0 ? `${corn}% ${I18N.corn} ` : ''}${rye > 0 ? `${rye}% ${I18N.rye} ` : ''}${wheat > 0 ? `${wheat}% ${I18N.wheat}` : ''}</span>
-                    </div>
-                    <div class="mash-bill-bar">
-                        ${malt > 0 ? `<div class="mash-malt" style="width: ${malt}%" title="${malt}% ${I18N.malted_barley}"></div>` : ''}
-                        ${corn > 0 ? `<div class="mash-corn" style="width: ${corn}%" title="${corn}% ${I18N.corn}"></div>` : ''}
-                        ${rye > 0 ? `<div class="mash-rye" style="width: ${rye}%" title="${rye}% ${I18N.rye}"></div>` : ''}
-                        ${wheat > 0 ? `<div class="mash-wheat" style="width: ${wheat}%" title="${wheat}% ${I18N.wheat}"></div>` : ''}
-                    </div>
+                    <h3 class="spirit-name"><a href="${LOCALE_PREFIX}/spirits/${slugify(row.name)}" translate="no">${escapeHtml(row.name)}</a></h3>
+                    <div class="spirit-distillery">${I18N.source_prefix} <span translate="no">${escapeHtml(row.source_name)}</span></div>
                 </div>
 
                 <div class="card-meta-row">
                     <div class="meta-item">
                         <span class="text-dim">${I18N.abv}</span>
-                        <span class="meta-val">${bottle.abv.toFixed(1)}%</span>
+                        <span class="meta-val">${Number.isFinite(abv) ? formatNumber(abv / 100, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 }) : "—"}</span>
                     </div>
                     <div class="meta-item">
                         <span class="text-dim">${I18N.volume}</span>
-                        <span class="meta-val">${bottle.volume} mL</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="text-dim">${I18N.flavor_profile}</span>
-                        <span class="meta-val text-gold">${bottle.flavorTag}</span>
+                        <span class="meta-val">${Number.isFinite(volume) ? `${formatNumber(volume)} mL` : "—"}</span>
                     </div>
                 </div>
 
-                <div class="card-footer">
-                    <div>
-                        <div class="text-dim" style="font-size: 0.75rem;">${I18N.secondary_benchmark}</div>
-                        <div class="price-val-card">$${bottle.priceUsd.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD</div>
-                    </div>
-                    <span class="cask-tag">${bottle.cask}</span>
+                <div class="card-footer">${auction}
+                    <a class="cask-tag" href="${escapeHtml(row.source_url)}" target="_blank" rel="noopener nofollow">${I18N.provenance_link}</a>
                 </div>
             </article>
         `;
-    }).join('');
 }
 
 /* ==========================================================================

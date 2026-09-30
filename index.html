@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhiskyDB — Whisky &amp; Whiskey Database: 2,721 Bottlings</title>
-    <meta name="description" content="Download 2,721 whisky and whiskey bottlings from 2,853 distilleries as SQLite or CSV — mash bills, cask lineages, 21,228 auction benchmarks. Free sample.">
+    <meta name="description" content="Download 2,721 whisky and whiskey bottlings from 2,853 distilleries as SQLite or CSV, plus 7,231 monthly distillery auction benchmarks. Free sample.">
     <meta name="google-site-verification" content="2VE0Ll5xPaIkGjSTkvTenDhcKRLJGPFgVqekvGOIw-4" />
     <link rel="canonical" href="https://whiskydb.dataengineered.io/">
     <!-- i18n:alternates -->
@@ -25,7 +25,7 @@
 
     <!-- OpenGraph Metadata -->
     <meta property="og:title" content="WhiskyDB — Whisky &amp; Whiskey Database: 2,721 Bottlings">
-    <meta property="og:description" content="2,721 whisky and whiskey bottlings from 2,853 distilleries — mash bills, cask lineages, 21,228 monthly auction benchmarks. SQLite + CSV, free sample.">
+    <meta property="og:description" content="2,721 whisky and whiskey bottlings from 2,853 distilleries, with barcodes and 7,231 monthly distillery auction benchmarks. SQLite + CSV, free sample.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://whiskydb.dataengineered.io/hero.png">
     <meta property="og:url" content="https://whiskydb.dataengineered.io">
@@ -49,7 +49,7 @@
       "@context": "https://schema.org",
       "@type": "Dataset",
       "name": "WhiskyDB Global Fine Spirits Catalog & Valuations",
-      "description": "Structured, provenance-tracked catalog of fine spirits and whiskies with standardized mash bills, cask maturation lineages, sensory profiles, and distillery-level secondary market auction indices.",
+      "description": "Provenance-tracked catalog of whiskies and fine spirits: bottlings with type, ABV, volume and barcode, their distilleries and producers, rule-derived cask links, and distillery-level monthly auction indices. Every bottling, producer, cask-link and price row names its source.",
       "url": "https://whiskydb.dataengineered.io",
       "keywords": ["whisky database", "whiskey database", "whisky", "whiskey", "scotch", "bourbon", "spirits database", "mash bill", "cask lineage", "tasting profile", "auction valuations", "single malt scotch", "japanese whisky"],
       "creator": {
@@ -92,7 +92,7 @@
           "name": "What data attributes are included in the WhiskyDB spirits database?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Every spirit record in WhiskyDB is normalized with exact ABV percentage, age statement, bottle volume in ml, standardized mash bill percentages (corn, rye, wheat, malted barley), precise cask maturation lineage (e.g. First-Fill Oloroso Sherry, Mizunara Oak), primary sensory tags, and distillery provenance."
+            "text": "Each spirit record has a name, spirit type, ABV, bottle volume and a primary_source_id into the provenance ledger, and almost all carry a barcode or label ID and a distillery or producer link. Coverage is uneven, and stated plainly: 545 of the 2,721 spirits have an ABV other than 40.0; the rest show 40.0, either stated or the documented default for a source that states none. Bottle volume has documented defaults too: 750 mL on every US label-registry record, whose labels do not publish volume, and 700 mL on the curated seed rows and on Open Food Facts records without a stated quantity. Age statements are rare, and producer-published mash bills and flavor tags exist for only a handful of flagship bottlings."
           }
         },
         {
@@ -100,7 +100,7 @@
           "name": "How often are the secondary market auction valuations updated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The 21,228 monthly distillery auction-price benchmarks ship inside the dataset. WhiskyDB is refreshed monthly by an automated pipeline: the $49/month subscription delivers each refresh automatically, and the $49 one-time purchase delivers the current snapshot."
+            "text": "The auction data is WhiskyHunter's monthly mean winning bid per distillery: 7,231 monthly distillery auction benchmarks for 60 distilleries, from 2005 to 2024. They are distillery-level indices, never bottle prices; the data files carry them as 21,228 rows, one per linked bottling per month, and some bottlings linked by recent monthly refreshes carry only the latest months of their distillery's index. The monthly refresh re-checks the source for new months: the $49/month subscription delivers each refresh automatically, and the $49 one-time purchase delivers the current snapshot."
           }
         },
         {
@@ -113,10 +113,10 @@
         },
         {
           "@type": "Question",
-          "name": "How does WhiskyDB verify distillery mash bills and cask lineages?",
+          "name": "Where do WhiskyDB's mash bills and cask links come from?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We combine producer-published spec sheets, government label filings (TTB COLA records), and verified historical distillery ledgers into an immutable provenance chain with source citations for every determination."
+            "text": "Mash bills come only from producer-published specifications, and exist for a handful of bottlings. Cask links are either producer-published or derived by rule: a whole-word cask keyword in the bottling name (such as Sherry or Port), or the US legal requirement that bourbon and rye whiskey mature in new charred oak (27 CFR 5.143). Every bottling, producer, cask-link, mash-bill, tasting-note and price row carries a source ID into the data_sources provenance ledger (primary_source_id on spirits, source_id elsewhere). Apart from the documented ABV and bottle-volume defaults, an age statement, mash bill or cask link that no source states stays empty rather than guessed."
           }
         }
       ]
@@ -126,13 +126,13 @@
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "name": "Featured Global Spirits determinations in WhiskyDB",
+      "name": "Spirits in the WhiskyDB free sample",
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Lagavulin 16 Year Old Single Malt Scotch"},
-        {"@type": "ListItem", "position": 2, "name": "Pappy Van Winkle Family Reserve 15 Year Old Bourbon"},
-        {"@type": "ListItem", "position": 3, "name": "Yamazaki 12 Year Old Single Malt Japanese Whisky"},
-        {"@type": "ListItem", "position": 4, "name": "The Macallan 18 Year Old Sherry Oak"},
-        {"@type": "ListItem", "position": 5, "name": "George T. Stagg Barrel Proof Bourbon"}
+        {"@type": "ListItem", "position": 1, "name": "Lagavulin 16 Year Old", "url": "https://whiskydb.dataengineered.io/spirits/lagavulin-16-year-old"},
+        {"@type": "ListItem", "position": 2, "name": "Eagle Rare 10 Year Old", "url": "https://whiskydb.dataengineered.io/spirits/eagle-rare-10-year-old"},
+        {"@type": "ListItem", "position": 3, "name": "Yamazaki 12 Year Old", "url": "https://whiskydb.dataengineered.io/spirits/yamazaki-12-year-old"},
+        {"@type": "ListItem", "position": 4, "name": "Woodford Reserve Kentucky Straight Bourbon", "url": "https://whiskydb.dataengineered.io/spirits/woodford-reserve-kentucky-straight-bourbon"},
+        {"@type": "ListItem", "position": 5, "name": "Four Roses Single Barrel", "url": "https://whiskydb.dataengineered.io/spirits/four-roses-single-barrel"}
       ]
     }
     </script>
@@ -149,7 +149,7 @@
     }
     </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Product", "name": "WhiskyDB Global Fine Spirits Catalog & Valuations — Snapshot", "description": "Structured, provenance-tracked catalog of fine spirits and whiskies with standardized mash bills, cask maturation lineages, sensory profiles, and distillery-level secondary market auction indices.", "image": "https://whiskydb.dataengineered.io/hero.png", "brand": {"@type": "Brand", "name": "WhiskyDB"}, "category": "Software > Data & Databases", "offers": {"@type": "Offer", "price": "49.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://whiskydb.dataengineered.io/#pricing-section", "shippingDetails": {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"}, "shippingDestination": [{"@type": "DefinedRegion", "addressCountry": "US"}, {"@type": "DefinedRegion", "addressCountry": "GB"}, {"@type": "DefinedRegion", "addressCountry": "CA"}, {"@type": "DefinedRegion", "addressCountry": "AU"}], "deliveryTime": {"@type": "ShippingDeliveryTime", "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}, "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}}}, "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": ["US", "GB", "CA", "AU"], "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}}}
+{"@context": "https://schema.org", "@type": "Product", "name": "WhiskyDB Global Fine Spirits Catalog & Valuations — Snapshot", "description": "Provenance-tracked catalog of whiskies and fine spirits: bottlings with type, ABV, volume and barcode, their distilleries and producers, rule-derived cask links, and distillery-level monthly auction indices. Every bottling, producer, cask-link and price row names its source.", "image": "https://whiskydb.dataengineered.io/hero.png", "brand": {"@type": "Brand", "name": "WhiskyDB"}, "category": "Software > Data & Databases", "offers": {"@type": "Offer", "price": "49.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://whiskydb.dataengineered.io/#pricing-section", "shippingDetails": {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"}, "shippingDestination": [{"@type": "DefinedRegion", "addressCountry": "US"}, {"@type": "DefinedRegion", "addressCountry": "GB"}, {"@type": "DefinedRegion", "addressCountry": "CA"}, {"@type": "DefinedRegion", "addressCountry": "AU"}], "deliveryTime": {"@type": "ShippingDeliveryTime", "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}, "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}}}, "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": ["US", "GB", "CA", "AU"], "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}}}
 </script>
 </head>
 <body>
@@ -166,7 +166,7 @@
             </a>
             <nav class="nav-links">
                 <a href="#features-section">Architecture</a>
-                <a href="#live-demo-section">Live Demo</a>
+                <a href="#live-demo-section">Free Sample</a>
                 <a href="/stats/">Statistics</a>
                 <a href="#pricing-section">Pricing</a>
                 <a href="https://github.com/WhiskyyDB/whisky-database" target="_blank" class="nav-btn-secondary">GitHub</a>
@@ -234,7 +234,7 @@
                         The Canonical Structured Database for <span class="text-gradient">Global Fine Spirits</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Powering AI agents, beverage analytics, secondary auction platforms, and hospitality tech with a fully provenance-tracked catalog of standardized spirit records, published mash bills, cask lineages, and real auction market indices.
+                        Powering AI agents, beverage analytics, secondary auction platforms, and hospitality tech with a fully provenance-tracked catalog of standardized spirit records, barcodes, cask links, and distillery-level auction indices.
                     </p>
                     <div class="hero-ctas">
                         <a href="https://buy.stripe.com/eVq3cw4p2afccI382s38401?client_reference_id=whiskydb_en_home" class="btn btn-primary btn-lg" id="cta-buy-once">
@@ -262,8 +262,8 @@
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
-                            <span class="stat-num">21,228</span>
-                            <span class="stat-label">Auction-Price Benchmarks</span>
+                            <span class="stat-num">7,231</span>
+                            <span class="stat-label">Distillery Auction Benchmarks</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
@@ -285,7 +285,7 @@
                             <span class="floating-icon">🪵</span>
                             <div>
                                 <div class="floating-title">Cask Lineage</div>
-                                <div class="floating-val" translate="no">First-Fill Ex-Oloroso Sherry</div>
+                                <div class="floating-val" translate="no">Oloroso Sherry Puncheon</div>
                             </div>
                         </div>
                     </div>
@@ -293,13 +293,15 @@
             </div>
         </section>
 
-        <!-- Section 2: Live Interactive Demo -->
+        <!-- Section 2: Free sample explorer. app.js renders the rows of samples/spirits.csv as
+             published (no value is typed into the page or the script) and, for bottlings linked to a
+             distillery of the public auction index, that distillery's figure from stats/data.json. -->
         <section class="demo-section" id="live-demo-section">
             <div class="section-container">
                 <div class="section-header text-center">
-                    <h2 class="section-title">Interactive Catalog <span class="text-gradient">Live Demo</span></h2>
+                    <h2 class="section-title">Explore the <span class="text-gradient">Free Sample</span></h2>
                     <p class="section-subtitle">
-                        Test our real-time filtering engine. Query by spirit category, minimum age statement, cask maturation styles, and sensory flavor tags.
+                        The spirit rows of the free sample, loaded from <a href="https://github.com/WhiskyyDB/whisky-database/blob/main/samples/spirits.csv" target="_blank" rel="noopener" style="text-decoration:underline;"><code translate="no">samples/spirits.csv</code></a> exactly as published. Filter them by spirit type, age statement, source and bottle size.
                     </p>
                 </div>
 
@@ -307,35 +309,29 @@
                     <!-- Controls Bar -->
                     <div class="demo-controls">
                         <div class="control-group">
-                            <label for="filter-category">Spirit Category</label>
+                            <label for="filter-category">Spirit Type</label>
                             <select id="filter-category" class="demo-select">
-                                <option value="all">All Categories (Scotch, Bourbon, Rye...)</option>
-                                <option value="Single Malt Scotch" translate="no">Single Malt Scotch</option>
-                                <option value="Bourbon" translate="no">Kentucky Straight Bourbon</option>
-                                <option value="Rye Whiskey" translate="no">Rye Whiskey</option>
-                                <option value="Japanese Whisky" translate="no">Japanese Whisky</option>
+                                <option value="all">All Types</option>
                             </select>
                         </div>
                         <div class="control-group">
                             <label for="filter-age">Minimum Age Statement: <span id="age-display" class="text-gold">All Ages</span></label>
-                            <input type="range" id="filter-age" class="demo-slider" min="0" max="25" step="5" value="0">
+                            <input type="range" id="filter-age" class="demo-slider" min="0" max="15" step="5" value="0">
                         </div>
                         <div class="control-group">
-                            <label>Cask Maturation Filter</label>
-                            <div class="tag-pills" id="cask-filter-container">
-                                <button class="filter-pill active" data-cask="all">All Casks</button>
-                                <button class="filter-pill" data-cask="Sherry" translate="no">Sherry Cask</button>
-                                <button class="filter-pill" data-cask="Bourbon" translate="no">Ex-Bourbon</button>
-                                <button class="filter-pill" data-cask="Mizunara" translate="no">Mizunara Oak</button>
+                            <label>Source</label>
+                            <div class="tag-pills" id="source-filter-container">
+                                <button type="button" class="filter-pill active" data-source="all">All Sources</button>
+                                <button type="button" class="filter-pill" data-source="seed">Producer-Published</button>
+                                <button type="button" class="filter-pill" data-source="off" translate="no">Open Food Facts</button>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label>Flavor Descriptor Tag</label>
-                            <div class="tag-pills" id="flavor-filter-container">
-                                <button class="filter-pill active" data-flavor="all">All Flavors</button>
-                                <button class="filter-pill" data-flavor="Peat Smoke">Peat Smoke</button>
-                                <button class="filter-pill" data-flavor="Vanilla">Vanilla & Honey</button>
-                                <button class="filter-pill" data-flavor="Dried Fruit">Dried Figs & Raisins</button>
+                            <label>Bottle Size</label>
+                            <div class="tag-pills" id="size-filter-container">
+                                <button type="button" class="filter-pill active" data-size="all">All Sizes</button>
+                                <button type="button" class="filter-pill" data-size="700">700 mL</button>
+                                <button type="button" class="filter-pill" data-size="1000">1 L</button>
                             </div>
                         </div>
                     </div>
@@ -344,17 +340,21 @@
                     <div class="demo-status-bar">
                         <div class="status-left">
                             <span class="status-indicator live"></span>
-                            <span>Showing <strong id="result-count" class="text-gold">6</strong> verified canonical records</span>
+                            <span>Showing <strong id="result-count" class="text-gold">15</strong> of <strong id="sample-total">15</strong> free-sample rows</span>
                         </div>
                         <div class="status-right">
-                            <span class="text-muted">Response time: <strong>14ms</strong> • Normalization: <strong>4-Tier Active</strong></span>
+                            <span class="text-muted">Sample license: CC BY-NC 4.0</span>
                         </div>
                     </div>
 
                     <!-- Cards Grid -->
                     <div class="spirits-grid" id="spirits-cards-container">
-                        <!-- Populated dynamically via app.js -->
+                        <!-- Populated by app.js from samples/spirits.csv -->
                     </div>
+
+                    <p class="text-muted" id="demo-note" style="margin-top: 24px; font-size: 0.85rem; line-height: 1.6;">
+                        WhiskyDB holds no bottle prices. The auction figure on a card is the linked distillery's mean winning bid at auction over the latest year in the data (WhiskyHunter, as on the <a href="/stats/#distilleries" style="text-decoration:underline;">statistics page</a>), not a price for that bottle; it appears only for bottlings linked to a distillery tracked there. An ABV of 40.0% can also be the documented default for a source that states none. The same goes for a 700 mL bottle size: the curated seed rows all carry that default, and so does an Open Food Facts record that states no quantity.
+                    </p>
                 </div>
             </div>
         </section>
@@ -373,7 +373,7 @@
                     <div class="arch-card glass-card">
                         <div class="arch-icon">🌐</div>
                         <h3>8 Integrated Sources</h3>
-                        <p>Continuous automated ingestion from Wikipedia, Open Food Facts, TTB COLA Registry, UK Companies House, EU eAmbrosia, and WhiskyHunter auction archives.</p>
+                        <p>Built from Wikipedia, Open Food Facts, the TTB COLA Registry, UK Companies House, EU eAmbrosia and WhiskyHunter auction statistics. The monthly refresh re-queries TTB COLA and WhiskyHunter and re-derives the cask links; the other sources are re-walked in manual full refreshes.</p>
                         <div class="arch-tags">
                             <span class="mini-tag">Public Domain</span>
                             <span class="mini-tag">ODbL</span>
@@ -407,14 +407,15 @@
                 <div class="provenance-banner glass-card mt-12">
                     <div class="prov-content">
                         <h3>Full Auditability & Provenance Ledger</h3>
-                        <p>Every single attribute in WhiskyDB includes an immutable foreign key linking to our `data_sources` audit table with exact HTTP endpoint URLs, access timestamps, and status codes. Never trust black-box scraping again.</p>
+                        <p>Every bottling, producer, cask-link, mash-bill, tasting-note and price row in WhiskyDB carries a source ID (<code translate="no">primary_source_id</code> on spirits, <code translate="no">source_id</code> elsewhere) into the <code translate="no">data_sources</code> ledger, which records each source's name, endpoint URL, access timestamp and HTTP status; only the cask and flavor taxonomies, WhiskyDB's own vocabularies, carry none. Shown here: the ledger entry for the US label registry, as of the 2026.09 edition.</p>
                     </div>
                     <div class="prov-code">
-                        <pre><code>"primary_source": {
-  "source_name": "TTB COLA Registry (USA)",
-  "endpoint_url": "https://www.ttb.gov/cola/registry",
-  "access_timestamp": "2026-07-05T18:45:00Z",
-  "http_status": 200
+                        <pre><code>"data_sources": {
+  "source_id": 42,
+  "source_name": "US Government TTB COLA Registry (Public Domain / FOIA)",
+  "endpoint_url": "https://app.colacloud.us/api/v1/colas",
+  "access_timestamp": "2026-09-28 23:06:31",
+  "http_status_code": 200
 }</code></pre>
                     </div>
                 </div>
@@ -462,7 +463,7 @@
                             <li><span class="check-icon">✓</span> Full Commercial Spirits Catalog</li>
                             <li><span class="check-icon">✓</span> SQLite + CSV Snapshots</li>
                             <li><span class="check-icon">✓</span> Current snapshot; monthly refreshes auto-delivered with the subscription</li>
-                            <li><span class="check-icon">✓</span> Mash Bill & Cask Taxonomies</li>
+                            <li><span class="check-icon">✓</span> Cask & Flavor Taxonomies</li>
                             <li><span class="check-icon">✓</span> Commercial License Included</li>
                             <li><span class="check-icon">✓</span> Full Provenance Ledger Access</li>
                         </ul>
@@ -489,12 +490,12 @@
                 <div class="faq-grid" style="display: grid; gap: 20px; max-width: 800px; margin: 0 auto;">
                     <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
                         <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">What data attributes are included in the WhiskyDB spirits database?</h3>
-                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Every spirit record in WhiskyDB is normalized with exact ABV percentage, age statement, bottle volume in ml, standardized mash bill percentages (corn, rye, wheat, malted barley), precise cask maturation lineage (e.g. First-Fill Oloroso Sherry, Mizunara Oak), primary sensory tags, and distillery provenance.</p>
+                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Each spirit record has a name, spirit type, ABV, bottle volume and a primary_source_id into the provenance ledger, and almost all carry a barcode or label ID and a distillery or producer link. Coverage is uneven, and stated plainly: 545 of the 2,721 spirits have an ABV other than 40.0; the rest show 40.0, either stated or the documented default for a source that states none. Bottle volume has documented defaults too: 750 mL on every US label-registry record, whose labels do not publish volume, and 700 mL on the curated seed rows and on Open Food Facts records without a stated quantity. Age statements are rare, and producer-published mash bills and flavor tags exist for only a handful of flagship bottlings.</p>
                     </div>
 
                     <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
                         <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">How often are the secondary market auction valuations updated?</h3>
-                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">The 21,228 monthly distillery auction-price benchmarks ship inside the dataset. WhiskyDB is refreshed monthly by an automated pipeline: the $49/month subscription delivers each refresh automatically, and the $49 one-time purchase delivers the current snapshot.</p>
+                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">The auction data is WhiskyHunter's monthly mean winning bid per distillery: 7,231 monthly distillery auction benchmarks for 60 distilleries, from 2005 to 2024. They are distillery-level indices, never bottle prices; the data files carry them as 21,228 rows, one per linked bottling per month, and some bottlings linked by recent monthly refreshes carry only the latest months of their distillery's index. The monthly refresh re-checks the source for new months: the $49/month subscription delivers each refresh automatically, and the $49 one-time purchase delivers the current snapshot.</p>
                     </div>
 
                     <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
@@ -503,8 +504,8 @@
                     </div>
 
                     <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
-                        <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">How does WhiskyDB verify distillery mash bills and cask lineages?</h3>
-                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">We combine producer-published spec sheets, government label filings (TTB COLA records), and verified historical distillery ledgers into an immutable provenance chain with source citations for every determination.</p>
+                        <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Where do WhiskyDB's mash bills and cask links come from?</h3>
+                        <p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Mash bills come only from producer-published specifications, and exist for a handful of bottlings. Cask links are either producer-published or derived by rule: a whole-word cask keyword in the bottling name (such as Sherry or Port), or the US legal requirement that bourbon and rye whiskey mature in new charred oak (27 CFR 5.143). Every bottling, producer, cask-link, mash-bill, tasting-note and price row carries a source ID into the data_sources provenance ledger (primary_source_id on spirits, source_id elsewhere). Apart from the documented ABV and bottle-volume defaults, an age statement, mash bill or cask link that no source states stays empty rather than guessed.</p>
                     </div>
                 </div>
             </div>
@@ -585,7 +586,7 @@
                     <span class="logo-text">Whisky<span class="text-gold">DB</span></span>
                 </div>
                 <p class="footer-desc">
-                    The world's most rigorous structured database for fine spirits, distilleries, mash bills, and market valuations. Built for developers, analysts, and institutional beverage platforms.
+                    A provenance-tracked structured database of fine spirits, distilleries and producers, and distillery-level auction indices. Built for developers, analysts, and beverage platforms.
                 </p>
                 <div class="footer-copyright">
                     &copy; 2026 WhiskyDB Initiative. Sample &amp; docs: CC BY-NC 4.0; taxonomies: CC BY 4.0.
@@ -625,18 +626,16 @@
       "all_ages": "All Ages",
       "years_old_suffix": "+ Years Old",
       "empty_title": "No matching spirit records found",
-      "empty_text": "Try relaxing your age statement slider or selecting 'All Casks'.",
+      "empty_text": "Try a lower minimum age, or pick 'All Sources' and 'All Sizes'.",
       "age_abbrev": "YO",
-      "mash_bill_lineage": "Mash Bill Lineage",
-      "malt": "Malt",
-      "malted_barley": "Malted Barley",
-      "corn": "Corn",
-      "rye": "Rye",
-      "wheat": "Wheat",
+      "no_age": "No age statement",
       "abv": "ABV",
       "volume": "Volume",
-      "flavor_profile": "Flavor Profile",
-      "secondary_benchmark": "Secondary Benchmark",
+      "source_prefix": "Source:",
+      "provenance_link": "Provenance ↗",
+      "auction_label": "Distillery auction index",
+      "auction_scope": "yearly mean winning bid for the distillery, not a price for this bottle",
+      "load_error": "The free sample could not be loaded here. Get it from GitHub:",
       "per_month": "/ month",
       "copied": "✓ Copied!",
       "copy_code": "Copy Code",
@@ -645,7 +644,7 @@
       "fail_title": "✦ Form provider unreachable",
       "fail_note": "We could not send your request automatically. Please email whiskydb@dataengineered.io with your name, tier and use case — we reply within 1 business day."
     }</script>
-    <script src="app.js?v=seclinks1"></script>
+    <script src="app.js?v=freesample2"></script>
     
     <!-- PWA Service Worker Registration -->
     <script>
