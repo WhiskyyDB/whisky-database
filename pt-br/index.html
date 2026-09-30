@@ -46,7 +46,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "WhiskyDB: catálogo global de destilados premium e avaliações",
-  "description": "Catálogo com procedência rastreada de whiskies e destilados premium: engarrafamentos com tipo, ABV, volume e código de barras, suas destilarias e produtores, vínculos de barril derivados por regras e índices mensais de leilões por destilaria. Cada linha indica sua fonte.",
+  "description": "Catálogo com procedência rastreada de whiskies e destilados premium: engarrafamentos com tipo, ABV, volume e código de barras, suas destilarias e produtores, vínculos de barril derivados por regras e índices mensais de leilões por destilaria. Cada linha de engarrafamento, produtor, vínculo de barril e preço indica sua fonte.",
   "url": "https://whiskydb.dataengineered.io/pt-br/",
   "keywords": [
     "banco de dados de whisky",
@@ -117,7 +117,7 @@
       "name": "Quais atributos de dados estão incluídos no banco de dados de destilados WhiskyDB?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cada registro de destilado tem nome, tipo de destilado, ABV, volume da garrafa e um source_id que aponta para o registro de procedência, e quase todos trazem um código de barras ou ID de rótulo e um vínculo com uma destilaria ou produtor. A cobertura é desigual, e dizemos isso com clareza: 545 dos 2.721 destilados têm um ABV obtido explicitamente da fonte (os demais trazem o valor padrão documentado de 40%), declarações de idade são raras, e receitas de grãos e tags de sabor publicadas pelo produtor existem apenas para um punhado de engarrafamentos emblemáticos."
+        "text": "Cada registro de destilado tem nome, tipo de destilado, ABV, volume da garrafa e um primary_source_id que aponta para o registro de procedência, e quase todos trazem um código de barras ou ID de rótulo e um vínculo com uma destilaria ou produtor. A cobertura é desigual, e dizemos isso com clareza: 545 dos 2.721 destilados têm um ABV diferente de 40.0; os demais mostram 40.0, seja porque a fonte o informa, seja porque é o valor padrão documentado quando a fonte não informa nenhum. O volume da garrafa também tem valores padrão documentados: 750 ml em todas as entradas do registro de rótulos dos EUA, cujos rótulos não informam o volume, e 700 ml nas linhas do WhiskyDB Curated Seed e nos registros do Open Food Facts sem quantidade informada. Declarações de idade são raras, e receitas de grãos e tags de sabor publicadas pelo produtor existem apenas para um punhado de engarrafamentos emblemáticos."
       }
     },
     {
@@ -125,7 +125,7 @@
       "name": "Com que frequência as avaliações de leilões do mercado secundário são atualizadas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Os dados de leilões são o lance vencedor médio mensal por destilaria segundo o WhiskyHunter: 7.231 referências mensais de leilões por destilaria para 60 destilarias, de 2005 a 2024. São índices no nível da destilaria, nunca preços de garrafas; os arquivos de dados repetem cada uma para cada engarrafamento vinculado à sua destilaria (21.228 linhas). A atualização mensal consulta a fonte novamente em busca de novos meses: a assinatura de $49/month entrega cada atualização automaticamente, e a compra em pagamento único de $49 entrega o snapshot atual."
+        "text": "Os dados de leilões são o lance vencedor médio mensal por destilaria segundo o WhiskyHunter: 7.231 referências mensais de leilões por destilaria para 60 destilarias, de 2005 a 2024. São índices no nível da destilaria, nunca preços de garrafas; os arquivos de dados as trazem em 21.228 linhas, uma por engarrafamento vinculado e por mês, e alguns engarrafamentos vinculados em atualizações mensais recentes trazem apenas os últimos meses do índice da sua destilaria. A atualização mensal consulta a fonte novamente em busca de novos meses: a assinatura de $49/month entrega cada atualização automaticamente, e a compra em pagamento único de $49 entrega o snapshot atual."
       }
     },
     {
@@ -141,7 +141,7 @@
       "name": "De onde vêm as receitas de grãos e os vínculos de barril do WhiskyDB?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "As receitas de grãos vêm apenas de especificações publicadas pelo produtor e existem para um punhado de engarrafamentos. Os vínculos de barril são publicados pelo produtor ou derivados por regra: uma palavra-chave de barril inteira no nome do engarrafamento (como Sherry ou Port), ou a exigência legal dos EUA de que bourbon e rye whiskey maturem em carvalho novo carbonizado (27 CFR 5.143). Cada linha traz um source_id que aponta para o registro de procedência data_sources, e um valor que nenhuma fonte informa fica vazio em vez de ser presumido."
+        "text": "As receitas de grãos vêm apenas de especificações publicadas pelo produtor e existem para um punhado de engarrafamentos. Os vínculos de barril são publicados pelo produtor ou derivados por regra: uma palavra-chave de barril inteira no nome do engarrafamento (como Sherry ou Port), ou a exigência legal dos EUA de que bourbon e rye whiskey maturem em carvalho novo carbonizado (27 CFR 5.143). Cada linha de engarrafamento, produtor, vínculo de barril, receita de grãos, nota de degustação e preço traz um ID de fonte que aponta para o registro de procedência data_sources (primary_source_id nos destilados, source_id nas demais tabelas). Fora os valores padrão documentados de ABV e volume da garrafa, uma declaração de idade, receita de grãos ou vínculo de barril que nenhuma fonte informa fica vazio em vez de ser presumido."
       }
     }
   ],
@@ -225,7 +225,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "WhiskyDB: catálogo global de destilados premium e avaliações — Snapshot",
-  "description": "Catálogo com procedência rastreada de whiskies e destilados premium: engarrafamentos com tipo, ABV, volume e código de barras, suas destilarias e produtores, vínculos de barril derivados por regras e índices mensais de leilões por destilaria. Cada linha indica sua fonte.",
+  "description": "Catálogo com procedência rastreada de whiskies e destilados premium: engarrafamentos com tipo, ABV, volume e código de barras, suas destilarias e produtores, vínculos de barril derivados por regras e índices mensais de leilões por destilaria. Cada linha de engarrafamento, produtor, vínculo de barril e preço indica sua fonte.",
   "image": "https://whiskydb.dataengineered.io/hero.png",
   "brand": {
     "@type": "Brand",
@@ -487,7 +487,7 @@
 <!-- Populated by app.js from samples/spirits.csv -->
 </div>
 <p class="text-muted" id="demo-note" style="margin-top: 24px; font-size: 0.85rem; line-height: 1.6;">
-                        O WhiskyDB não contém preços de garrafas. O valor de leilão em um cartão é o lance vencedor médio da destilaria vinculada no último ano dos dados (WhiskyHunter, como na <a href="/stats/#distilleries" style="text-decoration:underline;">página de estatísticas</a>), não um preço dessa garrafa; ele só aparece para engarrafamentos vinculados a uma destilaria acompanhada ali. Um ABV de 40,0% também pode ser o valor padrão documentado quando a fonte não informa nenhum.
+                        O WhiskyDB não contém preços de garrafas. O valor de leilão em um cartão é o lance vencedor médio da destilaria vinculada no último ano dos dados (WhiskyHunter, como na <a href="/stats/#distilleries" style="text-decoration:underline;">página de estatísticas</a>), não um preço dessa garrafa; ele só aparece para engarrafamentos vinculados a uma destilaria acompanhada ali. Um ABV de 40,0% também pode ser o valor padrão documentado quando a fonte não informa nenhum. O mesmo vale para um tamanho de garrafa de 700 ml: todas as linhas do WhiskyDB Curated Seed trazem esse valor padrão, assim como um registro do Open Food Facts que não informa a quantidade.
                     </p>
 </div>
 </div>
@@ -536,7 +536,7 @@
 <div class="provenance-banner glass-card mt-12">
 <div class="prov-content">
 <h3>Auditabilidade total e registro de procedência</h3>
-<p>Cada linha do WhiskyDB traz um <code translate="no">source_id</code> que aponta para o registro <code translate="no">data_sources</code>, que guarda para cada fonte o nome, a URL do endpoint, o carimbo de data/hora de acesso e o status HTTP. Aqui aparece a entrada do registro de rótulos dos EUA na edição 2026.09.</p>
+<p>Cada linha de engarrafamento, produtor, vínculo de barril, receita de grãos, nota de degustação e preço do WhiskyDB traz um ID de fonte (<code translate="no">primary_source_id</code> nos destilados, <code translate="no">source_id</code> nas demais tabelas) que aponta para o registro <code translate="no">data_sources</code>, que guarda para cada fonte o nome, a URL do endpoint, o carimbo de data/hora de acesso e o status HTTP; só as taxonomias de barris e sabores, vocabulários próprios do WhiskyDB, não trazem nenhum. Aqui aparece a entrada do registro de rótulos dos EUA na edição 2026.09.</p>
 </div>
 <div class="prov-code">
 <pre><code>"data_sources": {
@@ -610,11 +610,11 @@
 <div class="faq-grid" style="display: grid; gap: 20px; max-width: 800px; margin: 0 auto;">
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Quais atributos de dados estão incluídos no banco de dados de destilados WhiskyDB?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Cada registro de destilado tem nome, tipo de destilado, ABV, volume da garrafa e um source_id que aponta para o registro de procedência, e quase todos trazem um código de barras ou ID de rótulo e um vínculo com uma destilaria ou produtor. A cobertura é desigual, e dizemos isso com clareza: 545 dos 2.721 destilados têm um ABV obtido explicitamente da fonte (os demais trazem o valor padrão documentado de 40%), declarações de idade são raras, e receitas de grãos e tags de sabor publicadas pelo produtor existem apenas para um punhado de engarrafamentos emblemáticos.</p>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Cada registro de destilado tem nome, tipo de destilado, ABV, volume da garrafa e um primary_source_id que aponta para o registro de procedência, e quase todos trazem um código de barras ou ID de rótulo e um vínculo com uma destilaria ou produtor. A cobertura é desigual, e dizemos isso com clareza: 545 dos 2.721 destilados têm um ABV diferente de 40.0; os demais mostram 40.0, seja porque a fonte o informa, seja porque é o valor padrão documentado quando a fonte não informa nenhum. O volume da garrafa também tem valores padrão documentados: 750 ml em todas as entradas do registro de rótulos dos EUA, cujos rótulos não informam o volume, e 700 ml nas linhas do WhiskyDB Curated Seed e nos registros do Open Food Facts sem quantidade informada. Declarações de idade são raras, e receitas de grãos e tags de sabor publicadas pelo produtor existem apenas para um punhado de engarrafamentos emblemáticos.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Com que frequência as avaliações de leilões do mercado secundário são atualizadas?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Os dados de leilões são o lance vencedor médio mensal por destilaria segundo o WhiskyHunter: 7.231 referências mensais de leilões por destilaria para 60 destilarias, de 2005 a 2024. São índices no nível da destilaria, nunca preços de garrafas; os arquivos de dados repetem cada uma para cada engarrafamento vinculado à sua destilaria (21.228 linhas). A atualização mensal consulta a fonte novamente em busca de novos meses: a assinatura de $49/month entrega cada atualização automaticamente, e a compra em pagamento único de $49 entrega o snapshot atual.</p>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">Os dados de leilões são o lance vencedor médio mensal por destilaria segundo o WhiskyHunter: 7.231 referências mensais de leilões por destilaria para 60 destilarias, de 2005 a 2024. São índices no nível da destilaria, nunca preços de garrafas; os arquivos de dados as trazem em 21.228 linhas, uma por engarrafamento vinculado e por mês, e alguns engarrafamentos vinculados em atualizações mensais recentes trazem apenas os últimos meses do índice da sua destilaria. A atualização mensal consulta a fonte novamente em busca de novos meses: a assinatura de $49/month entrega cada atualização automaticamente, e a compra em pagamento único de $49 entrega o snapshot atual.</p>
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">Posso baixar uma amostra gratuita antes de comprar uma licença comercial?</h3>
@@ -622,7 +622,7 @@
 </div>
 <div class="faq-item glass-card" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
 <h3 style="font-size: 1.15rem; color: #d4af37; margin-bottom: 8px;">De onde vêm as receitas de grãos e os vínculos de barril do WhiskyDB?</h3>
-<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">As receitas de grãos vêm apenas de especificações publicadas pelo produtor e existem para um punhado de engarrafamentos. Os vínculos de barril são publicados pelo produtor ou derivados por regra: uma palavra-chave de barril inteira no nome do engarrafamento (como Sherry ou Port), ou a exigência legal dos EUA de que bourbon e rye whiskey maturem em carvalho novo carbonizado (27 CFR 5.143). Cada linha traz um source_id que aponta para o registro de procedência data_sources, e um valor que nenhuma fonte informa fica vazio em vez de ser presumido.</p>
+<p style="color: #949ab1; font-size: 0.95rem; line-height: 1.6;">As receitas de grãos vêm apenas de especificações publicadas pelo produtor e existem para um punhado de engarrafamentos. Os vínculos de barril são publicados pelo produtor ou derivados por regra: uma palavra-chave de barril inteira no nome do engarrafamento (como Sherry ou Port), ou a exigência legal dos EUA de que bourbon e rye whiskey maturem em carvalho novo carbonizado (27 CFR 5.143). Cada linha de engarrafamento, produtor, vínculo de barril, receita de grãos, nota de degustação e preço traz um ID de fonte que aponta para o registro de procedência data_sources (primary_source_id nos destilados, source_id nas demais tabelas). Fora os valores padrão documentados de ABV e volume da garrafa, uma declaração de idade, receita de grãos ou vínculo de barril que nenhuma fonte informa fica vazio em vez de ser presumido.</p>
 </div>
 </div>
 </div>
@@ -751,7 +751,7 @@
   "fail_note": "Não foi possível enviar sua solicitação automaticamente. Envie um e-mail para whiskydb@dataengineered.io com seu nome, nível e caso de uso — respondemos em até 1 dia útil."
 }
 </script>
-<script src="/app.js?v=freesample1"></script>
+<script src="/app.js?v=freesample2"></script>
 <!-- PWA Service Worker Registration -->
 <script>
       if ('serviceWorker' in navigator) {

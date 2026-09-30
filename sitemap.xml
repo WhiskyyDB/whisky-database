@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/distilleries/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/es/distilleries/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/de/distilleries/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/fr/distilleries/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/pt-br/distilleries/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/distilleries/"/>
@@ -1022,7 +1022,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/spirits/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
@@ -1034,7 +1034,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/es/spirits/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
@@ -1046,7 +1046,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/de/spirits/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
@@ -1058,7 +1058,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/fr/spirits/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
@@ -1070,7 +1070,7 @@
   </url>
   <url>
     <loc>https://whiskydb.dataengineered.io/pt-br/spirits/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://whiskydb.dataengineered.io/spirits/"/>
