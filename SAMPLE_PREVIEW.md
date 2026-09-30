@@ -8,12 +8,12 @@ CSVs live in [`samples/`](samples/); full field documentation in
 
 | spirit_id | name | type | age | abv | volume_ml | source_name |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Lagavulin 16 Year Old | Single Malt Scotch | 16.0 | 43.0 | 700 | Seed Academic DB |
-| 2 | Eagle Rare 10 Year Old | Bourbon | 10.0 | 45.0 | 700 | Seed Academic DB |
-| 3 | Yamazaki 12 Year Old | Single Malt Japanese | 12.0 | 43.0 | 700 | Seed Academic DB |
-| 4 | Woodford Reserve Kentucky Straight Bourbon | Bourbon | — | 43.2 | 700 | Seed Academic DB |
-| 5 | Bulleit Bourbon | Bourbon | — | 45.0 | 700 | Seed Academic DB |
-| 6 | Four Roses Single Barrel | Bourbon | — | 50.0 | 700 | Seed Academic DB |
+| 1 | Lagavulin 16 Year Old | Single Malt Scotch | 16.0 | 43.0 | 700 | WhiskyDB Curated Seed (producer-published) |
+| 2 | Eagle Rare 10 Year Old | Bourbon | 10.0 | 45.0 | 700 | WhiskyDB Curated Seed (producer-published) |
+| 3 | Yamazaki 12 Year Old | Single Malt Japanese | 12.0 | 43.0 | 700 | WhiskyDB Curated Seed (producer-published) |
+| 4 | Woodford Reserve Kentucky Straight Bourbon | Bourbon | — | 43.2 | 700 | WhiskyDB Curated Seed (producer-published) |
+| 5 | Bulleit Bourbon | Bourbon | — | 45.0 | 700 | WhiskyDB Curated Seed (producer-published) |
+| 6 | Four Roses Single Barrel | Bourbon | — | 50.0 | 700 | WhiskyDB Curated Seed (producer-published) |
 | 7 | Ballantine's Finest | Whisky | — | 40.0 | 700 | Open Food Facts / Open Drinks Facts (ODbL) |
 | 8 | Jack Daniel's Whiskey | Whisky | — | 40.0 | 700 | Open Food Facts / Open Drinks Facts (ODbL) |
 | 9 | Johnnie Walker Red Scotch whisky | Scotch Whisky | — | 40.0 | 700 | Open Food Facts / Open Drinks Facts (ODbL) |
@@ -28,12 +28,12 @@ CSVs live in [`samples/`](samples/); full field documentation in
 
 | distillery_id | name | country | region | source_name |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Lagavulin | Scotland | Islay | Seed Academic DB |
-| 2 | Buffalo Trace | USA | Kentucky | Seed Academic DB |
-| 3 | Yamazaki | Japan | Osaka | Seed Academic DB |
-| 4 | Woodford Reserve | USA | Kentucky | Seed Academic DB |
-| 5 | Bulleit Distilling Co. | USA | Kentucky | Seed Academic DB |
-| 6 | Four Roses | USA | Kentucky | Seed Academic DB |
+| 1 | Lagavulin | Scotland | Islay | WhiskyDB Curated Seed (producer-published) |
+| 2 | Buffalo Trace | USA | Kentucky | WhiskyDB Curated Seed (producer-published) |
+| 3 | Yamazaki | Japan | Osaka | WhiskyDB Curated Seed (producer-published) |
+| 4 | Woodford Reserve | USA | Kentucky | WhiskyDB Curated Seed (producer-published) |
+| 5 | Bulleit Distilling Co. | USA | Kentucky | WhiskyDB Curated Seed (producer-published) |
+| 6 | Four Roses | USA | Kentucky | WhiskyDB Curated Seed (producer-published) |
 | 7 | Aberargie | Scotland | Aberargie | Wikipedia - List of distilleries in Scotland (CC-BY-SA) |
 | 8 | Aberfeldy | Scotland | Aberfeldy | Wikipedia - List of distilleries in Scotland (CC-BY-SA) |
 | 9 | Aberlour | Scotland | Aberlour | Wikipedia - List of distilleries in Scotland (CC-BY-SA) |
@@ -84,6 +84,7 @@ CSVs live in [`samples/`](samples/); full field documentation in
 
 ---
 
-The full dataset adds mash bills, cask maturation mappings, standardized tasting
-tags, and 20,000+ monthly auction price benchmarks — see the
-[README](README.md#pricing) for access.
+The full dataset adds cask maturation mappings for 1,200+ bottlings (mostly rule-derived),
+producer-published mash bills and tasting notes for a few curated benchmark
+bottlings, and 7,000+ distillery-month auction-price index values for 60
+distilleries (Nov 2005 → Sep 2024) — see the [README](README.md#pricing) for access.

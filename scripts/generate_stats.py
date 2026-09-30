@@ -12,6 +12,14 @@ sample) and writes a citable, embeddable statistics page:
 Only aggregates leave the private database -- no row-level data is written.
 Every figure states its denominator and filter so a reader can reproduce it.
 
+Producers, not appellations: from the 2026.10 edition the snapshot flags the EU eAmbrosia
+GI register's rows ("Official GI Producer - Cognac", 273 in 2026-09) with
+distilleries.is_gi_appellation = 1. They stay in the dataset but are places of origin, not
+companies, so every producer figure (count, countries, country and founded-year coverage)
+leaves them out and data.json reports them apart as totals.gi_appellations. A snapshot
+without the column (2026.09 and older) is read exactly as before: every row is a producer
+and the output is byte-identical to the generator before this rule.
+
 Re-run after each data refresh, then `python scripts/generate_seo_pages.py`
 (sitemap), `python scripts/i18n_common.py build` and `... check`.
 
@@ -216,10 +224,17 @@ def compute(db_path):
         return con.execute(sql, a).fetchall()
     s = {}
 
+    # Producer rows: every distilleries row, minus the flagged EU GI appellations when the
+    # snapshot has the flag (see the module docstring). Without the column the filter is the
+    # constant 1 and every query below returns what it did before the flag existed.
+    flagged = "is_gi_appellation" in {r[1] for r in q("pragma table_info(distilleries)")}
+    prod = "d.is_gi_appellation = 0" if flagged else "1"
+    s["gi_appellations"] = q("select count(*) from distilleries where is_gi_appellation = 1")[0][0] if flagged else None
+
     s["snapshot_date"] = q("select max(date(access_timestamp)) from data_sources")[0][0]
     s["spirits"] = q("select count(*) from spirits")[0][0]
-    s["producers"] = q("select count(*) from distilleries")[0][0]
-    s["producers_with_country"] = q("select count(*) from distilleries where country<>'Global'")[0][0]
+    s["producers"] = q(f"select count(*) from distilleries d where {prod}")[0][0]
+    s["producers_with_country"] = q(f"select count(*) from distilleries d where d.country<>'Global' and {prod}")[0][0]
     s["price_rows"] = q("select count(*) from price_benchmarks")[0][0]
     s["price_first"], s["price_last"] = q("select min(valuation_date), max(valuation_date) from price_benchmarks")[0]
 
@@ -301,7 +316,7 @@ def compute(db_path):
     pc = defaultdict(int)
     named, named_elsewhere = set(), set()
     for k, off, v in q("select d.country, ds.source_name like 'Open Food Facts%', count(*) from distilleries d "
-                       "join data_sources ds using(source_id) where d.country<>'Global' group by 1, 2"):
+                       f"join data_sources ds using(source_id) where d.country<>'Global' and {prod} group by 1, 2"):
         if k.startswith("en:"):
             k = k[3:].replace("-", " ").title().replace("Cote D Ivoire", "Côte d'Ivoire").replace("Usa", "USA")
         pc[k] += v
@@ -313,11 +328,11 @@ def compute(db_path):
     s["producers_by_country"] = [(k, v, pct(v, s["producers_with_country"])) for k, v in sorted(pc.items(), key=lambda t: (-t[1], t[0]))]
 
     # --- founding decades (every source that carries a founded_year) ---
-    fy = q("select founded_year from distilleries where founded_year between 1500 and 2100")
+    fy = q(f"select d.founded_year from distilleries d where d.founded_year between 1500 and 2100 and {prod}")
     s["founded_n"] = len(fy)
     s["founded_src"] = {name: c for name, c in q(
         "select ds.source_name, count(*) from distilleries d join data_sources ds using(source_id) "
-        "where d.founded_year between 1500 and 2100 group by 1 order by 2 desc")}
+        f"where d.founded_year between 1500 and 2100 and {prod} group by 1 order by 2 desc")}
     dec = defaultdict(int)
     for (y,) in fy:
         dec[(y // 10) * 10] += 1
@@ -329,7 +344,7 @@ def compute(db_path):
     # --- Companies House status by UK jurisdiction ---
     st = defaultdict(lambda: defaultdict(int))
     for c, status, cnt in q("select d.country, d.status, count(*) from distilleries d join data_sources ds using(source_id) "
-                            "where ds.source_name like 'UK Companies House%' group by 1,2"):
+                            f"where ds.source_name like 'UK Companies House%' and {prod} group by 1,2"):
         st[c][status] += cnt
     s["uk_status"] = [(c, sum(v.values()), v.get("Active", 0), v.get("Dissolved", 0),
                        pct(v.get("Dissolved", 0), sum(v.values()))) for c, v in sorted(st.items(), key=lambda t: -sum(t[1].values()))]
@@ -515,6 +530,16 @@ def build_page(s, charts):
 
     # 5. producers by country
     pc = s["producers_by_country"]
+    gi = s["gi_appellations"]
+    who = ("Producers are distilleries, brands, bottlers and whisky companies from label registries, corporate registries, Wikipedia lists "
+           "and open product databases")
+    if gi is None:  # a snapshot without the GI flag: the appellations are counted as producers
+        who += ", plus the protected spirit appellations of the EU GI register; "
+        split = "The country count splits labels that name several countries (appellations shared across borders), merges name variants"
+    else:
+        who += (f". The {n(gi)} protected spirit appellations of the EU GI register (Scotch Whisky, Cognac, Armagnac…) are in the "
+                "dataset as places of origin, not producers, so they are left out here; ") if gi else "; "
+        split = "The country count splits labels that name several countries, merges name variants"
     charts["producers-by-country"] = svg_hbar("Where the distilleries and producers are",
                                               f"Share of {n(s['producers_with_country'])} producers with a stated country",
                                               [(k, v, f"{p}%") for k, v, p in pc[:14]], src_note)
@@ -525,12 +550,9 @@ def build_page(s, charts):
         + (f", {n(s['producer_countries_off_only'])} of them only on Open Food Facts records." if s["producer_countries_off_only"] else "."),
         figure("producers-by-country", charts["producers-by-country"], "Where the distilleries and producers are", f"{n(s['producers_with_country'])} producers"),
         table(["Country", "Producers", "Share"], [(k, n(v), f"{p}%") for k, v, p in pc[:30]], {1, 2}),
-        f"Producers are distilleries, brands, bottlers and whisky companies from label registries, corporate registries, Wikipedia lists "
-        f"and open product databases, plus the protected spirit appellations of the EU GI register; "
-        f"{n(s['producers'] - s['producers_with_country'])} brand-level records with no stated country are excluded. "
-        f"England & Wales and Scotland follow UK Companies House jurisdictions. The country count splits labels that name several countries "
-        f"(appellations shared across borders), merges name variants and counts the UK once. Open Food Facts records carry the first country "
-        f"the product is listed as sold in, which is not necessarily where it is made."))
+        f"{who}{n(s['producers'] - s['producers_with_country'])} brand-level records with no stated country are excluded. "
+        f"England & Wales and Scotland follow UK Companies House jurisdictions. {split} and counts the UK once. "
+        f"Open Food Facts records carry the first country the product is listed as sold in, which is not necessarily where it is made."))
 
     # 6. founding decades
     fd = s["founded_by_decade"]
@@ -589,6 +611,11 @@ def build_page(s, charts):
         f'<li{" class=\"date\"" if lbl in ("Snapshot", "Auction history") else ""}><span>{lbl}</span><strong>{val}</strong></li>' for lbl, val in [
             ("Bottlings", n(s["spirits"])), ("Distilleries & producers", n(s["producers"])), ("Countries", n(s["producer_countries"])),
             ("Auction benchmarks", n(s["price_distillery_months"])), ("Auction history", f"{s['price_first'][:4]} to {s['price_last'][:4]}"), ("Snapshot", snap)])
+    gi_li = "" if not s["gi_appellations"] else (
+        "\n        <li><strong>Producers, not appellations.</strong> The dataset also lists the "
+        f"{n(s['gi_appellations'])} protected spirit appellations of the EU GI register. An appellation is a protected place "
+        "of origin, not a company, so every producer figure on this page leaves them out; "
+        '<a href="/stats/data.json">data.json</a> reports them apart as <span translate="no">totals.gi_appellations</span>.</li>')
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -646,7 +673,7 @@ def build_page(s, charts):
       <h2 class="heading">Method, reuse and citation</h2>
       <ul class="method">
         <li><strong>Source.</strong> The full WhiskyDB snapshot of {snap}, built entirely from open sources: the US TTB COLA label registry, UK Companies House, the EU eAmbrosia GI register, Open Food Facts, Wikipedia and WhiskyHunter's open auction statistics. Every row carries a provenance ledger entry; see <a href="/SOURCES.md">Sources &amp; licenses</a>.</li>
-        <li><strong>Coverage is uneven by design.</strong> Open registries do not all publish every attribute. Every figure above names its denominator, so a percentage is always a share of the records that state that attribute, never of the whole catalogue. Blank fields are never guessed, and the documented 40% ABV fallback is excluded from every ABV figure.</li>
+        <li><strong>Coverage is uneven by design.</strong> Open registries do not all publish every attribute. Every figure above names its denominator, so a percentage is always a share of the records that state that attribute, never of the whole catalogue. Blank fields are never guessed, and the documented 40% ABV fallback is excluded from every ABV figure.</li>{gi_li}
         <li><strong>The auction index is a market index.</strong> Each value is a distillery-level mean winning bid for one month, never the price of a specific bottle. Yearly figures average the distilleries equally so a distillery with many linked bottlings does not dominate.</li>
         <li><strong>Refresh.</strong> The catalogue is refreshed monthly; this page and its charts are regenerated after each refresh, so figures move. Cite the snapshot date.</li>
         <li><strong>Reuse.</strong> The figures and charts on this page are published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: use them in articles, slides and posts with a link to <span translate="no">{PAGE_URL}</span>. The machine-readable version is <a href="/stats/data.json">data.json</a>. Figures derived from WhiskyHunter, Companies House and Wikipedia retain those sources' attribution terms. The underlying row-level dataset is a separate <a href="/#pricing-section">commercial product</a>.</li>
@@ -691,9 +718,11 @@ def build_data_json(s):
         "dataset": BRAND, "page": PAGE_URL, "generated": dt.date.today().isoformat(), "snapshot": s["snapshot_date"],
         "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) - attribute with a link to the page; "
                    "WhiskyHunter, Companies House and Wikipedia-derived figures retain those sources' attribution terms",
-        "totals": {k: s[k] for k in ("spirits", "producers", "producers_with_country", "producer_countries",
+        # gi_appellations only when the snapshot flags them (older snapshots: the key is absent, as before)
+        "totals": {k: s[k] for k in ("spirits", "producers", "gi_appellations", "producers_with_country", "producer_countries",
                                      "producer_countries_off_only", "price_rows", "price_first", "price_last",
-                                     "price_distilleries", "price_distillery_months")},
+                                     "price_distilleries", "price_distillery_months")
+                   if k != "gi_appellations" or s[k] is not None},
         "auction_index_gbp": {
             "method": "mean monthly winning bid per distillery (WhiskyHunter), yearly mean per distillery, then mean across distilleries",
             "distilleries": s["lfl_names"], "last_year_months": s["last_year_months"],

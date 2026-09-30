@@ -53,15 +53,15 @@ The commercial snapshot normalizes into 10 tables:
 | Table | What it holds |
 | :--- | :--- |
 | `data_sources` | Provenance ledger: source name, type, endpoint, license notes, access timestamp |
-| `distilleries` | 2,600+ producers with country, region, founded year, active/dissolved status |
+| `distilleries` | 2,500+ producers with country, region, founded year, active/dissolved status; the table also holds the 270+ protected spirit appellations of the EU GI register (eAmbrosia), which are places of origin, not producers, and are not counted in the 2,500+ |
 | `brands` | Brand ownership (e.g. Lagavulin → Diageo) |
-| `spirits` | 1,290+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag |
+| `spirits` | 2,700+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag |
 | `mash_bills` | Producer-published grain compositions (corn/rye/barley/wheat %) |
 | `cask_taxonomy` | The 3-tier cask hierarchy: the styles of `taxonomy/casks.csv` plus those the cask mapper derives from product names (e.g. Port Pipe) |
-| `spirit_casks` | 500+ spirit↔cask maturation mappings with stage and fill type |
+| `spirit_casks` | 1,200+ spirit↔cask maturation mappings with stage and fill type (rule-derived from product names and US labeling law, producer-published for the curated seed) |
 | `flavor_taxonomy` | The controlled flavor vocabulary (mirrors `taxonomy/flavors.csv`) |
 | `spirit_tasting_notes` | Standardized flavor tags with phase (Nose/Palate/Finish) and 1–3 intensity |
-| `price_benchmarks` | 20,000+ rows of monthly distillery auction indices, Nov 2005 → Sep 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
+| `price_benchmarks` | 21,000+ rows of monthly distillery auction indices, Nov 2005 → Sep 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
 
 Every content table carries a `source_id` foreign key into `data_sources` (`primary_source_id` on `spirits`) — 100% of rows resolve to a valid provenance entry (enforced and tested).
 
