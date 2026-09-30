@@ -55,14 +55,14 @@ Measured across the full dataset. Public sources don't all publish every attribu
 
 ## Auction price history — the differentiated part
 
-- **7,231** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), shipped as **21,228** rows, one per linked bottling per month (a distillery's monthly index is repeated for each bottling linked to it).
+- **7,231** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), shipped as **21,228** rows, one per linked bottling per month (a distillery's monthly index is repeated for the bottlings linked to it; some bottlings linked by recent monthly refreshes carry only its latest months).
 - **227 consecutive months** — November 2005 → September 2024 — across **60 whisky distilleries** and 205 linked bottlings.
 - Honestly labeled: every row is a `Distillery Auction Index` (market-level index), **never** passed off as a bottle-specific realization.
 - Sourced from open statistical auction data; ideal for valuation models, trend analysis, and price-vs-age studies.
 
 ## Provenance
 
-Every table row carries a `source_id` into a provenance ledger (`data_sources`) recording the source name, endpoint, license, and access timestamp. Sources include:
+Every bottling, producer, cask-link, mash-bill, tasting-note and price row carries a source ID (`primary_source_id` on `spirits`, `source_id` elsewhere) into a provenance ledger (`data_sources`) recording the source name, endpoint, license, and access timestamp; only the cask and flavor taxonomies, WhiskyDB's own vocabularies, carry none. Sources include:
 
 | Source | License | Contributes |
 | :--- | :--- | :--- |

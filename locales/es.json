@@ -35,6 +35,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "0b17d0195dded903": {
+  "src": "Provenance-tracked catalog of whiskies and fine spirits: bottlings with type, ABV, volume and barcode, their distilleries and producers, rule-derived cask links, and distillery-level monthly auction indices. Every bottling, producer, cask-link and price row names its source.",
+  "t": "Catálogo con procedencia rastreada de whiskies y destilados premium: embotellados con tipo, ABV, volumen y código de barras, sus destilerías y productores, vínculos de barrica derivados por reglas e índices mensuales de subastas por destilería. Cada fila de embotellado, productor, vínculo de barrica y precio indica su fuente.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "0c0004714f5911a3": {
   "src": "All Categories (Scotch, Bourbon, Rye...)",
   "t": "Todas las categorías (Scotch, Bourbon, Rye...)",
@@ -881,6 +887,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "8394509a3ae15408": {
+  "src": "Mash bills come only from producer-published specifications, and exist for a handful of bottlings. Cask links are either producer-published or derived by rule: a whole-word cask keyword in the bottling name (such as Sherry or Port), or the US legal requirement that bourbon and rye whiskey mature in new charred oak ({0} CFR {1}). Every bottling, producer, cask-link, mash-bill, tasting-note and price row carries a source ID into the data_sources provenance ledger (primary_source_id on spirits, source_id elsewhere). Apart from the documented ABV and bottle-volume defaults, an age statement, mash bill or cask link that no source states stays empty rather than guessed.",
+  "t": "Las recetas de grano proceden únicamente de especificaciones publicadas por el productor y existen para un puñado de embotellados. Los vínculos de barrica los publica el productor o se derivan por reglas: una palabra clave de barrica completa en el nombre del embotellado (como Sherry o Port), o el requisito legal estadounidense de que el bourbon y el whiskey de centeno maduren en roble nuevo carbonizado ({0} CFR {1}). Cada fila de embotellado, productor, vínculo de barrica, receta de grano, nota de cata y precio lleva un ID de fuente que remite al registro de procedencia data_sources (primary_source_id en los destilados, source_id en las demás tablas). Salvo los valores predeterminados documentados de ABV y volumen de botella, cuando ninguna fuente indica una declaración de edad, una receta de grano o un vínculo de barrica, el campo queda vacío en lugar de suponerse.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "839575f78eeea511": {
   "src": "<0>✓</0> CC BY-NC {1} Sample License",
   "t": "<0>✓</0> Licencia de muestra CC BY-NC {1}",
@@ -892,6 +904,12 @@
   "t": "Destilados y destilerías relacionados",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "8696cf378bb7dba8": {
+  "src": "Every bottling, producer, cask-link, mash-bill, tasting-note and price row in WhiskyDB carries a source ID ({0} on spirits, {1} elsewhere) into the {2} ledger, which records each source's name, endpoint URL, access timestamp and HTTP status; only the cask and flavor taxonomies, WhiskyDB's own vocabularies, carry none. Shown here: the ledger entry for the US label registry, as of the {3} edition.",
+  "t": "Cada fila de embotellado, productor, vínculo de barrica, receta de grano, nota de cata y precio de WhiskyDB lleva un ID de fuente ({0} en los destilados, {1} en las demás tablas) que remite al registro {2}, que guarda para cada fuente el nombre, la URL del endpoint, la marca de tiempo de acceso y el estado HTTP; solo las taxonomías de barricas y sabores, vocabularios propios de WhiskyDB, no llevan ninguno. Aquí se muestra la entrada del registro de etiquetas de EE. UU. en la edición {3}.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "86b657a090a9a9de": {
   "src": "🤗 Try the Sample Explorer",
@@ -1157,6 +1175,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "a74a3ac81c569262": {
+  "src": "Each spirit record has a name, spirit type, ABV, bottle volume and a primary_source_id into the provenance ledger, and almost all carry a barcode or label ID and a distillery or producer link. Coverage is uneven, and stated plainly: {0} of the {1} spirits have an ABV other than {2}; the rest show {3}, either stated or the documented default for a source that states none. Bottle volume has documented defaults too: {4} mL on every US label-registry record, whose labels do not publish volume, and {5} mL on the curated seed rows and on Open Food Facts records without a stated quantity. Age statements are rare, and producer-published mash bills and flavor tags exist for only a handful of flagship bottlings.",
+  "t": "Cada ficha de destilado tiene nombre, tipo de destilado, ABV, volumen de botella y un primary_source_id que remite al registro de procedencia, y casi todas incluyen un código de barras o ID de etiqueta y un vínculo a una destilería o productor. La cobertura es desigual, y lo decimos claramente: {0} de los {1} destilados tienen un ABV distinto de {2}; el resto muestra {3}, ya sea porque la fuente lo indica o porque es el valor predeterminado documentado cuando la fuente no indica ninguno. El volumen de botella también tiene valores predeterminados documentados: {4} ml en todas las fichas del registro de etiquetas de EE. UU., cuyas etiquetas no publican el volumen, y {5} ml en las filas de WhiskyDB Curated Seed y en las fichas de Open Food Facts sin una cantidad indicada. Las declaraciones de edad son escasas, y las recetas de grano y las etiquetas de sabor publicadas por el productor solo existen para un puñado de embotellados emblemáticos.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
  "a8d18dab6d30078c": {
   "src": "{0} ({1}) Structured Spirits Determination",
   "t": "{0} ({1}): determinación estructurada del destilado",
@@ -1348,6 +1372,12 @@
   "t": "¿Puedo descargar una muestra gratuita antes de comprar una licencia comercial?",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "bfb9e2fff714649c": {
+  "src": "WhiskyDB holds no bottle prices. The auction figure on a card is the linked distillery's mean winning bid at auction over the latest year in the data (WhiskyHunter, as on the <0>statistics page</0>), not a price for that bottle; it appears only for bottlings linked to a distillery tracked there. An ABV of {1} can also be the documented default for a source that states none. The same goes for a {2} mL bottle size: the curated seed rows all carry that default, and so does an Open Food Facts record that states no quantity.",
+  "t": "WhiskyDB no contiene precios de botellas. La cifra de subasta de una tarjeta es la puja ganadora media de la destilería vinculada en el último año de los datos (WhiskyHunter, como en la <0>página de estadísticas</0>), no un precio de esa botella; solo aparece en embotellados vinculados a una destilería que figura allí. Un ABV de {1} también puede ser el valor predeterminado documentado cuando la fuente no indica ninguno. Lo mismo vale para un tamaño de botella de {2} ml: todas las filas de WhiskyDB Curated Seed llevan ese valor predeterminado, y también una ficha de Open Food Facts que no indica la cantidad.",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
  },
  "bffd991c9853b51c": {
   "src": "Public Research Sample",
@@ -1658,6 +1688,12 @@
  "eb672cb3ba0260b3": {
   "src": "All Types",
   "t": "Todos los tipos",
+  "by": "claude-opus-5-5",
+  "at": "2026-09-30"
+ },
+ "ec0476e7086fb750": {
+  "src": "The auction data is WhiskyHunter's monthly mean winning bid per distillery: {0} monthly distillery auction benchmarks for {1} distilleries, from {2} to {3}. They are distillery-level indices, never bottle prices; the data files carry them as {4} rows, one per linked bottling per month, and some bottlings linked by recent monthly refreshes carry only the latest months of their distillery's index. The monthly refresh re-checks the source for new months: the {5} subscription delivers each refresh automatically, and the {6} one-time purchase delivers the current snapshot.",
+  "t": "Los datos de subastas son la puja ganadora media mensual por destilería según WhiskyHunter: {0} referencias mensuales de subastas por destilería para {1} destilerías, de {2} a {3}. Son índices a nivel de destilería, nunca precios de botellas; los archivos de datos las recogen en {4} filas, una por embotellado vinculado y mes, y algunos embotellados vinculados en actualizaciones mensuales recientes solo tienen los últimos meses del índice de su destilería. La actualización mensual vuelve a consultar la fuente en busca de meses nuevos: la suscripción de {5} entrega cada actualización automáticamente, y la compra de pago único de {6} entrega el snapshot actual.",
   "by": "claude-opus-5-5",
   "at": "2026-09-30"
  },

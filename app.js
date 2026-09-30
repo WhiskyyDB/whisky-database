@@ -38,6 +38,10 @@ const PAGE_LANG = document.documentElement.lang || "en";
 const LOCALE_PREFIX = /^en\b/i.test(PAGE_LANG) ? "" : "/" + PAGE_LANG.toLowerCase();
 
 let sampleRows = [];
+// "loading" | "ok" | "error". The filters are live before the sample arrives; until it has
+// loaded they only record their value, so a failed load keeps its message and GitHub link
+// instead of turning into "no matching records".
+let sampleState = "loading";
 let auctionIndex = null;  // { year, byDistillery: { name: GBP } }; null when stats/data.json is unavailable
 const currentFilters = { type: "all", minAge: 0, source: "all", size: "all" };
 
@@ -58,9 +62,13 @@ function initSampleExplorer() {
         fillTypeOptions();
         const total = document.getElementById("sample-total");
         if (total) total.textContent = formatNumber(sampleRows.length);
+        sampleState = "ok";
         renderSpiritsGrid();
     }).catch(err => {
+        sampleState = "error";
         console.warn("WhiskyDB free sample could not be loaded:", err);
+        const countDisplay = document.getElementById("result-count");
+        if (countDisplay) countDisplay.textContent = formatNumber(0);
         container.innerHTML = `
             <div class="glass-card text-center" style="grid-column: 1 / -1; padding: 48px;">
                 <p class="text-muted">${I18N.load_error} <a href="${SAMPLE_ON_GITHUB}" target="_blank" rel="noopener" style="text-decoration: underline;" translate="no">samples/spirits.csv</a></p>
@@ -209,6 +217,7 @@ function renderSpiritsGrid() {
     const container = document.getElementById("spirits-cards-container");
     const countDisplay = document.getElementById("result-count");
     if (!container) return;
+    if (sampleState !== "ok") return;  // loading: the load renders with the current filters; error: keep the message
 
     const filtered = sampleRows.filter(row => {
         const age = parseFloat(row.age);

@@ -22,10 +22,13 @@ index.html, so the plain check also confirms that their hero figures were rebuil
   spirits, producers, price_rows, price_distilleries   totals in data.json
   price_distillery_months         totals.price_distillery_months: the distinct (distillery, month)
                                   auction benchmarks. price_rows is larger because the data files
-                                  repeat a distillery's monthly index for every linked bottling, so
-                                  a "N benchmarks" claim states price_distillery_months and
+                                  repeat a distillery's monthly index for its linked bottlings (one
+                                  row per linked bottling per month; a bottling linked by a recent
+                                  monthly refresh may carry only the latest months), so a
+                                  "N benchmarks" claim states price_distillery_months and
                                   price_rows is only ever stated as a row count
-  sourced-ABV count               abv.denominator (bottlings whose ABV is not the 40.0 default)
+  non-40.0 ABV count              abv.denominator (bottlings whose ABV is not 40.0; a 40.0 is either
+                                  stated by the source or the documented default, indistinguishable)
   auction months / date range     price_first..price_last (whole months, both ends included)
   snapshot edition                YYYY.MM of data.json "snapshot" (the refresh date)
   coverage %                      floored, so a claim never rounds up: explicit ABV = abv.denominator
@@ -113,11 +116,12 @@ RULES = [
          "first_year", 2),
     rule("index.html", "FAQ auction last year (JSON-LD + HTML)", r"distilleries, from \d{4} to (?P<v>\d{4})\. They are distillery-level",
          "last_year", 2),
-    rule("index.html", "FAQ auction rows (JSON-LD + HTML)", rf"linked to its distillery \((?P<v>{NUM}) rows\)", "price_rows", 2),
-    rule("index.html", "FAQ sourced-ABV count (JSON-LD + HTML)", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an explicitly sourced ABV",
-         "abv_n", 2),
-    rule("index.html", "FAQ sourced-ABV total (JSON-LD + HTML)", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an explicitly sourced ABV",
-         "spirits", 2),
+    rule("index.html", "FAQ auction rows (JSON-LD + HTML)",
+         rf"the data files carry them as (?P<v>{NUM}) rows, one per linked bottling per month", "price_rows", 2),
+    rule("index.html", "FAQ non-40.0 ABV count (JSON-LD + HTML)",
+         rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an ABV other than 40\.0; the rest show 40\.0", "abv_n", 2),
+    rule("index.html", "FAQ non-40.0 ABV total (JSON-LD + HTML)",
+         rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV other than 40\.0; the rest show 40\.0", "spirits", 2),
     rule("index.html", "hero Spirits & Bottlings",
          rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Spirits &amp; Bottlings<', "spirits"),
     rule("index.html", "hero Global Distilleries",
@@ -160,8 +164,10 @@ RULES = [
     # --- llms.txt ---
     rule("llms.txt", "spirits and bottlings", rf"(?P<v>{NUM}) spirits and bottlings", "spirits", 2),
     rule("llms.txt", "global distilleries", rf"(?P<v>{NUM}) global distilleries", "producers", 2),
-    rule("llms.txt", "sourced-ABV count", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an explicitly sourced ABV", "abv_n"),
-    rule("llms.txt", "sourced-ABV total", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an explicitly sourced ABV", "spirits"),
+    rule("llms.txt", "non-40.0 ABV count", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an ABV other than 40\.0 \(the rest show 40\.0",
+         "abv_n"),
+    rule("llms.txt", "non-40.0 ABV total", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV other than 40\.0 \(the rest show 40\.0",
+         "spirits"),
     rule("llms.txt", "coverage benchmarks", rf"Includes (?P<v>{NUM}) monthly distillery auction benchmarks", "price_distillery_months"),
     rule("llms.txt", "coverage auction distilleries", rf"per distillery and month, (?P<v>{NUM}) distilleries\) spanning",
          "price_distilleries"),
