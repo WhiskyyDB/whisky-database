@@ -1,6 +1,6 @@
 # WhiskyDB — Data Dictionary
 
-Field reference for the WhiskyDB fine spirits dataset (snapshot `2026.09`).
+Field reference for the WhiskyDB fine spirits dataset (snapshot `2026.10`).
 The free samples (`samples/spirits.csv`, `samples/distilleries.csv`) use the columns
 below. The full dataset ships the same fields plus the complete 10-table relational
 SQLite build described at the bottom.
@@ -13,7 +13,7 @@ SQLite build described at the bottom.
 | `name` | string | Canonical bottling name (Latin-script, cleaned) | 100% |
 | `type` | enum | `Single Malt Scotch` · `Bourbon` · `Rye Whiskey` · `Irish Whiskey` · `Japanese Whisky` · `Scotch Whisky` · `Whisky` … | 100% |
 | `age` | integer | Age statement in years; empty = NAS or unstated | <1% |
-| `abv` | float | Alcohol by volume (%). Explicitly sourced for 20% of records (e.g. federal label details); otherwise the documented 40.0 default | 100% |
+| `abv` | float | Alcohol by volume (%). Explicitly sourced for 22% of records (e.g. federal label details); otherwise the documented 40.0 default | 100% |
 | `volume_ml` | integer | Bottle volume normalized to milliliters (700/750/1000…). Where the source states none, a documented default: 750 on every US label-registry (TTB COLA) record, whose labels do not publish volume; 700 on the curated seed rows and on Open Food Facts records without a stated quantity | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
@@ -61,7 +61,7 @@ The commercial snapshot normalizes into 10 tables:
 | `spirit_casks` | 1,200+ spirit↔cask maturation mappings with stage and fill type (rule-derived from product names and US labeling law, producer-published for the curated seed) |
 | `flavor_taxonomy` | The controlled flavor vocabulary (mirrors `taxonomy/flavors.csv`) |
 | `spirit_tasting_notes` | Standardized flavor tags with phase (Nose/Palate/Finish) and 1–3 intensity |
-| `price_benchmarks` | 21,000+ rows of monthly distillery auction indices, Nov 2005 → Sep 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
+| `price_benchmarks` | 21,000+ rows of monthly distillery auction indices, Nov 2005 → Oct 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
 
 Every content table carries a `source_id` foreign key into `data_sources` (`primary_source_id` on `spirits`) — 100% of rows resolve to a valid provenance entry (enforced and tested).
 
