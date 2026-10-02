@@ -86,5 +86,5 @@ CSVs live in [`samples/`](samples/); full field documentation in
 
 The full dataset adds cask maturation mappings for 1,200+ bottlings (mostly rule-derived),
 producer-published mash bills and tasting notes for a few curated benchmark
-bottlings, and 7,000+ distillery-month auction-price index values for 60
-distilleries (Nov 2005 → Sep 2024) — see the [README](README.md#pricing) for access.
+bottlings, and 7,000+ distillery-month auction-price index values for 64
+distilleries (Nov 2005 → Oct 2024) — see the [README](README.md#pricing) for access.
