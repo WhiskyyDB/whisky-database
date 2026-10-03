@@ -1,7 +1,7 @@
 {
  "dataset": "WhiskyDB",
  "page": "https://whiskydb.dataengineered.io/stats/",
- "generated": "2026-10-02",
+ "generated": "2026-10-03",
  "snapshot": "2026-10-02",
  "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) - attribute with a link to the page; WhiskyHunter, Companies House and Wikipedia-derived figures retain those sources' attribution terms",
  "totals": {
