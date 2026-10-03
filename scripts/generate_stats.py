@@ -254,6 +254,7 @@ def compute(db_path):
            if any(m.startswith(str(first_year + 1)) for m in d["months"]) and any(m.startswith(str(last_year)) for m in d["months"])]
     s["lfl_n"] = len(lfl)
     s["lfl_names"] = sorted(dm[d]["name"] for d in lfl)
+    s["lfl_months"] = sum(len(dm[d]["months"]) for d in lfl)
     years = list(range(first_year + 1, last_year + 1))
     per_dist_year = {did: {} for did in lfl}
     for did in lfl:
@@ -461,12 +462,12 @@ def build_page(s, charts):
         peak_label=f"{gbp(s['index_peak']['value'])} peak ({s['index_peak']['year']})", last_label=gbp(s["index_last"]["value"]))
     sections.append(section(
         "auction-index", "The whisky auction price index",
-        f"Across the {s['lfl_n']} distilleries with an unbroken auction record since {f_year}, the mean winning bid rose from "
+        f"Across the {s['lfl_n']} distilleries with auction results in both {f_year} and {l_year}, the mean winning bid rose from "
         f"<strong>{gbp(s['index_first']['value'])}</strong> in {f_year} to a peak of <strong>{gbp(s['index_peak']['value'])}</strong> in {s['index_peak']['year']}, "
         f"a {round(s['index_peak']['value'] / s['index_first']['value'], 1)}x increase. It has since eased "
         f"<strong>{abs(s['index_from_peak_pct'])}%</strong> to {gbp(s['index_last']['value'])} in {last_label}, "
         f"still {s['index_multiple']}x its {f_year} level. The single strongest month was {data(s['index_peak_month']['month'])} at {gbp(s['index_peak_month']['value'])}.",
-        figure("auction-index", charts["auction-index"], f"Whisky auction price index, {f_year} to {l_year}", f"{s['lfl_n']} distilleries, {n(s['price_distillery_months'])} distillery-months in total"),
+        figure("auction-index", charts["auction-index"], f"Whisky auction price index, {f_year} to {l_year}", f"{s['lfl_n']} distilleries, {n(s['lfl_months'])} distillery-months ({n(s['price_distillery_months'])} across all {n(s['price_distilleries'])} auction distilleries)"),
         table(["Year", "Mean winning bid (GBP)", "Distilleries"], [(str(y) if y != l_year else last_label, gbp(v), n(c)) for y, v, c in ix], {1, 2}),
         f"Source: WhiskyHunter open auction statistics, one distillery-level index value per month (mean winning bid at UK online whisky auctions, GBP), "
         f"{s['price_first']} to {s['price_last']}. Each year is the mean of the distilleries' yearly means, every distillery weighted equally. "
