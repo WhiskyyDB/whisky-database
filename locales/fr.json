@@ -449,6 +449,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "4cd9a2073e73ae71": {
+  "src": "{0} whisky and whiskey bottlings from {1} producers and brands, with barcodes and {2} monthly distillery auction benchmarks. SQLite + CSV, free sample.",
+  "t": "{0} embouteillages de whisky et whiskey de {1} producteurs et marques, avec codes-barres et {2} références mensuelles d’enchères par distillerie. SQLite + CSV, échantillon gratuit.",
+  "by": "claude-opus-5-5",
+  "at": "2026-10-04"
+ },
  "4d669155df570a8b": {
   "src": "Peat Smoke",
   "t": "Fumée de tourbe",
@@ -478,6 +484,12 @@
   "t": "Oui ! Vous pouvez télécharger immédiatement nos jeux de données d’exemple publics au format CSV ({0} et {1}) depuis notre dépôt GitHub open source, ou les explorer de manière interactive via notre Hugging Face Sample Explorer, sans clé API.",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "4fa7a5e4d7155a33": {
+  "src": "Download {0} whisky and whiskey bottlings from {1} producers and brands as SQLite or CSV, plus {2} monthly distillery auction benchmarks. Free sample.",
+  "t": "Téléchargez {0} embouteillages de whisky et whiskey de {1} producteurs et marques en SQLite ou CSV, plus {2} références mensuelles d’enchères par distillerie. Échantillon gratuit.",
+  "by": "claude-opus-5-5",
+  "at": "2026-10-04"
  },
  "4feb088525925cb8": {
   "src": "Mash bills come only from producer-published specifications, and exist for a handful of bottlings. Cask links are either producer-published or derived by rule: a whole-word cask keyword in the bottling name (such as Sherry or Port), or the US legal requirement that bourbon and rye whiskey mature in new charred oak ({0} CFR {1}). Every row carries a source_id into the data_sources provenance ledger, and a value that no source states stays empty rather than guessed.",
@@ -622,6 +634,12 @@
   "t": "Monde",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "63a51e68fffd568e": {
+  "src": "Producers &amp; Brands",
+  "t": "Producteurs et marques",
+  "by": "claude-opus-5-5",
+  "at": "2026-10-04"
  },
  "650fabe787a81d67": {
   "src": "Open Source",
@@ -904,6 +922,12 @@
   "t": "Spiritueux et distilleries associés",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "85fb546888be08ca": {
+  "src": "A provenance-tracked structured database of fine spirits, their producers and brands, and distillery-level auction indices. Built for developers, analysts, and beverage platforms.",
+  "t": "Une base de données structurée à provenance tracée des spiritueux haut de gamme, de leurs producteurs et marques, et des indices d’enchères par distillerie. Conçue pour les développeurs, les analystes et les plateformes du secteur des boissons.",
+  "by": "claude-opus-5-5",
+  "at": "2026-10-04"
  },
  "8696cf378bb7dba8": {
   "src": "Every bottling, producer, cask-link, mash-bill, tasting-note and price row in WhiskyDB carries a source ID ({0} on spirits, {1} elsewhere) into the {2} ledger, which records each source's name, endpoint URL, access timestamp and HTTP status; only the cask and flavor taxonomies, WhiskyDB's own vocabularies, carry none. Shown here: the ledger entry for the US label registry, as of the {3} edition.",
@@ -1666,6 +1690,12 @@
   "t": "Blé",
   "by": "claude-opus-5",
   "at": "2026-09-17"
+ },
+ "ea7481ecb1089e04": {
+  "src": "Provenance-tracked catalog of whiskies and fine spirits: bottlings with type, ABV, volume and barcode, their producers and brands, rule-derived cask links, and distillery-level monthly auction indices. Every bottling, producer, cask-link and price row names its source.",
+  "t": "Catalogue à provenance tracée de whiskies et de spiritueux haut de gamme : embouteillages avec type, TAV, volume et code-barres, leurs producteurs et marques, des liens de fûts dérivés par règles et des indices mensuels d’enchères par distillerie. Chaque ligne d’embouteillage, de producteur, de lien de fût et de prix indique sa source.",
+  "by": "claude-opus-5-5",
+  "at": "2026-10-04"
  },
  "eab99b9e7c6a3fac": {
   "src": "whiskey",

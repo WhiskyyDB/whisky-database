@@ -1,7 +1,7 @@
 {
  "dataset": "WhiskyDB",
  "page": "https://whiskydb.dataengineered.io/stats/",
- "generated": "2026-10-03",
+ "generated": "2026-10-04",
  "snapshot": "2026-10-02",
  "license": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) - attribute with a link to the page; WhiskyHunter, Companies House and Wikipedia-derived figures retain those sources' attribution terms",
  "totals": {
@@ -15,7 +15,8 @@
   "price_first": "2005-11-01",
   "price_last": "2024-10-01",
   "price_distilleries": 64,
-  "price_distillery_months": 7315
+  "price_distillery_months": 7315,
+  "volume_stated": 3093
  },
  "auction_index_gbp": {
   "method": "mean monthly winning bid per distillery (WhiskyHunter), yearly mean per distillery, then mean across distilleries",
@@ -423,6 +424,7 @@
  "abv": {
   "denominator": 709,
   "excluded_default_abv": 40.0,
+  "rule": "abv_percentage <> 40.0",
   "mean": 49.8,
   "median": 50.0,
   "max": 70.0,

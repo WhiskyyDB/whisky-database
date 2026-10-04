@@ -2,13 +2,13 @@
 
 # 🥃 WhiskyDB — Fine Spirits & Whisky Dataset
 
-**3,093 whiskies & fine spirits · 2,720 distilleries & producers · 7,315 monthly distillery auction benchmarks (Nov 2005 → Oct 2024) · 100% provenance-tracked**
+**3,093 whiskies & fine spirits · 2,720 producers & brands · 7,315 monthly distillery auction benchmarks (Nov 2005 → Oct 2024) · 100% provenance-tracked**
 
 [![Sample: 15 rows](https://img.shields.io/badge/Free%20Sample-15%20rows-brightgreen.svg)](samples/spirits.csv)
 [![🤗 Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-sample%20dataset-ffd21e.svg)](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample)
 [![🤗 Explorer](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-sample%20explorer-ffd21e.svg)](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers)
 [![Kaggle](https://img.shields.io/badge/Kaggle-sample%20dataset-20BEFF.svg)](https://www.kaggle.com/datasets/dataengineered/whiskydb-fine-spirits-sample)
-[![Distilleries: 2,720](https://img.shields.io/badge/Distilleries-2%2C720-8a5a44.svg)](#whats-inside)
+[![Producers & brands: 2,720](https://img.shields.io/badge/Producers%20%26%20brands-2%2C720-8a5a44.svg)](#whats-inside)
 [![Price history: 2005→2024](https://img.shields.io/badge/Auction%20history-2005%E2%86%922024-gold.svg)](#auction-price-history--the-differentiated-part)
 [![Snapshot: 2026.10](https://img.shields.io/badge/Snapshot-2026.10-blue.svg)](CHANGELOG.md)
 [![Taxonomies: open](https://img.shields.io/badge/Cask%20%26%20Flavor%20taxonomies-open%20source-2ea44f.svg)](taxonomy/)
@@ -31,7 +31,7 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 | | Full dataset | Free sample |
 | :--- | ---: | ---: |
 | Spirits & bottlings | **3,093** | 15 |
-| Distilleries, brands & producers | **2,720** | 15 |
+| Producers & brands | **2,720** | 15 |
 | Countries represented | **20+** | — |
 | Monthly distillery auction benchmarks | **7,315** | — |
 | Protected GI appellations (EU/UK) | **270+** | — |
@@ -48,9 +48,9 @@ Measured across the full dataset. Public sources don't all publish every attribu
 | :--- | ---: | --- | :--- | ---: |
 | Spirit name / type | 100% | | Distillery country | 99% |
 | Barcode / label ID | 99% | | Distillery founded year | 25% |
-| Explicit label ABV | 22%* | | Age statement | <1%† |
+| ABV stated by the source | ≥22%* | | Age statement | <1%† |
 
-\* 22% of spirits carry an explicitly sourced ABV (e.g. from US federal label details, cask-strength values up to 70%); the rest carry the documented 40.0 default — the legal minimum for whisky in the US/EU — clearly identifiable and upgraded monthly as label-registry quota allows.
+\* At least 22% of spirits carry an ABV stated by the source: that is the share whose ABV differs from 40.0 (e.g. from US federal label details, cask-strength values up to 70%). A 40.0 is either stated by the source or the documented default — the legal minimum for whisky in the US/EU, applied where the source states none and upgraded monthly as label-registry quota allows — and this edition cannot tell the two apart, so the true share is higher.
 † Most public listings are NAS (no age statement) or don't state age; treat this column as sparse.
 
 ## Auction price history — the differentiated part
