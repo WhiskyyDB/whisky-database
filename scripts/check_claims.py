@@ -59,8 +59,15 @@ ABV other than 40.0" (once abv.rule counts source-stated ABVs, N includes stated
 volumes are empty). The check fails while such a sentence is still there for a data.json of
 the newer kind, so the first re-sync with the new edition rewords them (and their RULES).
 
+Floors (FLOORS below): the "N+" figures of DATA_DICTIONARY.md, the Kaggle description
+(kaggle/dataset-metadata.json) and SAMPLE_PREVIEW.md must not exceed the data.json value they
+round down (bottlings, producers & brands, GI appellations, auction rows and distillery-months,
+countries). They are deliberately coarse and true across editions, so --fix never rewrites
+them: a floor the data no longer reaches is an error to lower by hand (the kaggle/ file then
+also needs the live Kaggle listing updated, which is the owner's call).
+
 Not in data.json, so still checked by hand: the "linked bottlings" count in README.md, the
-barcode and age-statement coverage, and the "+" floors in DATA_DICTIONARY.md.
+barcode and age-statement coverage, and the cask-mapping floor (1,200+).
 
 Producers, not appellations (from the 2026.10 edition): the snapshot flags the 273 EU
 eAmbrosia GI appellation rows ("Official GI Producer - Cognac") with
@@ -232,6 +239,66 @@ STALE = [
 ]
 
 
+def floor(file, label, pattern, key, count=1, optional=False):
+    """A "N+" claim: N (comma-grouped) must be <= the data.json value of `key` (FLOOR_VALUES)."""
+    return dict(file=file, label=label, rx=re.compile(pattern), key=key, count=count, optional=optional)
+
+
+FLOORS = [
+    floor("DATA_DICTIONARY.md", "producers & brands floor", rf"(?P<v>{NUM})\+ producers & brands with country", "producers"),
+    floor("DATA_DICTIONARY.md", "GI appellations floor", rf"the (?P<v>{NUM})\+ protected spirit appellations",
+          "gi_appellations", optional=True),
+    floor("DATA_DICTIONARY.md", "bottlings floor", rf"(?P<v>{NUM})\+ bottlings: type", "spirits"),
+    floor("DATA_DICTIONARY.md", "price_benchmarks rows floor", rf"(?P<v>{NUM})\+ rows of monthly distillery auction",
+          "price_rows"),
+    floor("kaggle/dataset-metadata.json", "bottlings floor", rf"\*\*(?P<v>{NUM})\+\*\* spirits & bottlings", "spirits"),
+    floor("kaggle/dataset-metadata.json", "producers floor", rf"\*\*(?P<v>{NUM})\+\*\* distilleries", "producers"),
+    floor("kaggle/dataset-metadata.json", "countries floor", rf"\*\*(?P<v>{NUM})\+\*\* countries of origin",
+          "countries"),
+    floor("kaggle/dataset-metadata.json", "distillery-months floor",
+          rf"\*\*(?P<v>{NUM})\+ distillery-month auction-price index values\*\*", "price_distillery_months"),
+    floor("kaggle/dataset-metadata.json", "price rows floor", rf"shipped as \*\*(?P<v>{NUM})\+\*\* price rows",
+          "price_rows"),
+    floor("kaggle/dataset-metadata.json", "GI appellations floor", rf"\*\*(?P<v>{NUM})\+\*\* protected spirit-drink GI",
+          "gi_appellations", optional=True),
+    floor("SAMPLE_PREVIEW.md", "distillery-months floor", rf"(?P<v>{NUM})\+ distillery-month auction-price index",
+          "price_distillery_months"),
+]
+
+
+def floor_values(data):
+    t = data["totals"]
+    values = {k: t[k] for k in ("spirits", "producers", "price_rows", "price_distillery_months")}
+    values["countries"] = t["producer_countries"] - t["producer_countries_off_only"]
+    if "gi_appellations" in t:
+        values["gi_appellations"] = t["gi_appellations"]
+    return values
+
+
+def check_floors(root, data):
+    """Return problems: a floor that is missing, repeated, or above the data.json value."""
+    values, problems = floor_values(data), []
+    for r in FLOORS:
+        path = root / r["file"]
+        if not path.exists():
+            problems.append(f"{r['file']}: file missing")
+            continue
+        text = read(path)
+        matches = list(r["rx"].finditer(text))
+        if len(matches) != r["count"]:
+            problems.append(f"{r['file']}: {r['label']}: expected {r['count']} occurrence(s), found {len(matches)} "
+                            f"(sentence reworded? update it or FLOORS in scripts/check_claims.py)")
+            continue
+        if r["key"] not in values:  # optional key absent from an older data.json
+            continue
+        for m in matches:
+            if int(m.group("v").replace(",", "")) > values[r["key"]]:
+                line = text.count("\n", 0, m.start("v")) + 1
+                problems.append(f"{r['file']}:{line}: {r['label']}: states {m.group('v')}+, data.json says "
+                                f"{grouped(values[r['key']])}; lower the floor by hand")
+    return problems
+
+
 def stale_wording(root, data):
     problems = []
     snap = dt.date.fromisoformat(data["snapshot"])
@@ -386,6 +453,7 @@ def main(argv=None):
     exp = expected_values(data)
     problems, fixed = check_sources(root, exp, args.fix)
     problems += stale_wording(root, data)
+    problems += check_floors(root, data)
     for line in fixed:
         print(f"fixed  {line}")
     if args.fix:
@@ -403,7 +471,8 @@ def main(argv=None):
             print(f"ERROR  {p}")
         print(f"check_claims: {len(problems)} problem(s)" + ("" if args.fix else "; `--fix` rewrites wrong values"))
         return 1
-    print(f"check_claims: {len(RULES)} rules" + ("" if args.fix else " + locale hero strips") + ", 0 problems")
+    print(f"check_claims: {len(RULES)} rules, {len(FLOORS)} floors" + ("" if args.fix else " + locale hero strips")
+          + ", 0 problems")
     return 0
 
 

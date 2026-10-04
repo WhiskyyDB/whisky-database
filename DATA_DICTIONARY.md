@@ -24,7 +24,7 @@ SQLite build described at the bottom.
 | :--- | :--- | :--- | ---: |
 | `distillery_id` | integer | Stable primary key | 100% |
 | `name` | string | Producer, distillery, brand or company name: the US label registry, Open Food Facts and the Wikipedia brands list name brands, not producers | 100% |
-| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…), as a source states it: where a distillery stands, a company's headquarters, or where a brand's whisky is made. `Global` when the dataset has no single stated country: none stated, several origins (supermarket own labels), or a statement the pipeline does not read yet (a few Wikipedia list entries such as "Kavalan – Taiwan"); never "sold worldwide". Two exceptions up to the 2026.10 edition: Open Food Facts producers carried the first country a product is sold in, and owner companies from Wikipedia's brands list the country of the section they appear in (Diageo "USA"). From 2026.11 both follow the rule (a stated origin, the company's headquarters, or `Global`), and the full dataset ships the evidence for each corrected row | 99% specific |
+| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…), as a source states it: where a distillery stands, a company's headquarters, or where a brand's whisky is made. `Global` when the dataset has no single stated country: none stated, or several origins (supermarket own labels); never "sold worldwide". Up to the 2026.10 edition it also covered nine Wikipedia list entries that name their country after a dash, such as "Kavalan – Taiwan". Two exceptions up to the 2026.10 edition: Open Food Facts producers carried the first country a product is sold in, and owner companies from Wikipedia's brands list the country of the section they appear in (Diageo "USA"). From 2026.11 both follow the rule (a stated origin, the company's headquarters, or `Global`), and the full dataset ships the evidence for each corrected row | 99% specific |
 | `region` | string | Region / locality (`Islay`, `Kentucky`, GI category…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
@@ -61,7 +61,7 @@ The commercial snapshot normalizes into 10 tables:
 | `spirit_casks` | 1,200+ spirit↔cask maturation mappings with stage and fill type (rule-derived from product names and US labeling law, producer-published for the curated seed) |
 | `flavor_taxonomy` | The controlled flavor vocabulary (mirrors `taxonomy/flavors.csv`) |
 | `spirit_tasting_notes` | Standardized flavor tags with phase (Nose/Palate/Finish) and 1–3 intensity |
-| `price_benchmarks` | 21,000+ rows of monthly distillery auction indices, Nov 2005 → Oct 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
+| `price_benchmarks` | 20,000+ rows of monthly distillery auction indices, Nov 2005 → Oct 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
 
 Every content table carries a `source_id` foreign key into `data_sources` (`primary_source_id` on `spirits`) — 100% of rows resolve to a valid provenance entry (enforced and tested).
 
