@@ -13,7 +13,7 @@ SQLite build described at the bottom.
 | `name` | string | Canonical bottling name (Latin-script, cleaned) | 100% |
 | `type` | enum | `Single Malt Scotch` · `Bourbon` · `Rye Whiskey` · `Irish Whiskey` · `Japanese Whisky` · `Scotch Whisky` · `Whisky` … | 100% |
 | `age` | integer | Age statement in years; empty = NAS or unstated | <1% |
-| `abv` | float | Alcohol by volume (%). Explicitly sourced for 22% of records (e.g. federal label details); otherwise the documented 40.0 default | 100% |
+| `abv` | float | Alcohol by volume (%). Stated by the source for at least 22% of records (e.g. federal label details): the share whose ABV differs from 40.0. A 40.0 is either stated by the source or the documented default, which this edition cannot tell apart | 100% |
 | `volume_ml` | integer | Bottle volume normalized to milliliters (700/750/1000…). Where the source states none, a documented default: 750 on every US label-registry (TTB COLA) record, whose labels do not publish volume; 700 on the curated seed rows and on Open Food Facts records without a stated quantity | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
@@ -23,7 +23,7 @@ SQLite build described at the bottom.
 | Column | Type | Description | Coverage* |
 | :--- | :--- | :--- | ---: |
 | `distillery_id` | integer | Stable primary key | 100% |
-| `name` | string | Distillery / producer / brand name | 100% |
+| `name` | string | Producer, distillery, brand or company name: the US label registry, Open Food Facts and the Wikipedia brands list name brands, not producers | 100% |
 | `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…); `Global` when the source doesn't state one | 99% specific |
 | `region` | string | Region / locality (`Islay`, `Kentucky`, GI category…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
@@ -53,7 +53,7 @@ The commercial snapshot normalizes into 10 tables:
 | Table | What it holds |
 | :--- | :--- |
 | `data_sources` | Provenance ledger: source name, type, endpoint, license notes, access timestamp |
-| `distilleries` | 2,500+ producers with country, region, founded year, active/dissolved status; the table also holds the 270+ protected spirit appellations of the EU GI register (eAmbrosia), which are places of origin, not producers, and are not counted in the 2,500+ |
+| `distilleries` | 2,500+ producers & brands with country, region, founded year, active/dissolved status; the table also holds the 270+ protected spirit appellations of the EU GI register (eAmbrosia), which are places of origin, not producers, and are not counted in the 2,500+ |
 | `brands` | Brand ownership (e.g. Lagavulin → Diageo) |
 | `spirits` | 2,700+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag |
 | `mash_bills` | Producer-published grain compositions (corn/rye/barley/wheat %) |

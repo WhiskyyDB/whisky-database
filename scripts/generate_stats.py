@@ -20,6 +20,16 @@ leaves them out and data.json reports them apart as totals.gi_appellations. A sn
 without the column (2026.09 and older) is read exactly as before: every row is a producer
 and the output is byte-identical to the generator before this rule.
 
+ABV provenance: from the 2026.11 edition each spirit carries spirits.abv_source (label,
+producer, off, name: stated by the source; default / unverified: the documented 40.0). The
+ABV section then counts the source-stated ABVs, a stated 40.0 included. A snapshot without
+the column (2026.10 and older) cannot tell a stated 40.0 from the default, so it counts the
+ABVs other than 40.0, a lower bound, and says so (data.json abv.rule).
+
+Producers & brands (owner decision 2026-10-04): the US label registry, Open Food Facts and
+the Wikipedia brands list name brands, not producers, so the page calls the producer rows
+"producers and brands"; the count is unchanged.
+
 Re-run after each data refresh, then `python scripts/generate_seo_pages.py`
 (sitemap), `python scripts/i18n_common.py build` and `... check`.
 
@@ -48,6 +58,7 @@ BRAND = "WhiskyDB"
 FIRST_PUBLISHED = "2026-09-17"
 DEFAULT_DB = BASE_DIR.parent / "06_Fine_Spirits_WhiskyDB" / "data" / "whiskydb.sqlite"
 DEFAULT_ABV = 40.0  # documented fallback where the source publishes no ABV; excluded from ABV statistics
+STATED_ABV = ("label", "producer", "off", "name")  # spirits.abv_source values stated by the source
 
 # Counting countries, not country labels: a label can name several countries (an EU
 # geographical indication shared across borders: "France, Italy"), the same country under
@@ -233,6 +244,9 @@ def compute(db_path):
 
     s["snapshot_date"] = q("select max(date(access_timestamp)) from data_sources")[0][0]
     s["spirits"] = q("select count(*) from spirits")[0][0]
+    # bottlings with a bottle volume: all of them up to 2026.10 (documented defaults filled the
+    # rest), only the source-stated ones from 2026.11 (check_claims.py words the disclosure by it)
+    s["volume_stated"] = q("select count(*) from spirits where volume_ml is not null")[0][0]
     s["producers"] = q(f"select count(*) from distilleries d where {prod}")[0][0]
     s["producers_with_country"] = q(f"select count(*) from distilleries d where d.country<>'Global' and {prod}")[0][0]
     s["price_rows"] = q("select count(*) from price_benchmarks")[0][0]
@@ -296,8 +310,12 @@ def compute(db_path):
     types = q("select spirit_type, count(*) from spirits group by 1 order by 2 desc")
     s["types"] = [(k, v, pct(v, s["spirits"])) for k, v in types]
 
-    # --- ABV: explicitly sourced only ---
-    abv = [v for (v,) in q("select abv_percentage from spirits where abv_percentage<>?", DEFAULT_ABV)]
+    # --- ABV: stated by the source only (abv_source); without the column, ABVs other than 40.0 ---
+    s["abv_by_source"] = "abv_source" in {r[1] for r in q("pragma table_info(spirits)")}
+    marks = ",".join("?" * len(STATED_ABV))
+    abv_filter, abv_args = ((f"abv_source in ({marks})", STATED_ABV) if s["abv_by_source"]
+                            else ("abv_percentage<>?", (DEFAULT_ABV,)))
+    abv = [v for (v,) in q(f"select abv_percentage from spirits where {abv_filter}", *abv_args)]
     s["abv_n"] = len(abv)
     s["abv_mean"] = round(statistics.mean(abv), 1)
     s["abv_median"] = round(statistics.median(abv), 1)
@@ -308,8 +326,8 @@ def compute(db_path):
     s["abv_buckets"] = [(lbl, sum(1 for v in abv if lo <= v < hi), pct(sum(1 for v in abv if lo <= v < hi), len(abv)))
                         for lbl, lo, hi in buckets]
     s["abv_by_type"] = [(k, c, round(m, 1), round(mx, 1)) for k, c, m, mx in q(
-        "select spirit_type, count(*), avg(abv_percentage), max(abv_percentage) from spirits where abv_percentage<>? "
-        "group by 1 having count(*)>=10 order by 3 desc", DEFAULT_ABV)]
+        f"select spirit_type, count(*), avg(abv_percentage), max(abv_percentage) from spirits where {abv_filter} "
+        "group by 1 having count(*)>=10 order by 3 desc", *abv_args)]
 
     # --- producers by country (Open Food Facts tags like "en:switzerland" are normalized). The
     # chart and table list the labels as recorded; the country count splits and merges them
@@ -515,19 +533,31 @@ def build_page(s, charts):
 
     # 4. ABV
     ab = s["abv_buckets"]
-    charts["abv"] = svg_hbar("Bottling strength (ABV)", f"Share of {n(s['abv_n'])} bottlings with an explicitly sourced ABV",
+    if s["abv_by_source"]:
+        abv_set, abv_head = "bottlings with an ABV stated by the source", "Bottlings with a stated ABV"
+        abv_lead = "Where the source states the ABV"
+        abv_note = (f"Only the {n(s['abv_n'])} of {n(s['spirits'])} bottlings whose ABV is stated by the source (the US label, the producer, "
+                    f"the Open Food Facts record or the product name; a stated {DEFAULT_ABV:.0f}% included) are counted. The rest carry the documented "
+                    f"{DEFAULT_ABV:.0f}% legal-minimum default, because the source states no ABV or because their US label has not been read yet, "
+                    f"and are excluded here. Types with fewer than 10 stated ABVs are omitted from the table.")
+    else:
+        abv_set, abv_head = "bottlings with an ABV other than the 40% default", "Bottlings with an ABV other than 40%"
+        abv_lead = "Among bottlings whose ABV differs from the 40% default"
+        abv_note = (f"Only the {n(s['abv_n'])} of {n(s['spirits'])} bottlings whose ABV differs from the documented {DEFAULT_ABV:.0f}% legal-minimum default "
+                    f"are counted, all of them stated by the source (mostly US label details). In this edition a {DEFAULT_ABV:.0f}% stated by the source "
+                    f"cannot be told apart from that default, so it is left out too, and these figures skew towards labels that state a non-standard strength. "
+                    f"Types with fewer than 10 such ABVs are omitted from the table.")
+    charts["abv"] = svg_hbar("Bottling strength (ABV)", f"Share of {n(s['abv_n'])} {abv_set}",
                              [(k, v, f"{p}%") for k, v, p in ab], src_note)
     sections.append(section(
         "abv", "How strong the bottlings are",
-        f"Where the source publishes a real ABV, the median bottling is <strong>{s['abv_median']}%</strong> and "
+        f"{abv_lead}, the median bottling is <strong>{s['abv_median']}%</strong> and "
         f"<strong>{s['abv_cask_strength_pct']}%</strong> are bottled at 50% or above, cask-strength territory. "
         f"The strongest on record is {s['abv_max']}%. By type, {data(s['abv_by_type'][0][0])} averages the highest at {s['abv_by_type'][0][2]}%.",
-        figure("abv", charts["abv"], "Bottling strength (ABV)", f"{n(s['abv_n'])} bottlings with a sourced ABV"),
-        table(["Spirit type", "Bottlings with sourced ABV", "Mean ABV", "Highest ABV"],
+        figure("abv", charts["abv"], "Bottling strength (ABV)", f"{n(s['abv_n'])} {abv_set}"),
+        table(["Spirit type", abv_head, "Mean ABV", "Highest ABV"],
               [(k, n(c), f"{m}%", f"{mx}%") for k, c, m, mx in s["abv_by_type"]], {1, 2, 3}),
-        f"Only the {n(s['abv_n'])} of {n(s['spirits'])} bottlings whose ABV is explicitly published by the source (mostly US label details) are counted. "
-        f"The rest carry the documented {DEFAULT_ABV:.0f}% legal-minimum default and are excluded here, so these figures skew towards labels that state a "
-        f"non-standard strength. Types with fewer than 10 sourced ABVs are omitted from the table."))
+        abv_note))
 
     # 5. producers by country
     pc = s["producers_by_country"]
@@ -541,15 +571,15 @@ def build_page(s, charts):
         who += (f". The {n(gi)} protected spirit appellations of the EU GI register (Scotch Whisky, Cognac, Armagnac…) are in the "
                 "dataset as places of origin, not producers, so they are left out here; ") if gi else "; "
         split = "The country count splits labels that name several countries, merges name variants"
-    charts["producers-by-country"] = svg_hbar("Where the distilleries and producers are",
+    charts["producers-by-country"] = svg_hbar("Where the producers and brands are",
                                               f"Share of {n(s['producers_with_country'])} producers with a stated country",
                                               [(k, v, f"{p}%") for k, v, p in pc[:14]], src_note)
     sections.append(section(
-        "countries", "Where the distilleries and producers are",
+        "countries", "Where the producers and brands are",
         f"{data(pc[0][0])} accounts for <strong>{pc[0][2]}%</strong> of producers with a stated country, {data(pc[1][0])} for {pc[1][2]}% and "
         f"{data(pc[2][0])} for {pc[2][2]}%; {n(s['producer_countries'])} countries appear in total"
         + (f", {n(s['producer_countries_off_only'])} of them only on Open Food Facts records." if s["producer_countries_off_only"] else "."),
-        figure("producers-by-country", charts["producers-by-country"], "Where the distilleries and producers are", f"{n(s['producers_with_country'])} producers"),
+        figure("producers-by-country", charts["producers-by-country"], "Where the producers and brands are", f"{n(s['producers_with_country'])} producers"),
         table(["Country", "Producers", "Share"], [(k, n(v), f"{p}%") for k, v, p in pc[:30]], {1, 2}),
         f"{who}{n(s['producers'] - s['producers_with_country'])} brand-level records with no stated country are excluded. "
         f"England & Wales and Scotland follow UK Companies House jurisdictions. {split} and counts the UK once. "
@@ -610,7 +640,7 @@ def build_page(s, charts):
 
     tiles = "".join(
         f'<li{" class=\"date\"" if lbl in ("Snapshot", "Auction history") else ""}><span>{lbl}</span><strong>{val}</strong></li>' for lbl, val in [
-            ("Bottlings", n(s["spirits"])), ("Distilleries & producers", n(s["producers"])), ("Countries", n(s["producer_countries"])),
+            ("Bottlings", n(s["spirits"])), ("Producers & brands", n(s["producers"])), ("Countries", n(s["producer_countries"])),
             ("Auction benchmarks", n(s["price_distillery_months"])), ("Auction history", f"{s['price_first'][:4]} to {s['price_last'][:4]}"), ("Snapshot", snap)])
     gi_li = "" if not s["gi_appellations"] else (
         "\n        <li><strong>Producers, not appellations.</strong> The dataset also lists the "
@@ -663,7 +693,7 @@ def build_page(s, charts):
     <section class="hero">
       <span class="badge mono" style="display:inline-block;background:rgba(212,175,55,0.15);color:var(--gold-light);padding:4px 12px;border-radius:4px;font-size:0.8rem;font-weight:600;margin-bottom:12px;border:1px solid rgba(212,175,55,0.3);">MARKET STATISTICS · SNAPSHOT {esc(snap)}</span>
       <h1 class="heading">Whisky in numbers</h1>
-      <p class="lede">Aggregate statistics computed from the full WhiskyDB snapshot: {n(s['spirits'])} bottlings, {n(s['producers'])} distilleries and producers, and {n(s['price_distillery_months'])} monthly distillery auction benchmarks reaching back to {s['price_first'][:4]}, every record traced to an open public source. Refreshed monthly. Every figure is free to cite, quote and embed with a link to this page.</p>
+      <p class="lede">Aggregate statistics computed from the full WhiskyDB snapshot: {n(s['spirits'])} bottlings, {n(s['producers'])} producers and brands, and {n(s['price_distillery_months'])} monthly distillery auction benchmarks reaching back to {s['price_first'][:4]}, every record traced to an open public source. Refreshed monthly. Every figure is free to cite, quote and embed with a link to this page.</p>
       <ul class="tiles">{tiles}</ul>
       <nav class="toc" aria-label="Contents"><strong>On this page</strong><ol>{toc}</ol></nav>
     </section>
@@ -722,7 +752,7 @@ def build_data_json(s):
         # gi_appellations only when the snapshot flags them (older snapshots: the key is absent, as before)
         "totals": {k: s[k] for k in ("spirits", "producers", "gi_appellations", "producers_with_country", "producer_countries",
                                      "producer_countries_off_only", "price_rows", "price_first", "price_last",
-                                     "price_distilleries", "price_distillery_months")
+                                     "price_distilleries", "price_distillery_months", "volume_stated")
                    if k != "gi_appellations" or s[k] is not None},
         "auction_index_gbp": {
             "method": "mean monthly winning bid per distillery (WhiskyHunter), yearly mean per distillery, then mean across distilleries",
@@ -734,7 +764,11 @@ def build_data_json(s):
                                for nm, c, a, b, ch in s["per_distillery"]],
             "decade": [s["decade_lo"], s["decade_hi"]]},
         "spirit_types": [dict(type=k, bottlings=v, share_pct=p) for k, v, p in s["types"]],
-        "abv": {"denominator": s["abv_n"], "excluded_default_abv": DEFAULT_ABV, "mean": s["abv_mean"], "median": s["abv_median"],
+        "abv": {"denominator": s["abv_n"], "excluded_default_abv": DEFAULT_ABV,
+                # which bottlings the ABV figures count: the source-stated ones (abv_source), or, in a
+                # snapshot without that column, those whose ABV is not 40.0 (a lower bound of the stated ones)
+                "rule": "abv_source in (label, producer, off, name)" if s["abv_by_source"] else "abv_percentage <> 40.0",
+                "mean": s["abv_mean"], "median": s["abv_median"],
                 "max": s["abv_max"], "share_50_plus_pct": s["abv_cask_strength_pct"],
                 "buckets": [dict(bucket=k, bottlings=v, share_pct=p) for k, v, p in s["abv_buckets"]],
                 "by_type": [dict(type=k, n=c, mean=m, max=mx) for k, c, m, mx in s["abv_by_type"]]},

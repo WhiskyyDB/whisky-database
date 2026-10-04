@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 312" width="720" height="312" role="img" aria-labelledby="t-abv d-abv" font-family="'Inter', 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
-<title id="t-abv">Bottling strength (ABV)</title><desc id="d-abv">Share of 709 bottlings with an explicitly sourced ABV</desc>
+<title id="t-abv">Bottling strength (ABV)</title><desc id="d-abv">Share of 709 bottlings with an ABV other than the 40% default</desc>
 <rect width="720" height="312" fill="#0a0b0d"/>
 <text x="20" y="26" font-size="15" font-weight="600" fill="#f0f2f8">Bottling strength (ABV)</text>
-<text x="20" y="44" font-size="12" fill="#949ab1">Share of 709 bottlings with an explicitly sourced ABV</text>
+<text x="20" y="44" font-size="12" fill="#949ab1">Share of 709 bottlings with an ABV other than the 40% default</text>
 <line x1="208" y1="56" x2="208" y2="272" stroke="#22252d" stroke-width="1"/>
 <g><title>Below 40%: 6.9%</title><rect x="0" y="62" width="720" height="30" fill="transparent"/><path d="M208 68.0 h94.5 a4 4 0 0 1 4 4 v10 a4 4 0 0 1 -4 4 h-94.5 z" fill="#d4af37"/><text x="198" y="81.0" text-anchor="end" fill="#f0f2f8">Below 40%</text><text x="314.5" y="81.0" fill="#949ab1" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace" font-size="11">6.9%</text></g>
 <g><title>40 to 42.9%: 2.3%</title><rect x="0" y="92" width="720" height="30" fill="transparent"/><path d="M208 98.0 h28.2 a4 4 0 0 1 4 4 v10 a4 4 0 0 1 -4 4 h-28.2 z" fill="#d4af37"/><text x="198" y="111.0" text-anchor="end" fill="#f0f2f8">40 to 42.9%</text><text x="248.2" y="111.0" fill="#949ab1" font-family="'Fira Code', ui-monospace, Menlo, Consolas, monospace" font-size="11">2.3%</text></g>

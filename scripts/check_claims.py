@@ -31,7 +31,7 @@ index.html, so the plain check also confirms that their hero figures were rebuil
                                   stated by the source or the documented default, indistinguishable)
   auction months / date range     price_first..price_last (whole months, both ends included)
   snapshot edition                YYYY.MM of data.json "snapshot" (the refresh date)
-  coverage %                      floored, so a claim never rounds up: explicit ABV = abv.denominator
+  coverage %                      floored, so a claim never rounds up: stated ABV = abv.denominator
                                   / spirits, country = producers_with_country / producers, founded
                                   year = founded.denominator / producers; ABV max = abv.max
   countries floor                 README "Countries represented N+": producer_countries minus
@@ -41,6 +41,24 @@ index.html, so the plain check also confirms that their hero figures were rebuil
                                   gives "40+")
   GI appellations floor           README "Protected GI appellations (EU/UK) N+": gi_appellations
                                   floored to a multiple of 10, once data.json reports it (below)
+ABV: abv.denominator counts the bottlings data.json's abv.rule selects: those whose ABV is not
+40.0 for a snapshot without spirits.abv_source (2026.10 and older; a lower bound of the
+source-stated ABVs, which is why the README and DATA_DICTIONARY say "at least" / "≥"), the
+source-stated ones (abv_source label, producer, off, name) from 2026.11. The FAQ and llms.txt
+sentences "N of the M spirits have an ABV other than 40.0" describe the first rule only:
+reword them (and their rules) in the re-sync of the first edition with the column.
+
+Producers & brands (owner decision 2026-10-04): the producer rows are called "producers and
+brands" (hero, meta, README, llms.txt), since the US label registry, Open Food Facts and the
+Wikipedia brands list name brands, not producers. The count is unchanged.
+
+Edition-bound wording (STALE below): some sentences are true only for the editions before
+spirits.abv_source and the NULL-volume rule (2026.10 and older): "N of the M spirits have an
+ABV other than 40.0" (once abv.rule counts source-stated ABVs, N includes stated 40.0s) and
+"750 mL on every US label-registry record" (once totals.volume_stated < spirits, unstated
+volumes are empty). The check fails while such a sentence is still there for a data.json of
+the newer kind, so the first re-sync with the new edition rewords them (and their RULES).
+
 Not in data.json, so still checked by hand: the "linked bottlings" count in README.md, the
 barcode and age-statement coverage, and the "+" floors in DATA_DICTIONARY.md.
 
@@ -107,7 +125,8 @@ RULES = [
     rule("index.html", "title + og:title bottlings", rf"Database: (?P<v>{NUM}) Bottlings", "spirits", 2),
     rule("index.html", "meta description bottlings", rf"Download (?P<v>{NUM}) whisky and whiskey bottlings", "spirits"),
     rule("index.html", "og:description bottlings", rf'content="(?P<v>{NUM}) whisky and whiskey bottlings', "spirits"),
-    rule("index.html", "meta + og description distilleries", rf"bottlings from (?P<v>{NUM}) distilleries", "producers", 2),
+    rule("index.html", "meta + og description producers & brands", rf"bottlings from (?P<v>{NUM}) producers and brands",
+         "producers", 2),
     rule("index.html", "meta + og + FAQ (JSON-LD + HTML) benchmarks",
          rf"(?P<v>{NUM}) monthly distillery auction benchmarks", "price_distillery_months", 4),
     rule("index.html", "FAQ auction distilleries (JSON-LD + HTML)", rf"auction benchmarks for (?P<v>{NUM}) distilleries, ",
@@ -124,24 +143,24 @@ RULES = [
          rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV other than 40\.0; the rest show 40\.0", "spirits", 2),
     rule("index.html", "hero Spirits & Bottlings",
          rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Spirits &amp; Bottlings<', "spirits"),
-    rule("index.html", "hero Global Distilleries",
-         rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Global Distilleries<', "producers"),
+    rule("index.html", "hero Producers & Brands",
+         rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Producers &amp; Brands<', "producers"),
     rule("index.html", "hero Distillery Auction Benchmarks",
          rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Distillery Auction Benchmarks<', "price_distillery_months"),
 
     # --- README.md: headline, badges, What's inside, field coverage, auction section, pricing ---
     rule("README.md", "headline spirits", rf"\*\*(?P<v>{NUM}) whiskies & fine spirits · ", "spirits"),
-    rule("README.md", "headline distilleries", rf" · (?P<v>{NUM}) distilleries & producers · ", "producers"),
+    rule("README.md", "headline producers & brands", rf" · (?P<v>{NUM}) producers & brands · ", "producers"),
     rule("README.md", "headline benchmarks", rf" · (?P<v>{NUM}) monthly distillery auction benchmarks \(", "price_distillery_months"),
     rule("README.md", "headline auction range", rf"monthly distillery auction benchmarks \((?P<v>{RANGE_SHORT})\)", "range_short"),
-    rule("README.md", "Distilleries badge text", rf"\[!\[Distilleries: (?P<v>{NUM})\]", "producers"),
-    rule("README.md", "Distilleries badge URL", rf"/badge/Distilleries-(?P<v>{NUM_URL})-", "producers_url"),
+    rule("README.md", "Producers & brands badge text", rf"\[!\[Producers & brands: (?P<v>{NUM})\]", "producers"),
+    rule("README.md", "Producers & brands badge URL", rf"/badge/Producers%20%26%20brands-(?P<v>{NUM_URL})-", "producers_url"),
     rule("README.md", "Auction history badge text", r"\[!\[Price history: (?P<v>\d{4}→\w*)\]", "years"),
     rule("README.md", "Auction history badge URL", r"/badge/Auction%20history-(?P<v>\d{4}%E2%86%92\w+)-", "years_url"),
     rule("README.md", "Snapshot badge text", rf"\[!\[Snapshot: (?P<v>{EDITION})\]", "edition"),
     rule("README.md", "Snapshot badge URL", rf"/badge/Snapshot-(?P<v>{EDITION})-", "edition"),
     rule("README.md", "table Spirits & bottlings", rf"\| Spirits & bottlings \| \*\*(?P<v>{NUM})\*\* \|", "spirits"),
-    rule("README.md", "table Distilleries", rf"\| Distilleries, brands & producers \| \*\*(?P<v>{NUM})\*\* \|", "producers"),
+    rule("README.md", "table Producers & brands", rf"\| Producers & brands \| \*\*(?P<v>{NUM})\*\* \|", "producers"),
     rule("README.md", "table benchmarks", rf"\| Monthly distillery auction benchmarks \| \*\*(?P<v>{NUM})\*\* \|",
          "price_distillery_months"),
     rule("README.md", "table Countries floor", r"\| Countries represented \| \*\*(?P<v>\d+)\+\*\* \|", "countries_floor"),
@@ -149,8 +168,8 @@ RULES = [
          "gi_floor", optional=True),
     rule("README.md", "coverage Distillery country", r"\| Distillery country \| (?P<v>\d+)% \|", "pct_country"),
     rule("README.md", "coverage Distillery founded year", r"\| Distillery founded year \| (?P<v>\d+)% \|", "pct_founded"),
-    rule("README.md", "coverage Explicit label ABV", r"\| Explicit label ABV \| (?P<v>\d+)%\\?\*", "pct_abv"),
-    rule("README.md", "ABV footnote share", r"\\\* (?P<v>\d+)% of spirits carry an explicitly sourced ABV", "pct_abv"),
+    rule("README.md", "coverage ABV stated by the source", r"\| ABV stated by the source \| ≥(?P<v>\d+)%\\?\*", "pct_abv"),
+    rule("README.md", "ABV footnote share", r"\\\* At least (?P<v>\d+)% of spirits carry an ABV stated by the source", "pct_abv"),
     rule("README.md", "ABV footnote maximum", r"cask-strength values up to (?P<v>\d+(?:\.\d+)?)%", "abv_max"),
     rule("README.md", "auction benchmarks bullet", rf"- \*\*(?P<v>{NUM})\*\* distillery-level monthly auction statistics",
          "price_distillery_months"),
@@ -163,7 +182,7 @@ RULES = [
 
     # --- llms.txt ---
     rule("llms.txt", "spirits and bottlings", rf"(?P<v>{NUM}) spirits and bottlings", "spirits", 2),
-    rule("llms.txt", "global distilleries", rf"(?P<v>{NUM}) global distilleries", "producers", 2),
+    rule("llms.txt", "producers and brands", rf"(?P<v>{NUM}) producers and brands", "producers", 2),
     rule("llms.txt", "non-40.0 ABV count", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an ABV other than 40\.0 \(the rest show 40\.0",
          "abv_n"),
     rule("llms.txt", "non-40.0 ABV total", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV other than 40\.0 \(the rest show 40\.0",
@@ -179,10 +198,42 @@ RULES = [
 
     # --- DATA_DICTIONARY.md ---
     rule("DATA_DICTIONARY.md", "snapshot", rf"\(snapshot `(?P<v>{EDITION})`\)", "edition"),
-    rule("DATA_DICTIONARY.md", "abv explicit share", r"Explicitly sourced for (?P<v>\d+)% of records", "pct_abv"),
+    rule("DATA_DICTIONARY.md", "abv stated share", r"Stated by the source for at least (?P<v>\d+)% of records", "pct_abv"),
     rule("DATA_DICTIONARY.md", "country coverage", r"\| (?P<v>\d+)% specific \|", "pct_country"),
     rule("DATA_DICTIONARY.md", "price_benchmarks range", rf"auction indices, (?P<v>{RANGE_SHORT}), ", "range_short"),
 ]
+
+
+# (applies(data) -> bool, file, phrase, what to do): an edition-bound sentence that must be gone
+# once data.json describes an edition it is no longer true for (see the module docstring).
+STALE = [
+    (lambda d: str(d["abv"].get("rule", "")).startswith("abv_source"), name, "have an ABV other than 40.0",
+     "abv.rule counts the ABVs stated by the source (a stated 40.0 included): reword the sentence, e.g. "
+     "\"N of the M spirits have an ABV stated by their source\", and its RULES")
+    for name in ("index.html", "llms.txt")
+] + [
+    (lambda d: str(d["abv"].get("rule", "")).startswith("abv_source"), name, phrase,
+     "abv.rule counts the ABVs stated by the source: the share is no longer the ABVs other than 40.0 and the "
+     "edition can tell a stated 40.0 from the default; reword the sentence (and its RULES)")
+    for name, phrase in (("README.md", "that is the share whose ABV differs from 40.0"),
+                         ("DATA_DICTIONARY.md", "which this edition cannot tell apart"))
+] + [
+    (lambda d: d["totals"].get("volume_stated", d["totals"]["spirits"]) < d["totals"]["spirits"], name, phrase,
+     "volume_ml is empty where the source states none (totals.volume_stated < spirits): the 750/700 mL "
+     "defaults are gone, reword the volume disclosure")
+    for name, phrase in (("index.html", "750 mL on every US label-registry record"),
+                         ("llms.txt", "750 mL on every US label-registry record"),
+                         ("DATA_DICTIONARY.md", "750 on every US label-registry (TTB COLA) record"))
+]
+
+
+def stale_wording(root, data):
+    problems = []
+    for applies, name, phrase, todo in STALE:
+        path = root / name
+        if applies(data) and path.exists() and phrase in read(path):
+            problems.append(f"{name}: still says \"{phrase}\": {todo}")
+    return problems
 
 
 MONTHS = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
@@ -231,6 +282,10 @@ def expected_values(data):
         "countries_floor": str((t["producer_countries"] - t["producer_countries_off_only"]) // 5 * 5),
         "abv_max": f"{abv_max:g}",
     }
+    if str(data["abv"].get("rule", "")).startswith("abv_source"):
+        # the "N of the M spirits have an ABV other than 40.0" sentences no longer describe abv.denominator:
+        # --fix must not write it there; STALE fails the run until they are reworded
+        del exp["abv_n"]
     if "gi_appellations" in t:  # data.json from a snapshot that flags the EU GI appellations
         exp["gi_floor"] = str(t["gi_appellations"] // 10 * 10)
     return exp
@@ -263,7 +318,7 @@ def check_sources(root, exp, fix):
             problems.append(f"{r['file']}: {r['label']}: expected {r['count']} occurrence(s), found {len(matches)} "
                             f"(sentence reworded? update it or RULES in scripts/check_claims.py)")
             continue
-        if r["optional"] and r["key"] not in exp:
+        if r["key"] not in exp:  # optional key absent from an older data.json, or abv_n (see expected_values)
             continue
         want = exp[r["key"]]
         wrong = [m for m in matches if m.group("v") != want]
@@ -320,6 +375,7 @@ def main(argv=None):
     data = json.loads(read(root / "stats" / "data.json"))
     exp = expected_values(data)
     problems, fixed = check_sources(root, exp, args.fix)
+    problems += stale_wording(root, data)
     for line in fixed:
         print(f"fixed  {line}")
     if args.fix:
@@ -330,7 +386,7 @@ def main(argv=None):
         problems += check_locales(root, data)
 
     print(f"claims vs stats/data.json (snapshot {data['snapshot']}, edition {exp['edition']}): "
-          f"{exp['spirits']} spirits, {exp['producers']} distilleries, {exp['price_rows']} price rows, "
+          f"{exp['spirits']} spirits, {exp['producers']} producers & brands, {exp['price_rows']} price rows, "
           f"auctions {exp['range_short']}")
     if problems:
         for p in problems:
