@@ -24,7 +24,7 @@ SQLite build described at the bottom.
 | :--- | :--- | :--- | ---: |
 | `distillery_id` | integer | Stable primary key | 100% |
 | `name` | string | Producer, distillery, brand or company name: the US label registry, Open Food Facts and the Wikipedia brands list name brands, not producers | 100% |
-| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…); `Global` when the source doesn't state one | 99% specific |
+| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…), as a source states it: where a distillery stands, a company's headquarters, or where a brand's whisky is made. `Global` when the dataset has no single stated country: none stated, several origins (supermarket own labels), or a statement the pipeline does not read yet (a few Wikipedia list entries such as "Kavalan – Taiwan"); never "sold worldwide". Two exceptions up to the 2026.10 edition: Open Food Facts producers carried the first country a product is sold in, and owner companies from Wikipedia's brands list the country of the section they appear in (Diageo "USA"). From 2026.11 both follow the rule (a stated origin, the company's headquarters, or `Global`), and the full dataset ships the evidence for each corrected row | 99% specific |
 | `region` | string | Region / locality (`Islay`, `Kentucky`, GI category…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |

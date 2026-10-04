@@ -331,7 +331,15 @@ def compute(db_path):
 
     # --- producers by country (Open Food Facts tags like "en:switzerland" are normalized). The
     # chart and table list the labels as recorded; the country count splits and merges them
-    # (countries_of). Open Food Facts rows carry the first country the product is sold in. ---
+    # (countries_of). Up to the 2026.10 edition Open Food Facts rows carried the first country
+    # the product is sold in (16 of them as a raw "en:" tag in 2026.10); from 2026.11 (owner
+    # decision 2026-10-04) a producer's country is a stated origin or headquarters, or 'Global',
+    # and the private pipeline's tests forbid raw tags. A raw tag in the snapshot therefore marks
+    # the old rule: the method note below says which one applies, and data.json carries
+    # "producer_country_rule": "stated" only under the new one (check_claims.py compares it with
+    # the edition). ---
+    s["off_sold_in_countries"] = q("select count(*) from distilleries d join data_sources ds using(source_id) "
+                                   "where ds.source_name like 'Open Food Facts%' and d.country like 'en:%'")[0][0] > 0
     pc = defaultdict(int)
     named, named_elsewhere = set(), set()
     for k, off, v in q("select d.country, ds.source_name like 'Open Food Facts%', count(*) from distilleries d "
@@ -581,9 +589,13 @@ def build_page(s, charts):
         + (f", {n(s['producer_countries_off_only'])} of them only on Open Food Facts records." if s["producer_countries_off_only"] else "."),
         figure("producers-by-country", charts["producers-by-country"], "Where the producers and brands are", f"{n(s['producers_with_country'])} producers"),
         table(["Country", "Producers", "Share"], [(k, n(v), f"{p}%") for k, v, p in pc[:30]], {1, 2}),
-        f"{who}{n(s['producers'] - s['producers_with_country'])} brand-level records with no stated country are excluded. "
+        f"{who}{n(s['producers'] - s['producers_with_country'])} records whose country is Global are excluded. "
         f"England & Wales and Scotland follow UK Companies House jurisdictions. {split} and counts the UK once. "
-        f"Open Food Facts records carry the first country the product is listed as sold in, which is not necessarily where it is made."))
+        + ("Open Food Facts records carry the first country the product is listed as sold in, which is not necessarily where it is made."
+           if s["off_sold_in_countries"] else
+           "A producer's country is where a distillery stands, a company's headquarters or where a brand's whisky is made, as a source "
+           "states it; never a country the product is merely sold in. An Open Food Facts producer carries the origin or headquarters a "
+           "source states for it (its own Open Food Facts records, its US label or its Wikidata item), or none.")))
 
     # 6. founding decades
     fd = s["founded_by_decade"]
@@ -754,6 +766,8 @@ def build_data_json(s):
                                      "producer_countries_off_only", "price_rows", "price_first", "price_last",
                                      "price_distilleries", "price_distillery_months", "volume_stated")
                    if k != "gi_appellations" or s[k] is not None},
+        # only under the 2026.11 rule (stated origin or headquarters), so older snapshots' data.json is unchanged
+        **({} if s["off_sold_in_countries"] else {"producer_country_rule": "stated"}),
         "auction_index_gbp": {
             "method": "mean monthly winning bid per distillery (WhiskyHunter), yearly mean per distillery, then mean across distilleries",
             "distilleries": s["lfl_names"], "last_year_months": s["last_year_months"],

@@ -79,8 +79,13 @@ Countries, not country labels: data.json `producer_countries` splits multi-count
 ("France, Italy", appellations shared across borders), merges synonyms ("Russia" / "Russian
 Federation") and counts the UK's six labels (United Kingdom, England, Wales, "England & Wales",
 Scotland, Northern Ireland) once; see generate_stats.countries_of. The README floor leaves out
-the countries named only by Open Food Facts rows (`producer_countries_off_only`), whose country
-is the first one a product is sold in, not where it is made (Chivas -> Bolivia). In the
+the countries named only by Open Food Facts rows (`producer_countries_off_only`). Up to the
+2026.10 edition such a row's country was the first one a product is sold in, not where it is
+made (Chivas -> Bolivia); from 2026.11 it is the origin or headquarters a source states for
+it, or Global (owner decision 2026-10-04), and the floor still leaves those countries out.
+data.json says "producer_country_rule": "stated" under the new rule; STALE fails while a
+2026.11+ snapshot lacks it, since DATA_DICTIONARY.md, SOURCES.md and CHANGELOG.md describe the
+new rule from 2026.11 (the private fix must ship with that edition). In the
 2026.09 edition published on 2026-09-28 (the cleaned table plus that day's refresh): 47
 countries, 6 of them only on Open Food Facts rows, so 41 -> "40+". (Before the cleanup,
 as in the 2026-09-02 build, the distilleries table also held 748 Wikidata rows that were
@@ -229,6 +234,11 @@ STALE = [
 
 def stale_wording(root, data):
     problems = []
+    snap = dt.date.fromisoformat(data["snapshot"])
+    if (snap.year, snap.month) >= (2026, 11) and data.get("producer_country_rule") != "stated":
+        problems.append("data.json: a 2026.11+ snapshot without \"producer_country_rule\": \"stated\": its Open Food "
+                        "Facts producers still carry sold-in countries, but DATA_DICTIONARY.md, SOURCES.md and CHANGELOG.md "
+                        "describe stated origins from 2026.11 (ship the private fix, or reword those files)")
     for applies, name, phrase, todo in STALE:
         path = root / name
         if applies(data) and path.exists() and phrase in read(path):

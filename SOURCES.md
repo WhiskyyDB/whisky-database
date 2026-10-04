@@ -18,7 +18,10 @@ retain those upstream obligations.
 The ledger also has an entry for Wikidata (CC0), which contributes no record to the
 current data: the 748 rows of the 2026-07 ingest were reservoirs and lakes, returned by
 a query for the wrong Wikidata class, and were removed on 2026-09-28 (see
-[`CHANGELOG.md`](CHANGELOG.md)).
+[`CHANGELOG.md`](CHANGELOG.md)). From the 2026.11 edition Wikidata (CC0) supplies the
+country of 18 producer rows, mostly the headquarters of owner companies (Diageo, Pernod Ricard,
+Campari ...) and otherwise a company's recorded country or location, with the item ID per row in the full
+dataset's `provenance/producer_countries.csv`.
 
 ## WhiskyDB Curated Seed
 
