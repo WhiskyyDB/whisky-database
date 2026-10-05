@@ -50,7 +50,7 @@ Measured across the full dataset. Public sources don't all publish every attribu
 | Barcode / label ID | 99% | | Distillery founded year | 25% |
 | ABV stated by the source | ≥22%* | | Age statement | <1%† |
 
-\* At least 22% of spirits carry an ABV stated by the source: that is the share whose ABV differs from 40.0 (e.g. from US federal label details, cask-strength values up to 70%). A 40.0 is either stated by the source or the documented default — the legal minimum for whisky in the US/EU, applied where the source states none and upgraded monthly as label-registry quota allows — and this edition cannot tell the two apart, so the true share is higher.
+\* At least 22% of spirits carry an ABV stated by the source: that is the share whose ABV differs from 40.0 (e.g. from US federal label details, cask-strength values up to 70%). A 40.0 is either stated by the source or the documented default — applied where the source states none and upgraded monthly as label-registry quota allows; 40% is the US/EU minimum for whisky, but flavoured whiskies, whisky specialties and liqueurs can be lower — and this edition cannot tell the two apart, so the true share is higher.
 † Most public listings are NAS (no age statement) or don't state age; treat this column as sparse.
 
 ## Auction price history — the differentiated part
