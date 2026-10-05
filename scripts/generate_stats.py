@@ -533,10 +533,10 @@ def build_page(s, charts):
     sections.append(section(
         "types", "What is in the catalogue",
         f"<strong>{bourbon}%</strong> of the {n(s['spirits'])} bottlings are Bourbon and <strong>{round(scotch, 1)}%</strong> are Scotch of some kind "
-        f"(single malt or blended); {next(p for k, _, p in ty if k == 'Whisky')}% are typed only as generic Whisky: their US label class names none of the other types (whisky specialties, flavored whisky and whisky liqueurs, but also corn, light, straight, malt, blended, bottled-in-bond and imported whisky classes), or their product record names none.",
+        f"(single malt or blended); {next(p for k, _, p in ty if k == 'Whisky')}% are typed only as generic Whisky: no more specific type was recognised in their US label class (whisky specialties, flavored whisky and whisky liqueurs, but also corn, light, straight, malt, American single malt, blended, bottled-in-bond and imported whisky classes) or in their product record's category and name.",
         figure("spirit-types", charts["spirit-types"], "What is in the catalogue", f"{n(s['spirits'])} bottlings"),
         table(["Spirit type", "Bottlings", "Share"], [(k, n(v), f"{p}%") for k, v, p in ty], {1, 2}),
-        "Type is normalized from the class on the US label filing, or from the product record's category and name; a class or record that names none of the other types becomes Whisky. The catalogue is built from US federal label approvals (TTB COLA), "
+        "Type is normalized by keyword from the class on the US label filing, or from the product record's category and name; where no more specific type is recognised it becomes Whisky, so a few records that name, for example, Canadian or American single malt whisky are counted as Whisky. The catalogue is built from US federal label approvals (TTB COLA), "
         "Open Food Facts and curated producer data, so it over-represents spirits sold in the United States."))
 
     # 4. ABV
