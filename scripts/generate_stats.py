@@ -533,10 +533,10 @@ def build_page(s, charts):
     sections.append(section(
         "types", "What is in the catalogue",
         f"<strong>{bourbon}%</strong> of the {n(s['spirits'])} bottlings are Bourbon and <strong>{round(scotch, 1)}%</strong> are Scotch of some kind "
-        f"(single malt or blended); {next(p for k, _, p in ty if k == 'Whisky')}% carry only the generic class Whisky on their label filing.",
+        f"(single malt or blended); {next(p for k, _, p in ty if k == 'Whisky')}% are typed only as generic Whisky: no more specific type was recognised in their US label class (whisky specialties, flavored whisky and whisky liqueurs, but also corn, light, straight, malt, American single malt, blended, bottled-in-bond and imported whisky classes) or in their product record's category and name.",
         figure("spirit-types", charts["spirit-types"], "What is in the catalogue", f"{n(s['spirits'])} bottlings"),
         table(["Spirit type", "Bottlings", "Share"], [(k, n(v), f"{p}%") for k, v, p in ty], {1, 2}),
-        "Type is the class stated on the label filing or product record, normalized. The catalogue is built from US federal label approvals (TTB COLA), "
+        "Type is normalized by keyword from the class on the US label filing, or from the product record's category and name; where no more specific type is recognised it becomes Whisky, so a few records that name, for example, Canadian or American single malt whisky are counted as Whisky. The catalogue is built from US federal label approvals (TTB COLA), "
         "Open Food Facts and curated producer data, so it over-represents spirits sold in the United States."))
 
     # 4. ABV
@@ -546,12 +546,12 @@ def build_page(s, charts):
         abv_lead = "Where the source states the ABV"
         abv_note = (f"Only the {n(s['abv_n'])} of {n(s['spirits'])} bottlings whose ABV is stated by the source (the US label, the producer, "
                     f"the Open Food Facts record or the product name; a stated {DEFAULT_ABV:.0f}% included) are counted. The rest carry the documented "
-                    f"{DEFAULT_ABV:.0f}% legal-minimum default, because the source states no ABV or because their US label has not been read yet, "
+                    f"{DEFAULT_ABV:.0f}% default (the US/EU minimum for whisky; flavoured whiskies, whisky specialties and liqueurs can be lower), because the source states no ABV or because their US label has not been read yet, "
                     f"and are excluded here. Types with fewer than 10 stated ABVs are omitted from the table.")
     else:
         abv_set, abv_head = "bottlings with an ABV other than the 40% default", "Bottlings with an ABV other than 40%"
         abv_lead = "Among bottlings whose ABV differs from the 40% default"
-        abv_note = (f"Only the {n(s['abv_n'])} of {n(s['spirits'])} bottlings whose ABV differs from the documented {DEFAULT_ABV:.0f}% legal-minimum default "
+        abv_note = (f"Only the {n(s['abv_n'])} of {n(s['spirits'])} bottlings whose ABV differs from the documented {DEFAULT_ABV:.0f}% default (the US/EU minimum for whisky; flavoured whiskies, whisky specialties and liqueurs can be lower) "
                     f"are counted, all of them stated by the source (mostly US label details). In this edition a {DEFAULT_ABV:.0f}% stated by the source "
                     f"cannot be told apart from that default, so it is left out too, and these figures skew towards labels that state a non-standard strength. "
                     f"Types with fewer than 10 such ABVs are omitted from the table.")
