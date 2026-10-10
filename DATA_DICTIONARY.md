@@ -55,7 +55,7 @@ The commercial snapshot normalizes into 10 tables:
 | `data_sources` | Provenance ledger: source name, type, endpoint, license notes, access timestamp |
 | `distilleries` | 2,500+ producers & brands with country, region, founded year, active/dissolved status; the table also holds the 270+ protected spirit appellations of the EU GI register (eAmbrosia), which are places of origin, not producers, and are not counted in the 2,500+ |
 | `brands` | Brand ownership (e.g. Lagavulin → Diageo) |
-| `spirits` | 2,700+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag |
+| `spirits` | 2,700+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag; from the 2026.11 edition also the US label's ID and class as filed (`ttb_id`, `ttb_class`) and `style`: 96 flavoured whiskies and 16 whisky liqueurs as a source states them (the US label class or statement, the Open Food Facts record's own text, or a reviewed source, named in `style_basis`); `unflavoured` only where the label class forbids flavouring (bourbon, straight whisky, Scotch, Irish); empty when no source says. Bottlings whose label or record states under 30% ABV (ready-to-drink mixes, cocktail shots) are removed after review; one first read below 30% in a monthly refresh stays until the next manual pass |
 | `mash_bills` | Producer-published grain compositions (corn/rye/barley/wheat %) |
 | `cask_taxonomy` | The 3-tier cask hierarchy: the styles of `taxonomy/casks.csv` plus those the cask mapper derives from product names (e.g. Port Pipe) |
 | `spirit_casks` | 1,200+ spirit↔cask maturation mappings with stage and fill type (rule-derived from product names and US labeling law, producer-published for the curated seed) |

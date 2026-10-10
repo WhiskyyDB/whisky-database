@@ -103,6 +103,10 @@ countries_of counts it apart from the UK.)
 Every rule must match its exact number of occurrences: if a sentence is reworded so that
 a rule no longer finds it, the check fails instead of silently skipping the claim --
 update the sentence or RULES below.
+
+Flavoured and liqueur counts (from the edition with spirits.style): DATA_DICTIONARY.md states "`style`: N
+flavoured whiskies and M whisky liqueurs"; the two rules compare them with totals.flavoured / totals.liqueur once
+data.json has them (an older data.json: the sentence must still be there once, its values are not compared).
 """
 import argparse
 import datetime as dt
@@ -213,6 +217,11 @@ RULES = [
     rule("DATA_DICTIONARY.md", "abv stated share", r"Stated by the source for at least (?P<v>\d+)% of records", "pct_abv"),
     rule("DATA_DICTIONARY.md", "country coverage", r"\| (?P<v>\d+)% specific \|", "pct_country"),
     rule("DATA_DICTIONARY.md", "price_benchmarks range", rf"auction indices, (?P<v>{RANGE_SHORT}), ", "range_short"),
+    # spirits.style (from the edition with that column): totals.flavoured / totals.liqueur once data.json reports them
+    rule("DATA_DICTIONARY.md", "flavoured whiskies", rf"`style`: (?P<v>{NUM}) flavoured whiskies and ", "flavoured",
+         optional=True),
+    rule("DATA_DICTIONARY.md", "whisky liqueurs", rf" flavoured whiskies and (?P<v>{NUM}) whisky liqueurs ", "liqueur",
+         optional=True),
 ]
 
 
@@ -365,6 +374,9 @@ def expected_values(data):
         del exp["abv_n"]
     if "gi_appellations" in t:  # data.json from a snapshot that flags the EU GI appellations
         exp["gi_floor"] = str(t["gi_appellations"] // 10 * 10)
+    for key in ("flavoured", "liqueur"):  # data.json from a snapshot with spirits.style
+        if key in t:
+            exp[key] = grouped(t[key])
     return exp
 
 
