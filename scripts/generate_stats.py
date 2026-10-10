@@ -309,6 +309,11 @@ def compute(db_path):
     # --- spirit types ---
     types = q("select spirit_type, count(*) from spirits group by 1 order by 2 desc")
     s["types"] = [(k, v, pct(v, s["spirits"])) for k, v in types]
+    # flavoured whiskies and whisky liqueurs (spirits.style, from the edition with that column): counted only where a source
+    # states it; None for a snapshot without the column (the page and data.json then say nothing about them)
+    has_style = "style" in {r[1] for r in q("pragma table_info(spirits)")}
+    s["flavoured"] = q("select count(*) from spirits where style = 'flavoured'")[0][0] if has_style else None
+    s["liqueur"] = q("select count(*) from spirits where style = 'liqueur'")[0][0] if has_style else None
 
     # --- ABV: stated by the source only (abv_source); without the column, ABVs other than 40.0 ---
     s["abv_by_source"] = "abv_source" in {r[1] for r in q("pragma table_info(spirits)")}
@@ -530,14 +535,23 @@ def build_page(s, charts):
                                       [(k, v, f"{p}%") for k, v, p in ty[:10]], src_note)
     bourbon = next((p for k, _, p in ty if k == "Bourbon"), 0)
     scotch = sum(p for k, _, p in ty if "Scotch" in k)
+    styled = s["flavoured"] is not None
+    style_finding = (f" <strong>{n(s['flavoured'])}</strong> are flavoured whiskies and <strong>{n(s['liqueur'])}</strong> "
+                     "whisky liqueurs, as a source states it." if styled else "")
+    style_method = (" Flavoured whiskies and whisky liqueurs are counted only where a source states it (the class or statement "
+                    "on the US label, the Open Food Facts record's own text, or a reviewed source), so both counts are lower "
+                    "bounds; a flavour in a product name alone is not counted. Bottlings whose label or record states "
+                    "under 30% ABV (ready-to-drink mixes, cocktail shots) are removed after review; a label first read "
+                    "below 30% in a monthly refresh stays until the next manual pass." if styled else "")
     sections.append(section(
         "types", "What is in the catalogue",
         f"<strong>{bourbon}%</strong> of the {n(s['spirits'])} bottlings are Bourbon and <strong>{round(scotch, 1)}%</strong> are Scotch of some kind "
-        f"(single malt or blended); {next(p for k, _, p in ty if k == 'Whisky')}% are typed only as generic Whisky: no more specific type was recognised in their US label class (whisky specialties, flavored whisky and whisky liqueurs, but also corn, light, straight, malt, American single malt, blended, bottled-in-bond and imported whisky classes) or in their product record's category and name.",
+        f"(single malt or blended); {next(p for k, _, p in ty if k == 'Whisky')}% are typed only as generic Whisky: no more specific type was recognised in their US label class (whisky specialties, flavored whisky and whisky liqueurs, but also corn, light, straight, malt, American single malt, blended, bottled-in-bond and imported whisky classes) or in their product record's category and name."
+        + style_finding,
         figure("spirit-types", charts["spirit-types"], "What is in the catalogue", f"{n(s['spirits'])} bottlings"),
         table(["Spirit type", "Bottlings", "Share"], [(k, n(v), f"{p}%") for k, v, p in ty], {1, 2}),
         "Type is normalized by keyword from the class on the US label filing, or from the product record's category and name; where no more specific type is recognised it becomes Whisky, so a few records that name, for example, Canadian or American single malt whisky are counted as Whisky. The catalogue is built from US federal label approvals (TTB COLA), "
-        "Open Food Facts and curated producer data, so it over-represents spirits sold in the United States."))
+        "Open Food Facts and curated producer data, so it over-represents spirits sold in the United States." + style_method))
 
     # 4. ABV
     ab = s["abv_buckets"]
@@ -764,8 +778,9 @@ def build_data_json(s):
         # gi_appellations only when the snapshot flags them (older snapshots: the key is absent, as before)
         "totals": {k: s[k] for k in ("spirits", "producers", "gi_appellations", "producers_with_country", "producer_countries",
                                      "producer_countries_off_only", "price_rows", "price_first", "price_last",
-                                     "price_distilleries", "price_distillery_months", "volume_stated")
-                   if k != "gi_appellations" or s[k] is not None},
+                                     "price_distilleries", "price_distillery_months", "volume_stated",
+                                     "flavoured", "liqueur")
+                   if k not in ("gi_appellations", "flavoured", "liqueur") or s[k] is not None},
         # only under the 2026.11 rule (stated origin or headquarters), so older snapshots' data.json is unchanged
         **({} if s["off_sold_in_countries"] else {"producer_country_rule": "stated"}),
         "auction_index_gbp": {
