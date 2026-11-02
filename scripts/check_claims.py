@@ -277,7 +277,7 @@ FLOORS = [
     floor("DATA_DICTIONARY.md", "price_benchmarks rows floor", rf"(?P<v>{NUM})\+ rows of monthly distillery auction",
           "price_rows"),
     floor("kaggle/dataset-metadata.json", "bottlings floor", rf"\*\*(?P<v>{NUM})\+\*\* spirits & bottlings", "spirits"),
-    floor("kaggle/dataset-metadata.json", "producers floor", rf"\*\*(?P<v>{NUM})\+\*\* distilleries", "producers"),
+    floor("kaggle/dataset-metadata.json", "producers floor", rf"\*\*(?P<v>{NUM})\+\*\* producers & brands", "producers"),
     floor("kaggle/dataset-metadata.json", "countries floor", rf"\*\*(?P<v>{NUM})\+\*\* countries of origin",
           "countries"),
     floor("kaggle/dataset-metadata.json", "distillery-months floor",
