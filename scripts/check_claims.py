@@ -27,8 +27,9 @@ index.html, so the plain check also confirms that their hero figures were rebuil
                                   monthly refresh may carry only the latest months), so a
                                   "N benchmarks" claim states price_distillery_months and
                                   price_rows is only ever stated as a row count
-  non-40.0 ABV count              abv.denominator (bottlings whose ABV is not 40.0; a 40.0 is either
-                                  stated by the source or the documented default, indistinguishable)
+  stated ABV count                abv.denominator (bottlings whose ABV the source states, per
+                                  spirits.abv_source; ABVs other than 40.0 for 2026.10 and older)
+  stated volume count             totals.volume_stated (bottlings whose source states a volume)
   auction months / date range     price_first..price_last (whole months, both ends included)
   snapshot edition                YYYY.MM of data.json "snapshot" (the refresh date)
   coverage %                      floored, so a claim never rounds up: stated ABV = abv.denominator
@@ -43,10 +44,10 @@ index.html, so the plain check also confirms that their hero figures were rebuil
                                   floored to a multiple of 10, once data.json reports it (below)
 ABV: abv.denominator counts the bottlings data.json's abv.rule selects: those whose ABV is not
 40.0 for a snapshot without spirits.abv_source (2026.10 and older; a lower bound of the
-source-stated ABVs, which is why the README and DATA_DICTIONARY say "at least" / "≥"), the
-source-stated ones (abv_source label, producer, off, name) from 2026.11. The FAQ and llms.txt
-sentences "N of the M spirits have an ABV other than 40.0" describe the first rule only:
-reword them (and their rules) in the re-sync of the first edition with the column.
+source-stated ABVs), the source-stated ones (abv_source label, producer, off, name) from
+2026.11. The 2026.11 re-sync reworded the FAQ, llms.txt, README and DATA_DICTIONARY sentences to
+the second rule ("N of the M spirits have an ABV stated by their source"); the coverage share is
+floored like every coverage figure, so it needs no "at least".
 
 Producers & brands (owner decision 2026-10-04): the producer rows are called "producers and
 brands" (hero, meta, README, llms.txt), since the US label registry, Open Food Facts and the
@@ -57,7 +58,8 @@ spirits.abv_source and the NULL-volume rule (2026.10 and older): "N of the M spi
 ABV other than 40.0" (once abv.rule counts source-stated ABVs, N includes stated 40.0s) and
 "750 mL on every US label-registry record" (once totals.volume_stated < spirits, unstated
 volumes are empty). The check fails while such a sentence is still there for a data.json of
-the newer kind, so the first re-sync with the new edition rewords them (and their RULES).
+the newer kind; the 2026.11 re-sync reworded them (and their RULES), so the guard now finds
+nothing and stays as a tripwire.
 
 Floors (FLOORS below): the "N+" figures of DATA_DICTIONARY.md, the Kaggle description
 (kaggle/dataset-metadata.json) and SAMPLE_PREVIEW.md must not exceed the data.json value they
@@ -153,10 +155,14 @@ RULES = [
          "last_year", 2),
     rule("index.html", "FAQ auction rows (JSON-LD + HTML)",
          rf"the data files carry them as (?P<v>{NUM}) rows, one per linked bottling per month", "price_rows", 2),
-    rule("index.html", "FAQ non-40.0 ABV count (JSON-LD + HTML)",
-         rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an ABV other than 40\.0; the rest show 40\.0", "abv_n", 2),
-    rule("index.html", "FAQ non-40.0 ABV total (JSON-LD + HTML)",
-         rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV other than 40\.0; the rest show 40\.0", "spirits", 2),
+    rule("index.html", "FAQ stated ABV count (JSON-LD + HTML)",
+         rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an ABV stated by their source \(", "abv_n", 2),
+    rule("index.html", "FAQ stated ABV total (JSON-LD + HTML)",
+         rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV stated by their source \(", "spirits", 2),
+    rule("index.html", "FAQ stated volume count (JSON-LD + HTML)",
+         rf"filled only where the source states it \((?P<v>{NUM}) of the (?:{NUM}) bottlings\)", "volume_stated", 2),
+    rule("index.html", "FAQ stated volume total (JSON-LD + HTML)",
+         rf"filled only where the source states it \((?:{NUM}) of the (?P<v>{NUM}) bottlings\)", "spirits", 2),
     rule("index.html", "hero Spirits & Bottlings",
          rf'stat-num">(?P<v>{NUM})</span>\s*<span class="stat-label">Spirits &amp; Bottlings<', "spirits"),
     rule("index.html", "hero Producers & Brands",
@@ -184,8 +190,8 @@ RULES = [
          "gi_floor", optional=True),
     rule("README.md", "coverage Distillery country", r"\| Distillery country \| (?P<v>\d+)% \|", "pct_country"),
     rule("README.md", "coverage Distillery founded year", r"\| Distillery founded year \| (?P<v>\d+)% \|", "pct_founded"),
-    rule("README.md", "coverage ABV stated by the source", r"\| ABV stated by the source \| ≥(?P<v>\d+)%\\?\*", "pct_abv"),
-    rule("README.md", "ABV footnote share", r"\\\* At least (?P<v>\d+)% of spirits carry an ABV stated by the source", "pct_abv"),
+    rule("README.md", "coverage ABV stated by the source", r"\| ABV stated by the source \| (?P<v>\d+)%\\?\*", "pct_abv"),
+    rule("README.md", "ABV footnote share", r"\\\* (?P<v>\d+)% of spirits carry an ABV stated by the source \(", "pct_abv"),
     rule("README.md", "ABV footnote maximum", r"cask-strength values up to (?P<v>\d+(?:\.\d+)?)%", "abv_max"),
     rule("README.md", "auction benchmarks bullet", rf"- \*\*(?P<v>{NUM})\*\* distillery-level monthly auction statistics",
          "price_distillery_months"),
@@ -199,9 +205,13 @@ RULES = [
     # --- llms.txt ---
     rule("llms.txt", "spirits and bottlings", rf"(?P<v>{NUM}) spirits and bottlings", "spirits", 2),
     rule("llms.txt", "producers and brands", rf"(?P<v>{NUM}) producers and brands", "producers", 2),
-    rule("llms.txt", "non-40.0 ABV count", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an ABV other than 40\.0 \(the rest show 40\.0",
+    rule("llms.txt", "stated ABV count", rf"(?P<v>{NUM}) of the (?:{NUM}) spirits have an ABV stated by their source \(",
          "abv_n"),
-    rule("llms.txt", "non-40.0 ABV total", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV other than 40\.0 \(the rest show 40\.0",
+    rule("llms.txt", "stated ABV total", rf"(?:{NUM}) of the (?P<v>{NUM}) spirits have an ABV stated by their source \(",
+         "spirits"),
+    rule("llms.txt", "stated volume count", rf"filled only where the source states it \((?P<v>{NUM}) of the (?:{NUM}) bottlings;",
+         "volume_stated"),
+    rule("llms.txt", "stated volume total", rf"filled only where the source states it \((?:{NUM}) of the (?P<v>{NUM}) bottlings;",
          "spirits"),
     rule("llms.txt", "coverage benchmarks", rf"Includes (?P<v>{NUM}) monthly distillery auction benchmarks", "price_distillery_months"),
     rule("llms.txt", "coverage auction distilleries", rf"per distillery and month, (?P<v>{NUM}) distilleries\) spanning",
@@ -214,7 +224,12 @@ RULES = [
 
     # --- DATA_DICTIONARY.md ---
     rule("DATA_DICTIONARY.md", "snapshot", rf"\(snapshot `(?P<v>{EDITION})`\)", "edition"),
-    rule("DATA_DICTIONARY.md", "abv stated share", r"Stated by the source for at least (?P<v>\d+)% of records", "pct_abv"),
+    rule("DATA_DICTIONARY.md", "abv stated share", r"Stated by the source for (?P<v>\d+)% of records", "pct_abv"),
+    rule("DATA_DICTIONARY.md", "volume_ml stated count",
+         rf"Filled only where the source states it \((?P<v>{NUM}) of the (?:{NUM}) bottlings\)", "volume_stated"),
+    rule("DATA_DICTIONARY.md", "volume_ml stated total",
+         rf"Filled only where the source states it \((?:{NUM}) of the (?P<v>{NUM}) bottlings\)", "spirits"),
+    rule("DATA_DICTIONARY.md", "volume_ml coverage", r"so theirs is empty \| (?P<v>\d+)% \|", "pct_volume"),
     rule("DATA_DICTIONARY.md", "country coverage", r"\| (?P<v>\d+)% specific \|", "pct_country"),
     rule("DATA_DICTIONARY.md", "price_benchmarks range", rf"auction indices, (?P<v>{RANGE_SHORT}), ", "range_short"),
     # spirits.style (from the edition with that column): totals.flavoured / totals.liqueur once data.json reports them
@@ -244,7 +259,8 @@ STALE = [
      "defaults are gone, reword the volume disclosure")
     for name, phrase in (("index.html", "750 mL on every US label-registry record"),
                          ("llms.txt", "750 mL on every US label-registry record"),
-                         ("DATA_DICTIONARY.md", "750 on every US label-registry (TTB COLA) record"))
+                         ("DATA_DICTIONARY.md", "750 on every US label-registry (TTB COLA) record"),
+                         ("index.html", "ABV and bottle-volume defaults"))
 ]
 
 
@@ -368,10 +384,9 @@ def expected_values(data):
         "countries_floor": str((t["producer_countries"] - t["producer_countries_off_only"]) // 5 * 5),
         "abv_max": f"{abv_max:g}",
     }
-    if str(data["abv"].get("rule", "")).startswith("abv_source"):
-        # the "N of the M spirits have an ABV other than 40.0" sentences no longer describe abv.denominator:
-        # --fix must not write it there; STALE fails the run until they are reworded
-        del exp["abv_n"]
+    if "volume_stated" in t:
+        exp["volume_stated"] = grouped(t["volume_stated"])
+        exp["pct_volume"] = floor_pct(t["volume_stated"], t["spirits"])
     if "gi_appellations" in t:  # data.json from a snapshot that flags the EU GI appellations
         exp["gi_floor"] = str(t["gi_appellations"] // 10 * 10)
     for key in ("flavoured", "liqueur"):  # data.json from a snapshot with spirits.style
