@@ -677,6 +677,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "6bb556e849a984c1": {
+  "src": "Mash bills come only from producer-published specifications, and exist for a handful of bottlings. Cask links are either producer-published or derived by rule: a whole-word cask keyword in the bottling name (such as Sherry or Port), or the US legal requirement that bourbon and rye whiskey mature in new charred oak ({0} CFR {1}). Every bottling, producer, cask-link, mash-bill, tasting-note and price row carries a source ID into the data_sources provenance ledger (primary_source_id on spirits, source_id elsewhere). Apart from the documented {2} ABV default, a bottle volume, age statement, mash bill or cask link that no source states stays empty rather than guessed.",
+  "t": "Les recettes de moût proviennent uniquement de spécifications publiées par les producteurs et n’existent que pour une poignée d’embouteillages. Les liens de fûts sont soit publiés par le producteur, soit dérivés par règle : un mot-clé de fût entier dans le nom de l’embouteillage (comme Sherry ou Port), ou l’obligation légale américaine selon laquelle le bourbon et le rye whiskey vieillissent en fûts de chêne neufs carbonisés ({0} CFR {1}). Chaque ligne d’embouteillage, de producteur, de lien de fût, de recette de moût, de note de dégustation et de prix porte un identifiant de source vers le registre de provenance data_sources (primary_source_id pour les spiritueux, source_id ailleurs). En dehors de la valeur par défaut documentée de {2} pour le TAV, un volume de bouteille, une mention d’âge, une recette de moût ou un lien de fût qu’aucune source n’indique reste vide plutôt que d’être deviné.",
+  "by": "claude-opus-5-5",
+  "at": "2026-11-02"
+ },
  "6d2f038fcf5de75a": {
   "src": "Standard Catalog License",
   "t": "Licence catalogue standard",
@@ -736,6 +742,12 @@
   "t": "Essayez un âge minimal plus bas, ou choisissez « Toutes les sources » et « Toutes les tailles ».",
   "by": "claude-opus-5-5",
   "at": "2026-09-30"
+ },
+ "72b74fe1711b5126": {
+  "src": "Each spirit record has a name, spirit type, ABV and a primary_source_id into the provenance ledger, and almost all carry a barcode or label ID and a distillery or producer link. Coverage is uneven, and stated plainly: {0} of the {1} spirits have an ABV stated by their source (US label, producer, Open Food Facts or the product name, a stated {2} included); the rest carry the documented {3} default, because the source states none or their US label has not been read yet. Bottle volume is filled only where the source states it ({4} of the {5} bottlings); US label-registry records state none, so theirs is empty. Age statements are rare, and producer-published mash bills and flavor tags exist for only a handful of flagship bottlings.",
+  "t": "Chaque fiche de spiritueux comporte un nom, un type de spiritueux, un TAV et un primary_source_id vers le registre de provenance, et presque toutes portent un code-barres ou un identifiant d’étiquette ainsi qu’un lien vers une distillerie ou un producteur. La couverture est inégale, et nous le disons clairement : {0} des {1} spiritueux ont un TAV indiqué par leur source (étiquette américaine, producteur, Open Food Facts ou nom du produit, un {2} indiqué compris) ; les autres portent la valeur par défaut documentée de {3}, parce que la source n’en indique aucun ou que leur étiquette américaine n’a pas encore été lue. Le volume de bouteille n’est renseigné que lorsque la source l’indique ({4} des {5} embouteillages) ; les fiches du registre américain des étiquettes n’en indiquent aucun, le leur reste donc vide. Les mentions d’âge sont rares, et les recettes de moût et tags aromatiques publiés par les producteurs n’existent que pour une poignée d’embouteillages phares.",
+  "by": "claude-opus-5-5",
+  "at": "2026-11-02"
  },
  "733f3c0972140f94": {
   "src": "The free sample could not be loaded here. Get it from GitHub:",

@@ -677,6 +677,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "6bb556e849a984c1": {
+  "src": "Mash bills come only from producer-published specifications, and exist for a handful of bottlings. Cask links are either producer-published or derived by rule: a whole-word cask keyword in the bottling name (such as Sherry or Port), or the US legal requirement that bourbon and rye whiskey mature in new charred oak ({0} CFR {1}). Every bottling, producer, cask-link, mash-bill, tasting-note and price row carries a source ID into the data_sources provenance ledger (primary_source_id on spirits, source_id elsewhere). Apart from the documented {2} ABV default, a bottle volume, age statement, mash bill or cask link that no source states stays empty rather than guessed.",
+  "t": "Las recetas de grano proceden únicamente de especificaciones publicadas por el productor y existen para un puñado de embotellados. Los vínculos de barrica los publica el productor o se derivan por reglas: una palabra clave de barrica completa en el nombre del embotellado (como Sherry o Port), o el requisito legal estadounidense de que el bourbon y el whiskey de centeno maduren en roble nuevo carbonizado ({0} CFR {1}). Cada fila de embotellado, productor, vínculo de barrica, receta de grano, nota de cata y precio lleva un ID de fuente que remite al registro de procedencia data_sources (primary_source_id en los destilados, source_id en las demás tablas). Salvo el valor predeterminado documentado de {2} de ABV, cuando ninguna fuente indica un volumen de botella, una declaración de edad, una receta de grano o un vínculo de barrica, el campo queda vacío en lugar de suponerse.",
+  "by": "claude-opus-5-5",
+  "at": "2026-11-02"
+ },
  "6d2f038fcf5de75a": {
   "src": "Standard Catalog License",
   "t": "Licencia del catálogo estándar",
@@ -736,6 +742,12 @@
   "t": "Prueba con una edad mínima menor, o elige «Todas las fuentes» y «Todos los tamaños».",
   "by": "claude-opus-5-5",
   "at": "2026-09-30"
+ },
+ "72b74fe1711b5126": {
+  "src": "Each spirit record has a name, spirit type, ABV and a primary_source_id into the provenance ledger, and almost all carry a barcode or label ID and a distillery or producer link. Coverage is uneven, and stated plainly: {0} of the {1} spirits have an ABV stated by their source (US label, producer, Open Food Facts or the product name, a stated {2} included); the rest carry the documented {3} default, because the source states none or their US label has not been read yet. Bottle volume is filled only where the source states it ({4} of the {5} bottlings); US label-registry records state none, so theirs is empty. Age statements are rare, and producer-published mash bills and flavor tags exist for only a handful of flagship bottlings.",
+  "t": "Cada ficha de destilado tiene nombre, tipo de destilado, ABV y un primary_source_id que remite al registro de procedencia, y casi todas incluyen un código de barras o ID de etiqueta y un vínculo a una destilería o productor. La cobertura es desigual, y lo decimos claramente: {0} de los {1} destilados tienen un ABV indicado por su fuente (etiqueta de EE. UU., productor, Open Food Facts o el nombre del producto, incluido un {2} indicado); el resto lleva el valor predeterminado documentado de {3}, porque la fuente no indica ninguno o porque su etiqueta de EE. UU. aún no se ha leído. El volumen de botella solo se rellena cuando la fuente lo indica ({4} de los {5} embotellados); las fichas del registro de etiquetas de EE. UU. no indican ninguno, así que el suyo queda vacío. Las declaraciones de edad son escasas, y las recetas de grano y las etiquetas de sabor publicadas por el productor solo existen para un puñado de embotellados emblemáticos.",
+  "by": "claude-opus-5-5",
+  "at": "2026-11-02"
  },
  "733f3c0972140f94": {
   "src": "The free sample could not be loaded here. Get it from GitHub:",

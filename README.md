@@ -2,15 +2,15 @@
 
 # 🥃 WhiskyDB — Fine Spirits & Whisky Dataset
 
-**3,093 whiskies & fine spirits · 2,720 producers & brands · 7,315 monthly distillery auction benchmarks (Nov 2005 → Oct 2024) · 100% provenance-tracked**
+**3,742 whiskies & fine spirits · 2,943 producers & brands · 7,457 monthly distillery auction benchmarks (Nov 2005 → Nov 2024) · 100% provenance-tracked**
 
 [![Sample: 15 rows](https://img.shields.io/badge/Free%20Sample-15%20rows-brightgreen.svg)](samples/spirits.csv)
 [![🤗 Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-sample%20dataset-ffd21e.svg)](https://huggingface.co/datasets/Ichlibitiche/whiskydb-fine-spirits-sample)
 [![🤗 Explorer](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-sample%20explorer-ffd21e.svg)](https://huggingface.co/spaces/Ichlibitiche/dataset-sample-explorers)
 [![Kaggle](https://img.shields.io/badge/Kaggle-sample%20dataset-20BEFF.svg)](https://www.kaggle.com/datasets/dataengineered/whiskydb-fine-spirits-sample)
-[![Producers & brands: 2,720](https://img.shields.io/badge/Producers%20%26%20brands-2%2C720-8a5a44.svg)](#whats-inside)
+[![Producers & brands: 2,943](https://img.shields.io/badge/Producers%20%26%20brands-2%2C943-8a5a44.svg)](#whats-inside)
 [![Price history: 2005→2024](https://img.shields.io/badge/Auction%20history-2005%E2%86%922024-gold.svg)](#auction-price-history--the-differentiated-part)
-[![Snapshot: 2026.10](https://img.shields.io/badge/Snapshot-2026.10-blue.svg)](CHANGELOG.md)
+[![Snapshot: 2026.11](https://img.shields.io/badge/Snapshot-2026.11-blue.svg)](CHANGELOG.md)
 [![Taxonomies: open](https://img.shields.io/badge/Cask%20%26%20Flavor%20taxonomies-open%20source-2ea44f.svg)](taxonomy/)
 [![Get the data](https://img.shields.io/badge/Get%20the%20data-whiskydb.dataengineered.io-d4a643.svg)](https://whiskydb.dataengineered.io/)
 
@@ -30,10 +30,10 @@ This is a **catalog + market-index** dataset — strong on distillery breadth, p
 
 | | Full dataset | Free sample |
 | :--- | ---: | ---: |
-| Spirits & bottlings | **3,093** | 15 |
-| Producers & brands | **2,720** | 15 |
-| Countries represented | **20+** | — |
-| Monthly distillery auction benchmarks | **7,315** | — |
+| Spirits & bottlings | **3,742** | 15 |
+| Producers & brands | **2,943** | 15 |
+| Countries represented | **30+** | — |
+| Monthly distillery auction benchmarks | **7,457** | — |
 | Protected GI appellations (EU/UK) | **270+** | — |
 | Open cask & flavor taxonomies | 14 styles (13 in the open `taxonomy/` CSV) · 15 descriptors | ✔ included |
 | Formats | SQLite · CSV | CSV |
@@ -46,17 +46,17 @@ Measured across the full dataset. Public sources don't all publish every attribu
 
 | Field | Coverage | | Field | Coverage |
 | :--- | ---: | --- | :--- | ---: |
-| Spirit name / type | 100% | | Distillery country | 99% |
-| Barcode / label ID | 99% | | Distillery founded year | 25% |
-| ABV stated by the source | ≥22%* | | Age statement | <1%† |
+| Spirit name / type | 100% | | Distillery country | 98% |
+| Barcode / label ID | 99% | | Distillery founded year | 23% |
+| ABV stated by the source | 27%* | | Age statement | <1%† |
 
-\* At least 22% of spirits carry an ABV stated by the source: that is the share whose ABV differs from 40.0 (e.g. from US federal label details, cask-strength values up to 70%). A 40.0 is either stated by the source or the documented default — applied where the source states none and upgraded monthly as label-registry quota allows; 40% is the US/EU minimum for whisky, but flavoured whiskies, whisky specialties and liqueurs can be lower — and this edition cannot tell the two apart, so the true share is higher.
+\* 27% of spirits carry an ABV stated by the source (`spirits.abv_source`: US label, producer, Open Food Facts or the product name, a stated 40.0 included; cask-strength values up to 70.1%). The rest carry the documented 40.0 default — 40% is the US/EU minimum for whisky, but flavoured whiskies, whisky specialties and liqueurs can be lower — where the source states none or a US label has not been read yet (read monthly as label-registry quota allows).
 † Most public listings are NAS (no age statement) or don't state age; treat this column as sparse.
 
 ## Auction price history — the differentiated part
 
-- **7,315** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), shipped as **21,553** rows, one per linked bottling per month (a distillery's monthly index is repeated for the bottlings linked to it; some bottlings linked by recent monthly refreshes carry only its latest months).
-- **228 consecutive months** — November 2005 → October 2024 — across **64 whisky distilleries** and 225 linked bottlings.
+- **7,457** distillery-level monthly auction statistics: mean winning bid (GBP + USD-normalized), shipped as **22,270** rows, one per linked bottling per month (a distillery's monthly index is repeated for the bottlings linked to it; some bottlings linked by recent monthly refreshes carry only its latest months).
+- **229 consecutive months** — November 2005 → November 2024 — across **77 whisky distilleries** and 307 linked bottlings.
 - Honestly labeled: every row is a `Distillery Auction Index` (market-level index), **never** passed off as a bottle-specific realization.
 - Sourced from open statistical auction data; ideal for valuation models, trend analysis, and price-vs-age studies.
 
@@ -80,7 +80,7 @@ See [`SOURCES.md`](SOURCES.md) for full attribution and license details, and [`D
 | Tier | What | Price |
 | :--- | :--- | :--- |
 | **Sample** | This repo: sample CSVs + open taxonomies | Free |
-| **Standard Catalog** | Full dataset snapshot · SQLite + CSV · 7,315 monthly distillery auction benchmarks · commercial license | **$49** one-time ([Stripe](https://buy.stripe.com/eVq3cw4p2afccI382s38401)) |
+| **Standard Catalog** | Full dataset snapshot · SQLite + CSV · 7,457 monthly distillery auction benchmarks · commercial license | **$49** one-time ([Stripe](https://buy.stripe.com/eVq3cw4p2afccI382s38401)) |
 | **Monthly refresh subscription** | The same catalog, each monthly refresh auto-delivered | **$49** / month ([Stripe](https://buy.stripe.com/bJeaEY6xa1IG7nJaaA38402)) |
 
 **[→ Get it at whiskydb.dataengineered.io](https://whiskydb.dataengineered.io/)** · or use the [contact form](https://whiskydb.dataengineered.io/#contact-section) (whiskydb@dataengineered.io) for the full dataset and custom work.

@@ -1,6 +1,6 @@
 # WhiskyDB — Data Dictionary
 
-Field reference for the WhiskyDB fine spirits dataset (snapshot `2026.10`).
+Field reference for the WhiskyDB fine spirits dataset (snapshot `2026.11`).
 The free samples (`samples/spirits.csv`, `samples/distilleries.csv`) use the columns
 below. The full dataset ships the same fields plus the complete 10-table relational
 SQLite build described at the bottom.
@@ -13,8 +13,8 @@ SQLite build described at the bottom.
 | `name` | string | Canonical bottling name (Latin-script, cleaned) | 100% |
 | `type` | enum | `Single Malt Scotch` · `Bourbon` · `Rye Whiskey` · `Irish Whiskey` · `Japanese Whisky` · `Scotch Whisky` · `Whisky` … | 100% |
 | `age` | integer | Age statement in years; empty = NAS or unstated | <1% |
-| `abv` | float | Alcohol by volume (%). Stated by the source for at least 22% of records (e.g. federal label details): the share whose ABV differs from 40.0. A 40.0 is either stated by the source or the documented default, which this edition cannot tell apart | 100% |
-| `volume_ml` | integer | Bottle volume normalized to milliliters (700/750/1000…). Where the source states none, a documented default: 750 on every US label-registry (TTB COLA) record, whose labels do not publish volume; 700 on the curated seed rows and on Open Food Facts records without a stated quantity | 100% |
+| `abv` | float | Alcohol by volume (%). Stated by the source for 27% of records (`abv_source` in the full dataset: label, producer, Open Food Facts or product name); the rest carry the documented 40.0 default | 100% |
+| `volume_ml` | integer | Bottle volume normalized to milliliters (700/750/1000…). Filled only where the source states it (285 of the 3,742 bottlings); US label-registry (TTB COLA) records state none, so theirs is empty | 7% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
 
@@ -24,7 +24,7 @@ SQLite build described at the bottom.
 | :--- | :--- | :--- | ---: |
 | `distillery_id` | integer | Stable primary key | 100% |
 | `name` | string | Producer, distillery, brand or company name: the US label registry, Open Food Facts and the Wikipedia brands list name brands, not producers | 100% |
-| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…), as a source states it: where a distillery stands, a company's headquarters, or where a brand's whisky is made. `Global` when the dataset has no single stated country: none stated, or several origins (supermarket own labels); never "sold worldwide". Up to the 2026.10 edition it also covered nine Wikipedia list entries that name their country after a dash, such as "Kavalan – Taiwan". Two exceptions up to the 2026.10 edition: Open Food Facts producers carried the first country a product is sold in, and owner companies from Wikipedia's brands list the country of the section they appear in (Diageo "USA"). From 2026.11 both follow the rule (a stated origin, the company's headquarters, or `Global`), and the full dataset ships the evidence for each corrected row | 99% specific |
+| `country` | string | Country (normalized: `USA`, `Scotland`, `Northern Ireland`…), as a source states it: where a distillery stands, a company's headquarters, or where a brand's whisky is made. `Global` when the dataset has no single stated country: none stated, or several origins (supermarket own labels); never "sold worldwide". Up to the 2026.10 edition it also covered nine Wikipedia list entries that name their country after a dash, such as "Kavalan – Taiwan". Two exceptions up to the 2026.10 edition: Open Food Facts producers carried the first country a product is sold in, and owner companies from Wikipedia's brands list the country of the section they appear in (Diageo "USA"). From 2026.11 both follow the rule (a stated origin, the company's headquarters, or `Global`), and the full dataset ships the evidence for each corrected row | 98% specific |
 | `region` | string | Region / locality (`Islay`, `Kentucky`, GI category…) | 100% |
 | `source_name` | string | Provenance: source the record came from | 100% |
 | `source_url` | string | Provenance: source endpoint | 100% |
@@ -55,13 +55,13 @@ The commercial snapshot normalizes into 10 tables:
 | `data_sources` | Provenance ledger: source name, type, endpoint, license notes, access timestamp |
 | `distilleries` | 2,500+ producers & brands with country, region, founded year, active/dissolved status; the table also holds the 270+ protected spirit appellations of the EU GI register (eAmbrosia), which are places of origin, not producers, and are not counted in the 2,500+ |
 | `brands` | Brand ownership (e.g. Lagavulin → Diageo) |
-| `spirits` | 2,700+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag; from the 2026.11 edition also the US label's ID and class as filed (`ttb_id`, `ttb_class`) and `style`: 97 flavoured whiskies and 16 whisky liqueurs as a source states them (the US label class or statement, the Open Food Facts record's own text, or a reviewed source, named in `style_basis`); `unflavoured` only where the label class forbids flavouring (bourbon, straight whisky, Scotch, Irish); empty when no source says. Bottlings whose label or record states under 30% ABV (ready-to-drink mixes, cocktail shots) are removed after review; cream liqueurs left out on 2026-10-04 come back only when their label shows 30% or more (two, whose record shows no ABV, stay out); one first read below 30% in a monthly refresh stays until the next manual pass |
+| `spirits` | 2,700+ bottlings: type, ABV, volume, barcode/label ID, age, NAS flag; from the 2026.11 edition also the US label's ID and class as filed (`ttb_id`, `ttb_class`) and `style`: 108 flavoured whiskies and 17 whisky liqueurs as a source states them (the US label class or statement, the Open Food Facts record's own text, or a reviewed source, named in `style_basis`); `unflavoured` only where the label class forbids flavouring (bourbon, straight whisky, Scotch, Irish); empty when no source says. Bottlings whose label or record states under 30% ABV (ready-to-drink mixes, cocktail shots) are removed after review; cream liqueurs left out on 2026-10-04 come back only when their label shows 30% or more (two, whose record shows no ABV, stay out); one first read below 30% in a monthly refresh stays until the next manual pass |
 | `mash_bills` | Producer-published grain compositions (corn/rye/barley/wheat %) |
 | `cask_taxonomy` | The 3-tier cask hierarchy: the styles of `taxonomy/casks.csv` plus those the cask mapper derives from product names (e.g. Port Pipe) |
 | `spirit_casks` | 1,200+ spirit↔cask maturation mappings with stage and fill type (rule-derived from product names and US labeling law, producer-published for the curated seed) |
 | `flavor_taxonomy` | The controlled flavor vocabulary (mirrors `taxonomy/flavors.csv`) |
 | `spirit_tasting_notes` | Standardized flavor tags with phase (Nose/Palate/Finish) and 1–3 intensity |
-| `price_benchmarks` | 20,000+ rows of monthly distillery auction indices, Nov 2005 → Oct 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
+| `price_benchmarks` | 20,000+ rows of monthly distillery auction indices, Nov 2005 → Nov 2024, GBP + USD; one row per linked bottling per month (a distillery's index repeats for its linked bottlings; some bottlings linked by recent monthly refreshes carry only its latest months) |
 
 Every content table carries a `source_id` foreign key into `data_sources` (`primary_source_id` on `spirits`) — 100% of rows resolve to a valid provenance entry (enforced and tested).
 
