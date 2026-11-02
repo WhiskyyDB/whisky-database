@@ -1241,6 +1241,12 @@
   "by": "claude-opus-5",
   "at": "2026-09-17"
  },
+ "ab9919b78dfdba3f": {
+  "src": "WhiskyDB holds no bottle prices. The auction figure on a card is the linked distillery's mean winning bid at auction over the latest year in the data (WhiskyHunter, as on the <0>statistics page</0>), not a price for that bottle; it appears only for bottlings linked to a distillery tracked there. An ABV of {1} can also be the documented default for a source that states none. The {2} mL bottle size on this sample's curated seed rows is an older default: the full dataset now leaves the volume empty where the source states none.",
+  "t": "WhiskyDB no contiene precios de botellas. La cifra de subasta de una tarjeta es la puja ganadora media de la destilería vinculada en el último año de los datos (WhiskyHunter, como en la <0>página de estadísticas</0>), no un precio de esa botella; solo aparece en embotellados vinculados a una destilería que figura allí. Un ABV de {1} también puede ser el valor predeterminado documentado cuando la fuente no indica ninguno. El tamaño de botella de {2} ml de las filas de WhiskyDB Curated Seed de esta muestra es un valor predeterminado antiguo: el conjunto de datos completo ahora deja el volumen vacío cuando la fuente no indica ninguno.",
+  "by": "claude-opus-5-5",
+  "at": "2026-11-02"
+ },
  "ac513f6c4277fbac": {
   "src": "or <0>subscribe · {1}, each monthly refresh auto-delivered</0>{2} <3>Secure card checkout via Stripe · annual billing <4>on request</4></3>",
   "t": "o <0>suscríbete · {1}, cada actualización mensual entregada automáticamente</0>{2} <3>Pago seguro con tarjeta a través de Stripe · facturación anual <4>bajo solicitud</4></3>",
